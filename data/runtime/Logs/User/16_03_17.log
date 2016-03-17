@@ -1,0 +1,14 @@
+[ 2016-03-17T16:34:25+08:00 ] ::1 /2016Sise/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+NOTIC: [8] Undefined index: url D:\wamp\www\2016Sise\application\Common\Controller\AppframeController.class.php 第 24 行.
+
+[ 2016-03-17T16:34:29+08:00 ] ::1 /2016Sise/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] Undefined index: url D:\wamp\www\2016Sise\application\Common\Controller\AppframeController.class.php 第 24 行.
+
