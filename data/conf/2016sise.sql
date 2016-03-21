@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
+-- version 4.2.11
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2016-03-17 09:36:37
--- 服务器版本： 5.6.17
--- PHP Version: 5.5.12
+-- Generation Time: 2016-03-21 04:48:44
+-- 服务器版本： 5.6.21
+-- PHP Version: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,23 +17,36 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `2016sise`
+-- Database: `db_mysise`
 --
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `sise_activity`
+--
+
+CREATE TABLE IF NOT EXISTS `sise_activity` (
+`id` bigint(20) unsigned NOT NULL,
+  `name` varchar(100) NOT NULL COMMENT '活动名称',
+  `introduction` varchar(600) DEFAULT NULL COMMENT '活动简介',
+  `time` varchar(100) NOT NULL COMMENT '活动时间',
+  `area` varchar(60) NOT NULL COMMENT '活动地点',
+  `type` varchar(60) DEFAULT NULL COMMENT '活动类型'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `sise_ad`
 --
-CREATE DATABASE IF NOT EXISTS `2016sise`;
+
 CREATE TABLE IF NOT EXISTS `sise_ad` (
-  `ad_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '广告id',
+`ad_id` bigint(20) NOT NULL COMMENT '广告id',
   `ad_name` varchar(255) NOT NULL COMMENT '广告名称',
   `ad_content` text COMMENT '广告内容',
-  `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态，1显示，0不显示',
-  PRIMARY KEY (`ad_id`),
-  KEY `ad_name` (`ad_name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态，1显示，0不显示'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -42,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `sise_ad` (
 --
 
 CREATE TABLE IF NOT EXISTS `sise_asset` (
-  `aid` bigint(20) NOT NULL AUTO_INCREMENT,
+`aid` bigint(20) NOT NULL,
   `uid` int(11) NOT NULL DEFAULT '0' COMMENT '用户 id',
   `key` varchar(50) NOT NULL COMMENT '资源 key',
   `filename` varchar(50) DEFAULT NULL COMMENT '文件名',
@@ -52,9 +65,8 @@ CREATE TABLE IF NOT EXISTS `sise_asset` (
   `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态，1：可用，0：删除，不可用',
   `meta` text COMMENT '其它详细信息，JSON格式',
   `suffix` varchar(50) DEFAULT NULL COMMENT '文件后缀名，不包括点',
-  `download_times` int(11) NOT NULL DEFAULT '0' COMMENT '下载次数',
-  PRIMARY KEY (`aid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='资源表' AUTO_INCREMENT=1 ;
+  `download_times` int(11) NOT NULL DEFAULT '0' COMMENT '下载次数'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='资源表';
 
 -- --------------------------------------------------------
 
@@ -65,9 +77,7 @@ CREATE TABLE IF NOT EXISTS `sise_asset` (
 CREATE TABLE IF NOT EXISTS `sise_auth_access` (
   `role_id` mediumint(8) unsigned NOT NULL COMMENT '角色',
   `rule_name` varchar(255) NOT NULL COMMENT '规则唯一英文标识,全小写',
-  `type` varchar(30) DEFAULT NULL COMMENT '权限规则分类，请加应用前缀,如admin_',
-  KEY `role_id` (`role_id`),
-  KEY `rule_name` (`rule_name`) USING BTREE
+  `type` varchar(30) DEFAULT NULL COMMENT '权限规则分类，请加应用前缀,如admin_'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='权限授权表';
 
 -- --------------------------------------------------------
@@ -77,17 +87,15 @@ CREATE TABLE IF NOT EXISTS `sise_auth_access` (
 --
 
 CREATE TABLE IF NOT EXISTS `sise_auth_rule` (
-  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT COMMENT '规则id,自增主键',
+`id` mediumint(8) unsigned NOT NULL COMMENT '规则id,自增主键',
   `module` varchar(20) NOT NULL COMMENT '规则所属module',
   `type` varchar(30) NOT NULL DEFAULT '1' COMMENT '权限规则分类，请加应用前缀,如admin_',
   `name` varchar(255) NOT NULL DEFAULT '' COMMENT '规则唯一英文标识,全小写',
   `param` varchar(255) DEFAULT NULL COMMENT '额外url参数',
   `title` varchar(20) NOT NULL DEFAULT '' COMMENT '规则中文描述',
   `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否有效(0:无效,1:有效)',
-  `condition` varchar(300) NOT NULL DEFAULT '' COMMENT '规则附加条件',
-  PRIMARY KEY (`id`),
-  KEY `module` (`module`,`status`,`type`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='权限规则表' AUTO_INCREMENT=162 ;
+  `condition` varchar(300) NOT NULL DEFAULT '' COMMENT '规则附加条件'
+) ENGINE=MyISAM AUTO_INCREMENT=162 DEFAULT CHARSET=utf8 COMMENT='权限规则表';
 
 --
 -- 转存表中的数据 `sise_auth_rule`
@@ -263,7 +271,7 @@ INSERT INTO `sise_auth_rule` (`id`, `module`, `type`, `name`, `param`, `title`, 
 --
 
 CREATE TABLE IF NOT EXISTS `sise_comments` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+`id` bigint(20) unsigned NOT NULL,
   `post_table` varchar(100) NOT NULL COMMENT '评论内容所在表，不带表前缀',
   `post_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '评论内容 id',
   `url` varchar(255) DEFAULT NULL COMMENT '原文地址',
@@ -276,14 +284,8 @@ CREATE TABLE IF NOT EXISTS `sise_comments` (
   `type` smallint(1) NOT NULL DEFAULT '1' COMMENT '评论类型；1实名评论',
   `parentid` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '被回复的评论id',
   `path` varchar(500) DEFAULT NULL,
-  `status` smallint(1) NOT NULL DEFAULT '1' COMMENT '状态，1已审核，0未审核',
-  PRIMARY KEY (`id`),
-  KEY `comment_post_ID` (`post_id`),
-  KEY `comment_approved_date_gmt` (`status`),
-  KEY `comment_parent` (`parentid`),
-  KEY `table_id_status` (`post_table`,`post_id`,`status`),
-  KEY `createtime` (`createtime`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='评论表' AUTO_INCREMENT=1 ;
+  `status` smallint(1) NOT NULL DEFAULT '1' COMMENT '状态，1已审核，0未审核'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='评论表';
 
 -- --------------------------------------------------------
 
@@ -292,17 +294,27 @@ CREATE TABLE IF NOT EXISTS `sise_comments` (
 --
 
 CREATE TABLE IF NOT EXISTS `sise_common_action_log` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `user` bigint(20) DEFAULT '0' COMMENT '用户id',
   `object` varchar(100) DEFAULT NULL COMMENT '访问对象的id,格式：不带前缀的表名+id;如posts1表示xx_posts表里id为1的记录',
   `action` varchar(50) DEFAULT NULL COMMENT '操作名称；格式规定为：应用名+控制器+操作名；也可自己定义格式只要不发生冲突且惟一；',
   `count` int(11) DEFAULT '0' COMMENT '访问次数',
   `last_time` int(11) DEFAULT '0' COMMENT '最后访问的时间戳',
-  `ip` varchar(15) DEFAULT NULL COMMENT '访问者最后访问ip',
-  PRIMARY KEY (`id`),
-  KEY `user_object_action` (`user`,`object`,`action`),
-  KEY `user_object_action_ip` (`user`,`object`,`action`,`ip`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='访问记录表' AUTO_INCREMENT=1 ;
+  `ip` varchar(15) DEFAULT NULL COMMENT '访问者最后访问ip'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='访问记录表';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `sise_group`
+--
+
+CREATE TABLE IF NOT EXISTS `sise_group` (
+`id` bigint(20) unsigned NOT NULL,
+  `group_name` varchar(20) NOT NULL COMMENT '小组名称',
+  `group_pcount` bigint(10) DEFAULT NULL COMMENT '小组人数',
+  `group_topics` varchar(300) DEFAULT NULL COMMENT '小组话题'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -311,15 +323,14 @@ CREATE TABLE IF NOT EXISTS `sise_common_action_log` (
 --
 
 CREATE TABLE IF NOT EXISTS `sise_guestbook` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `full_name` varchar(50) NOT NULL COMMENT '留言者姓名',
   `email` varchar(100) NOT NULL COMMENT '留言者邮箱',
   `title` varchar(255) DEFAULT NULL COMMENT '留言标题',
   `msg` text NOT NULL COMMENT '留言内容',
   `createtime` datetime NOT NULL COMMENT '留言时间',
-  `status` smallint(2) NOT NULL DEFAULT '1' COMMENT '留言状态，1：正常，0：删除',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='留言表' AUTO_INCREMENT=1 ;
+  `status` smallint(2) NOT NULL DEFAULT '1' COMMENT '留言状态，1：正常，0：删除'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='留言表';
 
 -- --------------------------------------------------------
 
@@ -328,7 +339,7 @@ CREATE TABLE IF NOT EXISTS `sise_guestbook` (
 --
 
 CREATE TABLE IF NOT EXISTS `sise_links` (
-  `link_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+`link_id` bigint(20) unsigned NOT NULL,
   `link_url` varchar(255) NOT NULL COMMENT '友情链接地址',
   `link_name` varchar(255) NOT NULL COMMENT '友情链接名称',
   `link_image` varchar(255) DEFAULT NULL COMMENT '友情链接图标',
@@ -337,10 +348,8 @@ CREATE TABLE IF NOT EXISTS `sise_links` (
   `link_status` int(2) NOT NULL DEFAULT '1' COMMENT '状态，1显示，0不显示',
   `link_rating` int(11) NOT NULL DEFAULT '0' COMMENT '友情链接评级',
   `link_rel` varchar(255) DEFAULT NULL COMMENT '链接与网站的关系',
-  `listorder` int(10) NOT NULL DEFAULT '0' COMMENT '排序',
-  PRIMARY KEY (`link_id`),
-  KEY `link_visible` (`link_status`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='友情链接表' AUTO_INCREMENT=2 ;
+  `listorder` int(10) NOT NULL DEFAULT '0' COMMENT '排序'
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='友情链接表';
 
 --
 -- 转存表中的数据 `sise_links`
@@ -356,7 +365,7 @@ INSERT INTO `sise_links` (`link_id`, `link_url`, `link_name`, `link_image`, `lin
 --
 
 CREATE TABLE IF NOT EXISTS `sise_menu` (
-  `id` smallint(6) unsigned NOT NULL AUTO_INCREMENT,
+`id` smallint(6) unsigned NOT NULL,
   `parentid` smallint(6) unsigned NOT NULL DEFAULT '0',
   `app` char(20) NOT NULL COMMENT '应用名称app',
   `model` char(20) NOT NULL COMMENT '控制器',
@@ -367,12 +376,8 @@ CREATE TABLE IF NOT EXISTS `sise_menu` (
   `name` varchar(50) NOT NULL COMMENT '菜单名称',
   `icon` varchar(50) DEFAULT NULL COMMENT '菜单图标',
   `remark` varchar(255) NOT NULL COMMENT '备注',
-  `listorder` smallint(6) unsigned NOT NULL DEFAULT '0' COMMENT '排序ID',
-  PRIMARY KEY (`id`),
-  KEY `status` (`status`),
-  KEY `parentid` (`parentid`),
-  KEY `model` (`model`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='后台菜单表' AUTO_INCREMENT=162 ;
+  `listorder` smallint(6) unsigned NOT NULL DEFAULT '0' COMMENT '排序ID'
+) ENGINE=MyISAM AUTO_INCREMENT=162 DEFAULT CHARSET=utf8 COMMENT='后台菜单表';
 
 --
 -- 转存表中的数据 `sise_menu`
@@ -548,7 +553,7 @@ INSERT INTO `sise_menu` (`id`, `parentid`, `app`, `model`, `action`, `data`, `ty
 --
 
 CREATE TABLE IF NOT EXISTS `sise_nav` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `cid` int(11) NOT NULL COMMENT '导航分类 id',
   `parentid` int(11) NOT NULL COMMENT '导航父 id',
   `label` varchar(255) NOT NULL COMMENT '导航标题',
@@ -557,9 +562,8 @@ CREATE TABLE IF NOT EXISTS `sise_nav` (
   `icon` varchar(255) NOT NULL COMMENT '导航图标',
   `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态，1显示，0不显示',
   `listorder` int(6) DEFAULT '0' COMMENT '排序',
-  `path` varchar(255) NOT NULL DEFAULT '0' COMMENT '层级关系',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='前台导航表' AUTO_INCREMENT=4 ;
+  `path` varchar(255) NOT NULL DEFAULT '0' COMMENT '层级关系'
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='前台导航表';
 
 --
 -- 转存表中的数据 `sise_nav`
@@ -577,12 +581,11 @@ INSERT INTO `sise_nav` (`id`, `cid`, `parentid`, `label`, `target`, `href`, `ico
 --
 
 CREATE TABLE IF NOT EXISTS `sise_nav_cat` (
-  `navcid` int(11) NOT NULL AUTO_INCREMENT,
+`navcid` int(11) NOT NULL,
   `name` varchar(255) NOT NULL COMMENT '导航分类名',
   `active` int(1) NOT NULL DEFAULT '1' COMMENT '是否显示，1显示，0不显示',
-  `remark` text COMMENT '备注',
-  PRIMARY KEY (`navcid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='前台导航分类表' AUTO_INCREMENT=2 ;
+  `remark` text COMMENT '备注'
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='前台导航分类表';
 
 --
 -- 转存表中的数据 `sise_nav_cat`
@@ -598,7 +601,7 @@ INSERT INTO `sise_nav_cat` (`navcid`, `name`, `active`, `remark`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `sise_oauth_user` (
-  `id` int(20) NOT NULL AUTO_INCREMENT,
+`id` int(20) NOT NULL,
   `from` varchar(20) NOT NULL COMMENT '用户来源key',
   `name` varchar(30) NOT NULL COMMENT '第三方昵称',
   `head_img` varchar(200) NOT NULL COMMENT '头像',
@@ -610,9 +613,8 @@ CREATE TABLE IF NOT EXISTS `sise_oauth_user` (
   `status` tinyint(2) NOT NULL,
   `access_token` varchar(512) NOT NULL,
   `expires_date` int(11) NOT NULL COMMENT 'access_token过期时间',
-  `openid` varchar(40) NOT NULL COMMENT '第三方用户id',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='第三方用户表' AUTO_INCREMENT=1 ;
+  `openid` varchar(40) NOT NULL COMMENT '第三方用户id'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='第三方用户表';
 
 -- --------------------------------------------------------
 
@@ -621,13 +623,11 @@ CREATE TABLE IF NOT EXISTS `sise_oauth_user` (
 --
 
 CREATE TABLE IF NOT EXISTS `sise_options` (
-  `option_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+`option_id` bigint(20) unsigned NOT NULL,
   `option_name` varchar(64) NOT NULL COMMENT '配置名',
   `option_value` longtext NOT NULL COMMENT '配置值',
-  `autoload` int(2) NOT NULL DEFAULT '1' COMMENT '是否自动加载',
-  PRIMARY KEY (`option_id`),
-  UNIQUE KEY `option_name` (`option_name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='全站配置表' AUTO_INCREMENT=3 ;
+  `autoload` int(2) NOT NULL DEFAULT '1' COMMENT '是否自动加载'
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='全站配置表';
 
 --
 -- 转存表中的数据 `sise_options`
@@ -640,11 +640,27 @@ INSERT INTO `sise_options` (`option_id`, `option_name`, `option_value`, `autoloa
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `sise_organization`
+--
+
+CREATE TABLE IF NOT EXISTS `sise_organization` (
+`id` bigint(20) unsigned NOT NULL,
+  `name` varchar(60) NOT NULL COMMENT '组织名称',
+  `password` varchar(64) NOT NULL COMMENT '登录密码',
+  `manager_name` varchar(60) NOT NULL COMMENT '管理员姓名',
+  `email` varchar(100) NOT NULL COMMENT '管理员邮箱',
+  `mobile` varchar(20) NOT NULL COMMENT '管理员手机',
+  `type` varchar(20) NOT NULL COMMENT '组织类型'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `sise_plugins`
 --
 
 CREATE TABLE IF NOT EXISTS `sise_plugins` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
+`id` int(11) unsigned NOT NULL COMMENT '自增id',
   `name` varchar(50) NOT NULL COMMENT '插件名，英文',
   `title` varchar(50) NOT NULL DEFAULT '' COMMENT '插件名称',
   `description` text COMMENT '插件描述',
@@ -656,9 +672,8 @@ CREATE TABLE IF NOT EXISTS `sise_plugins` (
   `author` varchar(50) DEFAULT '' COMMENT '插件作者',
   `version` varchar(20) DEFAULT '' COMMENT '插件版本号',
   `createtime` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '插件安装时间',
-  `listorder` smallint(6) NOT NULL DEFAULT '0' COMMENT '排序',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='插件表' AUTO_INCREMENT=1 ;
+  `listorder` smallint(6) NOT NULL DEFAULT '0' COMMENT '排序'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='插件表';
 
 -- --------------------------------------------------------
 
@@ -667,7 +682,7 @@ CREATE TABLE IF NOT EXISTS `sise_plugins` (
 --
 
 CREATE TABLE IF NOT EXISTS `sise_posts` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+`id` bigint(20) unsigned NOT NULL,
   `post_author` bigint(20) unsigned DEFAULT '0' COMMENT '发表者id',
   `post_keywords` varchar(150) NOT NULL COMMENT 'seo keywords',
   `post_source` varchar(150) DEFAULT NULL COMMENT '转载文章的来源',
@@ -687,13 +702,8 @@ CREATE TABLE IF NOT EXISTS `sise_posts` (
   `post_hits` int(11) DEFAULT '0' COMMENT 'post点击数，查看数',
   `post_like` int(11) DEFAULT '0' COMMENT 'post赞数',
   `istop` tinyint(1) NOT NULL DEFAULT '0' COMMENT '置顶 1置顶； 0不置顶',
-  `recommended` tinyint(1) NOT NULL DEFAULT '0' COMMENT '推荐 1推荐 0不推荐',
-  PRIMARY KEY (`id`),
-  KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`id`),
-  KEY `post_parent` (`post_parent`),
-  KEY `post_author` (`post_author`),
-  KEY `post_date` (`post_date`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Portal文章表' AUTO_INCREMENT=1 ;
+  `recommended` tinyint(1) NOT NULL DEFAULT '0' COMMENT '推荐 1推荐 0不推荐'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Portal文章表';
 
 -- --------------------------------------------------------
 
@@ -702,18 +712,15 @@ CREATE TABLE IF NOT EXISTS `sise_posts` (
 --
 
 CREATE TABLE IF NOT EXISTS `sise_role` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+`id` int(11) unsigned NOT NULL,
   `name` varchar(20) NOT NULL COMMENT '角色名称',
   `pid` smallint(6) DEFAULT NULL COMMENT '父角色ID',
   `status` tinyint(1) unsigned DEFAULT NULL COMMENT '状态',
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   `create_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
   `update_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
-  `listorder` int(3) NOT NULL DEFAULT '0' COMMENT '排序字段',
-  PRIMARY KEY (`id`),
-  KEY `parentId` (`pid`),
-  KEY `status` (`status`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='角色表' AUTO_INCREMENT=2 ;
+  `listorder` int(3) NOT NULL DEFAULT '0' COMMENT '排序字段'
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='角色表';
 
 --
 -- 转存表中的数据 `sise_role`
@@ -730,9 +737,7 @@ INSERT INTO `sise_role` (`id`, `name`, `pid`, `status`, `remark`, `create_time`,
 
 CREATE TABLE IF NOT EXISTS `sise_role_user` (
   `role_id` int(11) unsigned DEFAULT '0' COMMENT '角色 id',
-  `user_id` int(11) DEFAULT '0' COMMENT '用户id',
-  KEY `group_id` (`role_id`),
-  KEY `user_id` (`user_id`)
+  `user_id` int(11) DEFAULT '0' COMMENT '用户id'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户角色对应表';
 
 -- --------------------------------------------------------
@@ -742,13 +747,12 @@ CREATE TABLE IF NOT EXISTS `sise_role_user` (
 --
 
 CREATE TABLE IF NOT EXISTS `sise_route` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '路由id',
+`id` int(11) NOT NULL COMMENT '路由id',
   `full_url` varchar(255) DEFAULT NULL COMMENT '完整url， 如：portal/list/index?id=1',
   `url` varchar(255) DEFAULT NULL COMMENT '实际显示的url',
   `listorder` int(5) DEFAULT '0' COMMENT '排序，优先级，越小优先级越高',
-  `status` tinyint(1) DEFAULT '1' COMMENT '状态，1：启用 ;0：不启用',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='url路由表' AUTO_INCREMENT=1 ;
+  `status` tinyint(1) DEFAULT '1' COMMENT '状态，1：启用 ;0：不启用'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='url路由表';
 
 -- --------------------------------------------------------
 
@@ -757,7 +761,7 @@ CREATE TABLE IF NOT EXISTS `sise_route` (
 --
 
 CREATE TABLE IF NOT EXISTS `sise_slide` (
-  `slide_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+`slide_id` bigint(20) unsigned NOT NULL,
   `slide_cid` int(11) NOT NULL COMMENT '幻灯片分类 id',
   `slide_name` varchar(255) NOT NULL COMMENT '幻灯片名称',
   `slide_pic` varchar(255) DEFAULT NULL COMMENT '幻灯片图片',
@@ -765,10 +769,8 @@ CREATE TABLE IF NOT EXISTS `sise_slide` (
   `slide_des` varchar(255) DEFAULT NULL COMMENT '幻灯片描述',
   `slide_content` text COMMENT '幻灯片内容',
   `slide_status` int(2) NOT NULL DEFAULT '1' COMMENT '状态，1显示，0不显示',
-  `listorder` int(10) DEFAULT '0' COMMENT '排序',
-  PRIMARY KEY (`slide_id`),
-  KEY `slide_cid` (`slide_cid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='幻灯片表' AUTO_INCREMENT=1 ;
+  `listorder` int(10) DEFAULT '0' COMMENT '排序'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='幻灯片表';
 
 -- --------------------------------------------------------
 
@@ -777,14 +779,12 @@ CREATE TABLE IF NOT EXISTS `sise_slide` (
 --
 
 CREATE TABLE IF NOT EXISTS `sise_slide_cat` (
-  `cid` int(11) NOT NULL AUTO_INCREMENT,
+`cid` int(11) NOT NULL,
   `cat_name` varchar(255) NOT NULL COMMENT '幻灯片分类',
   `cat_idname` varchar(255) NOT NULL COMMENT '幻灯片分类标识',
   `cat_remark` text COMMENT '分类备注',
-  `cat_status` int(2) NOT NULL DEFAULT '1' COMMENT '状态，1显示，0不显示',
-  PRIMARY KEY (`cid`),
-  KEY `cat_idname` (`cat_idname`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='幻灯片分类表' AUTO_INCREMENT=1 ;
+  `cat_status` int(2) NOT NULL DEFAULT '1' COMMENT '状态，1显示，0不显示'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='幻灯片分类表';
 
 -- --------------------------------------------------------
 
@@ -793,7 +793,7 @@ CREATE TABLE IF NOT EXISTS `sise_slide_cat` (
 --
 
 CREATE TABLE IF NOT EXISTS `sise_terms` (
-  `term_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '分类id',
+`term_id` bigint(20) unsigned NOT NULL COMMENT '分类id',
   `name` varchar(200) DEFAULT NULL COMMENT '分类名称',
   `slug` varchar(200) DEFAULT '',
   `taxonomy` varchar(32) DEFAULT NULL COMMENT '分类类型',
@@ -807,9 +807,8 @@ CREATE TABLE IF NOT EXISTS `sise_terms` (
   `list_tpl` varchar(50) DEFAULT NULL COMMENT '分类列表模板',
   `one_tpl` varchar(50) DEFAULT NULL COMMENT '分类文章页模板',
   `listorder` int(5) NOT NULL DEFAULT '0' COMMENT '排序',
-  `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态，1发布，0不发布',
-  PRIMARY KEY (`term_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='Portal 文章分类表' AUTO_INCREMENT=3 ;
+  `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态，1发布，0不发布'
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Portal 文章分类表';
 
 --
 -- 转存表中的数据 `sise_terms`
@@ -826,14 +825,27 @@ INSERT INTO `sise_terms` (`term_id`, `name`, `slug`, `taxonomy`, `description`, 
 --
 
 CREATE TABLE IF NOT EXISTS `sise_term_relationships` (
-  `tid` bigint(20) NOT NULL AUTO_INCREMENT,
+`tid` bigint(20) NOT NULL,
   `object_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT 'posts表里文章id',
   `term_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '分类id',
   `listorder` int(10) NOT NULL DEFAULT '0' COMMENT '排序',
-  `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态，1发布，0不发布',
-  PRIMARY KEY (`tid`),
-  KEY `term_taxonomy_id` (`term_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Portal 文章分类对应表' AUTO_INCREMENT=1 ;
+  `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态，1发布，0不发布'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Portal 文章分类对应表';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `sise_topic`
+--
+
+CREATE TABLE IF NOT EXISTS `sise_topic` (
+`id` bigint(20) unsigned NOT NULL,
+  `title` varchar(10) NOT NULL COMMENT '话题标题',
+  `content` varchar(6000) NOT NULL COMMENT '话题内容',
+  `author` varchar(60) DEFAULT NULL COMMENT '作者',
+  `praise_count` int(11) DEFAULT NULL COMMENT '点赞人数',
+  `group` varchar(10) DEFAULT NULL COMMENT '来自小组'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -842,7 +854,7 @@ CREATE TABLE IF NOT EXISTS `sise_term_relationships` (
 --
 
 CREATE TABLE IF NOT EXISTS `sise_users` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+`id` bigint(20) unsigned NOT NULL,
   `user_login` varchar(60) NOT NULL DEFAULT '' COMMENT '用户名',
   `user_pass` varchar(64) NOT NULL DEFAULT '' COMMENT '登录密码；sp_password加密',
   `user_nicename` varchar(50) NOT NULL DEFAULT '' COMMENT '用户美名',
@@ -861,17 +873,17 @@ CREATE TABLE IF NOT EXISTS `sise_users` (
   `user_type` smallint(1) DEFAULT '1' COMMENT '用户类型，1:admin ;2:会员',
   `coin` int(11) NOT NULL DEFAULT '0' COMMENT '金币',
   `mobile` varchar(20) NOT NULL DEFAULT '' COMMENT '手机号',
-  PRIMARY KEY (`id`),
-  KEY `user_login_key` (`user_login`),
-  KEY `user_nicename` (`user_nicename`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='用户表' AUTO_INCREMENT=2 ;
+  `skill` varchar(100) DEFAULT '' COMMENT '用户擅长',
+  `volunteer_time` varchar(60) DEFAULT NULL COMMENT '志愿时间',
+  `volunteer_area` varchar(60) DEFAULT NULL COMMENT '服务区域'
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='用户表';
 
 --
 -- 转存表中的数据 `sise_users`
 --
 
-INSERT INTO `sise_users` (`id`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `avatar`, `sex`, `birthday`, `signature`, `last_login_ip`, `last_login_time`, `create_time`, `user_activation_key`, `user_status`, `score`, `user_type`, `coin`, `mobile`) VALUES
-(1, 'admin', '###42e0497c116c196efa8dbabdc11a8569', 'admin', 'haiku888@foxmail.com', '', NULL, 0, NULL, NULL, '0.0.0.0', '2016-03-17 04:34:21', '2016-03-17 04:34:21', '', 1, 0, 1, 0, '');
+INSERT INTO `sise_users` (`id`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `avatar`, `sex`, `birthday`, `signature`, `last_login_ip`, `last_login_time`, `create_time`, `user_activation_key`, `user_status`, `score`, `user_type`, `coin`, `mobile`, `skill`, `volunteer_time`, `volunteer_area`) VALUES
+(1, 'admin', '###42e0497c116c196efa8dbabdc11a8569', 'admin', 'haiku888@foxmail.com', '', NULL, 0, NULL, NULL, '0.0.0.0', '2016-03-17 04:34:21', '2016-03-17 04:34:21', '', 1, 0, 1, 0, '', '', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -880,18 +892,701 @@ INSERT INTO `sise_users` (`id`, `user_login`, `user_pass`, `user_nicename`, `use
 --
 
 CREATE TABLE IF NOT EXISTS `sise_user_favorites` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `uid` bigint(20) DEFAULT NULL COMMENT '用户 id',
   `title` varchar(255) DEFAULT NULL COMMENT '收藏内容的标题',
   `url` varchar(255) DEFAULT NULL COMMENT '收藏内容的原文地址，不带域名',
   `description` varchar(500) DEFAULT NULL COMMENT '收藏内容的描述',
   `table` varchar(50) DEFAULT NULL COMMENT '收藏实体以前所在表，不带前缀',
   `object_id` int(11) DEFAULT NULL COMMENT '收藏内容原来的主键id',
-  `createtime` int(11) DEFAULT NULL COMMENT '收藏时间',
-  PRIMARY KEY (`id`),
-  KEY `uid` (`uid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户收藏表' AUTO_INCREMENT=1 ;
+  `createtime` int(11) DEFAULT NULL COMMENT '收藏时间'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户收藏表';
 
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `student`
+--
+
+CREATE TABLE IF NOT EXISTS `student` (
+  `学号` varchar(20) NOT NULL DEFAULT '',
+  `姓名` varchar(255) DEFAULT NULL,
+  `性别` varchar(255) DEFAULT NULL,
+  `年龄` int(11) DEFAULT NULL,
+  `专业` varchar(255) DEFAULT NULL,
+  `宿舍` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `student`
+--
+
+INSERT INTO `student` (`学号`, `姓名`, `性别`, `年龄`, `专业`, `宿舍`) VALUES
+('0840111101', '杨清舜', '男', 22, '软件工程(网络应用软件开发) ', '红棉楼 R520'),
+('0840111102', '韦晓钦', '男', 21, '软件工程(网络应用软件开发) ', '红棉楼 R520'),
+('0840111103', '吴思浩', '男', 20, '软件工程(网络应用软件开发) ', '绿杨楼1 G331'),
+('0840111104', '陈龙灿', '男', 21, '软件工程(网络应用软件开发) ', '红棉楼 R520'),
+('0840111105', '陈昆', '男', 20, '软件工程(网络应用软件开发) ', '红棉楼 R520'),
+('0840111106', '王华锋', '男', 20, '软件工程(网络应用软件开发) ', '绿杨楼1 G331'),
+('0840111107', '刘敦杰', '男', 20, '软件工程(网络应用软件开发) ', '红棉楼 R521'),
+('0840111108', '梁文仲', '男', 20, '软件工程(网络应用软件开发) ', '红棉楼 R521'),
+('0840111110', '李浩彬', '男', 21, '软件工程(网络应用软件开发) ', '红棉楼 R521'),
+('0840111111', '王敏', '男', 20, '软件工程(网络应用软件开发) ', '红棉楼 R521'),
+('0840111112', '许哲淳', '女', 21, '软件工程(网络应用软件开发) ', '橙萱居2 T2106'),
+('0840111113', '潘海彬', '男', 20, '软件工程(网络应用软件开发) ', '红棉楼 R522'),
+('0840111114', '黎锋光', '男', 20, '软件工程(网络应用软件开发) ', '红棉楼 R522'),
+('0840111115', '张理然', '男', 20, '软件工程(网络应用软件开发) ', '红棉楼 R522'),
+('0840111116', '黄兆君', '男', 20, '软件工程(网络应用软件开发) ', '红棉楼 R522'),
+('0840111117', '曹志荣', '男', 20, '软件工程(网络应用软件开发) ', '红棉楼 R523'),
+('0840111118', '梁文辉', '男', 21, '软件工程(网络应用软件开发) ', '绿杨楼1 G331'),
+('0840111119', '柴伟龙', '男', 21, '软件工程(网络应用软件开发) ', '红棉楼 R523'),
+('0840111120', '凌上军', '男', 20, '软件工程(网络应用软件开发) ', '红棉楼 R523'),
+('0840111121', '黄辰德', '男', 21, '软件工程(网络应用软件开发) ', '红棉楼 R523'),
+('0840111123', '林悦伟', '男', 21, '软件工程(网络应用软件开发) ', '绿杨楼1 G331'),
+('0840111124', '黄小刚', '男', 22, '软件工程(网络应用软件开发) ', '红棉楼 R524'),
+('0840111125', '林显拔', '男', 21, '软件工程(网络应用软件开发) ', '红棉楼 R524'),
+('0840111126', '黄振业', '男', 20, '软件工程(网络应用软件开发) ', '绿杨楼1 G332'),
+('0840111127', '黄卓尔', '男', 21, '软件工程(网络应用软件开发) ', '绿杨楼1 G332'),
+('0840111128', '袁子健', '男', 20, '软件工程(网络应用软件开发) ', '红棉楼 R524'),
+('0840111129', '张奋', '男', 21, '软件工程(网络应用软件开发) ', '绿杨楼1 G332'),
+('0840111130', '余兆钧', '男', 22, '软件工程(网络应用软件开发) ', '绿杨楼1 G332'),
+('0840111131', '幸俊毅', '男', 20, '软件工程(网络应用软件开发) ', '绿杨楼1 G333'),
+('0840111132', '周均霭', '男', 22, '软件工程(网络应用软件开发) ', '绿杨楼1 G333'),
+('0840111133', '陈灏', '男', 21, '软件工程(网络应用软件开发) ', '绿杨楼1 G333'),
+('0840111134', '马泽森', '男', 20, '软件工程(网络应用软件开发) ', '绿杨楼1 G333'),
+('0840111135', '林豪荣', '男', 21, '软件工程(网络应用软件开发) ', '绿杨楼1 G334'),
+('0840111136', '陆恩泽', '男', 19, '软件工程(网络应用软件开发) ', '绿杨楼1 G334'),
+('0840111137', '刘志伟', '男', 20, '软件工程(网络应用软件开发) ', '绿杨楼1 G334'),
+('0840111138', '黄芳', '女', 20, '软件工程(网络应用软件开发) ', '橙萱居2 T2106'),
+('0840111139', '范芳振', '男', 20, '软件工程(网络应用软件开发) ', '绿杨楼1 G334'),
+('0840111140', '颜俊滨', '男', 20, '软件工程(网络应用软件开发) ', '绿杨楼1 G335'),
+('0840111141', '徐显添', '男', 20, '软件工程(网络应用软件开发) ', '绿杨楼1 G335'),
+('0840111142', '谭启朝', '男', 20, '软件工程(网络应用软件开发) ', '绿杨楼1 G335'),
+('0840111143', '陈介焕', '男', 22, '软件工程(网络应用软件开发) ', '绿杨楼1 G335'),
+('0840111144', '陈秋杰', '男', 20, '软件工程(网络应用软件开发) ', '绿杨楼1 G336'),
+('0840111145', '陈煜志', '男', 19, '软件工程(网络应用软件开发) ', '绿杨楼1 G336'),
+('0840111146', '高仁杰', '男', 22, '软件工程(网络应用软件开发) ', '绿杨楼1 G336'),
+('0840111147', '房文明', '男', 21, '软件工程(网络应用软件开发) ', '绿杨楼1 G336'),
+('0840111148', '许超', '男', 22, '软件工程(网络应用软件开发) ', '绿杨楼1 G337'),
+('0840111149', '白伟泉', '男', 20, '软件工程(网络应用软件开发) ', '绿杨楼1 G337'),
+('0840111150', '翟冠荣', '男', 20, '软件工程(网络应用软件开发) ', '绿杨楼1 G337'),
+('0840111151', '许海涛', '男', 21, '软件工程(网络应用软件开发) ', '绿杨楼1 G337'),
+('0840111152', '梁剑华', '男', 21, '软件工程(网络应用软件开发) ', '绿杨楼1 G338'),
+('0840111153', '何世贤', '男', 23, '软件工程(网络应用软件开发) ', '绿杨楼1 G338'),
+('0840111155', '李德财', '男', 22, '软件工程(网络应用软件开发) ', '绿杨楼1 G338'),
+('0840111158', '罗文飞', '男', 22, '软件工程(网络应用软件开发) ', '绿杨楼1 G339'),
+('0840111159', '邓霞兰', '女', 21, '软件工程(网络应用软件开发) ', '橙萱居2 T2106'),
+('0840111161', '谭振勇', '男', 21, '软件工程(网络应用软件开发) ', '绿杨楼1 G340'),
+('0840111162', '段卓', '男', 20, '软件工程(网络应用软件开发) ', '绿杨楼1 G340'),
+('0840111163', '林涛', '男', 21, '软件工程(网络应用软件开发) ', '绿杨楼1 G224'),
+('0840111164', '陈宏彬', '男', 21, '软件工程(网络应用软件开发) ', '绿杨楼1 G224'),
+('0840111166', '侯宇松', '男', 21, '软件工程(网络应用软件开发) ', '绿杨楼1 G224'),
+('0840111167', '苏灿辉', '男', 21, '软件工程(网络应用软件开发) ', '绿杨楼1 G225'),
+('0840111168', '钟沛伦', '男', 21, '软件工程(网络应用软件开发) ', '绿杨楼1 G225'),
+('0840111169', '黄永锋', '男', 20, '软件工程(网络应用软件开发) ', '绿杨楼1 G225'),
+('0840111170', '林瑞焊', '男', 22, '软件工程(网络应用软件开发) ', '绿杨楼1 G225'),
+('0840111171', '何彬', '男', 20, '软件工程(网络应用软件开发) ', '绿杨楼1 G340'),
+('0840111172', '何开翱', '男', 21, '软件工程(网络应用软件开发) ', '绿杨楼1 G223'),
+('0840111173', '郑梓斌', '男', 21, '软件工程(网络应用软件开发) ', '绿杨楼1 G223'),
+('0840111174', '黄升福', '男', 20, '软件工程(网络应用软件开发) ', '绿杨楼1 G223'),
+('0840112101', '王思博', '男', 19, '软件工程(软件开发) ', '红棉楼 R513'),
+('0840112102', '陈少滨', '男', 20, '软件工程(软件开发) ', '红棉楼 R510'),
+('0840112103', '李钧', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G232'),
+('0840112104', '陈杰鹏', '男', 20, '软件工程(软件开发) ', '红棉楼 R510'),
+('0840112105', '袁伟良', '男', 21, '软件工程(软件开发) ', '红棉楼 R511'),
+('0840112106', '李炫达', '男', 20, '软件工程(软件开发) ', '红棉楼 R510'),
+('0840112107', '胡宏健', '男', 20, '软件工程(软件开发) ', '红棉楼 R511'),
+('0840112108', '张锦秀', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G232'),
+('0840112109', '刘瑞斌', '男', 20, '软件工程(软件开发) ', '红棉楼 R511'),
+('0840112110', '司徒鑫', '男', 22, '软件工程(软件开发) ', '红棉楼 R511'),
+('0840112111', '叶跃龙', '男', 21, '软件工程(软件开发) ', '红棉楼 R512'),
+('0840112112', '唐伟强', '男', 20, '软件工程(软件开发) ', '红棉楼 R512'),
+('0840112113', '莫秀江', '男', 21, '软件工程(软件开发) ', '红棉楼 R512'),
+('0840112115', '宁仁强', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G232'),
+('0840112116', '冀俊宏', '男', 20, '软件工程(软件开发) ', '红棉楼 R513'),
+('0840112117', '林伟龙', '男', 20, '软件工程(软件开发) ', '红棉楼 R513'),
+('0840112118', '方澍东', '男', 21, '软件工程(软件开发) ', '红棉楼 R513'),
+('0840112120', '陈航', '男', 20, '软件工程(软件开发) ', '红棉楼 R510'),
+('0840112121', '陈衍颍', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G232'),
+('0840112122', '马俊杰', '男', 20, '软件工程(软件开发) ', '红棉楼 R514'),
+('0840112123', '张健威', '男', 21, '软件工程(软件开发) ', '红棉楼 R514'),
+('0840112124', '林灿桦', '男', 20, '软件工程(软件开发) ', '红棉楼 R514'),
+('0840112125', '袁俊', '男', 21, '软件工程(软件开发) ', '红棉楼 R515'),
+('0840112126', '李奔', '男', 21, '软件工程(软件开发) ', '红棉楼 R515'),
+('0840112127', '林灏', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G233'),
+('0840112128', '赖晓胜', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G233'),
+('0840112131', '黄鎏', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G233'),
+('0840112132', '李俊东', '男', 19, '软件工程(软件开发) ', '绿杨楼1 G234'),
+('0840112133', '曾辉', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G234'),
+('0840112134', '李龙形', '女', 22, '软件工程(软件开发) ', '橙萱居2 T2107'),
+('0840112136', '林良晖', '男', 22, '软件工程(软件开发) ', '红棉楼 R512'),
+('0840112137', '陈泰年', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G234'),
+('0840112138', '蔡少桐', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G234'),
+('0840112139', '陈凯涛', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G235'),
+('0840112140', '谭泰', '男', 22, '软件工程(软件开发) ', '绿杨楼1 G235'),
+('0840112141', '陈辉', '男', 23, '软件工程(软件开发) ', '红棉楼 R516'),
+('0840112142', '邓鸿健', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G235'),
+('0840112143', '卢镇宇', '男', 20, '软件工程(软件开发) ', '红棉楼 R505'),
+('0840112144', '余鹏', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G235'),
+('0840112145', '余键滨', '男', 22, '软件工程(软件开发) ', '红棉楼 R505'),
+('0840112146', '许湃鑫', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G236'),
+('0840112148', '李恒筹', '男', 21, '软件工程(软件开发) ', '红棉楼 R505'),
+('0840112149', '曹阳刚', '男', 20, '软件工程(软件开发) ', '红棉楼 R505'),
+('0840112150', '黎欣健', '男', 21, '软件工程(软件开发) ', '红棉楼 R506'),
+('0840112151', '陈锡健', '男', 21, '软件工程(软件开发) ', '红棉楼 R506'),
+('0840112152', '饶泽华', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G236'),
+('0840112153', '李志敏', '男', 19, '软件工程(软件开发) ', '绿杨楼1 G236'),
+('0840112154', '彭志辉', '男', 20, '软件工程(软件开发) ', '红棉楼 R506'),
+('0840112155', '卢家骏', '男', 20, '软件工程(软件开发) ', '红棉楼 R506'),
+('0840112156', '陈俊强', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G236'),
+('0840112158', '高添伟', '男', 19, '软件工程(软件开发) ', '红棉楼 R516'),
+('0840112160', '朱庆超', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G301'),
+('0840112161', '郭鸣', '男', 20, '软件工程(软件开发) ', '红棉楼 R516'),
+('0840112162', '张智豪', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G301'),
+('0840112163', '叶哲文', '男', 20, '软件工程(软件开发) ', '红棉楼 R516'),
+('0840112164', '马文嘉', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G301'),
+('0840112165', '何凯鹏', '男', 20, '软件工程(软件开发) ', '红棉楼 R508'),
+('0840112166', '马骏韶', '男', 20, '软件工程(软件开发) ', '红棉楼 R508'),
+('0840112167', '陈渐泉', '男', 20, '软件工程(软件开发) ', '红棉楼 R508'),
+('0840112168', '陈俊杰', '男', 21, '软件工程(软件开发) ', '红棉楼 R508'),
+('0840112169', '刘宇峰', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G302'),
+('0840112170', '颜大帅', '男', 21, '软件工程(软件开发) ', '红棉楼 R509'),
+('0840112171', '杨开荣', '男', 21, '软件工程(软件开发) ', '红棉楼 R509'),
+('0840112172', '梁杰', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G302'),
+('0840112173', '李俊豪', '男', 22, '软件工程(软件开发) ', '红棉楼 R509'),
+('0840112174', '李秉明', '男', 21, '软件工程(软件开发) ', '红棉楼 R509'),
+('0840112175', '洪辉', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G301'),
+('0840112176', '陈海文', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G302'),
+('0840112177', '李敏华', '女', 20, '软件工程(软件开发) ', '橙萱居2 T2107'),
+('0840112179', '沈江', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G302'),
+('0840112180', '梁沛荣', '男', 20, '软件工程(软件开发) ', '红棉楼 R504'),
+('0840112201', '萧东东', '男', 22, '软件工程(软件开发) ', '红棉楼 R504'),
+('0840112202', '陈健睿', '男', 20, '软件工程(软件开发) ', '红棉楼 R504'),
+('0840112203', '潘永兴', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G303'),
+('0840112204', '黄少威', '男', 21, '软件工程(软件开发) ', '红棉楼 R503'),
+('0840112205', '方少民', '男', 21, '软件工程(软件开发) ', '红棉楼 R503'),
+('0840112206', '梁嘉熙', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G303'),
+('0840112207', '杨睿', '男', 20, '软件工程(软件开发) ', '红棉楼 R503'),
+('0840112208', '卢俊', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G303'),
+('0840112209', '梁议尹', '女', 20, '软件工程(软件开发) ', '橙萱居2 T2107'),
+('0840112210', '陈亮', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G303'),
+('0840112211', '招扬', '男', 20, '软件工程(软件开发) ', '红棉楼 R504'),
+('0840112212', '马在杰', '男', 21, '软件工程(软件开发) ', '红棉楼 R445'),
+('0840112214', '谢楚贤', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G304'),
+('0840112215', '梁达超', '男', 20, '软件工程(软件开发) ', '红棉楼 R445'),
+('0840112216', '沙永豪', '男', 20, '软件工程(软件开发) ', '红棉楼 R503'),
+('0840112217', '吴海坤', '男', 23, '软件工程(软件开发) ', '红棉楼 R445'),
+('0840112218', '陈庆从', '男', 20, '软件工程(软件开发) ', '红棉楼 R446'),
+('0840112219', '林增辉', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G304'),
+('0840112220', '胡元榜', '男', 20, '软件工程(软件开发) ', '红棉楼 R446'),
+('0840112221', '冼康筠', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G304'),
+('0840112222', '朱伟聪', '男', 20, '软件工程(软件开发) ', '红棉楼 R444'),
+('0840112223', '郭叙国', '男', 20, '软件工程(软件开发) ', '红棉楼 R444'),
+('0840112224', '吴汝标', '男', 20, '软件工程(软件开发) ', '红棉楼 R444'),
+('0840112225', '黄文森', '男', 20, '软件工程(软件开发) ', '红棉楼 R444'),
+('0840112226', '廖健', '男', 21, '软件工程(软件开发) ', '红棉楼 R446'),
+('0840112227', '陈振锋', '男', 21, '软件工程(软件开发) ', '红棉楼 R446'),
+('0840112228', '吴宇鸣', '男', 22, '软件工程(软件开发) ', '绿杨楼1 G304'),
+('0840112229', '吉白', '男', 19, '软件工程(软件开发) ', '绿杨楼1 G305'),
+('0840112230', '谢启骢', '男', 19, '软件工程(软件开发) ', '绿杨楼1 G305'),
+('0840112231', '李浩然', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G305'),
+('0840112232', '萧航', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G306'),
+('0840112233', '黄晓生', '男', 20, '软件工程(软件开发) ', '红棉楼 R443'),
+('0840112234', '黎政', '男', 21, '软件工程(软件开发) ', '红棉楼 R443'),
+('0840112235', '虞利敏', '女', 19, '软件工程(软件开发) ', '橙萱居2 T2108'),
+('0840112236', '何嘉驹', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G306'),
+('0840112237', '李洁兰', '女', 20, '软件工程(软件开发) ', '橙萱居2 T2108'),
+('0840112238', '林俊民', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G306'),
+('0840112239', '李启敏', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G306'),
+('0840112240', '邓志豪', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G307'),
+('0840112241', '钟百强', '男', 20, '软件工程(软件开发) ', '红棉楼 R443'),
+('0840112242', '陈召东', '男', 21, '软件工程(软件开发) ', '红棉楼 R443'),
+('0840112243', '黄进明', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G307'),
+('0840112244', '黄威强', '男', 19, '软件工程(软件开发) ', '绿杨楼1 G307'),
+('0840112245', '郑坚钦', '男', 22, '软件工程(软件开发) ', '绿杨楼1 G307'),
+('0840112246', '李冰锋', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G308'),
+('0840112247', '林嘉霖', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G308'),
+('0840112248', '余天华', '男', 19, '软件工程(软件开发) ', '红棉楼 R442'),
+('0840112249', '张奕锐', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G308'),
+('0840112251', '林铿鸿', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G308'),
+('0840112252', '梁齐烨', '男', 22, '软件工程(软件开发) ', '绿杨楼1 G309'),
+('0840112253', '黎俊光', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G309'),
+('0840112254', '周剑铭', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G309'),
+('0840112255', '丁文浩', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G309'),
+('0840112256', '张林洪', '男', 22, '软件工程(软件开发) ', '绿杨楼1 G310'),
+('0840112257', '黄永鹏', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G310'),
+('0840112258', '欧耿鑫', '男', 20, '软件工程(软件开发) ', '红棉楼 R442'),
+('0840112259', '张宇君', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G310'),
+('0840112260', '李艺恺', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G310'),
+('0840112261', '林杰超', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G311'),
+('0840112262', '冼耀强', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G311'),
+('0840112263', '杨扬', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G311'),
+('0840112264', '王良俊', '男', 19, '软件工程(软件开发) ', '绿杨楼1 G311'),
+('0840112265', '曾国俊', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G312'),
+('0840112266', '黄剑威', '男', 18, '软件工程(软件开发) ', '绿杨楼1 G312'),
+('0840112267', '黄展鹏', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G312'),
+('0840112268', '卓辉荣', '男', 22, '软件工程(软件开发) ', '绿杨楼1 G312'),
+('0840112269', '谭玄芳', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G313'),
+('0840112270', '曲绍峰', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G313'),
+('0840112271', '李春雷', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G313'),
+('0840112272', '庞韬志', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G313'),
+('0840112273', '黄东文', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G314'),
+('0840112274', '梁志坚', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G314'),
+('0840112275', '谭学敏', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G314'),
+('0840112276', '许庭威', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G314'),
+('0840112277', '郑家俊', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G315'),
+('0840112278', '张梦潇', '女', 20, '软件工程(软件开发) ', '橙萱居2 T2108'),
+('0840112279', '陈立华', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G315'),
+('0840112280', '刘金栋', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G315'),
+('0840112301', '麦荣鑫', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G315'),
+('0840112302', '邓振涛', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G316'),
+('0840112304', '陈尧章', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G316'),
+('0840112305', '李晓军', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G316'),
+('0840112306', '陈启焕', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G317'),
+('0840112307', '温世柱', '男', 22, '软件工程(软件开发) ', '绿杨楼1 G317'),
+('0840112308', '施乐记', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G317'),
+('0840112309', '严达明', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G317'),
+('0840112310', '冯耀坚', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G318'),
+('0840112311', '周潮海', '男', 22, '软件工程(软件开发) ', '绿杨楼1 G318'),
+('0840112312', '李志坚', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G318'),
+('0840112313', '曾湘敏', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G318'),
+('0840112314', '邓策', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G319'),
+('0840112315', '李泽丹', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G319'),
+('0840112316', '李昊', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G319'),
+('0840112317', '吴骏巍', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G320'),
+('0840112318', '杨滟艳', '女', 22, '软件工程(软件开发) ', '橙萱居2 T2108'),
+('0840112319', '陈智裔', '男', 19, '软件工程(软件开发) ', '绿杨楼1 G320'),
+('0840112320', '李智峰', '男', 22, '软件工程(软件开发) ', '红棉楼 R445'),
+('0840112321', '吴仕俊', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G320'),
+('0840112322', '谭世威', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G320'),
+('0840112324', '曾思维', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G321'),
+('0840112325', '林伟斌', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G321'),
+('0840112326', '冯有洪', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G321'),
+('0840112328', '宋文杰', '男', 19, '软件工程(软件开发) ', '绿杨楼1 G322'),
+('0840112329', '莫嘉权', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G321'),
+('0840112330', '苏家超', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G322'),
+('0840112331', '毛泽智', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G322'),
+('0840112332', '陈俊超', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G322'),
+('0840112333', '巫丹', '女', 20, '软件工程(软件开发) ', '橙萱居2 T2109'),
+('0840112334', '张家杰', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G202'),
+('0840112335', '翁耀彬', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G339'),
+('0840112336', '钟泽坤', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G202'),
+('0840112337', '罗建军', '男', 22, '软件工程(软件开发) ', '绿杨楼1 G207'),
+('0840112338', '管凌玉', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G202'),
+('0840112339', '潘倩珺', '女', 21, '软件工程(软件开发) ', '橙萱居2 T2109'),
+('0840112340', '郑志腾', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G202'),
+('0840112341', '黄东辉', '男', 23, '软件工程(软件开发) ', '绿杨楼1 G203'),
+('0840112342', '张艳美', '女', 20, '软件工程(软件开发) ', '橙萱居2 T2109'),
+('0840112343', '叶梓鹏', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G203'),
+('0840112344', '黄坚周', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G203'),
+('0840112346', '李康彬', '男', 23, '软件工程(软件开发) ', '绿杨楼1 G204'),
+('0840112347', '邱志伟', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G204'),
+('0840112348', '徐志华', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G204'),
+('0840112349', '詹伟金', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G204'),
+('0840112350', '卢舜海', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G205'),
+('0840112351', '温紫良', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G205'),
+('0840112352', '吴栋', '男', 19, '软件工程(软件开发) ', '绿杨楼1 G205'),
+('0840112353', '曾华潇', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G205'),
+('0840112354', '严锐宏', '男', 22, '软件工程(软件开发) ', '绿杨楼1 G206'),
+('0840112355', '梁启超', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G206'),
+('0840112356', '林耿辉', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G206'),
+('0840112357', '许先涛', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G206'),
+('0840112358', '王庆光', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G207'),
+('0840112359', '游成章', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G207'),
+('0840112360', '林苏', '女', 20, '软件工程(软件开发) ', '橙萱居2 T2103'),
+('0840112362', '张智媚', '女', 20, '软件工程(软件开发) ', '橙萱居2 T2103'),
+('0840112363', '郑杰文', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G207'),
+('0840112364', '郑瑞丽', '女', 24, '软件工程(软件开发) ', '橙萱居2 T2103'),
+('0840112365', '柯思铭', '男', 20, '软件工程(软件开发) ', '绿杨楼1 G208'),
+('0840112366', '姚多雅', '男', 23, '软件工程(软件开发) ', '绿杨楼1 G208'),
+('0840112367', '燕小刚', '男', 22, '软件工程(软件开发) ', '绿杨楼1 G208'),
+('0840112368', '陶然', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G208'),
+('0840113101', '刘彬彬', '男', 22, '软件工程(数据处理软件开发)', '红棉楼 R517'),
+('0840113102', '陈桂发', '男', 20, '软件工程(数据处理软件开发)', '红棉楼 R517'),
+('0840113103', '林锦胜', '男', 20, '软件工程(数据处理软件开发)', '红棉楼 R517'),
+('0840113104', '郑燕彪', '男', 20, '软件工程(数据处理软件开发)', '红棉楼 R517'),
+('0840113105', '冯焯烽', '男', 20, '软件工程(数据处理软件开发)', '红棉楼 R518'),
+('0840113106', '郑昊', '男', 20, '软件工程(数据处理软件开发)', '红棉楼 R518'),
+('0840113107', '邹全', '男', 21, '软件工程(数据处理软件开发)', '红棉楼 R518'),
+('0840113108', '柯向杰', '男', 21, '软件工程(数据处理软件开发)', '红棉楼 R518'),
+('0840113109', '许凯潮', '男', 20, '软件工程(数据处理软件开发)', '红棉楼 R519'),
+('0840113110', '梁健俊', '男', 21, '软件工程(数据处理软件开发)', '红棉楼 R519'),
+('0840113111', '许嘉鑫', '男', 21, '软件工程(数据处理软件开发)', '绿杨楼1 G325'),
+('0840113112', '谢文杰', '男', 20, '软件工程(数据处理软件开发)', '红棉楼 R519'),
+('0840113113', '陈冰璇', '女', 21, '软件工程(数据处理软件开发)', '橙萱居2 T2105'),
+('0840113114', '刘子竞', '男', 20, '软件工程(数据处理软件开发)', '红棉楼 R519'),
+('0840113115', '蔡思远', '男', 20, '软件工程(数据处理软件开发)', '绿杨楼1 G325'),
+('0840113116', '吴晓伟', '男', 25, '软件工程(数据处理软件开发)', '绿杨楼1 G325'),
+('0840113117', '黄伟亮', '男', 20, '软件工程(数据处理软件开发)', '绿杨楼1 G325'),
+('0840113118', '何祖恒', '男', 22, '软件工程(数据处理软件开发)', '绿杨楼1 G326'),
+('0840113119', '彭玮', '男', 20, '软件工程(数据处理软件开发)', '绿杨楼1 G326'),
+('0840113120', '江帆劲', '女', 21, '软件工程(数据处理软件开发)', '橙萱居2 T2105'),
+('0840113121', '吴运豪', '男', 20, '软件工程(数据处理软件开发)', '绿杨楼1 G326'),
+('0840113122', '廖文宗', '男', 21, '软件工程(数据处理软件开发)', '绿杨楼1 G326'),
+('0840113123', '叶海程', '男', 21, '软件工程(数据处理软件开发)', '绿杨楼1 G327'),
+('0840113124', '李海辉', '男', 20, '软件工程(数据处理软件开发)', '绿杨楼1 G327'),
+('0840113125', '葛俊旭', '男', 20, '软件工程(数据处理软件开发)', '绿杨楼1 G327'),
+('0840113126', '胡燕龙', '男', 22, '软件工程(数据处理软件开发)', '绿杨楼1 G327'),
+('0840113127', '邓兆峰', '男', 19, '软件工程(数据处理软件开发)', '绿杨楼1 G328'),
+('0840113128', '劳月凤', '女', 20, '软件工程(数据处理软件开发)', '橙萱居2 T2105'),
+('0840113129', '罗铭', '男', 21, '软件工程(数据处理软件开发)', '绿杨楼1 G328'),
+('0840113130', '杨建浩', '男', 21, '软件工程(数据处理软件开发)', '绿杨楼1 G328'),
+('0840113131', '刘文聪', '男', 20, '软件工程(数据处理软件开发)', '绿杨楼1 G328'),
+('0840113132', '周斌', '男', 21, '软件工程(数据处理软件开发)', '绿杨楼1 G329'),
+('0840113133', '庄晓鹏', '男', 20, '软件工程(数据处理软件开发)', '绿杨楼1 G329'),
+('0840113134', '曾思远', '男', 21, '软件工程(数据处理软件开发)', '绿杨楼1 G329'),
+('0840113135', '陈海', '男', 22, '软件工程(数据处理软件开发)', '绿杨楼1 G329'),
+('0840113136', '黄雄炜', '男', 22, '软件工程(数据处理软件开发)', '绿杨楼1 G413'),
+('0840115102', '邝轩麟', '男', 20, '软件工程(软件测试)', '红棉楼 R501'),
+('0840115103', '李奕楷', '男', 20, '软件工程(软件测试)', '红棉楼 R501'),
+('0840115104', '招继钦', '男', 21, '软件工程(软件测试)', '红棉楼 R501'),
+('0840115106', '李程', '男', 20, '软件工程(软件测试)', '红棉楼 R502'),
+('0840115107', '梁继江', '男', 21, '软件工程(软件测试)', '红棉楼 R502'),
+('0840115108', '蔡浩贤', '男', 21, '软件工程(软件测试)', '红棉楼 R502'),
+('0840115109', '温远定', '男', 20, '软件工程(软件测试)', '红棉楼 R502'),
+('0840115110', '黄炎龙', '男', 21, '软件工程(软件测试)', '红棉楼 R501'),
+('0840115111', '石雯珊', '女', 21, '软件工程(软件测试)', '橙萱居2 T2104'),
+('0840115112', '欧阳英洁', '男', 20, '软件工程(软件测试)', '绿杨楼1 G228'),
+('0840115113', '伍广超', '男', 20, '软件工程(软件测试)', '绿杨楼1 G414'),
+('0840115114', '陈勇', '男', 21, '软件工程(软件测试)', '绿杨楼1 G338'),
+('0840115115', '杨瑞', '男', 22, '软件工程(软件测试)', '绿杨楼1 G230'),
+('0840115116', '黄丽玲', '女', 20, '软件工程(软件测试)', '橙萱居2 T2104'),
+('0840115117', '钟倩茵', '女', 20, '软件工程(软件测试)', '橙萱居2 T2104'),
+('0840115118', '谈磊', '男', 19, '软件工程(软件测试)', '绿杨楼1 G230'),
+('0840115119', '李洋', '男', 20, '软件工程(软件测试)', '绿杨楼1 G230'),
+('0840115120', '汪振勋', '男', 22, '软件工程(软件测试)', '绿杨楼1 G230'),
+('0840115121', '罗浩文', '男', 20, '软件工程(软件测试)', '绿杨楼1 G231'),
+('0840115122', '黄立', '男', 20, '软件工程(软件测试)', '绿杨楼1 G231'),
+('0840115123', '区城玮', '男', 21, '软件工程(软件测试)', '绿杨楼1 G228'),
+('0840115124', '夏文峰', '男', 20, '软件工程(软件测试)', '绿杨楼1 G231'),
+('0840115125', '周锐', '男', 20, '软件工程(软件测试)', '绿杨楼1 G227'),
+('0840115127', '李雪媛', '女', 20, '软件工程(软件测试)', '橙萱居2 T2104'),
+('0840115128', '刘恩泽', '男', 22, '软件工程(软件测试)', '绿杨楼1 G227'),
+('0840115129', '梁倩媛', '女', 20, '软件工程(软件测试)', '橙萱居2 T2103'),
+('0840115130', '冼艺文', '男', 20, '软件工程(软件测试)', '绿杨楼1 G227'),
+('0840115131', '吴溢彬', '男', 21, '软件工程(软件测试)', '绿杨楼1 G227'),
+('0840115132', '黄超能', '男', 20, '软件工程(软件测试)', '绿杨楼1 G228'),
+('0840115133', '王德才', '男', 21, '软件工程(软件测试)', '绿杨楼1 G231'),
+('0840115134', '林嘉', '男', 21, '软件工程(软件测试)', '绿杨楼1 G228'),
+('0840326121', '陶文亮', '男', 20, '软件工程(软件开发) ', '红棉楼 R442'),
+('0840326219', '黄建森', '男', 20, '软件工程(网络应用软件开发) ', '绿杨楼2 P122'),
+('0840514170', '彭冠凯', '男', 21, '软件工程(网络应用软件开发) ', '绿杨楼1 G223'),
+('0840614114', '梁盛峰', '男', 21, '软件工程(软件开发) ', '红棉楼 R703'),
+('0840811123', '余德龙', '男', 21, '软件工程(软件开发) ', '绿杨楼1 G305'),
+('0840811231', '陈伟浩', '男', 20, '软件工程(网络应用软件开发) ', '绿杨楼1 G340');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `sise_activity`
+--
+ALTER TABLE `sise_activity`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sise_ad`
+--
+ALTER TABLE `sise_ad`
+ ADD PRIMARY KEY (`ad_id`), ADD KEY `ad_name` (`ad_name`);
+
+--
+-- Indexes for table `sise_asset`
+--
+ALTER TABLE `sise_asset`
+ ADD PRIMARY KEY (`aid`);
+
+--
+-- Indexes for table `sise_auth_access`
+--
+ALTER TABLE `sise_auth_access`
+ ADD KEY `role_id` (`role_id`), ADD KEY `rule_name` (`rule_name`) USING BTREE;
+
+--
+-- Indexes for table `sise_auth_rule`
+--
+ALTER TABLE `sise_auth_rule`
+ ADD PRIMARY KEY (`id`), ADD KEY `module` (`module`,`status`,`type`);
+
+--
+-- Indexes for table `sise_comments`
+--
+ALTER TABLE `sise_comments`
+ ADD PRIMARY KEY (`id`), ADD KEY `comment_post_ID` (`post_id`), ADD KEY `comment_approved_date_gmt` (`status`), ADD KEY `comment_parent` (`parentid`), ADD KEY `table_id_status` (`post_table`,`post_id`,`status`), ADD KEY `createtime` (`createtime`);
+
+--
+-- Indexes for table `sise_common_action_log`
+--
+ALTER TABLE `sise_common_action_log`
+ ADD PRIMARY KEY (`id`), ADD KEY `user_object_action` (`user`,`object`,`action`), ADD KEY `user_object_action_ip` (`user`,`object`,`action`,`ip`);
+
+--
+-- Indexes for table `sise_group`
+--
+ALTER TABLE `sise_group`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sise_guestbook`
+--
+ALTER TABLE `sise_guestbook`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sise_links`
+--
+ALTER TABLE `sise_links`
+ ADD PRIMARY KEY (`link_id`), ADD KEY `link_visible` (`link_status`);
+
+--
+-- Indexes for table `sise_menu`
+--
+ALTER TABLE `sise_menu`
+ ADD PRIMARY KEY (`id`), ADD KEY `status` (`status`), ADD KEY `parentid` (`parentid`), ADD KEY `model` (`model`);
+
+--
+-- Indexes for table `sise_nav`
+--
+ALTER TABLE `sise_nav`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sise_nav_cat`
+--
+ALTER TABLE `sise_nav_cat`
+ ADD PRIMARY KEY (`navcid`);
+
+--
+-- Indexes for table `sise_oauth_user`
+--
+ALTER TABLE `sise_oauth_user`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sise_options`
+--
+ALTER TABLE `sise_options`
+ ADD PRIMARY KEY (`option_id`), ADD UNIQUE KEY `option_name` (`option_name`);
+
+--
+-- Indexes for table `sise_organization`
+--
+ALTER TABLE `sise_organization`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sise_plugins`
+--
+ALTER TABLE `sise_plugins`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sise_posts`
+--
+ALTER TABLE `sise_posts`
+ ADD PRIMARY KEY (`id`), ADD KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`id`), ADD KEY `post_parent` (`post_parent`), ADD KEY `post_author` (`post_author`), ADD KEY `post_date` (`post_date`) USING BTREE;
+
+--
+-- Indexes for table `sise_role`
+--
+ALTER TABLE `sise_role`
+ ADD PRIMARY KEY (`id`), ADD KEY `parentId` (`pid`), ADD KEY `status` (`status`);
+
+--
+-- Indexes for table `sise_role_user`
+--
+ALTER TABLE `sise_role_user`
+ ADD KEY `group_id` (`role_id`), ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `sise_route`
+--
+ALTER TABLE `sise_route`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sise_slide`
+--
+ALTER TABLE `sise_slide`
+ ADD PRIMARY KEY (`slide_id`), ADD KEY `slide_cid` (`slide_cid`);
+
+--
+-- Indexes for table `sise_slide_cat`
+--
+ALTER TABLE `sise_slide_cat`
+ ADD PRIMARY KEY (`cid`), ADD KEY `cat_idname` (`cat_idname`);
+
+--
+-- Indexes for table `sise_terms`
+--
+ALTER TABLE `sise_terms`
+ ADD PRIMARY KEY (`term_id`);
+
+--
+-- Indexes for table `sise_term_relationships`
+--
+ALTER TABLE `sise_term_relationships`
+ ADD PRIMARY KEY (`tid`), ADD KEY `term_taxonomy_id` (`term_id`);
+
+--
+-- Indexes for table `sise_topic`
+--
+ALTER TABLE `sise_topic`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sise_users`
+--
+ALTER TABLE `sise_users`
+ ADD PRIMARY KEY (`id`), ADD KEY `user_login_key` (`user_login`), ADD KEY `user_nicename` (`user_nicename`);
+
+--
+-- Indexes for table `sise_user_favorites`
+--
+ALTER TABLE `sise_user_favorites`
+ ADD PRIMARY KEY (`id`), ADD KEY `uid` (`uid`);
+
+--
+-- Indexes for table `student`
+--
+ALTER TABLE `student`
+ ADD PRIMARY KEY (`学号`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `sise_activity`
+--
+ALTER TABLE `sise_activity`
+MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `sise_ad`
+--
+ALTER TABLE `sise_ad`
+MODIFY `ad_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '广告id';
+--
+-- AUTO_INCREMENT for table `sise_asset`
+--
+ALTER TABLE `sise_asset`
+MODIFY `aid` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `sise_auth_rule`
+--
+ALTER TABLE `sise_auth_rule`
+MODIFY `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT COMMENT '规则id,自增主键',AUTO_INCREMENT=162;
+--
+-- AUTO_INCREMENT for table `sise_comments`
+--
+ALTER TABLE `sise_comments`
+MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `sise_common_action_log`
+--
+ALTER TABLE `sise_common_action_log`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `sise_group`
+--
+ALTER TABLE `sise_group`
+MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `sise_guestbook`
+--
+ALTER TABLE `sise_guestbook`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `sise_links`
+--
+ALTER TABLE `sise_links`
+MODIFY `link_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `sise_menu`
+--
+ALTER TABLE `sise_menu`
+MODIFY `id` smallint(6) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=162;
+--
+-- AUTO_INCREMENT for table `sise_nav`
+--
+ALTER TABLE `sise_nav`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `sise_nav_cat`
+--
+ALTER TABLE `sise_nav_cat`
+MODIFY `navcid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `sise_oauth_user`
+--
+ALTER TABLE `sise_oauth_user`
+MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `sise_options`
+--
+ALTER TABLE `sise_options`
+MODIFY `option_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `sise_organization`
+--
+ALTER TABLE `sise_organization`
+MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `sise_plugins`
+--
+ALTER TABLE `sise_plugins`
+MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id';
+--
+-- AUTO_INCREMENT for table `sise_posts`
+--
+ALTER TABLE `sise_posts`
+MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `sise_role`
+--
+ALTER TABLE `sise_role`
+MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `sise_route`
+--
+ALTER TABLE `sise_route`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '路由id';
+--
+-- AUTO_INCREMENT for table `sise_slide`
+--
+ALTER TABLE `sise_slide`
+MODIFY `slide_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `sise_slide_cat`
+--
+ALTER TABLE `sise_slide_cat`
+MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `sise_terms`
+--
+ALTER TABLE `sise_terms`
+MODIFY `term_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '分类id',AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `sise_term_relationships`
+--
+ALTER TABLE `sise_term_relationships`
+MODIFY `tid` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `sise_topic`
+--
+ALTER TABLE `sise_topic`
+MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `sise_users`
+--
+ALTER TABLE `sise_users`
+MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `sise_user_favorites`
+--
+ALTER TABLE `sise_user_favorites`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
