@@ -1,0 +1,181 @@
+/*头部通用样式*/
+    html{
+        background: #e6e6e6
+    }
+    .header {
+        width: 100%;
+        height: 108px;
+        border-bottom: 2px solid #2d974d;
+        background-color: #ffffff;
+        position: relative;
+        box-shadow: 0 2px 6px rgba(100, 100, 100, 0.41);
+    }
+
+    .header-up {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .header-logo {
+        background-image: url(../image/logo.png);
+        width: 360px;
+        height: 60px;
+        display: inline-block;
+    }
+
+    .header-search {
+        right: 0;
+        top: 14px;
+        width: 320px;
+        height: auto;
+        position: absolute;
+    }
+
+    a {
+        color: #777;
+    !important;
+    }
+
+    .s {
+        overflow:hidden;  !important;
+    }
+    .o {
+        overflow:visible;   !important;
+    }
+    /*导航栏菜单主选项*/
+    .nav-item > li.active > a {
+        color: #fff;
+        background-color: #2d974d;
+    }
+
+    /*导航栏菜单选项*/
+    .nav-item > li > a {
+        border-radius: 4px;
+    }
+
+    /*导航栏菜单选项*/
+    .nav-item > li {
+        float: left;
+    }
+    ._hide{
+        height: 80px;
+        width: 100%;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        padding-left: 20%;
+        padding-right: 20%;
+        background-color: rgba(243, 237, 237, 0.78);
+        border-bottom: 1px solid #9d9d9d;
+        position: relative;
+    }
+    .head{
+        background-image: url(../image/469625729908350031.jpg);
+        background-size: 60px 60px;
+        background-repeat: no-repeat;
+        border-radius:30px;
+        background-clip: padding-box;
+        width: 60px;
+        height: 60px;
+        display: inline-block;
+        position: relative;
+    }
+    .status{
+
+    }
+    .link{
+        position:absolute;
+        top:35px;
+        right:20%;
+        color:#3c3c3c
+    }
+    .navbar-right {
+    float: right!important;
+    margin-right: 0; !important;
+}
+
+
+/*PC端特定样式*/
+@media (min-width:1000px) {
+    .header-box {
+        width: 1000px;
+        height: 108px;
+        z-index: 98;
+    }
+}
+
+
+
+/*平板特定样式*/
+@media  (max-width: 992px) {
+    .header-box {
+         width: 97%;
+         height: 108px;
+         z-index: 98;
+     }
+
+}
+
+
+
+/*手机特定样式*/
+@media  (max-width: 768px) {
+    .header {
+        width: 100%;
+        height: 78px;
+        background-color:#2d974d;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+    .header-box {
+        width: 97%;
+        height: 78px;
+        z-index: 98;
+    }
+    .header-up {
+        width: 100%;
+        height:35px;;
+        position: relative;
+        background-color:#2d974d;
+    }
+    .header-logo {
+        background-image: url(../image/smallLogo.png);
+        background-size:100px 30px;
+        background-position:0,50%;
+        background-repeat: no-repeat;
+        height:35px;
+        width:160px;
+        display: inline-block;
+    }
+    /*导航栏菜单主选项*/
+    .nav-item > li.active > a {
+        color: #fff;
+    }
+    /*导航栏菜单选项*/
+    .nav-item > li >a{
+        float: left;
+        color:#262626;
+    }
+    .header-search {
+        right: -4px;
+        top: 0;
+        width: auto;
+        height: 35px;
+        position: absolute;
+    }
+    .header-search > a{
+        height: 35px;
+        line-height: 35px;
+        border: 1px solid #fcf8e3;
+        border-radius:15px;
+        width: 35px;
+        background-clip: padding-box;
+        display: inline-block;
+        color:#fcf8e3;
+        margin-right: 3px;
+        float: left;
+        font-size:20px;
+        text-align:center;
+    }
+}
+
