@@ -1,5 +1,5 @@
 body{
-    overflow: hidden;!important;
+    overflow: auto;!important;
 }
 .container{
     width:1000px;
@@ -63,6 +63,11 @@ form{
         margin-left: 0;
     }
 }
+.popover-content {
+    padding: 0;
+}
+
+
 /*平板端特定样式*/
 @media  (max-width: 992px){
     .container{
