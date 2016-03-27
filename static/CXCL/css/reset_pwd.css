@@ -1,0 +1,54 @@
+@charset "utf-8";
+/* CSS Document */
+.p{
+    overflow:hidden;
+}
+.reset-pwd-title{
+	margin-left:auto;
+	margin-right:auto;
+	width:1000px;
+	height:50px;
+    border: solid #c7ddef thin;
+	margin-top:50px;
+    border-bottom: none;
+    background-color: rgba(250, 250, 254, 0.98);
+
+}
+.img-pwd {
+    background-image: url("../image/icon_psw.png");
+    display: inline-block;
+    float: left;
+    height: 50px;
+    width: 50px;
+}
+
+h3{
+    font-size: 20px;
+    /*display: block;*/
+    float: left;
+    font-weight: bold;
+    margin-top:13px;
+}
+div.reset-pwd-content{
+    background-color: #eee;
+    width: 1000px;
+    height: 300px;
+    margin:auto;
+}
+.send-email{
+    padding: 50px;
+}
+.send-email #password{
+    width: 240px;
+}
+.send-email #send{
+    display: block;
+    width: 150px;
+    height: 30px;
+    margin-top: 20px;
+    margin-left: 75px;
+    font-size: 12px;
+    color: #2d974d;
+    background: #fff;
+    border:1px solid #2d974d;
+}

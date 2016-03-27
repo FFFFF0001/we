@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>个人资料</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/info.css" rel="stylesheet">
+    <link href="../../css/header.css" rel="stylesheet">
+    <script src="../../js/lib/jquery-2.2.1.min.js"></script>
+    <script src="../../js/lib/bootstrap.min.js"></script>
+</head>
+<body>
+<!--通用头部开始-->
+<div id="header" class="header">
+    <div  class="header-box center-block">
+        <!--上部为logo和搜索-->
+        <div class="header-up">
+            <a href="#" class="header-logo"></a>
+            <div class="header-search">
+                <form class="navbar-form  hidden-xs" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">搜索</button>
+                </form>
+                <!--隐藏的用户链接，搜索链接-->
+                <a data-toggle="collapse" href="#cl">
+                    <span class="glyphicon glyphicon-user hidden-lg hidden-md hidden-sm"></span>
+                </a>
+                <a data-toggle="collapse" href="#cl1" id="search">
+                    <span class="glyphicon glyphicon-search hidden-lg hidden-md hidden-sm"></span>
+                </a>
+            </div>
+        </div>
+        <!--下部为导航栏-->
+        <nav class="navbar navbar-static-top nav-tabs" role="navigation">
+            <!--向左对齐-->
+            <ul class="nav nav-item navbar-left">
+                <li class="active"><a href="#">首页</a></li>
+                <li><a href="#">活动</a></li>
+                <li><a href="#">小组</a></li>
+                <li><a href="#">开讲</a></li>
+                <li><a class="dropdown dropdown-toggle"  data-toggle="dropdown">志交会<span class="caret"></span></a>
+                    <!--下拉菜单-->
+                    <ul class="dropdown-menu" style="overflow: auto !important;">
+                        <li><a href="#">Swing</a></li>
+                        <li><a href="#">jMeter</a></li>
+                        <li><a href="#">EJB</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">分离的链接</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!--向右对齐-->
+            <ul class="nav nav-pills navbar-right hidden-xs" id="collapse">
+                <li><a href="#">切换城市</a></li>
+                <li><a href="#">登陆注册</a></li>
+                <li><a href="#">微博</a></li>
+                <li><a href="#">QQ</a></li>
+                <li><a href="#">你</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<!--通用头部结束-->
+<!--折叠个人资料菜单-->
+<div class="collapse _hide " id="cl">
+    <a class="head"></a>
+    <label>laoergege</label>
+    <label class="pull-right" style="color: #888888;font-size: small">常居地：广州</label>
+    <span class="glyphicon glyphicon-chevron-right link"></span>
+</div>
+<div class="collapse" id="cl1">
+    <div id="demo">
+        <div class="list-group">
+            <a href="#" class="list-group-item active">Item 1</a>
+            <a href="#" class="list-group-item">Item 2</a>
+            <a href="#" class="list-group-item">Item 3</a>
+            <a href="#" class="list-group-item">Item 4</a>
+            <a href="#" class="list-group-item">Item 5</a>
+            ...
+        </div>
+    </div>
+</div>
+<!--折叠菜单结束-->
+<!--主内容开始-->
+<div class="container">
+    <div class="row">
+        <div class="hidden-lg hidden-md hidden-sm meun_min">
+            <div class="collapse" id="cc">
+                <div class="menu_content">
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td>
+                                <a>活动</a>
+                            </td>
+                            <td>
+                                <a>参加的活动</a>
+                                <a>感兴趣的活动</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a>活动小组</a>
+                            </td>
+                            <td>
+                                <a>我创建的</a>
+                                <a>我加入的</a>
+                                <a>发起的话题</a>
+                                <a>回应的话题</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a>设置</a>
+                            </td>
+                            <td>
+                                <a>个人资料</a>
+                                <a>修改头像</a>
+                                <a>修改密码</a>
+                                <a>修改微博秀</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a>消息</a>
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#cc" data-toggle="collapse">
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 col-sm-2 hidden-xs meun_left">
+            <div class="list-group">
+                <a href="#" class="list-group-item active">
+                    <h6 class="list-group-item-heading">
+                        消息
+                    </h6>
+                </a>
+            </div>
+            <div class="list-group">
+                <a href="#" class="list-group-item active">
+                    <h6 class="list-group-item-heading">
+                        活动
+                    </h6>
+                </a>
+                <a href="#" class="list-group-item">
+                    <h6 class="list-group-item-heading">
+                        参加的活动
+                    </h6>
+                </a>
+                <a href="#" class="list-group-item">
+                    <h6 class="list-group-item-heading">
+                        感兴趣的活动
+                    </h6>
+                </a>
+            </div>
+            <div class="list-group">
+                <a href="#" class="list-group-item active">
+                    <h6 class="list-group-item-heading">
+                        活动小组
+                    </h6>
+                </a>
+                <a href="#" class="list-group-item">
+                    <h6 class="list-group-item-heading">
+                        我创建的
+                    </h6>
+                </a>
+                <a href="#" class="list-group-item">
+                    <h6 class="list-group-item-heading">
+                        我加入的
+                    </h6>
+                </a>
+                <a href="#" class="list-group-item">
+                    <h6 class="list-group-item-heading">
+                        发起的话题
+                    </h6>
+                </a>
+                <a href="#" class="list-group-item">
+                    <h6 class="list-group-item-heading">
+                        回应的话题
+                    </h6>
+                </a>
+            </div>
+            <div class="list-group">
+                <a href="#" class="list-group-item active">
+                    <h6 class="list-group-item-heading">
+                        设置
+                    </h6>
+                    <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">
+                            个人资料
+                        </h6>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">
+                            修改头像
+                        </h6>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">
+                            修改密码
+                        </h6>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">
+                            修改微博秀
+                        </h6>
+                    </a>
+                </a>
+            </div>
+        </div>
+        <!--菜单项内容开始-->
+        <div class="col-md-10 col-sm-9 col-xs-12 content_right">
+            <!--资料表单-->
+            <div class="row">
+                <div class="col-md-5 col-sm-5 col-xs-9">
+                    <h4>认证信息</h4>
+                    <h6>目前状态：<span>未认证</span> 通过认证才能获得志愿时数
+                    </h6>
+                </div>
+                <div class="col-md-7 col-sm-7 col-xs-3">
+                    <button type="button" class="btn btn-success">马上认证</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-7 col-xs-12">
+                    <div>
+                        <h4>基本资料</h4>
+                    </div>
+                    <form class="form-horizontal" role="form" action="#" method="post" id="form">
+                        <div class="form-group">
+                            <label for="name" class="col-md-3 col-sm-3 col-xs-3 control-label">昵称:</label>
+                            <div class="col-md-9 col-sm-9 col-xs-9">
+                                <input type="text" class="form-control" id="name" name="name"
+                                       placeholder="XX" data-toggle="popover" autofocus>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="true_name" class="col-md-3 col-sm-3 col-xs-3 control-label">真实姓名:</label>
+                            <div class="col-md-9 col-sm-9 col-xs-9">
+                                <input type="text" class="form-control" id="true_name" name="true_name"
+                                       placeholder="请输入真实姓名" data-toggle="popover" autofocus>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-md-3 col-sm-3 col-xs-3 control-label">性别:</label>
+                            <div class="col-md-9 col-sm-9 col-xs-9">
+                                <label class="checkbox-inline">
+                                    <input type="radio" name="man" id="man"
+                                           value="option1" checked>男
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="radio" name="woman" id="woman"
+                                           value="option2">女
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-md-3 col-sm-3 col-xs-3 control-label">登陆密码:</label>
+                            <div class="col-md-9 col-sm-9 col-xs-9">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">生态环保</label>
+                                    <label><input type="checkbox" value="">文化/艺术</label>
+                                    <label><input type="checkbox" value="">动物保护</label>
+                                    <label><input type="checkbox" value="">儿童关怀</label>
+                                    <label><input type="checkbox" value="">指教助学</label>
+                                    <label><input type="checkbox" value="">扶老助残</label>
+                                    <label><input type="checkbox" value="">综合/其他</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-md-3 col-sm-3 col-xs-3 control-label">擅长兴趣:</label>
+                            <div class="col-md-9 col-sm-9 col-xs-9">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">美术设计</label>
+                                    <label><input type="checkbox" value="">摄影摄像</label>
+                                    <label><input type="checkbox" value="">传播策划</label>
+                                    <label><input type="checkbox" value="">文化艺术</label>
+                                    <label><input type="checkbox" value="">IT技术</label>
+                                    <label><input type="checkbox" value="">教育培训</label>
+                                    <label><input type="checkbox" value="">医疗护理</label>
+                                    <label><input type="checkbox" value="">应急救援</label>
+                                    <label><input type="checkbox" value=""> 翻译 </label>
+                                    <label><input type="checkbox" value="">环境科学</label>
+                                    <label><input type="checkbox" value=""> 体育 </label>
+                                    <label><input type="checkbox" value="">会计审计</label>
+                                    <label><input type="checkbox" value=""> 其他 </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="birthday" class="col-md-3 col-sm-3 col-xs-3 control-label">生日:</label>
+                            <div class="col-md-9 col-sm-9 col-xs-9">
+                                <input type="text" class="form-control" id="birthday" name="birthday">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="birthday" class="col-md-3 col-sm-3 col-xs-3 control-label">所在地:</label>
+                            <div class="col-md-9 col-sm-9 col-xs-9">
+                                <select class="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                                <select class="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                                <select class="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="col-md-3 col-sm-3 col-xs-3 control-label">联系方式:</label>
+                            <div class="col-md-9 col-sm-9 col-xs-9">
+                                <input type="text" class="form-control" id="phone" name="phone"
+                                       placeholder="请填写你的手机号码或固话">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="id" class="col-md-3 col-sm-3 col-xs-3 control-label">身份证:</label>
+                            <div class="col-md-9 col-sm-9 col-xs-9">
+                                <input type="text" class="form-control" id="id" name="id"
+                                        placeholder="请填写你的身份证">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-1 col-sm-11">
+                                <button type="button" class="btn btn-success" id="register">提交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <!--菜单项内容结束-->
+    </div>
+</div>
+<!--主内容结束-->
+</body>
+</html>
