@@ -13,7 +13,54 @@ class RegisterController extends HomebaseController {
 	        $this->display(":register");
 	    }
 	}
+	function primary_register(){
+		$this->display(":primary_register");
+	}
+	function organization_register(){
+		$this->display(":organization_register");
+	}
+	function step2(){
+		$this->display(":step2");
+	}
+	function step3(){
+		$this->display(":step3");
+	}
+	function repeatSendEm(){
+		$option = M('Options')
+					->where(array('option_name'=>'member_email_active'))
+					->find();
+		if(!$option){
+			$this->error('网站未配置账号激活信息，请联系网站管理员');
+		}
+		$options = json_decode($option['option_value'], true);
+		$cookEm = I('cookie.rgEmail');
+		if(!$cookEm){
+			$this->error('请求超时，请重新注册');
+		}
+		$UserModel = M('users');
+		$rst = $UserModel->where(array('user_email'=>$cookEm))
+					->find();
+		$uid = $rst['id'];//序号
+		$username = $rst['user_login'];//登录名
+		$activekey=md5($uid.time().uniqid());
 	
+		$result=$UserModel->where(array("id"=>$uid))->save(array("user_activation_key"=>$activekey));
+		if(!$result){
+			$this->error('激活码生成失败！');
+		}
+		//邮件标题
+		$title = $options['title'];//生成激活链接
+		$url = U('user/register/active',array("hash"=>$activekey), "", true);
+		//邮件内容
+		$template = $options['template'];
+		
+		$content = str_replace(array('http://#link#','#username#'), array($url,$username),$template);
+		$send_result=sp_send_email($cookEm, $title, $content);
+	
+		if($send_result['error']){
+			$this->error('激活邮件发送失败，请尝试登录后，手动发送激活邮件！');
+		}
+	}
 	function doregister(){
     	
     	if(isset($_POST['email'])){
@@ -182,8 +229,10 @@ class RegisterController extends HomebaseController {
 	                //发送激活邮件
 	                if($need_email_active){
 	                    $this->_send_to_active();
+						setcookie('rgEmail',$email,time()+60*30);
 	                    unset($_SESSION['user']);
-	                    $this->success("注册成功，激活后才能使用！",U("user/login/index"));
+	                    /*$this->success("注册成功，激活后才能使用！",U("user/login/index"));*/
+	                    $this->redirect("register/step2");
 	                }else {
 	                    $this->success("注册成功！",__ROOT__."/");
 	                }
@@ -214,7 +263,8 @@ class RegisterController extends HomebaseController {
 			if($result){
 				$find_user['user_status']=1;
 				$_SESSION['user']=$find_user;
-				$this->success("用户激活成功，正在登录中...",__ROOT__."/");
+				setcookie("rgEmail","",time()-1);
+				$this->redirect("register/step3");
 			}else{
 				$this->error("用户激活失败!",U("user/login/index"));
 			}

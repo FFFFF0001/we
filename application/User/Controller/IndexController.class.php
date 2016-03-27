@@ -8,23 +8,25 @@ use Common\Controller\HomebaseController;
 class IndexController extends HomebaseController {
     //登录
 	public function index() {
-		$id=I("get.id");
+		$id=I("get.id");//获取url的id参数
 		
-		$users_model=M("Users");
+		$users_model=M("Users");//实例化Users表
 		
+                    //在User表中查找id字段==id参数的记录 find是一条 文档搜find
 		$user=$users_model->where(array("id"=>$id))->find();
 		
 		if(empty($user)){
-			$this->error("查无此人！");
+			$this->error("查无此人！");//输出错误信息 跳到error的模板中
 		}
-		$this->assign($user);
+		$this->assign($user);//输出到模板中
 		$this->display(":index");
 
     }
     
     function is_login(){
-    	if(sp_is_user_login()){
+    	if(sp_is_user_login()){ //公有函数 查thinkcmf文档
     		$this->ajaxReturn(array("status"=>1,"user"=>sp_get_current_user()));
+                    //ajax返回 查thinkphp文档
     	}else{
     		$this->ajaxReturn(array("status"=>0,"info"=>"此用户未登录！"));
     	}

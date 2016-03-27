@@ -1,0 +1,113 @@
+body{
+    overflow: hidden;!important;
+}
+.container{
+    width:1000px;
+    height: 700px;
+    margin-top: 20px;
+    padding-left: 0;
+    padding-right: 0;
+    overflow: auto;
+}
+.row{
+    width:100%;
+    margin-right: 0;
+    margin-left: 0;
+}
+.register_progress{
+    width: 1000px;
+    height: 45px;
+    line-height: 45px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 25px;
+    box-shadow: 0 2px 6px rgba(100, 100, 100, 0.41);
+}
+.register_progress_1{
+    background-color: #4cae4c;
+    color: #eeeeee;
+}
+.register_form{
+    padding:20px auto 5px;
+}
+.action_tips{
+    width:480px;
+    margin: 60px auto;
+    vertical-align: top;
+    box-shadow: 0 2px 6px rgba(100, 100, 100, 0.41);
+    padding:10px;
+}
+.img_tips{
+    font-size: 50px;
+    color: #4cae4c;
+    border: 1px solid #4cae4c;
+    border-radius: 30px;
+    padding:5px;
+    margin-right: 10px;
+    margin-top: 20px;
+}
+form{
+    box-shadow: 0 2px 6px rgba(100, 100, 100, 0.41);
+    padding: 10px;
+}
+@media  (min-width: 992px) and (max-width:1000px){
+    .container{
+        width:100%;
+        overflow: hidden;
+    }
+    .row{
+        width:100%;
+        margin-right: 0;
+        margin-left: 0;
+    }
+}
+/*平板端特定样式*/
+@media  (max-width: 992px){
+    .container{
+        width:100%;
+        overflow: hidden;
+    }
+    .row{
+        width:100%;
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .register_progress{
+        width: 100%;
+    }
+}
+@media  (max-width: 768px){
+    .container{
+        width:100%;
+        overflow: hidden;
+    }
+    .register_progress{
+        width: 100%;
+        font-size: 15px;
+    }
+    form{
+        font-size: 12px;
+    }
+    .form-group{
+        line-height: 34px;
+    }
+    .action_tips{
+        width:95%;
+        margin-top:30px ;
+        vertical-align: top;
+        box-shadow: 0 2px 6px rgba(100, 100, 100, 0.41);
+        word-wrap:break-word;
+        padding-top:10px;
+        padding-bottom:10px;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    h5{
+        font-size: 12px;
+    }
+    .col-xs-12{
+        padding-right: 0;
+        padding-left: 0;
+    }
+}

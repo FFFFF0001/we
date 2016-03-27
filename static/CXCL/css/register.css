@@ -3,7 +3,6 @@
     padding-left: 0;
     padding-right: 0;
     margin-top: 20px;
-    overflow: hidden;
 }
 .register-welcome {
     position: relative;
@@ -22,13 +21,25 @@
     left: 0;
     top: 0;
 }
+.select-btn{
+	background-color: #02d055!important;
+	color:#fff;
+	text-align: center;
+	
+}
 .user_select{
-    margin: 40px 0 50px;
+    margin: 10px 0 50px;
 }
 .select{
     position: relative;
     width: 400px;
     border-radius: 5px;
+    padding:20px;
+    transition: border-bottom .3s ease-in,box-shadow .3s ease-in;
+}
+.select:hover{
+    box-shadow: 0 2px 6px rgba(100, 100, 100, 0.41);
+    border-bottom:5px solid #66c653;
 }
 .select_content{
     position: absolute;
@@ -38,10 +49,7 @@
 h6+button{
     float: right;
 }
-.select:hover{
-    box-shadow: 0 2px 6px rgba(100, 100, 100, 0.41);
-    border: 0;
-}
+
 
 /*平板特定样式*/
 @media  (max-width: 992px) {

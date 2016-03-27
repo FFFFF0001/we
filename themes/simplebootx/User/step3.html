@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>{$site_name}</title>
+		<meta name="keywords" content="{$site_seo_keywords}" />
+		<meta name="description" content="{$site_seo_description}">
+		<meta name="author" content="ThinkCMF">
+		<tc_include file="Public:head" />
+	</head>
+
+	<body class="body-white">
+		<tc_include file="Public:nav" />
+		<!--主体内容开始-->
+<div class="container">
+    <div class="row">
+        <div class="register_progress">
+            <div class="col-md-4 col-sm-4 col-xs-4 register_progress_1">完善资料
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-4 register_progress_1">验证邮箱
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-4 register_progress_1">注册成功
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="action_tips clearfix">
+            <span class="glyphicon glyphicon-ok img_tips pull-left"></span>
+            <div class="pull-left">
+                <h2>注册成功</h2>
+                <h5>
+                    <span class="bg-warning" id="countDown">5</span>
+                    秒后将自动跳转首页
+                </h5>
+                <button type="button" class="btn btn-success">立即跳转</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--主体内容结束-->
+		<script data-main="__TMPL__Public/js/code/step3.js" src="./node_modules/requirejs/require.js"></script>
+		<tc_include file="Public:scripts" />
+	</body>
+
+</html>

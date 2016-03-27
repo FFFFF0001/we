@@ -7,15 +7,15 @@
 -- Generation Time: 2016-03-17 09:36:37
 -- 服务器版本： 5.6.17
 -- PHP Version: 5.5.12
-=======
+
 -- version 4.2.11
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
 -- Generation Time: 2016-03-21 04:48:44
 -- 服务器版本： 5.6.21
--- PHP Version: 5.6.3
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+-- PHP Version: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -29,15 +29,15 @@ SET time_zone = "+00:00";
 --
 <<<<<<< HEAD
 -- Database: `2016sise`
-=======
--- Database: `db_mysise`
+
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+-- Database: `db_mysise`
 --
 
 -- --------------------------------------------------------
 
 --
-<<<<<<< HEAD
+
 -- 表的结构 `sise_ad`
 --
 CREATE DATABASE IF NOT EXISTS `2016sise`;
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `sise_ad` (
   PRIMARY KEY (`ad_id`),
   KEY `ad_name` (`ad_name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-=======
+
 -- 表的结构 `sise_activity`
 --
 
@@ -73,8 +73,8 @@ CREATE TABLE IF NOT EXISTS `sise_ad` (
   `ad_name` varchar(255) NOT NULL COMMENT '广告名称',
   `ad_content` text COMMENT '广告内容',
   `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态，1显示，0不显示'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -83,11 +83,7 @@ CREATE TABLE IF NOT EXISTS `sise_ad` (
 --
 
 CREATE TABLE IF NOT EXISTS `sise_asset` (
-<<<<<<< HEAD
   `aid` bigint(20) NOT NULL AUTO_INCREMENT,
-=======
-`aid` bigint(20) NOT NULL,
->>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
   `uid` int(11) NOT NULL DEFAULT '0' COMMENT '用户 id',
   `key` varchar(50) NOT NULL COMMENT '资源 key',
   `filename` varchar(50) DEFAULT NULL COMMENT '文件名',
@@ -97,14 +93,9 @@ CREATE TABLE IF NOT EXISTS `sise_asset` (
   `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态，1：可用，0：删除，不可用',
   `meta` text COMMENT '其它详细信息，JSON格式',
   `suffix` varchar(50) DEFAULT NULL COMMENT '文件后缀名，不包括点',
-<<<<<<< HEAD
   `download_times` int(11) NOT NULL DEFAULT '0' COMMENT '下载次数',
   PRIMARY KEY (`aid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='资源表' AUTO_INCREMENT=1 ;
-=======
-  `download_times` int(11) NOT NULL DEFAULT '0' COMMENT '下载次数'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='资源表';
->>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
 
 -- --------------------------------------------------------
 
@@ -115,13 +106,9 @@ CREATE TABLE IF NOT EXISTS `sise_asset` (
 CREATE TABLE IF NOT EXISTS `sise_auth_access` (
   `role_id` mediumint(8) unsigned NOT NULL COMMENT '角色',
   `rule_name` varchar(255) NOT NULL COMMENT '规则唯一英文标识,全小写',
-<<<<<<< HEAD
   `type` varchar(30) DEFAULT NULL COMMENT '权限规则分类，请加应用前缀,如admin_',
   KEY `role_id` (`role_id`),
   KEY `rule_name` (`rule_name`) USING BTREE
-=======
-  `type` varchar(30) DEFAULT NULL COMMENT '权限规则分类，请加应用前缀,如admin_'
->>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='权限授权表';
 
 -- --------------------------------------------------------
@@ -131,26 +118,17 @@ CREATE TABLE IF NOT EXISTS `sise_auth_access` (
 --
 
 CREATE TABLE IF NOT EXISTS `sise_auth_rule` (
-<<<<<<< HEAD
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT COMMENT '规则id,自增主键',
-=======
-`id` mediumint(8) unsigned NOT NULL COMMENT '规则id,自增主键',
->>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
   `module` varchar(20) NOT NULL COMMENT '规则所属module',
   `type` varchar(30) NOT NULL DEFAULT '1' COMMENT '权限规则分类，请加应用前缀,如admin_',
   `name` varchar(255) NOT NULL DEFAULT '' COMMENT '规则唯一英文标识,全小写',
   `param` varchar(255) DEFAULT NULL COMMENT '额外url参数',
   `title` varchar(20) NOT NULL DEFAULT '' COMMENT '规则中文描述',
   `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否有效(0:无效,1:有效)',
-<<<<<<< HEAD
   `condition` varchar(300) NOT NULL DEFAULT '' COMMENT '规则附加条件',
   PRIMARY KEY (`id`),
   KEY `module` (`module`,`status`,`type`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='权限规则表' AUTO_INCREMENT=162 ;
-=======
-  `condition` varchar(300) NOT NULL DEFAULT '' COMMENT '规则附加条件'
-) ENGINE=MyISAM AUTO_INCREMENT=162 DEFAULT CHARSET=utf8 COMMENT='权限规则表';
->>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
 
 --
 -- 转存表中的数据 `sise_auth_rule`
@@ -326,11 +304,7 @@ INSERT INTO `sise_auth_rule` (`id`, `module`, `type`, `name`, `param`, `title`, 
 --
 
 CREATE TABLE IF NOT EXISTS `sise_comments` (
-<<<<<<< HEAD
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-=======
-`id` bigint(20) unsigned NOT NULL,
->>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
   `post_table` varchar(100) NOT NULL COMMENT '评论内容所在表，不带表前缀',
   `post_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '评论内容 id',
   `url` varchar(255) DEFAULT NULL COMMENT '原文地址',
@@ -343,7 +317,6 @@ CREATE TABLE IF NOT EXISTS `sise_comments` (
   `type` smallint(1) NOT NULL DEFAULT '1' COMMENT '评论类型；1实名评论',
   `parentid` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '被回复的评论id',
   `path` varchar(500) DEFAULT NULL,
-<<<<<<< HEAD
   `status` smallint(1) NOT NULL DEFAULT '1' COMMENT '状态，1已审核，0未审核',
   PRIMARY KEY (`id`),
   KEY `comment_post_ID` (`post_id`),
@@ -352,10 +325,6 @@ CREATE TABLE IF NOT EXISTS `sise_comments` (
   KEY `table_id_status` (`post_table`,`post_id`,`status`),
   KEY `createtime` (`createtime`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='评论表' AUTO_INCREMENT=1 ;
-=======
-  `status` smallint(1) NOT NULL DEFAULT '1' COMMENT '状态，1已审核，0未审核'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='评论表';
->>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
 
 -- --------------------------------------------------------
 
@@ -364,24 +333,17 @@ CREATE TABLE IF NOT EXISTS `sise_comments` (
 --
 
 CREATE TABLE IF NOT EXISTS `sise_common_action_log` (
-<<<<<<< HEAD
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-=======
 `id` int(11) NOT NULL,
->>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
   `user` bigint(20) DEFAULT '0' COMMENT '用户id',
   `object` varchar(100) DEFAULT NULL COMMENT '访问对象的id,格式：不带前缀的表名+id;如posts1表示xx_posts表里id为1的记录',
   `action` varchar(50) DEFAULT NULL COMMENT '操作名称；格式规定为：应用名+控制器+操作名；也可自己定义格式只要不发生冲突且惟一；',
   `count` int(11) DEFAULT '0' COMMENT '访问次数',
   `last_time` int(11) DEFAULT '0' COMMENT '最后访问的时间戳',
-<<<<<<< HEAD
   `ip` varchar(15) DEFAULT NULL COMMENT '访问者最后访问ip',
   PRIMARY KEY (`id`),
   KEY `user_object_action` (`user`,`object`,`action`),
   KEY `user_object_action_ip` (`user`,`object`,`action`,`ip`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='访问记录表' AUTO_INCREMENT=1 ;
-=======
-  `ip` varchar(15) DEFAULT NULL COMMENT '访问者最后访问ip'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='访问记录表';
 
 -- --------------------------------------------------------
@@ -396,7 +358,6 @@ CREATE TABLE IF NOT EXISTS `sise_group` (
   `group_pcount` bigint(10) DEFAULT NULL COMMENT '小组人数',
   `group_topics` varchar(300) DEFAULT NULL COMMENT '小组话题'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
->>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
 
 -- --------------------------------------------------------
 
@@ -405,24 +366,15 @@ CREATE TABLE IF NOT EXISTS `sise_group` (
 --
 
 CREATE TABLE IF NOT EXISTS `sise_guestbook` (
-<<<<<<< HEAD
   `id` int(11) NOT NULL AUTO_INCREMENT,
-=======
-`id` int(11) NOT NULL,
->>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
   `full_name` varchar(50) NOT NULL COMMENT '留言者姓名',
   `email` varchar(100) NOT NULL COMMENT '留言者邮箱',
   `title` varchar(255) DEFAULT NULL COMMENT '留言标题',
   `msg` text NOT NULL COMMENT '留言内容',
   `createtime` datetime NOT NULL COMMENT '留言时间',
-<<<<<<< HEAD
   `status` smallint(2) NOT NULL DEFAULT '1' COMMENT '留言状态，1：正常，0：删除',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='留言表' AUTO_INCREMENT=1 ;
-=======
-  `status` smallint(2) NOT NULL DEFAULT '1' COMMENT '留言状态，1：正常，0：删除'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='留言表';
->>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
 
 -- --------------------------------------------------------
 
@@ -431,11 +383,7 @@ CREATE TABLE IF NOT EXISTS `sise_guestbook` (
 --
 
 CREATE TABLE IF NOT EXISTS `sise_links` (
-<<<<<<< HEAD
   `link_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-=======
-`link_id` bigint(20) unsigned NOT NULL,
->>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
   `link_url` varchar(255) NOT NULL COMMENT '友情链接地址',
   `link_name` varchar(255) NOT NULL COMMENT '友情链接名称',
   `link_image` varchar(255) DEFAULT NULL COMMENT '友情链接图标',
@@ -444,15 +392,10 @@ CREATE TABLE IF NOT EXISTS `sise_links` (
   `link_status` int(2) NOT NULL DEFAULT '1' COMMENT '状态，1显示，0不显示',
   `link_rating` int(11) NOT NULL DEFAULT '0' COMMENT '友情链接评级',
   `link_rel` varchar(255) DEFAULT NULL COMMENT '链接与网站的关系',
-<<<<<<< HEAD
   `listorder` int(10) NOT NULL DEFAULT '0' COMMENT '排序',
   PRIMARY KEY (`link_id`),
   KEY `link_visible` (`link_status`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='友情链接表' AUTO_INCREMENT=2 ;
-=======
-  `listorder` int(10) NOT NULL DEFAULT '0' COMMENT '排序'
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='友情链接表';
->>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
 
 --
 -- 转存表中的数据 `sise_links`
@@ -470,9 +413,9 @@ INSERT INTO `sise_links` (`link_id`, `link_url`, `link_name`, `link_image`, `lin
 CREATE TABLE IF NOT EXISTS `sise_menu` (
 <<<<<<< HEAD
   `id` smallint(6) unsigned NOT NULL AUTO_INCREMENT,
-=======
-`id` smallint(6) unsigned NOT NULL,
+
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+`id` smallint(6) unsigned NOT NULL,
   `parentid` smallint(6) unsigned NOT NULL DEFAULT '0',
   `app` char(20) NOT NULL COMMENT '应用名称app',
   `model` char(20) NOT NULL COMMENT '控制器',
@@ -490,10 +433,10 @@ CREATE TABLE IF NOT EXISTS `sise_menu` (
   KEY `parentid` (`parentid`),
   KEY `model` (`model`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='后台菜单表' AUTO_INCREMENT=162 ;
-=======
+
   `listorder` smallint(6) unsigned NOT NULL DEFAULT '0' COMMENT '排序ID'
-) ENGINE=MyISAM AUTO_INCREMENT=162 DEFAULT CHARSET=utf8 COMMENT='后台菜单表';
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+) ENGINE=MyISAM AUTO_INCREMENT=162 DEFAULT CHARSET=utf8 COMMENT='后台菜单表';
 
 --
 -- 转存表中的数据 `sise_menu`
@@ -671,9 +614,9 @@ INSERT INTO `sise_menu` (`id`, `parentid`, `app`, `model`, `action`, `data`, `ty
 CREATE TABLE IF NOT EXISTS `sise_nav` (
 <<<<<<< HEAD
   `id` int(11) NOT NULL AUTO_INCREMENT,
-=======
-`id` int(11) NOT NULL,
+
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+`id` int(11) NOT NULL,
   `cid` int(11) NOT NULL COMMENT '导航分类 id',
   `parentid` int(11) NOT NULL COMMENT '导航父 id',
   `label` varchar(255) NOT NULL COMMENT '导航标题',
@@ -686,10 +629,10 @@ CREATE TABLE IF NOT EXISTS `sise_nav` (
   `path` varchar(255) NOT NULL DEFAULT '0' COMMENT '层级关系',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='前台导航表' AUTO_INCREMENT=4 ;
-=======
+
   `path` varchar(255) NOT NULL DEFAULT '0' COMMENT '层级关系'
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='前台导航表';
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='前台导航表';
 
 --
 -- 转存表中的数据 `sise_nav`
@@ -714,13 +657,13 @@ CREATE TABLE IF NOT EXISTS `sise_nav_cat` (
   `remark` text COMMENT '备注',
   PRIMARY KEY (`navcid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='前台导航分类表' AUTO_INCREMENT=2 ;
-=======
+
 `navcid` int(11) NOT NULL,
   `name` varchar(255) NOT NULL COMMENT '导航分类名',
   `active` int(1) NOT NULL DEFAULT '1' COMMENT '是否显示，1显示，0不显示',
   `remark` text COMMENT '备注'
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='前台导航分类表';
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='前台导航分类表';
 
 --
 -- 转存表中的数据 `sise_nav_cat`
@@ -738,9 +681,9 @@ INSERT INTO `sise_nav_cat` (`navcid`, `name`, `active`, `remark`) VALUES
 CREATE TABLE IF NOT EXISTS `sise_oauth_user` (
 <<<<<<< HEAD
   `id` int(20) NOT NULL AUTO_INCREMENT,
-=======
-`id` int(20) NOT NULL,
+
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+`id` int(20) NOT NULL,
   `from` varchar(20) NOT NULL COMMENT '用户来源key',
   `name` varchar(30) NOT NULL COMMENT '第三方昵称',
   `head_img` varchar(200) NOT NULL COMMENT '头像',
@@ -756,10 +699,10 @@ CREATE TABLE IF NOT EXISTS `sise_oauth_user` (
   `openid` varchar(40) NOT NULL COMMENT '第三方用户id',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='第三方用户表' AUTO_INCREMENT=1 ;
-=======
+
   `openid` varchar(40) NOT NULL COMMENT '第三方用户id'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='第三方用户表';
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='第三方用户表';
 
 -- --------------------------------------------------------
 
@@ -776,13 +719,13 @@ CREATE TABLE IF NOT EXISTS `sise_options` (
   PRIMARY KEY (`option_id`),
   UNIQUE KEY `option_name` (`option_name`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='全站配置表' AUTO_INCREMENT=3 ;
-=======
+
 `option_id` bigint(20) unsigned NOT NULL,
   `option_name` varchar(64) NOT NULL COMMENT '配置名',
   `option_value` longtext NOT NULL COMMENT '配置值',
   `autoload` int(2) NOT NULL DEFAULT '1' COMMENT '是否自动加载'
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='全站配置表';
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='全站配置表';
 
 --
 -- 转存表中的数据 `sise_options`
@@ -796,7 +739,7 @@ INSERT INTO `sise_options` (`option_id`, `option_name`, `option_value`, `autoloa
 
 --
 <<<<<<< HEAD
-=======
+
 -- 表的结构 `sise_organization`
 --
 
@@ -812,17 +755,17 @@ CREATE TABLE IF NOT EXISTS `sise_organization` (
 
 -- --------------------------------------------------------
 
---
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+--
 -- 表的结构 `sise_plugins`
 --
 
 CREATE TABLE IF NOT EXISTS `sise_plugins` (
 <<<<<<< HEAD
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
-=======
-`id` int(11) unsigned NOT NULL COMMENT '自增id',
+
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+`id` int(11) unsigned NOT NULL COMMENT '自增id',
   `name` varchar(50) NOT NULL COMMENT '插件名，英文',
   `title` varchar(50) NOT NULL DEFAULT '' COMMENT '插件名称',
   `description` text COMMENT '插件描述',
@@ -838,10 +781,10 @@ CREATE TABLE IF NOT EXISTS `sise_plugins` (
   `listorder` smallint(6) NOT NULL DEFAULT '0' COMMENT '排序',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='插件表' AUTO_INCREMENT=1 ;
-=======
+
   `listorder` smallint(6) NOT NULL DEFAULT '0' COMMENT '排序'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='插件表';
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='插件表';
 
 -- --------------------------------------------------------
 
@@ -852,9 +795,9 @@ CREATE TABLE IF NOT EXISTS `sise_plugins` (
 CREATE TABLE IF NOT EXISTS `sise_posts` (
 <<<<<<< HEAD
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-=======
-`id` bigint(20) unsigned NOT NULL,
+
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+`id` bigint(20) unsigned NOT NULL,
   `post_author` bigint(20) unsigned DEFAULT '0' COMMENT '发表者id',
   `post_keywords` varchar(150) NOT NULL COMMENT 'seo keywords',
   `post_source` varchar(150) DEFAULT NULL COMMENT '转载文章的来源',
@@ -882,10 +825,10 @@ CREATE TABLE IF NOT EXISTS `sise_posts` (
   KEY `post_author` (`post_author`),
   KEY `post_date` (`post_date`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Portal文章表' AUTO_INCREMENT=1 ;
-=======
+
   `recommended` tinyint(1) NOT NULL DEFAULT '0' COMMENT '推荐 1推荐 0不推荐'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Portal文章表';
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Portal文章表';
 
 -- --------------------------------------------------------
 
@@ -896,9 +839,9 @@ CREATE TABLE IF NOT EXISTS `sise_posts` (
 CREATE TABLE IF NOT EXISTS `sise_role` (
 <<<<<<< HEAD
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-=======
-`id` int(11) unsigned NOT NULL,
+
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+`id` int(11) unsigned NOT NULL,
   `name` varchar(20) NOT NULL COMMENT '角色名称',
   `pid` smallint(6) DEFAULT NULL COMMENT '父角色ID',
   `status` tinyint(1) unsigned DEFAULT NULL COMMENT '状态',
@@ -911,10 +854,10 @@ CREATE TABLE IF NOT EXISTS `sise_role` (
   KEY `parentId` (`pid`),
   KEY `status` (`status`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='角色表' AUTO_INCREMENT=2 ;
-=======
+
   `listorder` int(3) NOT NULL DEFAULT '0' COMMENT '排序字段'
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='角色表';
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='角色表';
 
 --
 -- 转存表中的数据 `sise_role`
@@ -935,9 +878,9 @@ CREATE TABLE IF NOT EXISTS `sise_role_user` (
   `user_id` int(11) DEFAULT '0' COMMENT '用户id',
   KEY `group_id` (`role_id`),
   KEY `user_id` (`user_id`)
-=======
-  `user_id` int(11) DEFAULT '0' COMMENT '用户id'
+
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+  `user_id` int(11) DEFAULT '0' COMMENT '用户id'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户角色对应表';
 
 -- --------------------------------------------------------
@@ -955,14 +898,14 @@ CREATE TABLE IF NOT EXISTS `sise_route` (
   `status` tinyint(1) DEFAULT '1' COMMENT '状态，1：启用 ;0：不启用',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='url路由表' AUTO_INCREMENT=1 ;
-=======
+
 `id` int(11) NOT NULL COMMENT '路由id',
   `full_url` varchar(255) DEFAULT NULL COMMENT '完整url， 如：portal/list/index?id=1',
   `url` varchar(255) DEFAULT NULL COMMENT '实际显示的url',
   `listorder` int(5) DEFAULT '0' COMMENT '排序，优先级，越小优先级越高',
   `status` tinyint(1) DEFAULT '1' COMMENT '状态，1：启用 ;0：不启用'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='url路由表';
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='url路由表';
 
 -- --------------------------------------------------------
 
@@ -973,9 +916,9 @@ CREATE TABLE IF NOT EXISTS `sise_route` (
 CREATE TABLE IF NOT EXISTS `sise_slide` (
 <<<<<<< HEAD
   `slide_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-=======
-`slide_id` bigint(20) unsigned NOT NULL,
+
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+`slide_id` bigint(20) unsigned NOT NULL,
   `slide_cid` int(11) NOT NULL COMMENT '幻灯片分类 id',
   `slide_name` varchar(255) NOT NULL COMMENT '幻灯片名称',
   `slide_pic` varchar(255) DEFAULT NULL COMMENT '幻灯片图片',
@@ -988,10 +931,10 @@ CREATE TABLE IF NOT EXISTS `sise_slide` (
   PRIMARY KEY (`slide_id`),
   KEY `slide_cid` (`slide_cid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='幻灯片表' AUTO_INCREMENT=1 ;
-=======
+
   `listorder` int(10) DEFAULT '0' COMMENT '排序'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='幻灯片表';
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='幻灯片表';
 
 -- --------------------------------------------------------
 
@@ -1009,14 +952,14 @@ CREATE TABLE IF NOT EXISTS `sise_slide_cat` (
   PRIMARY KEY (`cid`),
   KEY `cat_idname` (`cat_idname`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='幻灯片分类表' AUTO_INCREMENT=1 ;
-=======
+
 `cid` int(11) NOT NULL,
   `cat_name` varchar(255) NOT NULL COMMENT '幻灯片分类',
   `cat_idname` varchar(255) NOT NULL COMMENT '幻灯片分类标识',
   `cat_remark` text COMMENT '分类备注',
   `cat_status` int(2) NOT NULL DEFAULT '1' COMMENT '状态，1显示，0不显示'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='幻灯片分类表';
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='幻灯片分类表';
 
 -- --------------------------------------------------------
 
@@ -1027,9 +970,9 @@ CREATE TABLE IF NOT EXISTS `sise_slide_cat` (
 CREATE TABLE IF NOT EXISTS `sise_terms` (
 <<<<<<< HEAD
   `term_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '分类id',
-=======
-`term_id` bigint(20) unsigned NOT NULL COMMENT '分类id',
+
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+`term_id` bigint(20) unsigned NOT NULL COMMENT '分类id',
   `name` varchar(200) DEFAULT NULL COMMENT '分类名称',
   `slug` varchar(200) DEFAULT '',
   `taxonomy` varchar(32) DEFAULT NULL COMMENT '分类类型',
@@ -1047,10 +990,10 @@ CREATE TABLE IF NOT EXISTS `sise_terms` (
   `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态，1发布，0不发布',
   PRIMARY KEY (`term_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='Portal 文章分类表' AUTO_INCREMENT=3 ;
-=======
+
   `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态，1发布，0不发布'
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Portal 文章分类表';
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Portal 文章分类表';
 
 --
 -- 转存表中的数据 `sise_terms`
@@ -1076,7 +1019,7 @@ CREATE TABLE IF NOT EXISTS `sise_term_relationships` (
   PRIMARY KEY (`tid`),
   KEY `term_taxonomy_id` (`term_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Portal 文章分类对应表' AUTO_INCREMENT=1 ;
-=======
+
 `tid` bigint(20) NOT NULL,
   `object_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT 'posts表里文章id',
   `term_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '分类id',
@@ -1097,8 +1040,8 @@ CREATE TABLE IF NOT EXISTS `sise_topic` (
   `author` varchar(60) DEFAULT NULL COMMENT '作者',
   `praise_count` int(11) DEFAULT NULL COMMENT '点赞人数',
   `group` varchar(10) DEFAULT NULL COMMENT '来自小组'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1109,9 +1052,9 @@ CREATE TABLE IF NOT EXISTS `sise_topic` (
 CREATE TABLE IF NOT EXISTS `sise_users` (
 <<<<<<< HEAD
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-=======
-`id` bigint(20) unsigned NOT NULL,
+
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+`id` bigint(20) unsigned NOT NULL,
   `user_login` varchar(60) NOT NULL DEFAULT '' COMMENT '用户名',
   `user_pass` varchar(64) NOT NULL DEFAULT '' COMMENT '登录密码；sp_password加密',
   `user_nicename` varchar(50) NOT NULL DEFAULT '' COMMENT '用户美名',
@@ -1135,12 +1078,12 @@ CREATE TABLE IF NOT EXISTS `sise_users` (
   KEY `user_login_key` (`user_login`),
   KEY `user_nicename` (`user_nicename`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='用户表' AUTO_INCREMENT=2 ;
-=======
+
   `skill` varchar(100) DEFAULT '' COMMENT '用户擅长',
   `volunteer_time` varchar(60) DEFAULT NULL COMMENT '志愿时间',
   `volunteer_area` varchar(60) DEFAULT NULL COMMENT '服务区域'
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='用户表';
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='用户表';
 
 --
 -- 转存表中的数据 `sise_users`
@@ -1149,10 +1092,10 @@ CREATE TABLE IF NOT EXISTS `sise_users` (
 <<<<<<< HEAD
 INSERT INTO `sise_users` (`id`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `avatar`, `sex`, `birthday`, `signature`, `last_login_ip`, `last_login_time`, `create_time`, `user_activation_key`, `user_status`, `score`, `user_type`, `coin`, `mobile`) VALUES
 (1, 'admin', '###42e0497c116c196efa8dbabdc11a8569', 'admin', 'haiku888@foxmail.com', '', NULL, 0, NULL, NULL, '0.0.0.0', '2016-03-17 04:34:21', '2016-03-17 04:34:21', '', 1, 0, 1, 0, '');
-=======
+
 INSERT INTO `sise_users` (`id`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `avatar`, `sex`, `birthday`, `signature`, `last_login_ip`, `last_login_time`, `create_time`, `user_activation_key`, `user_status`, `score`, `user_type`, `coin`, `mobile`, `skill`, `volunteer_time`, `volunteer_area`) VALUES
-(1, 'admin', '###42e0497c116c196efa8dbabdc11a8569', 'admin', 'haiku888@foxmail.com', '', NULL, 0, NULL, NULL, '0.0.0.0', '2016-03-17 04:34:21', '2016-03-17 04:34:21', '', 1, 0, 1, 0, '', '', NULL, NULL);
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+(1, 'admin', '###42e0497c116c196efa8dbabdc11a8569', 'admin', 'haiku888@foxmail.com', '', NULL, 0, NULL, NULL, '0.0.0.0', '2016-03-17 04:34:21', '2016-03-17 04:34:21', '', 1, 0, 1, 0, '', '', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1163,9 +1106,9 @@ INSERT INTO `sise_users` (`id`, `user_login`, `user_pass`, `user_nicename`, `use
 CREATE TABLE IF NOT EXISTS `sise_user_favorites` (
 <<<<<<< HEAD
   `id` int(11) NOT NULL AUTO_INCREMENT,
-=======
-`id` int(11) NOT NULL,
+
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+`id` int(11) NOT NULL,
   `uid` bigint(20) DEFAULT NULL COMMENT '用户 id',
   `title` varchar(255) DEFAULT NULL COMMENT '收藏内容的标题',
   `url` varchar(255) DEFAULT NULL COMMENT '收藏内容的原文地址，不带域名',
@@ -1178,7 +1121,7 @@ CREATE TABLE IF NOT EXISTS `sise_user_favorites` (
   KEY `uid` (`uid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户收藏表' AUTO_INCREMENT=1 ;
 
-=======
+
   `createtime` int(11) DEFAULT NULL COMMENT '收藏时间'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户收藏表';
 
@@ -1866,8 +1809,8 @@ MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 -- AUTO_INCREMENT for table `sise_user_favorites`
 --
 ALTER TABLE `sise_user_favorites`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 >>>>>>> 05f58d71bd31926cb9c686557e1b104e783e0b68
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
