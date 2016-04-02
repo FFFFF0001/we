@@ -72,7 +72,13 @@ class PublicController extends AdminbaseController {
     				
     				if( $result["id"]!=1 && ( empty($groups) || empty($result['user_status']) ) ){
     					$this->error(L('USE_DISABLED'));
-    				}
+    				}else if($result['user_status']==2){
+                                                    $this->error("尚未验证邮箱，请先验证邮箱");
+                                            }else if($result['user_status']==3){
+                                                $this->error("审核中，请等待管理员审核");
+                                            }else if($result['user_status']==4){
+                                                $this->error('你尚未通过审核，若有疑问请联系管理员');
+                                            }
     				//登入成功页面跳转
     				$_SESSION["ADMIN_ID"]=$result["id"];
     				$_SESSION['name']=$result["user_login"];

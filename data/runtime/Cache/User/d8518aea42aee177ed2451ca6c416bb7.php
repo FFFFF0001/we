@@ -192,33 +192,6 @@
 </div>
 
 		<div class="container tc-main">
-			<div class="row">
-				<div class="span4 offset4">
-					<h2 class="text-center">忘记密码</h2>
-					<form class="form-horizontal js-ajax-form" action="<?php echo U('user/login/doforgot_password');?>" method="post">
-						<div class="control-group">
-							<input type="email" id="input_email" name="email" class="span4" placeholder="注册邮箱">
-						</div>
-
-						<div class="control-group">
-							<div class="span4" style="margin-left: 0px">
-								<input type="text" id="input_verify" name="verify" placeholder="验证码" style="width:252px;"> <?php echo sp_verifycode_img('length=4&font_size=14&width=100&height=34&charset=1234567890&use_noise=1&use_curve=0');?>
-							</div>
-						</div>
-
-						<div class="control-group">
-							<button class="btn btn-primary js-ajax-submit span4" type="submit" style="margin-left: 0px;">确定</button>
-						</div>
-
-						<div class="control-group" style="text-align: center;">
-							<ul class="inline">
-								<li><a href="<?php echo U('user/register/index');?>">现在注册</a></li>
-								<li><a href="<?php echo U('user/login/index');?>">现在登录</a></li>
-							</ul>
-						</div>
-					</form>
-				</div>
-			</div>
 
 			<!--修改密码界面开始-->
 			<div id="reset-wrapper">
@@ -226,8 +199,7 @@
 					<span class="glyphicon glyphicon-lock tit-icon"></span>
 					<p class="tit">重置密码</p>
 				</div>
-
-				<form class="col-xs-12 col-md-5 col-md-offset-1" id="resetFm">
+				<form class="col-xs-12 col-md-5 col-md-offset-1 js-ajax-form" id="resetFm" action="<?php echo U('user/login/doforgot_password');?>" method="post">
 					<div class="form-group fmItem">
 						<label for="email" class="col-md-3 col-xs-3 lb-clear-right">登录邮箱:</label>
 						<div class="col-md-9 col-xs-9">
@@ -238,14 +210,14 @@
 
 						<label for="verify" class="col-md-3 col-xs-3 lb-clear-right">验证码:</label>
 						<div class="col-md-9 col-xs-9">
-							<input type="text" class="form-control" id="verify" name="email" placeholder="请输入右边的验证码" />
+							<input type="text" class="form-control" id="verify" name="verify"/>
 							<span class="verfiy">
 		<?php echo sp_verifycode_img('length=4&font_size=14&width=100&height=34&charset=1345678&use_noise=1&use_curve=0');?>
                                    </span>
 						</div>
 					</div>
 					<div class="form-group fmItem col-md-12 col-md-offset-2 col-xs-offset-1">
-						<button type="button" id="btn-sb">
+						<button type="submit" class="js-ajax-submit" id="btn-sb">
 							<a href="#">
 								发送重置密码邮件
 							</a>

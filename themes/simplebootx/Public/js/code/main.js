@@ -28,6 +28,3 @@ require(['jquery','bootstrap','login'], function($,bs,login) {
     })
 });
 
-function aj(url,data){
-//	$.post(url,,data,function(data){})
-}

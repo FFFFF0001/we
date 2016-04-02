@@ -64,8 +64,6 @@ define(['jquery'], function($) {
 		var e = /@/;
 		if (isTrimAndNull(str)) {
 			showError(idName,"用户名不能为空");
-		}else if(e.test(str) || isEmail(str)){
-			showError(idName,"邮箱格式不正确");
 		}else{
 			cancelError(idName);
 			return true;

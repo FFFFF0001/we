@@ -279,6 +279,9 @@ hello;
         //exit();
         if(!empty($result)){
             if(sp_compare_password($password, $result['user_pass'])|| $ucenter_login_ok){
+            	if($result['user_status']==2){
+            		$this->error("邮箱账号尚未激活，请上邮箱激活重试");
+            	}
                 $_SESSION["user"]=$result;
                 //写入此次登录信息
                 $data = array(

@@ -1,0 +1,63 @@
+[ 2016-04-01T16:54:21+08:00 ] ::1 /2016Sise/index.php?g=user&m=login&a=doforgot_password
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `sise_options` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `sise_options` WHERE ( option_name='site_options' ) LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2016-04-01T16:54:25+08:00 ] ::1 /2016Sise/index.php?g=user&m=login&a=doforgot_password
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+
+[ 2016-04-01T16:54:31+08:00 ] ::1 /2016Sise/index.php?g=user&m=login&a=doforgot_password
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+
+[ 2016-04-01T16:54:35+08:00 ] ::1 /2016Sise/index.php?g=user&m=login&a=doforgot_password
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-04-01T16:54:39+08:00 ] ::1 /2016Sise/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005000s ]
+NOTIC: [8] Undefined index: url D:\wamp\www\2016Sise\application\Common\Controller\AppframeController.class.php 第 24 行.
+
+[ 2016-04-01T16:54:52+08:00 ] ::1 /2016Sise/index.php?g=user&m=login&a=doforgot_password
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `sise_users` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `sise_users` WHERE `user_email` = 'organ@qq.com' LIMIT 1   [ RunTime:0.0000s ]
+SQL: UPDATE `sise_users` SET `user_activation_key`='657e5b6d3259d76450c5eb538bf73690' WHERE `id` = '14' [ RunTime:0.0000s ]
+NOTIC: [2] fsockopen():  D:\wamp\www\2016Sise\simplewind\Lib\Util\class.smtp.php 第 135 行.
+
+[ 2016-04-01T17:02:52+08:00 ] ::1 /2016Sise/index.php?g=user&m=login&a=doforgot_password
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `sise_users` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `sise_users` WHERE `user_email` = 'organ@qq.com' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `sise_users` SET `user_activation_key`='9c4bfa5409b53fe176c61ec3d68939f5' WHERE `id` = '14' [ RunTime:0.0010s ]
+NOTIC: [2] fsockopen():  D:\wamp\www\2016Sise\simplewind\Lib\Util\class.smtp.php 第 135 行.
+
+[ 2016-04-01T18:38:15+08:00 ] ::1 /2016Sise/index.php?g=user&m=login&a=doforgot_password
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004001s ]
+SQL: SHOW COLUMNS FROM `sise_users` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `sise_users` WHERE `user_email` = 'organ@qq.com' LIMIT 1   [ RunTime:0.0000s ]
+SQL: UPDATE `sise_users` SET `user_activation_key`='0b0633d665d6cb74f570d63ed709bbd0' WHERE `id` = '14' [ RunTime:0.0000s ]
+NOTIC: [2] fsockopen():  D:\wamp\www\2016Sise\simplewind\Lib\Util\class.smtp.php 第 135 行.
+
