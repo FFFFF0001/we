@@ -673,7 +673,80 @@ function sp_send_email($address,$subject,$message){
 		return array("error"=>0,"message"=>"success");
 	}
 }
+/**sendcloud注册用户
+**/
+function sp_sendcloud_register($address,$subject,$sendUrl){
+    $url = 'http://sendcloud.sohu.com/webapi/mail.send_template.json';
 
+        $vars = json_encode( array("to" => array($address),
+                                   "sub" => array('%username%' => array($address),
+                                                        "%url%"=>array($sendUrl))
+                                   )
+                );
+
+        $API_USER = 'haiku_test_Zacen2';
+        $API_KEY = 'Az5Yy6ggWpmczq9e';
+        $param = array(
+            'api_user' => $API_USER, # 使用api_user和api_key进行验证
+            'api_key' => $API_KEY,
+            'from' => 'admin@sise.com', # 发信人，用正确邮件地址替代
+            'fromname' => '志愿者官方团队',
+            'substitution_vars' => $vars,
+            'template_invoke_name' => 'user_active',
+            'subject' => $subject
+        );
+        
+
+        $data = http_build_query($param);
+
+        $options = array(
+            'http' => array(
+                'method' => 'POST',
+                'header' => 'Content-Type: application/x-www-form-urlencoded',
+                'content' => $data
+        ));
+        $context  = stream_context_create($options);
+        $result = file_get_contents($url, FILE_TEXT, $context);
+
+        return $result;
+}
+/**sendcloud找回密码
+**/
+function sp_sendcloud_reset($address,$subject,$sendUrl){
+    $url = 'http://sendcloud.sohu.com/webapi/mail.send_template.json';
+
+        $vars = json_encode( array("to" => array($address),
+                                   "sub" => array('%username%' => array($address),
+                                                        "%url%"=>array($sendUrl))
+                                   )
+                );
+
+        $API_USER = 'haiku_test_Zacen2';
+        $API_KEY = 'Az5Yy6ggWpmczq9e';
+        $param = array(
+            'api_user' => $API_USER, # 使用api_user和api_key进行验证
+            'api_key' => $API_KEY,
+            'from' => 'admin@sise.com', # 发信人，用正确邮件地址替代
+            'fromname' => '志愿者官方团队',
+            'substitution_vars' => $vars,
+            'template_invoke_name' => 'user_reset',
+            'subject' => $subject
+        );
+        
+
+        $data = http_build_query($param);
+
+        $options = array(
+            'http' => array(
+                'method' => 'POST',
+                'header' => 'Content-Type: application/x-www-form-urlencoded',
+                'content' => $data
+        ));
+        $context  = stream_context_create($options);
+        $result = file_get_contents($url, FILE_TEXT, $context);
+
+        return $result;
+}
 /**
  * 转化数据库保存的文件路径，为可以访问的url
  * @param string $file
@@ -1769,4 +1842,161 @@ function sp_delete_physics_img($imglist){
     }
     
     return $res;
+}
+
+/**小组封面为空的处理
+ * @param $arr 查询结果数组
+ * @return mixed返回处理后的数组
+ */
+function NullGroupCover($arr){
+	foreach ($arr as $key => $item) {
+		if (is_array($item)) { //二维
+			if (empty($item['group_cover'])) {
+
+				$arr[$key]['group_cover']="default_tupian4.png";
+			}
+		}else{ //一维
+			if (empty($arr['group_cover'])) {
+				$arr['group_cover']="default_tupian4.png";
+			}
+
+		}
+	}
+	return $arr;
+}
+/**话题封面为空的处理
+ * @param $arr 查询结果数组
+ * @return mixed返回处理后的数组
+ */
+function NullTopicCover($arr){
+	foreach ($arr as $key => $item) {
+		if (is_array($item)) { //二维
+			if (empty($item['topic_cover'])) {
+
+				$arr[$key]['topic_cover']="default.jpeg";
+			}
+		}else{ //一维
+			if (empty($arr['topic_cover'])) {
+				$arr['topic_cover']="default.jpeg";
+			}
+
+		}
+	}
+	return $arr;
+}
+/**活动封面为空的处理
+ * @param $arr 查询结果数组
+ * @return mixed返回处理后的数组
+ */
+function NullActivityCover($arr){
+	foreach ($arr as $key => $item) {
+		if (is_array($item)) { //二维
+			if (empty($item['cover'])) {
+
+				$arr[$key]['cover']="cover.jpeg";
+			}
+		}else{ //一维
+			if (empty($arr['cover'])) {
+				$arr['cover']="cover.jpeg";
+			}
+		}
+	}
+	return $arr;
+}
+/**用户头像为空的处理
+ * @param $arr 查询结果数组
+ * @return mixed返回处理后的数组
+ */
+function UserAvatar($arr)
+{
+	foreach ($arr as $key=> $item) {
+		if (is_array($item)) { //二维
+			if (empty($item['avatar'])) {
+
+				$arr[$key]['avatar']="user_default.png";
+			}
+		}else { //一维
+			if (empty($arr['avatar'])) {
+				$arr['avatar'] = "user_default.png";
+			}
+
+		}
+
+	}
+	return $arr;
+}
+
+/**内容xx字以外的用省略号代替
+ * @param $arr 要处理的数组
+ * @param $ziduan 所在字段
+ * @param $strLen 限制长度
+ * @return mixed
+ */
+function substring($arr,$ziduan,$strLen){
+	foreach ($arr as $key => $item) {
+
+		$af = strip_tags($item[$ziduan]);
+
+		if (strlen($af) > $strLen) {
+			$arr[$key][$ziduan] = substr($af, 0, $strLen)."...";
+		}else{
+			$arr[$key][$ziduan] = $af;
+		}
+	}
+
+	return $arr;
+}
+/**参数加密
+ **/
+function StrCode($string,$action='ENCODE',$key=''){
+	$string.="";
+	$action != 'ENCODE' && $string = base64_decode($string);
+	$code = '';
+	$key  = substr(md5($key),8,18);
+	$keylen = strlen($key); $strlen = strlen($string);
+	for ($i=0;$i<$strlen;$i++) {
+		$k		= $i % $keylen;
+		$code  .= $string[$i] ^ $key[$k];
+	}
+	return ($action!='DECODE' ? base64_encode($code) : $code);
+}
+/**构建url 多层筛选
+ * @param $arr需要的参数
+ */
+function getUrl($arr,$str=null){
+	$_url = $_SERVER['REQUEST_URI'];
+	$_par = parse_url($_url);
+
+	if (isset($_par['query'])) {
+		parse_str($_par['query'],$_query);
+		$_url = $_par['path'] . "?" . http_build_query($_query);
+	}
+
+	$str = empty($str)==true?$_par['path']:$str;
+
+	$keyArr = [];$valueArr = [];
+
+	$explodePara = explode("&", $_par['query']);
+
+	foreach ($explodePara as $key => $value) {
+		$paramKey = explode("=", $value)[0];
+		array_push($keyArr, $paramKey);
+		$paramVal = explode("=", $value)[1];
+		array_push($valueArr, $paramVal);
+	}
+	//当前url参数数组
+	$allParam = array_combine($keyArr, $valueArr);
+
+	$noRepeat = array_merge($allParam, $arr);
+
+	$count = 0;
+	foreach ($noRepeat as $key => $value) {
+		if($count==0){
+			$str .= "?".$key."=".$value;
+		}else{
+			$str .= "&".$key."=".$value;
+		}
+		$count++;
+	}
+	return $str;
 }

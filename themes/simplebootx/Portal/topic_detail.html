@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>{$site_name}</title>
+		<meta name="keywords" content="{$site_seo_keywords}" />
+		<meta name="description" content="{$site_seo_description}">
+		<meta name="author" content="CXCL工作室">
+		<tc_include file="Public:head" />
+
+		<link rel="stylesheet" type="text/css" href="Public/css/topic_detail.css" />
+	</head>
+
+	<body>
+		<tc_include file="Public:nav" />
+		<div class="content ">
+			<div class="container center-block" id="topic_detail_container">
+				<div class="row">
+					<div class="center-block" id="topic-info">
+						<div class="row">
+							<h3 class="t-topic-title">{$details.topic_title}</h3>
+							<div class="col-md-1 col-xs-1">
+								<img src="{:sp_get_asset_upload_path(avatar)."/".$details['avatar']}" class="img-rounded center-block" width="50" height="50">
+							</div>
+							<div class="col-md-11 col-xs-11" id="info_in_head">
+								<strong>
+                    <a>{$details.user_nicename}</a>
+                </strong>
+								<p>
+									<span class="time">发于:{$details.topic_create}</span>
+									<span><a><span class="icon_like_alt"></span> {$details.zan_count}</a>
+									</span>
+									<span><a><span class="icon_chat"></span> {$details.comment_count}</a>
+									</span>
+								</p>
+							</div>
+						</div>
+					</div>
+					<!--左-->
+					<div class="col-md-9 col-xs-12" id="left">
+						<!--话题内容-->
+						<div id="left_topic" class="">
+							{$details.topic_content}
+						</div>
+						<!--评论区-->
+						<div id="talk">
+							{:Comments("topic",$details['topic_id'])}
+							<!--评论区结束-->
+						</div>
+						<!--讨论区结束-->
+
+					</div>
+					<!--右-->
+					<div class="col-md-3 col-xs-12" id="right">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">话题来自</h3>
+							</div>
+							<div class="panel-body">
+								<div class="iteam">
+									<div class="iteam-head">
+
+										<div class="info">
+
+											<div>
+												<php>
+													$group_cover = sp_get_asset_upload_path("cover/".$details['group_cover']);
+												</php>
+												<img src="{$group_cover}" width="50" height="50" alt="小组封面头像" />
+												<strong class="group-name">
+                                            		<a>{$details.group_name}</a>
+                                        		</strong>
+												<p class="r-grp-num">
+													<span aria-hidden="true" class="icon_group"></span> {$details.group_total}
+													<span aria-hidden="true" class="icon_chat"></span> {$details.chat_count}
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="clearfix" id="r-topic-">
+										<!--判断是否加入小组开始-->
+										<if condition="$joinStatus eq true">
+											<a href="{:U('Portal/topic/topicadd',array('group_id'=>$details['group_id']))}">
+												<button class="btn btn-default pull-left">发言</button>
+											</a> 
+											<else />
+											<a href="{:U('Portal/group/join_group',array('id'=>$details['group_id']))}">
+												<button class="btn btn-default pull-left">加入小组</button>
+											</a> 
+										</if>
+										<!--判断是否加入小组结束-->
+										
+										<button class="btn btn-default pull-right">在线聊天</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h5>最新话题</h5>
+							</div>
+							<ul class="list-group">
+								<foreach name="latelyTops" item="vo">
+									<li class="list-group-item clearfix lately-tp">
+										<a href="{:U('topic_detail',array('topic_id'=>$vo['topic_id']))}">
+											<h5>{$vo.topic_title}</h5>
+											<p class="r-tp-nd">
+												<span class="pull-left label label-default">{$details.group_name}</span></span>
+												<span class="badge pull-right">{$details.topic_create}</span>
+											</p>
+										</a>
+									</li>
+								</foreach>
+
+							</ul>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<tc_include file="Public:footer" />
+
+		</div>
+		<!-- /container -->
+
+		<tc_include file="Public:scripts" />
+		<script data-main="./public/js/self/topic.js" src="./node_modules/requirejs/require.js"></script>
+	</body>
+
+</html>

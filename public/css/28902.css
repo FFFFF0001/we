@@ -1,5 +1,6 @@
 .pn-head{
-    background-color:#519747!important;
+    background-color:#2d974d!important;
+    border: none!important;
 }
 .cluster{
     border-bottom:1px solid #dddddd;
@@ -54,4 +55,22 @@ textarea{
     background-color: #5cb85c;
     font-size:20px;
     float:left;
+}
+#AddFile1,#AddFile2{
+	background: url(../images/add.png);
+	width: 60px;
+	height: 60px;
+	margin: 10px;
+	padding:0;
+}
+.AddPic{
+	width: 100%;
+	height: 100%;
+}
+.showpic{
+	float:left;
+	margin-top: 10px;
+}
+.showpic .preview{
+	border:none;
 }

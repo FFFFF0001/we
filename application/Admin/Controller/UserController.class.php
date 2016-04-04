@@ -178,7 +178,6 @@ class UserController extends AdminbaseController{
     		$this->error('数据传入失败！');
     	}
     }
-	
-	
-	
+
+
 }

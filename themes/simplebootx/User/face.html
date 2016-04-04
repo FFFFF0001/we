@@ -1,72 +1,79 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>{$site_name}</title>
-<meta name="keywords" content="{$site_seo_keywords}" />
-<meta name="description" content="{$site_seo_description}">
-<meta name="author" content="CXCL工作室">
-<tc_include file="Public:head" />
-</head>
 
-<body>
-	 <tc_include file="Public:nav" /> 
-		
+	<head>
+		<title>{$site_name}</title>
+		<meta name="keywords" content="{$site_seo_keywords}" />
+		<meta name="description" content="{$site_seo_description}">
+		<meta name="author" content="CXCL工作室">
+		<tc_include file="Public:head" />
+		<link href="Public/css/info.css" rel="stylesheet">
+		<link href="Public/css/cropper-demo.css" rel="stylesheet">
+		<link href="Public/css/cropper.css" rel="stylesheet">
+		<link href="Public/css/face.css" rel="stylesheet">
+	</head>
 
+	<body>
+		<tc_include file="Public:nav" />
+		<!--主内容开始-->
+		<div class="container">
+			<div class="row">
+				<tc_include file="Public:topfunav" />
+			</div>
+			<div class="row">
+				<tc_include file="Public:leftbar" />
 
-<!--主内容开始-->
-<div class="container">
-    <div class="row">
-        <tc_include file="Public:topfunav" /> 
-    </div>
-    <div class="row">
-        <tc_include file="Public:leftbar" />
-        
-        <!--菜单项内容开始-->
-        <div class="col-md-10 col-sm-10 col-xs-12 content_right">
-            <!--头像修改开始-->
-            <form method="post" action="#" enctype="multipart/form-data" id="cropper_form">
-                <p>
-                    <button class="btn-upload btn-lg">选择图片</button>
-                    <input type="file" name="avatar"  id="image_input"/>
-                    支持格式: JPG, PNG
-                </p>
-                <div class="row">
-                    <div class="preview-container">
-                        <div class="col-sm-6 col-xs-12">
-                                <img class="img-responsive" id="cropper-target" src="" alt="Picture" width="300px" height="300px">
-                        </div>
-                        <div class="show col-sm-6 col-xs-12">
-                                <div class="row">
-                                    <div class="col-sm-6 col-xs-6">
-                                        <div class="preview"></div>
-                                        <p>large</p>
-                                    </div>
-                                    <div class="col-sm-4 col-xs-4">
-                                        <div class="preview"></div>
-                                        <p>medium</p>
-                                    </div>
-                                    <div class="col-sm-2 col-xs-2">
-                                        <div class="preview"></div>
-                                        <p>small</p>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-                </div>
+				<!--菜单项内容开始-->
+				<div class="col-md-10 col-sm-10 col-xs-12 content_right">
+					<!--头像修改开始-->
+					<form method="post" action="#" enctype="multipart/form-data" id="cropper_form">
+						<p>
+							<button class="btn-upload btn-lg">选择图片</button>
+							<input type="file" name="avatar" id="image_input" /> 支持格式: JPG, PNG
+						</p>
+						<div class="row">
+							<div class="preview-container">
+								<div class="col-sm-6 col-xs-12">
+									<img class="img-responsive" id="cropper-target" src="./public/images/404.jpg" alt="Picture" width="300px" height="300px">
+								</div>
+								<div class="show col-sm-6 col-xs-12">
+									<div class="row">
+										<div class="col-sm-6 col-xs-6">
+											<div class="preview"></div>
+											<p>large</p>
+										</div>
+										<div class="col-sm-4 col-xs-4">
+											<div class="preview"></div>
+											<p>medium</p>
+										</div>
+										<div class="col-sm-2 col-xs-2">
+											<div class="preview"></div>
+											<p>small</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 
-                <button type="button" class="btn-lg up" id="button" data-toggle="modal">提交</button>
-            </form>
-            
-        </div>
-    </div>
-</div>
-<!--主内容结束-->
+						<button type="button" class="btn-lg up" id="button" data-toggle="modal">提交</button>
+					</form>
 
+				</div>
+			</div>
+		</div>
+		<!--主内容结束-->
 
-		<tc_include file="Public:footer" /> 
+		<tc_include file="Public:footer" />
 
-<script data-main="./public/js/self/face.js" src="./node_modules/requirejs/require.js"></script>
-	<tc_include file="Public:scripts" />
-</body>
+		<script type="text/javascript">
+			//全局变量
+			var GV = {
+				DIMAUB: "",
+				JS_ROOT: "__PUBLIC__/js/",
+				TOKEN: ""
+			};
+		</script>
+		<script data-main="./public/js/self/face.js" src="./node_modules/requirejs/require.js"></script>
+	</body>
+
 </html>
-

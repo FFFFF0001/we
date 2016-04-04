@@ -25,7 +25,7 @@
     <![endif]-->
 <link rel="icon" href="Public/images/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="Public/images/favicon.ico" type="image/x-icon">
-<!-- <link href="/2016Sise/themes/simplebootx/Public/simpleboot/themes/simplebootx/theme.min.css" rel="stylesheet"> -->
+ <!--<link href="/2016Sise/themes/simplebootx/Public/simpleboot/themes/simplebootx/theme.min.css" rel="stylesheet">--> 
 <!-- <link href="/2016Sise/themes/simplebootx/Public/simpleboot/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet"> -->
 <link href="/2016Sise/themes/simplebootx/Public/simpleboot/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href="Public/simpleboot/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -37,22 +37,21 @@
 <link href="/2016Sise/themes/simplebootx/Public/css/User/login.css" rel="stylesheet">
 <link href="/2016Sise/themes/simplebootx/Public/css/User/header.css" rel="stylesheet">
 <link href="/2016Sise/themes/simplebootx/Public/css/footer.css" rel="stylesheet">
-<link href="/2016Sise/themes/simplebootx/Public/css/User/register.css" rel="stylesheet">
 <link href="/2016Sise/themes/simplebootx/Public/css/User/step.css" rel="stylesheet">
 <link href="/2016Sise/themes/simplebootx/Public/css/User/forgot_password.css" rel="stylesheet">
-<link href="/2016Sise/themes/simplebootx/Public/css/Portal/group-detail.css" rel="stylesheet">
-<link href="/2016Sise/themes/simplebootx/Public/css/Portal/topicadd.css" rel="stylesheet">
-<link href="Public/css/topic.css" rel="stylesheet">
-<link href="Public/css/group.css" rel="stylesheet">
-<link href="Public/css/reset.css" rel="stylesheet">
-<link href="Public/css/pullToRefresh.css" rel="stylesheet">
-<link href="Public/css/style.css" rel="stylesheet">
-<link href="Public/css/info.css" rel="stylesheet">
-<link href="Public/css/28902.css" rel="stylesheet">
-	<link href="Public/css/person_info.css" rel="stylesheet">
-		<link href="Public/css/authentication.css" rel="stylesheet">
-<link href="Public/css/update_pwd.css" rel="stylesheet">
-	<link href="Public/css/face.css" rel="stylesheet">
+	<link href="Public/css/style.css" rel="stylesheet">
+
+<!--<link href="Public/css/reset.css" rel="stylesheet">
+-->
+<link href="Public/css/normalize.css" rel="stylesheet">
+<!--<link href="Public/css/info.css" rel="stylesheet">-->
+<!--<link href="Public/css/28902.css" rel="stylesheet">-->
+<!--<link href="Public/css/person_info.css" rel="stylesheet">-->
+<!---->
+<!--<link href="Public/css/update_pwd.css" rel="stylesheet">-->
+<!---->
+<script src="Public/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+<script src="Public/js/self/lib/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 <style>
 	/*html{filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(1);}*/
 	
@@ -80,70 +79,92 @@
 		font-family: "微软雅黑";
 	}
 </style>
+		<link href="/2016Sise/themes/simplebootx/Public/css/Portal/group-detail.css" rel="stylesheet">
 	</head>
 
 	<body class="body-white">
 		<?php echo hook('body_start');?>
 <div class="">
 	<!--通用头部开始-->
-					<div id="header" class="header">
-						<div class="header-box center-block">
-							<!--上部为logo和搜索-->
-							<div class="header-up">
-								<a href="#" class="header-logo"></a>
-								<div class="header-search">
-									<form class="navbar-form  hidden-xs" role="search">
-										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Search">
-										</div>
-										<button type="submit" class="btn btn-default">搜索</button>
-									</form>
-									<!--隐藏的用户链接，搜索链接-->
-									<a data-toggle="collapse" href="#cl">
-										<span class="glyphicon glyphicon-user hidden-lg hidden-md hidden-sm"></span>
-									</a>
-									<a data-toggle="collapse" href="#cl1" id="search">
-										<span class="glyphicon glyphicon-search hidden-lg hidden-md hidden-sm"></span>
-									</a>
-								</div>
-							</div>
-							
-
-
-							<!--下部为导航栏-->
-							<nav class="navbar navbar-static-top nav-tabs" role="navigation">
-								<!--向左对齐-->
-								<?php $effected_id=""; $filetpl="<a href='\$href' target='\$target'>\$label</a>"; $ul_class="nav nav-item navbar-left" ; $li_class="" ; $style="nav nav-item navbar-left"; $dropdown='dropdown'; ?>
-<?php echo sp_get_menu("main",$effected_id,$filetpl,$foldertpl,$ul_class,$li_class,$style,$showlevel,$dropdown);?>
-								<!--向右对齐-->
-								<ul class="nav nav-pills navbar-right hidden-xs" id="collapse">
-									<li><a href="#">切换城市</a></li>
-									<li><a href="<?php echo U('User/login/index');?>">登陆注册</a></li>
-									<li><a href="<?php echo U('User/setting/info');?>">个人中心</a></li>
-								</ul>
-							</nav>
+	<div id="header" class="header">
+		<div class="header-box center-block">
+			<!--上部为logo和搜索-->
+			<div class="header-up">
+				<a href="#" class="header-logo"></a>
+				<div class="header-search">
+					<form class="navbar-form  hidden-xs" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search">
 						</div>
-					</div>
-					<!--通用头部结束-->
-					<!--折叠个人资料菜单-->
-					<div class="collapse _hide " id="cl">
-						<a class="head"></a>
-						<label>laoergege</label>
-						<label class="pull-right" style="color: #888888;font-size: small">常居地：广州</label>
-						<span class="glyphicon glyphicon-chevron-right link"></span>
-					</div>
-					<div class="collapse" id="cl1">
-						<div id="demo">
-							<div class="list-group">
-								<a href="#" class="list-group-item active">Item 1</a>
-								<a href="#" class="list-group-item">Item 1</a>
-								<a href="#" class="list-group-item">Item 3</a>
-								<a href="#" class="list-group-item">Item 4</a>
-								<a href="#" class="list-group-item">Item 5</a> ...
-							</div>
-						</div>
-					</div>
-					<!--折叠菜单结束-->
+						<button type="submit" class="btn btn-default">搜索</button>
+					</form>
+					<!--隐藏的用户链接，搜索链接-->
+					<a data-toggle="collapse" href="#cl">
+						<span class="glyphicon glyphicon-user hidden-lg hidden-md hidden-sm"></span>
+					</a>
+					<a data-toggle="collapse" href="#cl1" id="search">
+						<span class="glyphicon glyphicon-search hidden-lg hidden-md hidden-sm"></span>
+					</a>
+				</div>
+			</div>
+
+			<!--下部为导航栏-->
+			<nav class="navbar navbar-static-top nav-tabs" role="navigation">
+				<!--向左对齐-->
+				<?php $effected_id=""; $filetpl="
+					<a href='\$href' target='\$target'>\$label</a>"; $ul_class="nav nav-item navbar-left" ; $li_class="" ; $style="nav nav-item navbar-left"; $dropdown='dropdown'; ?>
+				<?php echo sp_get_menu("main",$effected_id,$filetpl,$foldertpl,$ul_class,$li_class,$style,$showlevel,$dropdown);?>
+				<!--向右对齐-->
+				<ul class="nav nav-pills navbar-right hidden-xs" id="collapse">
+					<li><a href="#">切换城市</a></li>
+					<li class="dropdown">
+						<?php if(sp_is_user_login() == false): ?><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								<img src="/2016Sise/themes/simplebootx//Public/images/headicon.png" class="headicon" />登录
+								<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="<?php echo leuu('user/login/index');?>"><i class="fa fa-sign-in"></i> &nbsp;登录</a></li>
+								<li><a href="<?php echo leuu('user/register/index');?>"><i class="fa fa-user"></i> &nbsp;注册</a></li>
+							</ul>
+							<?php else: ?>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								<?php $avatar = sp_get_current_user()['avatar'] ?>
+								<?php if(empty($avatar) == true): ?><img src="/2016Sise/themes/simplebootx//Public/images/headicon.png" class="headicon" />
+									<?php else: ?>
+									<img width="30" height="30" src="<?php echo sp_get_asset_upload_path('avatar/').$avatar;?>" class="headicon" /><?php endif; ?>
+
+								<?php echo sp_get_current_user()['user_login'] ?>
+								<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="<?php echo U('User/setting/info');?>"><i class="fa fa-user"></i> &nbsp;个人中心</a></li>
+								<li><a href="<?php echo U('user/index/logout');?>"><i class="fa fa-sign-out"></i> &nbsp;退出</a></li>
+							</ul><?php endif; ?>
+					</li>
+				</ul>
+
+			</nav>
+
+		</div>
+	</div>
+	<!--通用头部结束-->
+	<!--折叠个人资料菜单-->
+	<div class="collapse _hide " id="cl">
+		<a class="head"></a>
+		<label>laoergege</label>
+		<label class="pull-right" style="color: #888888;font-size: small">常居地：广州</label>
+		<span class="glyphicon glyphicon-chevron-right link"></span>
+	</div>
+	<div class="collapse" id="cl1">
+		<div id="demo">
+			<div class="list-group">
+				<a href="#" class="list-group-item active">Item 1</a>
+				<a href="#" class="list-group-item">Item 1</a>
+				<a href="#" class="list-group-item">Item 3</a>
+				<a href="#" class="list-group-item">Item 4</a>
+				<a href="#" class="list-group-item">Item 5</a> ...
+			</div>
+		</div>
+	</div>
+	<!--折叠菜单结束-->
 </div>
 		<!--小组详情界面开始-->
 		<div class="container">
@@ -159,12 +180,17 @@
 								<div class="left">
 									<img width="70px" src="<?php echo ($groupMes["group_cover"]); ?>" title="小组头像" alt="小组头像">
 								</div>
-								<div class="right">
-									<h4>趣公益</h4>
+								<div class="cover-r-msg">
+									<h4><?php echo ($groupMes["group_name"]); ?></h4>
 									<p>
-										<span class="glyphicon glyphicon-user">1111人</span>
-										<span class="glyphicon glyphicon-align-right">1234个</span>
-										<span><button type="button" class="text icon_join">加入小组</button></span>
+										<span class="glyphicon glyphicon-user"><?php echo ($groupMes["group_total"]); ?>人</span>
+										<span class="glyphicon glyphicon-align-right"><?php echo ($groupMes["chat_count"]); ?>个</span>
+										<span>
+										<?php if($joinStatus == true): ?><button type="button" class="btn-exit text icon_join" data-action="<?php echo U('exit_group',array('id'=>I('group_id')));?>">退出小组</button>
+											<?php else: ?>
+												<button type="button" class="btn-join text icon_join" data-action="<?php echo U('join_group',array('id'=>I('group_id')));?>">加入小组</button><?php endif; ?>
+										
+										</span>
 									</p>
 								</div>
 							</div>
@@ -195,7 +221,7 @@
 										<th class="col-xs-1 t-count">回应</th>
 									</tr>
 									<?php if(is_array($topicMsg)): foreach($topicMsg as $key=>$vo): ?><tr>
-											<td class="col-xs-7 t-content"><a href=""><?php echo ($vo["topic_title"]); ?></a>
+											<td class="col-xs-7 t-content"><a href="<?php echo U('topic/topic_detail',array('topic_id'=>$vo['topic_id']));?>"><?php echo ($vo["topic_title"]); ?></a>
 
 											</td>
 											<td class="col-xs-4 t-nicename"><?php echo ($vo["user_nicename"]); ?></td>
@@ -216,70 +242,30 @@
 										小组成员
 									</h5>
 							<div class="team_user">
-								<a href="#">
-									<img width="50px" src="./data/upload/group_avatar/user_02.jpg"><br>user
-								</a>
-								<a href="#">
-									<img width="50px" src="./data/upload/group_avatar/user_02.jpg"><br>user
-								</a>
-								<a href="#">
-									<img width="50px" src="./data/upload/group_avatar/user_02.jpg"><br>user
-								</a>
-								<a href="#">
-									<img width="50px" src="./data/upload/group_avatar/user_02.jpg"><br>user
-								</a>
-								<a href="#">
-									<img width="50px" src="./data/upload/group_avatar/user_02.jpg"><br>user
-								</a>
-								<a href="#">
-									<img width="50px" src="./data/upload/group_avatar/user_02.jpg"><br>user
-								</a>
-								<a href="#">
-									<img width="50px" src="./data/upload/group_avatar/user_02.jpg"><br>user
-								</a>
-								<a href="#">
-									<img width="50px" src="./data/upload/group_avatar/user_02.jpg"><br>user
-								</a>
+								<?php if(is_array($member)): foreach($member as $key=>$vo): ?><a href="#">
+										<img width="50" height="50" title="小组成员头像" alt="小组成员头像" src="<?php echo sp_get_asset_upload_path(avatar)."/".$vo['avatar'];?>"><br><?php echo ($vo['user_login']); ?>
+									</a><?php endforeach; endif; ?>
+								
+								
 							</div>
 
 							<h5 class="team_title">组员们想去的小组</h5>
 							<div class="team_recommend">
 								<ul>
-									<li>
-										<a href="#">
+									<?php if(is_array($wants)): foreach($wants as $key=>$voo): ?><li class="recommend-l">
+										
 											<div class="left">
-												<img width="45px" src="./data/upload/group_avatar/education.jpeg" />
+												<img width="45px" src="<?php echo sp_get_asset_upload_path('group_avatar').'/'.$voo['group_cover'];?>" />
 											</div>
 											<div class="right">
-												<h5>公益案例</h5>
-												<p>123个组员</p>
+												<a href="#"><h5><?php echo ($voo["group_name"]); ?></h5></a>
+												<p><?php echo ($voo["group_total"]); ?>个组员</p>
 											</div>
-										</a>
-									</li>
-
-									<li>
-										<a href="#">
-											<div class="left">
-												<img width="45px" src="./data/upload/group_avatar/education.jpeg" />
-											</div>
-											<div class="right">
-												<h5>公益案例</h5>
-												<p>123个组员</p>
-											</div>
-										</a>
-									</li>
-
-									<li>
-										<a href="#">
-											<div class="left">
-												<img width="45px" src="./data/upload/group_avatar/education.jpeg" />
-											</div>
-											<div class="right">
-												<h5>公益案例</h5>
-												<p>123个组员</p>
-											</div>
-										</a>
-									</li>
+											<p class="group-msg-show" style="display: none;">
+												<?php echo ($voo["group_introduce"]); ?>
+											</p>
+										
+									</li><?php endforeach; endif; ?>
 								</ul>
 							</div>
 
@@ -367,7 +353,6 @@ var GV = {
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="/2016Sise/public/js/jquery.js"></script>
     <script src="/2016Sise/public/js/wind.js"></script>
-    <script src="/2016Sise/themes/simplebootx/Public/simpleboot/bootstrap/js/bootstrap.min.js"></script>
     <script src="/2016Sise/public/js/frontend.js"></script>
 	<script>
 	$(function(){
@@ -430,6 +415,7 @@ var GV = {
 	</script>
 
 
+		<script data-main="./public/js/self/group_detail.js" src="./node_modules/requirejs/require.js"></script>
 	</body>
 
 </html>

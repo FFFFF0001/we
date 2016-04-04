@@ -1,83 +1,105 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>{$site_name}</title>
-<meta name="keywords" content="{$site_seo_keywords}" />
-<meta name="description" content="{$site_seo_description}">
-<meta name="author" content="CXCL工作室">
-<tc_include file="Public:head" />
-</head>
-<body class="body-white" id="top">
-	<tc_include file="Public:nav" />
 
-		<div class="container tc-main">
-                <div class="row">
-                    <div class="span3">
-	                    <tc_include file="Public:usernav"/>
-                    </div>
-                    <div class="span9">
-                           <div class="tabs">
-                               <ul class="nav nav-tabs">
-                                   <li class="active"><a href="#one" data-toggle="tab"><i class="fa fa-list-alt"></i> 修改资料</a></li>
-                               </ul>
-                               <div class="tab-content">
-                                   <div class="tab-pane active" id="one">
-                                   		<form class="form-horizontal js-ajax-form" action="{:U('profile/edit_post')}" method="post">
-                                   			<div class="control-group">
-                                   				<label class="control-label" for="input-user_nicename">昵称</label>
-                                   				<div class="controls">
-                                   					<input type="text" id="input-user_nicename" placeholder="昵称" name="user_nicename" value="{$user_nicename}">
-                                   				</div>
-                                   			</div>
-                                   			<div class="control-group">
-                                   				<label class="control-label" for="input-sex">性别</label>
-                                   				<div class="controls">
-                                   					<php>
-	                                   				$sexs=array("0"=>"保密","1"=>"程序猿","2"=>"程序媛");
-	                                   				</php>
-                                   					<select id="input-sex" name="sex">
+	<head>
+		<title>{$site_name}</title>
+		<meta name="keywords" content="{$site_seo_keywords}" />
+		<meta name="description" content="{$site_seo_description}">
+		<meta name="author" content="CXCL工作室">
+		<tc_include file="Public:head" />
+		<link href="Public/css/person_info.css" rel="stylesheet">
+	</head>
+
+	<body>
+		<tc_include file="Public:nav" />
+
+		<!--主内容开始-->
+		<div class="container">
+			<div class="row">
+				<tc_include file="Public:topfunav" />
+			</div>
+			<div class="row">
+				<tc_include file="Public:leftbar" />
+				<!--菜单项内容开始-->
+				<div class="col-md-10 col-sm-9 col-xs-12 content_right">
+					<!--资料表单-->
+					<div class="row">
+						<div class="col-md-5 col-sm-5 col-xs-9">
+							<h4>认证信息</h4>
+							<h6>目前状态：<span>未认证</span> 通过认证才能获得志愿时数
+                    </h6>
+						</div>
+						<div class="col-md-7 col-sm-8 col-xs-3">
+							<a href="{:U('User/setting/authentication')}">
+								<button type="button" class="btn btn-success">马上认证</button>
+							</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-7 col-sm-8 col-xs-12">
+							<div>
+								<h4>基本资料</h4>
+							</div>
+							<form id="edit-form" class="form-horizontal js-ajax-form" id="form" action="{:U('profile/edit_post')}" method="post">
+								<div class="form-group">
+									<label class="control-label col-md-3 col-sm-3 col-xs-3 control-label" for="name">昵称</label>
+									<div class="col-md-9 col-sm-9 col-xs-9">
+										<input type="text" class="form-control" id="name" data-toggle="popover" placeholder="昵称" name="user_nicename" value="{$user_nicename}">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 col-sm-3 col-xs-3 control-label" for="input-sex">性别</label>
+									<div class="col-md-9 col-sm-9 col-xs-9">
+										<php>
+											$sexs=array("0"=>"保密","1"=>"程序猿","2"=>"程序媛");
+										</php>
+										<select id="input-sex" name="sex" class="form-control">
                                    						<foreach name="sexs" item="vo">
                                    						<php>$sexselected=$key==$sex?"selected":"";</php>
                                    							<option value="{$key}" {$sexselected}>{$vo}</option>
                                    						</foreach>
                                    					</select>
-                                   				</div>
-                                   			</div>
-                                   			<div class="control-group">
-                                   				<label class="control-label" for="input-birthday">生日</label>
-                                   				<div class="controls">
-                                   					<input class="js-date" type="text" id="input-birthday" placeholder="2013-01-04" name="birthday" value="{$birthday}">
-                                   				</div>
-                                   			</div>
-                                   			<div class="control-group">
-                                   				<label class="control-label" for="input-user_url">个人网址</label>
-                                   				<div class="controls">
-                                   					<input type="text" id="input-user_url" placeholder="http://CXCL工作室.com" name="user_url" value="{$user_url}">
-                                   				</div>
-                                   			</div>
-                                   			<div class="control-group">
-                                   				<label class="control-label" for="input-signature">个性签名</label>
-                                   				<div class="controls">
-                                   					<textarea id="input-signature" placeholder="个性签名" name="signature">{$signature}</textarea>
-                                   				</div>
-                                   			</div>
-                                   			<div class="control-group">
-                                   				<div class="controls">
-                                   					<button type="submit" class="btn js-ajax-submit">保存</button>
-                                   				</div>
-                                   			</div>
-                                   		</form>
-                                   </div>
-                               </div>							
-                           </div>
-                    </div>
-                </div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 col-sm-3 col-xs-3 control-label" for="birthday">生日</label>
+									<div class="col-md-9 col-sm-9 col-xs-9">
+										<input class="js-date form-control" type="text" id="birthday" placeholder="1996-01-04" name="birthday" value="{$birthday}">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="phone" class="col-md-3 col-sm-3 col-xs-3 control-label">联系方式:</label>
+									<div class="col-md-9 col-sm-9 col-xs-9">
+										<input type="text" class="form-control" id="phone" name="phone" placeholder="请填写你的手机号码或固话" value="{$mobile}">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="col-md-3 col-sm-3 col-xs-3 control-label" for="input-signature">个性签名</label>
+									<div class="col-md-9 col-sm-9 col-xs-9">
+										<textarea id="input-signature" class="form-control" placeholder="个性签名" name="signature">{$signature}</textarea>
+									</div>
+								</div>
+								<div class="control-group">
+									<div class="controls">
+										<button type="submit" id="edit-save" class="btn btn-lg js-ajax-submit col-xs-offset-3 col-sm-offset-9" disabled="disabled">保存</button>
+									</div>
+								</div>
+							</form>
+							
+						</div>
+
+					</div>
+				</div>
+				<!--菜单项内容结束-->
+
+			</div>
+		</div>
+		<!--主内容结束-->
 
 		<tc_include file="Public:footer" />
 
-	</div>
-	<!-- /container -->
+		<script data-main="./public/js/self/info.js" src="./node_modules/requirejs/require.js"></script>
+		<tc_include file="Public:scripts" />
+	</body>
 
-	<tc_include file="Public:scripts" />
-</body>
 </html>

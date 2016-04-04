@@ -2,9 +2,11 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/application/Adminadd/Controller/TopicController.class.php" line="98" />
+    <bookmark url="file://$PROJECT_DIR$/application/Portal/Controller/ActivityController.class.php" line="117" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3740cad1-88cc-4f94-82ee-b5caa1412874" name="默认的" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/Portal/Controller/ActivityController.class.php" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.htaccess" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/Document.url" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/Nginx.conf" afterPath="" />
@@ -24,128 +26,92 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/application/Install/View/step4.html" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/application/Install/View/step5.html" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/config.yaml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Cache/Admin/17c864e00f937e6528a86826c496ba3b.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Cache/Admin/195a6b5bd2176cc8896e43e3b4b6c328.php" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Cache/Admin/1d8e9778fe0dab03dad959c0b1e354b2.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Cache/Admin/9665658563526d6dce89c51549f3ef9a.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Cache/Admin/ed9e50b199c6f1799df02480e8584135.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Cache/Admin/50614a2b3b13f61218805e44b3b35834.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Cache/Admin/9354ae9d04713a1a1dfef03da02b33a2.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Cache/Admin/d885eabd40027199da890d24fd398b40.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Cache/Admin/e878ac14a40716fe586d6e9966ff8bb1.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Cache/Adminadd/50614a2b3b13f61218805e44b3b35834.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Cache/Adminadd/a6d345beaaf02e430f7f0cb7cfbe2236.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Cache/Portal/b9a36cdd531c69670a8f79052c5cac0c.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Cache/User/19267b554a5496fd86913ea93dcf1fcd.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Cache/User/50cd822e1879a5c303f4b0d0d0408631.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Cache/User/72846e910102b5d417c32d9b38557204.php" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Cache/User/7a507532bc4f8208ac1ef496e04371d4.php" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Cache/User/b3a905803f09baea04f284efbdd3c5f6.php" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Cache/User/d8518aea42aee177ed2451ca6c416bb7.php" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Logs/Admin/16_04_01.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Logs/Admin/16_04_11.log" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Logs/Adminadd/16_04_02.log" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Logs/Portal/16_03_27.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Logs/Portal/16_04_11.log" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Logs/User/16_03_27.log" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Logs/User/16_04_01.log" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Logs/User/16_04_02.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Logs/User/16_04_11.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Logs/User/16_04_12.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/runtime/Logs/User/16_04_13.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/upload/avatar/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/upload/group_avatar/user_02.jpg" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/we" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.project" afterPath="$PROJECT_DIR$/.project" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/themes/simplebootx/Admin/Main/index.html" afterPath="$PROJECT_DIR$/admin/themes/simplebootx/Admin/Main/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/themes/simplebootx/Admin/Menu/add.html" afterPath="$PROJECT_DIR$/admin/themes/simplebootx/Admin/Menu/add.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/themes/simplebootx/Admin/Menu/edit.html" afterPath="$PROJECT_DIR$/admin/themes/simplebootx/Admin/Menu/edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/themes/simplebootx/Admin/Plugin/index.html" afterPath="$PROJECT_DIR$/admin/themes/simplebootx/Admin/Plugin/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/themes/simplebootx/Admin/Storage/index.html" afterPath="$PROJECT_DIR$/admin/themes/simplebootx/Admin/Storage/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/themes/simplebootx/Admin/User/userinfo.html" afterPath="$PROJECT_DIR$/admin/themes/simplebootx/Admin/User/userinfo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/themes/simplebootx/Admin/boot/index.html" afterPath="$PROJECT_DIR$/admin/themes/simplebootx/Admin/boot/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/themes/simplebootx/Admin/login.html" afterPath="$PROJECT_DIR$/admin/themes/simplebootx/Admin/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/themes/simplebootx/Portal/AdminPage/add.html" afterPath="$PROJECT_DIR$/admin/themes/simplebootx/Portal/AdminPage/add.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/themes/simplebootx/Public/assets/css/admin_login.css" afterPath="$PROJECT_DIR$/admin/themes/simplebootx/Public/assets/css/admin_login.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Admin/Controller/BackupController.class.php" afterPath="$PROJECT_DIR$/application/Admin/Controller/BackupController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Admin/Controller/MailerController.class.php" afterPath="$PROJECT_DIR$/application/Admin/Controller/MailerController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Admin/Controller/MainController.class.php" afterPath="$PROJECT_DIR$/application/Admin/Controller/MainController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Admin/Controller/PublicController.class.php" afterPath="$PROJECT_DIR$/application/Admin/Controller/PublicController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Admin/Menu/admin_setting.php" afterPath="$PROJECT_DIR$/application/Admin/Menu/admin_setting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Adminadd/Controller/OrgController.class.php" afterPath="$PROJECT_DIR$/application/Adminadd/Controller/OrgController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Api/Controller/OauthController.class.php" afterPath="$PROJECT_DIR$/application/Api/Controller/OauthController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Api/Controller/OauthadminController.class.php" afterPath="$PROJECT_DIR$/application/Api/Controller/OauthadminController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Api/Controller/PluginController.class.php" afterPath="$PROJECT_DIR$/application/Api/Controller/PluginController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Common/Behavior/InitHookBehavior.class.php" afterPath="$PROJECT_DIR$/application/Common/Behavior/InitHookBehavior.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Common/Behavior/TmplStripSpaceBehavior.class.php" afterPath="$PROJECT_DIR$/application/Common/Behavior/TmplStripSpaceBehavior.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Admin/Controller/UserController.class.php" afterPath="$PROJECT_DIR$/application/Admin/Controller/UserController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Comment/Controller/CommentController.class.php" afterPath="$PROJECT_DIR$/application/Comment/Controller/CommentController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Common/Common/function.php" afterPath="$PROJECT_DIR$/application/Common/Common/function.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Common/Controller/HomebaseController.class.php" afterPath="$PROJECT_DIR$/application/Common/Controller/HomebaseController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Common/Lib/Plugin.class.php" afterPath="$PROJECT_DIR$/application/Common/Lib/Plugin.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Common/Lib/iAuth.class.php" afterPath="$PROJECT_DIR$/application/Common/Lib/iAuth.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Portal/Common/function.php" afterPath="$PROJECT_DIR$/application/Portal/Common/function.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Portal/Controller/AdminPageController.class.php" afterPath="$PROJECT_DIR$/application/Portal/Controller/AdminPageController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Portal/Controller/AdminPostController.class.php" afterPath="$PROJECT_DIR$/application/Portal/Controller/AdminPostController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Portal/Controller/AdminTermController.class.php" afterPath="$PROJECT_DIR$/application/Portal/Controller/AdminTermController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Portal/Controller/ArticleController.class.php" afterPath="$PROJECT_DIR$/application/Portal/Controller/ArticleController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Portal/Controller/GroupController.class.php" afterPath="$PROJECT_DIR$/application/Portal/Controller/GroupController.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Portal/Controller/IndexController.class.php" afterPath="$PROJECT_DIR$/application/Portal/Controller/IndexController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Portal/Controller/ListController.class.php" afterPath="$PROJECT_DIR$/application/Portal/Controller/ListController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Portal/Controller/PageController.class.php" afterPath="$PROJECT_DIR$/application/Portal/Controller/PageController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Portal/Controller/SearchController.class.php" afterPath="$PROJECT_DIR$/application/Portal/Controller/SearchController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Portal/Lib/Taglib/Portal.class.php" afterPath="$PROJECT_DIR$/application/Portal/Lib/Taglib/Portal.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Portal/Controller/TopicController.class.php" afterPath="$PROJECT_DIR$/application/Portal/Controller/TopicController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Portal/Model/GroupModel.class.php" afterPath="$PROJECT_DIR$/application/Portal/Model/GroupModel.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/User/Controller/IndexController.class.php" afterPath="$PROJECT_DIR$/application/User/Controller/IndexController.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/User/Controller/LoginController.class.php" afterPath="$PROJECT_DIR$/application/User/Controller/LoginController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/User/Menu/admin_indexadmin.php" afterPath="$PROJECT_DIR$/application/User/Menu/admin_indexadmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/conf/2016sise.sql" afterPath="$PROJECT_DIR$/data/conf/2016sise.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/conf/config.php" afterPath="$PROJECT_DIR$/data/conf/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/runtime/Cache/Admin/14f39110225aa98f9efb6f2af8c5253a.php" afterPath="$PROJECT_DIR$/data/runtime/Cache/Admin/14f39110225aa98f9efb6f2af8c5253a.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/runtime/Cache/Admin/195a6b5bd2176cc8896e43e3b4b6c328.php" afterPath="$PROJECT_DIR$/data/runtime/Cache/Admin/195a6b5bd2176cc8896e43e3b4b6c328.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/runtime/Cache/Admin/92f738679a8b52d9d9d6545eeacc3b7f.php" afterPath="$PROJECT_DIR$/data/runtime/Cache/Admin/92f738679a8b52d9d9d6545eeacc3b7f.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/runtime/Cache/Admin/d885eabd40027199da890d24fd398b40.php" afterPath="$PROJECT_DIR$/data/runtime/Cache/Admin/d885eabd40027199da890d24fd398b40.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/runtime/Cache/Adminadd/50614a2b3b13f61218805e44b3b35834.php" afterPath="$PROJECT_DIR$/data/runtime/Cache/Adminadd/50614a2b3b13f61218805e44b3b35834.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/runtime/Cache/Admin/9665658563526d6dce89c51549f3ef9a.php" afterPath="$PROJECT_DIR$/data/runtime/Cache/Admin/9665658563526d6dce89c51549f3ef9a.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/runtime/Cache/Admin/ed9e50b199c6f1799df02480e8584135.php" afterPath="$PROJECT_DIR$/data/runtime/Cache/Admin/ed9e50b199c6f1799df02480e8584135.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/runtime/Cache/Portal/0d70a7f8dc766abf71bb2f72a8a287c8.php" afterPath="$PROJECT_DIR$/data/runtime/Cache/Portal/0d70a7f8dc766abf71bb2f72a8a287c8.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/runtime/Cache/Portal/17170de5e4d663c37a01885449d336ea.php" afterPath="$PROJECT_DIR$/data/runtime/Cache/Portal/17170de5e4d663c37a01885449d336ea.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/runtime/Cache/Portal/2ddc02c2bb3204c894c1a522720371ea.php" afterPath="$PROJECT_DIR$/data/runtime/Cache/Portal/2ddc02c2bb3204c894c1a522720371ea.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/runtime/Cache/Portal/a2e432504baec3a0ee8989bf807392f7.php" afterPath="$PROJECT_DIR$/data/runtime/Cache/Portal/a2e432504baec3a0ee8989bf807392f7.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/runtime/Cache/Portal/b38d1014a632cf5d5e26dc69ef89f859.php" afterPath="$PROJECT_DIR$/data/runtime/Cache/Portal/b38d1014a632cf5d5e26dc69ef89f859.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/runtime/Cache/User/19267b554a5496fd86913ea93dcf1fcd.php" afterPath="$PROJECT_DIR$/data/runtime/Cache/User/19267b554a5496fd86913ea93dcf1fcd.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/runtime/Cache/User/50cd822e1879a5c303f4b0d0d0408631.php" afterPath="$PROJECT_DIR$/data/runtime/Cache/User/50cd822e1879a5c303f4b0d0d0408631.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/runtime/Cache/User/72846e910102b5d417c32d9b38557204.php" afterPath="$PROJECT_DIR$/data/runtime/Cache/User/72846e910102b5d417c32d9b38557204.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/runtime/Cache/Portal/b8de15f952856992d8981cdaf9c64af6.php" afterPath="$PROJECT_DIR$/data/runtime/Cache/Portal/b8de15f952856992d8981cdaf9c64af6.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/runtime/Cache/User/d89f09cf3112c57461d80460d2dda720.php" afterPath="$PROJECT_DIR$/data/runtime/Cache/User/d89f09cf3112c57461d80460d2dda720.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/runtime/Data/Menu.php" afterPath="$PROJECT_DIR$/data/runtime/Data/Menu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/runtime/Data/routes.php" afterPath="$PROJECT_DIR$/data/runtime/Data/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/runtime/Data/site_nav.php" afterPath="$PROJECT_DIR$/data/runtime/Data/site_nav.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/runtime/Data/site_options.php" afterPath="$PROJECT_DIR$/data/runtime/Data/site_options.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/Demo/Controller/AdminIndexController.class.php" afterPath="$PROJECT_DIR$/plugins/Demo/Controller/AdminIndexController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/Demo/Controller/IndexController.class.php" afterPath="$PROJECT_DIR$/plugins/Demo/Controller/IndexController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/Demo/DemoPlugin.class.php" afterPath="$PROJECT_DIR$/plugins/Demo/DemoPlugin.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/Demo/Model/PluginDemoModel.class.php" afterPath="$PROJECT_DIR$/plugins/Demo/Model/PluginDemoModel.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/Demo/README.txt" afterPath="$PROJECT_DIR$/plugins/Demo/README.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/Demo/View/widget.html" afterPath="$PROJECT_DIR$/plugins/Demo/View/widget.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/Demo/config.php" afterPath="$PROJECT_DIR$/plugins/Demo/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/Sharebaidu/README.txt" afterPath="$PROJECT_DIR$/plugins/Sharebaidu/README.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/Sharebaidu/SharebaiduPlugin.class.php" afterPath="$PROJECT_DIR$/plugins/Sharebaidu/SharebaiduPlugin.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/Snow/README.txt" afterPath="$PROJECT_DIR$/plugins/Snow/README.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/Snow/SnowPlugin.class.php" afterPath="$PROJECT_DIR$/plugins/Snow/SnowPlugin.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/Snow/config.php" afterPath="$PROJECT_DIR$/plugins/Snow/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/exception.html" afterPath="$PROJECT_DIR$/public/exception.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/simpleboot/bootstrap/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/public/simpleboot/bootstrap/css/bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/simpleboot/font-awesome/4.2.0/css/font-awesome-ie7.min.css" afterPath="$PROJECT_DIR$/public/simpleboot/font-awesome/4.2.0/css/font-awesome-ie7.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/simpleboot/font-awesome/4.4.0/css/font-awesome-ie7.min.css" afterPath="$PROJECT_DIR$/public/simpleboot/font-awesome/4.4.0/css/font-awesome-ie7.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simplewind/Core/Library/Behavior/ContentReplaceBehavior.class.php" afterPath="$PROJECT_DIR$/simplewind/Core/Library/Behavior/ContentReplaceBehavior.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simplewind/Core/Library/Behavior/ReadHtmlCacheBehavior.class.php" afterPath="$PROJECT_DIR$/simplewind/Core/Library/Behavior/ReadHtmlCacheBehavior.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simplewind/Core/Library/Think/Hook.class.php" afterPath="$PROJECT_DIR$/simplewind/Core/Library/Think/Hook.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simplewind/Core/Library/Think/Template.class.php" afterPath="$PROJECT_DIR$/simplewind/Core/Library/Think/Template.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simplewind/Core/Library/Think/Upload.class.php" afterPath="$PROJECT_DIR$/simplewind/Core/Library/Think/Upload.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simplewind/Core/Library/Think/View.class.php" afterPath="$PROJECT_DIR$/simplewind/Core/Library/Think/View.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/Comment/index.html" afterPath="$PROJECT_DIR$/themes/simplebootx/Comment/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/Portal/contact.html" afterPath="$PROJECT_DIR$/themes/simplebootx/Portal/contact.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/28902.css" afterPath="$PROJECT_DIR$/public/css/28902.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/group.css" afterPath="$PROJECT_DIR$/public/css/group.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/person_info.css" afterPath="$PROJECT_DIR$/public/css/person_info.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/topic.css" afterPath="$PROJECT_DIR$/public/css/topic.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/content_addtop.js" afterPath="$PROJECT_DIR$/public/js/content_addtop.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/self/face.js" afterPath="$PROJECT_DIR$/public/js/self/face.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/self/group_add.js" afterPath="$PROJECT_DIR$/public/js/self/group_add.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/self/info.js" afterPath="$PROJECT_DIR$/public/js/self/info.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/self/lib/bootstrap.min.js" afterPath="$PROJECT_DIR$/public/js/self/lib/bootstrap.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/self/list.js" afterPath="$PROJECT_DIR$/public/js/self/list.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/self/topic.js" afterPath="$PROJECT_DIR$/public/js/self/topic.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/self/update_pwd.js" afterPath="$PROJECT_DIR$/public/js/self/update_pwd.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/Comment/comment.html" afterPath="$PROJECT_DIR$/themes/simplebootx/Comment/comment.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/Portal/group.html" afterPath="$PROJECT_DIR$/themes/simplebootx/Portal/group.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/Portal/group_add.html" afterPath="$PROJECT_DIR$/themes/simplebootx/Portal/group_add.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/Portal/group_detail.html" afterPath="$PROJECT_DIR$/themes/simplebootx/Portal/group_detail.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/Portal/index.html" afterPath="$PROJECT_DIR$/themes/simplebootx/Portal/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/Public/css/User/login.css" afterPath="$PROJECT_DIR$/themes/simplebootx/Public/css/User/login.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/Public/css/User/register.css" afterPath="$PROJECT_DIR$/themes/simplebootx/Public/css/User/register.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/Public/css/User/step.css" afterPath="$PROJECT_DIR$/themes/simplebootx/Public/css/User/step.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/Portal/topic.html" afterPath="$PROJECT_DIR$/themes/simplebootx/Portal/topic.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/Portal/topicadd.html" afterPath="$PROJECT_DIR$/themes/simplebootx/Portal/topicadd.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/Public/css/Portal/group-detail.css" afterPath="$PROJECT_DIR$/themes/simplebootx/Public/css/Portal/group-detail.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/Public/css/style.css" afterPath="$PROJECT_DIR$/themes/simplebootx/Public/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/Public/footer.html" afterPath="$PROJECT_DIR$/themes/simplebootx/Public/footer.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/Public/head.html" afterPath="$PROJECT_DIR$/themes/simplebootx/Public/head.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/Public/js/code/main.js" afterPath="$PROJECT_DIR$/themes/simplebootx/Public/js/code/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/Public/leftbar.html" afterPath="$PROJECT_DIR$/themes/simplebootx/Public/leftbar.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/Public/nav.html" afterPath="$PROJECT_DIR$/themes/simplebootx/Public/nav.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/Public/simpleboot/font-awesome/4.2.0/css/font-awesome-ie7.min.css" afterPath="$PROJECT_DIR$/themes/simplebootx/Public/simpleboot/font-awesome/4.2.0/css/font-awesome-ie7.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/Public/simpleboot/font-awesome/4.4.0/css/font-awesome-ie7.min.css" afterPath="$PROJECT_DIR$/themes/simplebootx/Public/simpleboot/font-awesome/4.4.0/css/font-awesome-ie7.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/User/Profile/avatar.html" afterPath="$PROJECT_DIR$/themes/simplebootx/User/Profile/avatar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/User/Profile/bang.html" afterPath="$PROJECT_DIR$/themes/simplebootx/User/Profile/bang.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/Public/scripts.html" afterPath="$PROJECT_DIR$/themes/simplebootx/Public/scripts.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/User/Profile/edit.html" afterPath="$PROJECT_DIR$/themes/simplebootx/User/Profile/edit.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/User/Profile/password.html" afterPath="$PROJECT_DIR$/themes/simplebootx/User/Profile/password.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/User/active.html" afterPath="$PROJECT_DIR$/themes/simplebootx/User/active.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/User/center.html" afterPath="$PROJECT_DIR$/themes/simplebootx/User/center.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/User/favorite.html" afterPath="$PROJECT_DIR$/themes/simplebootx/User/favorite.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/User/authentication.html" afterPath="$PROJECT_DIR$/themes/simplebootx/User/authentication.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/User/face.html" afterPath="$PROJECT_DIR$/themes/simplebootx/User/face.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/User/forgot_password.html" afterPath="$PROJECT_DIR$/themes/simplebootx/User/forgot_password.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/User/index.html" afterPath="$PROJECT_DIR$/themes/simplebootx/User/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/User/login.html" afterPath="$PROJECT_DIR$/themes/simplebootx/User/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/User/organization_register.html" afterPath="$PROJECT_DIR$/themes/simplebootx/User/organization_register.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/User/password_reset.html" afterPath="$PROJECT_DIR$/themes/simplebootx/User/password_reset.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/User/primary_register.html" afterPath="$PROJECT_DIR$/themes/simplebootx/User/primary_register.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/User/info.html" afterPath="$PROJECT_DIR$/themes/simplebootx/User/info.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/User/register.html" afterPath="$PROJECT_DIR$/themes/simplebootx/User/register.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/User/step2.html" afterPath="$PROJECT_DIR$/themes/simplebootx/User/step2.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/User/step3.html" afterPath="$PROJECT_DIR$/themes/simplebootx/User/step3.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/error.html" afterPath="$PROJECT_DIR$/themes/simplebootx/error.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/function.html" afterPath="$PROJECT_DIR$/themes/simplebootx/function.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/jump.html" afterPath="$PROJECT_DIR$/themes/simplebootx/jump.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/simplebootx/success.html" afterPath="$PROJECT_DIR$/themes/simplebootx/success.html" />
     </list>
     <ignored path="2016Sise.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -167,6 +133,16 @@
     <option name="SORT_POSITIONED" value="false" />
     <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="MySQL - 2016sise@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -177,58 +153,60 @@
       <file leaf-file-name="GroupController.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/Portal/Controller/GroupController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+            <state vertical-scroll-proportion="-2.862069">
+              <caret line="223" column="4" selection-start-line="223" selection-start-column="4" selection-end-line="234" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GroupController.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/Adminadd/Controller/GroupController.class.php">
+      <file leaf-file-name="CommentController.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/Comment/Controller/CommentController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="65" column="18" selection-start-line="65" selection-start-column="18" selection-end-line="65" selection-end-column="18" />
+            <state vertical-scroll-proportion="-8.142858">
+              <caret line="27" column="44" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SettingController.class.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/User/Controller/SettingController.class.php">
+      <file leaf-file-name="ActivityController.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/Portal/Controller/ActivityController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.528757">
-              <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+            <state vertical-scroll-proportion="-11.034483">
+              <caret line="28" column="43" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
+              <folding>
+                <element signature="e#6#29#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProfileController.class.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/User/Controller/ProfileController.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7527881">
+              <caret line="31" column="66" selection-start-line="31" selection-start-column="66" selection-end-line="31" selection-end-column="66" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GroupModel.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/Portal/Model/GroupModel.class.php">
+      <file leaf-file-name="IndexController.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/Portal/Controller/IndexController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="50" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
+            <state vertical-scroll-proportion="-7.410714">
+              <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TopicModel.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/Portal/Model/TopicModel.class.php">
+      <file leaf-file-name="function.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/Common/Common/function.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="64" selection-start-line="22" selection-start-column="64" selection-end-line="22" selection-end-column="64" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TopicController.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/Portal/Controller/TopicController.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+            <state vertical-scroll-proportion="-8.357142">
+              <caret line="1934" column="18" selection-start-line="1934" selection-start-column="9" selection-end-line="1934" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -261,12 +239,24 @@
         <option value="$PROJECT_DIR$/application/Common/Controller/HomebaseController.class.php" />
         <option value="$PROJECT_DIR$/application/Portal/Model/TopicModel.class.php" />
         <option value="$PROJECT_DIR$/application/Adminadd/Controller/TopicController.class.php" />
-        <option value="$PROJECT_DIR$/application/Portal/Controller/TopicController.class.php" />
         <option value="$PROJECT_DIR$/application/Adminadd/Controller/OrgController.class.php" />
-        <option value="$PROJECT_DIR$/application/Portal/Model/GroupModel.class.php" />
-        <option value="$PROJECT_DIR$/application/Portal/Controller/GroupController.class.php" />
         <option value="$PROJECT_DIR$/application/Adminadd/Controller/GroupController.class.php" />
         <option value="$PROJECT_DIR$/application/User/Controller/SettingController.class.php" />
+        <option value="$USER_HOME$/Desktop/demo/wechat/oAuth.php" />
+        <option value="$USER_HOME$/Desktop/demo/wechat/pay.php" />
+        <option value="$PROJECT_DIR$/application/Portal/Model/GroupModel.class.php" />
+        <option value="$PROJECT_DIR$/application/Portal/Controller/ArticleController.class.php" />
+        <option value="$PROJECT_DIR$/application/Admin/Controller/UserController.class.php" />
+        <option value="$PROJECT_DIR$/application/User/Controller/IndexController.class.php" />
+        <option value="$PROJECT_DIR$/../demo/wechat/mysql_class.php" />
+        <option value="$PROJECT_DIR$/application/Common/Model/ActivityModel.class.php" />
+        <option value="$PROJECT_DIR$/application/Common/Model/ActivityJoinModel.class.php" />
+        <option value="$PROJECT_DIR$/application/Portal/Controller/TopicController.class.php" />
+        <option value="$PROJECT_DIR$/application/Comment/Controller/CommentController.class.php" />
+        <option value="$PROJECT_DIR$/application/Common/Common/function.php" />
+        <option value="$PROJECT_DIR$/application/Portal/Controller/GroupController.class.php" />
+        <option value="$PROJECT_DIR$/application/Portal/Controller/IndexController.class.php" />
+        <option value="$PROJECT_DIR$/application/Portal/Controller/ActivityController.class.php" />
       </list>
     </option>
   </component>
@@ -282,7 +272,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1378" />
+    <option name="width" value="1382" />
     <option name="height" value="754" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -316,6 +306,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -332,60 +323,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="2016Sise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="2016Sise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="2016Sise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="2016Sise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="2016Sise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="simplebootx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="2016Sise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="2016Sise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="simplebootx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -457,25 +394,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Adminadd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="2016Sise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="2016Sise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Adminadd" />
+              <option name="myItemId" value="Portal" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -483,71 +402,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="2016Sise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="2016Sise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="2016Sise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="2016Sise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="simplebootx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="2016Sise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="2016Sise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="simplebootx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Adminadd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -613,31 +469,54 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1378" height="754" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26555386" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16414523" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32922825" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290469" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="层次结构" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="层次结构" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16414523" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290469" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -657,152 +536,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/Portal/Model/TopicModel.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="64" selection-start-line="22" selection-start-column="64" selection-end-line="22" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/Portal/Controller/TopicController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/simplebootx/Public/footer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/Portal/Controller/GroupController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/Portal/Controller/TopicController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/Adminadd/Controller/TopicController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/Adminadd/Controller/OrgController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="79" column="42" selection-start-line="79" selection-start-column="42" selection-end-line="79" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/simplebootx/Public/footer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/Portal/Controller/GroupController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/Portal/Controller/IndexController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/Common/Model/UsersModel.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/User/Controller/RegisterController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="209" column="4" selection-start-line="209" selection-start-column="4" selection-end-line="209" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/Common/Model/OrganizationModel.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/Adminadd/Controller/OrgController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/Portal/Controller/AdminPageController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/User/Controller/LoginController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/Common/Model/UsersModel.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/User/Controller/RegisterController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/Common/Model/OrganizationModel.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="57" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/Adminadd/Controller/OrgController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/Portal/Controller/AdminPageController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -859,13 +592,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/User/Controller/LoginController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.0278811">
-          <caret line="85" column="101" selection-start-line="85" selection-start-column="101" selection-end-line="85" selection-end-column="101" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/Portal/Controller/AdminPageController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.951673">
@@ -880,24 +606,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/User/Controller/RegisterController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18587361">
-          <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../demo/explode.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6942308">
           <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/Portal/Controller/IndexController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -915,24 +627,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/conf/db.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31784385">
-          <caret line="11" column="14" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/Common/Controller/MemberbaseController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.107143">
           <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/Common/Controller/HomebaseController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1301116">
-          <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -950,34 +648,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/Adminadd/Controller/TopicController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.19851577">
-          <caret line="107" column="57" selection-start-line="107" selection-start-column="57" selection-end-line="107" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/Adminadd/Controller/OrgController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23747681">
           <caret line="94" column="18" selection-start-line="94" selection-start-column="18" selection-end-line="94" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/Portal/Model/TopicModel.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="64" selection-start-line="22" selection-start-column="64" selection-end-line="22" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/Portal/Model/GroupModel.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="50" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -988,22 +662,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/Portal/Controller/TopicController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/Portal/Controller/GroupController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/Admin/Controller/SettingController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.8011153">
@@ -1011,18 +669,283 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/Adminadd/Controller/GroupController.class.php">
+    <entry file="file://$USER_HOME$/Desktop/demo/wechat/pay.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.2857144">
+          <caret line="31" column="30" selection-start-line="0" selection-start-column="0" selection-end-line="50" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/demo/wechat/oAuth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.541744">
+          <caret line="83" column="21" selection-start-line="83" selection-start-column="21" selection-end-line="83" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Common/Controller/HomebaseController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3469388">
+          <caret line="41" column="7" selection-start-line="41" selection-start-column="7" selection-end-line="41" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/conf/db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3172542">
+          <caret line="11" column="14" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/simplebootx/User/register.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="65" column="18" selection-start-line="65" selection-start-column="18" selection-end-line="65" selection-end-column="18" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Portal/Model/GroupModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12810707">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/User/Controller/RegisterController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.03632887">
+          <caret line="85" column="42" selection-start-line="85" selection-start-column="27" selection-end-line="85" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Portal/Controller/ArticleController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6367113">
+          <caret line="77" column="9" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Portal/Controller/AdminPostController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.03632887">
+          <caret line="197" column="36" selection-start-line="197" selection-start-column="36" selection-end-line="197" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Adminadd/Controller/TopicController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="4.3594646">
+          <caret line="125" column="40" selection-start-line="125" selection-start-column="40" selection-end-line="125" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Admin/Controller/UserController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26868686">
+          <caret line="70" column="17" selection-start-line="70" selection-start-column="17" selection-end-line="70" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/User/Controller/LoginController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.321428">
+          <caret line="101" column="32" selection-start-line="101" selection-start-column="32" selection-end-line="101" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Portal/Model/TopicModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="57" selection-start-line="15" selection-start-column="4" selection-end-line="33" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/User/Controller/SettingController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.528757">
+        <state vertical-scroll-proportion="0.5297398">
           <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Adminadd/Controller/GroupController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5055762">
+          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../demo/wechat/mysql_class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-50.214287">
+          <caret line="74" column="18" selection-start-line="74" selection-start-column="18" selection-end-line="74" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/User/Controller/IndexController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="82" column="34" selection-start-line="82" selection-start-column="34" selection-end-line="82" selection-end-column="34" />
+          <folding>
+            <element signature="e#52#93#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/b24c76f9/f94df95e-b873-4453-8802-068f879dda07/2016sise.sise_activity">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f94df95e-b873-4453-8802-068f879dda07/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/b24c76f9/f94df95e-b873-4453-8802-068f879dda07/2016sise.sise_auth_access">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/b24c76f9/f94df95e-b873-4453-8802-068f879dda07/2016sise.sise_asset">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/b24c76f9/f94df95e-b873-4453-8802-068f879dda07/2016sise.sise_ad">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Common/Model/ActivityModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="7.464286">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+          <folding>
+            <element signature="e#6#29#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Common/Model/ActivityJoinModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.071428">
+          <caret line="26" column="61" selection-start-line="26" selection-start-column="61" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Portal/Controller/TopicController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0">
+          <caret line="78" column="29" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="29" />
+          <folding>
+            <element signature="e#4985#5578#0#PHP" expanded="false" />
+            <element signature="e#5063#5578#0#PHP" expanded="false" />
+            <element signature="e#5235#5568#0#PHP" expanded="false" />
+            <element signature="e#5344#5568#0#PHP" expanded="false" />
+            <element signature="e#5498#5568#0#PHP" expanded="false" />
+            <element signature="e#5590#5679#0#PHP" expanded="false" />
+            <element signature="e#5821#5843#0#PHP" expanded="false" />
+            <element signature="e#6033#6253#0#PHP" expanded="false" />
+            <element signature="e#6202#6253#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Common/Common/function.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.357142">
+          <caret line="1934" column="18" selection-start-line="1934" selection-start-column="9" selection-end-line="1934" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Portal/Controller/GroupController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.862069">
+          <caret line="223" column="4" selection-start-line="223" selection-start-column="4" selection-end-line="234" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/runtime/Cache/Portal/b38d1014a632cf5d5e26dc69ef89f859.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.25">
+          <caret line="345" column="64" selection-start-line="345" selection-start-column="64" selection-end-line="345" selection-end-column="64" />
+          <folding>
+            <marker date="1459774470907" expanded="true" signature="14357:14678" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Comment/Controller/CommentController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.142858">
+          <caret line="27" column="44" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Portal/Controller/IndexController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.410714">
+          <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Portal/Controller/ActivityController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.034483">
+          <caret line="28" column="43" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
+          <folding>
+            <element signature="e#6#29#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/User/Controller/ProfileController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7527881">
+          <caret line="31" column="66" selection-start-line="31" selection-start-column="66" selection-end-line="31" selection-end-column="66" />
           <folding />
         </state>
       </provider>

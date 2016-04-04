@@ -1,0 +1,58 @@
+body{
+    font-family:"Microsoft YaHei";
+    color: #444;
+    background-color: #fff;
+    font-size: 12px;
+}
+p{
+    margin-bottom: 0;
+}
+.container{
+    width: 1000px;
+}
+.row{
+    padding:20px 0;
+}
+h4{
+    font-weight: bold;
+}
+.activityJoin>*{
+    height: 73px;
+}
+.activityJoin>.col-md-1{
+    padding-top: 8px;
+}
+.tab{
+    line-height: 16px;
+    text-align: start;
+}
+.tab-left{
+    font-weight: bold;
+    font-size: 14px;
+}
+.tab-right{
+    margin-left: -80px;
+}
+.form-horizontal .radio{
+    padding-top: 0;
+}
+.inform{
+    height: 41px;
+    line-height: 41px;
+}
+@media (max-width: 1020px) {
+    .container{
+        width: inherit;
+    }
+    .activityJoin>.col-md-1{
+        padding: 8px 5%;
+    }
+    .form-horizontal .form-group {
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .form-group>label{
+        height: 34px;
+        line-height: 34px;
+    }
+}

@@ -3,6 +3,9 @@ body{
     overflow-x: hidden;
     overflow-y: auto;
 }
+.a-btn{
+	color:#fff!important;
+}
 .group-container {
     width: 1000px;
     height: 1000px;
@@ -88,16 +91,29 @@ li{
     background-color: #ffffff;
     color: #2d974d;
 }
-.col-lg-3.col-md-3.col-sm-3>.btn-default {
+#exampleInputAmount{
+	outline: none;
+}
+#crt-grp {
+	
+	outline: none!important;
     font-weight: bolder;
     color: #ffffff;
     background-color: #2d974d;
-    border-color: #adadad;
+    border-color: #2d974d!important;
+    transition: all .8s ease;
 }
-.col-lg-3.col-md-3.col-sm-3>.btn-default:hover{
-     background-color: #ffffff;
-    color: #2d974d;
+#crt-grp > a{
+	color: #fff;
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+#crt-grp:hover {
+    background-color: #ffffff;
+    
  }
+ #crt-grp:hover a{color: #2d974d;}
 #recommend>.iteam:hover{
     background-color: #fcfff6;
 }

@@ -71,6 +71,7 @@ th{
 }
 .group_notice
 {
+	padding:8px;
 	display:block;
 	background:rgb(250, 250, 250);
 }
@@ -309,4 +310,28 @@ a:hover{
     cursor: pointer; !important;
     text-decoration: none; !important;
     color: #2d974d;!important;
+}
+.right>p{
+	margin-top: 5px;
+	color: #6f6f6f;
+}
+.cover-r-msg{
+	margin-top: 20px;
+}
+.group-msg-show{
+	color: #6f6f6f;
+	letter-spacing: .7px;
+	padding:10px 10px 30px 65px;
+	display: inline-block;
+}
+
+.bgrecommend{
+	background-color: #fcfff6;
+}
+.right h5{
+	color:#444;
+	font-weight: bold;
+}
+.right h5:hover{
+	color: #2d974d
 }

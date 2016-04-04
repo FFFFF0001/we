@@ -35,7 +35,7 @@ class CommentController extends MemberbaseController{
 		} */
 		
 		if (IS_POST){
-			
+			$Addtable = $_POST['post_table'];
 			$post_table=sp_authcode($_POST['post_table']);
 			
 			$_POST['post_table']=$post_table;
@@ -80,6 +80,10 @@ class CommentController extends MemberbaseController{
 					
 					$post_table_model->create(array("last_comment"=>time()));
 					$post_table_model->where(array($pk=>intval($_POST['post_id'])))->save();
+
+					if ($Addtable == "topic") {
+						M('topic')->where(array($pk => intval($_POST['post_id'])))->setInc("comment_count");
+					}
 					
 					$this->ajaxReturn(sp_ajax_return(array("id"=>$result),"评论成功！",1));
 				} else {

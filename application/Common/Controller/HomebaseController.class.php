@@ -85,14 +85,16 @@ class HomebaseController extends AppframeController {
 		//生成激活链接
 		$url = U('user/register/active',array("hash"=>$activekey), "", true);
 		//邮件内容
-		$template = $options['template'];
-		$content = str_replace(array('http://#link#','#username#'), array($url,$username),$template);
+		//$template = $options['template'];
+		//$content = str_replace(array('http://#link#','#username#'), array($url,$username),$template);
 	
-		$send_result=sp_send_email($_SESSION['user']['user_email'], $title, $content);
-	
-		if($send_result['error']){
-			
-			$this->error('激活邮件发送失败，请尝试登录后，手动发送激活邮件！');
+		//$send_result=sp_send_email($_SESSION['user']['user_email'], $title, $content);
+		$send_result=sp_sendcloud_register($_SESSION['user']['user_email'], $title, $url);
+		$send_result = json_decode($send_email,true);
+		if($send_result['message']=="success"){
+			$this->success("激活邮件已发送，请上邮箱激活",U('user/login/index'));
+		}else{
+			$this->error($send_result['errors'][0]."，请联系管理员");
 		}
 	}
 	

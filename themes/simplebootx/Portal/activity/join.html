@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>{$site_name}</title>
+		<meta name="keywords" content="{$site_seo_keywords}" />
+		<meta name="description" content="{$site_seo_description}">
+		<meta name="author" content="CXCL工作室">
+		<tc_include file="Public:head" />
+
+		<link href="Public/css/activity_join.css" rel="stylesheet">
+	</head>
+
+	<body class="body-white">
+
+		<tc_include file="Public:nav" />
+
+		<!---内容开始-->
+		<div class="container">
+			<div class="row">
+				<div class="activityJoin">
+					<div class="col-lg-1 col-md-1 col-sm-2 col-xs-3">
+						<img src="{:sp_get_asset_upload_path('activity_cover/').$details['cover']}" width="66" height="66" class="img-rounded">
+					</div>
+					<div class="col-lg-11 col-md-11 col-sm-10 col-xs-9">
+						<h4>{$details.activity_name}</h4>
+						<p>活动地点：{$details.area}</p>
+						<p>发起者：{$details.manager_name}</p>
+					</div>
+				</div>
+			</div>
+			<div class="row tab">
+
+				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 text-success tab-left">
+					报名信息
+				</div>
+				<div class="col-md-10 text-muted tab-right">
+					完善以下资料，方便我们与您联系
+				</div>
+
+			</div>
+			<div class="row">
+				<form class="form-horizontal js-ajax-form" method="post" action="{:U('join_action')}">
+					<input type="hidden" name="activity_id" value="{:I('get.id')}" />
+					<div class="form-group">
+						<label for="true_name" class="col-lg-1 col-md-1 col-sm-1 col-xs-3 control-label">真实姓名</label>
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-8">
+							<input type="text" name="join_name" class="form-control" id="true_name" placeholder="请输入真实姓名">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="phone" class="col-lg-1 col-md-1 col-sm-1 col-xs-3 control-label">电话</label>
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-8">
+							<input type="tel" name="join_tel" class="form-control" id="phone" placeholder="请输入手机号">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-1 col-md-1 col-sm-1 col-xs-3 control-label">性别</label>
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-8">
+							<div class="radio">
+								<label class="radio-inline">
+                            <input type="radio"  value="男" name="join_sex" checked>男
+                        </label>
+								<label class="radio-inline">
+                            <input type="radio"  value="女" name="join_sex">女
+                        </label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="addr" class="col-lg-1 col-md-1 col-sm-1 col-xs-3 control-label">联系地址</label>
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-8">
+							<input type="text" name="join_address" class="form-control" id="addr" placeholder="请输入联系地址">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="QQ" class="col-lg-1 col-md-1 col-sm-1 col-xs-3 control-label">QQ</label>
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-8">
+							<input type="text" class="form-control" id="QQ" name="join_qq" placeholder="请输入QQ">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="id" class="col-lg-1 col-md-1 col-sm-1 col-xs-3 control-label">身份证</label>
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-8">
+							<input type="text" name="join_idcard" class="form-control" id="id" placeholder="请输入身份证">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-lg-1 col-md-1 col-sm-1 col-xs-3 control-label">
+							<button type="submit" class="btn btn-default js-ajax-submit" data-wait="1500">确定</button>
+						</div>
+						<div class="inform">
+							<small class="text-warning">
+                        提示：请留意站内通知以及你的邮箱。
+                    </small>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!--内容结束-->
+		<tc_include file="Public:footer" />
+
+		<tc_include file="Public:scripts" />
+	</body>
+
+</html>

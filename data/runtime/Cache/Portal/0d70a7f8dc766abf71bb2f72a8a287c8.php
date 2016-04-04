@@ -24,7 +24,7 @@
     <![endif]-->
 <link rel="icon" href="Public/images/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="Public/images/favicon.ico" type="image/x-icon">
-<!-- <link href="/2016Sise/themes/simplebootx/Public/simpleboot/themes/simplebootx/theme.min.css" rel="stylesheet"> -->
+ <!--<link href="/2016Sise/themes/simplebootx/Public/simpleboot/themes/simplebootx/theme.min.css" rel="stylesheet">--> 
 <!-- <link href="/2016Sise/themes/simplebootx/Public/simpleboot/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet"> -->
 <link href="/2016Sise/themes/simplebootx/Public/simpleboot/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href="Public/simpleboot/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -36,22 +36,21 @@
 <link href="/2016Sise/themes/simplebootx/Public/css/User/login.css" rel="stylesheet">
 <link href="/2016Sise/themes/simplebootx/Public/css/User/header.css" rel="stylesheet">
 <link href="/2016Sise/themes/simplebootx/Public/css/footer.css" rel="stylesheet">
-<link href="/2016Sise/themes/simplebootx/Public/css/User/register.css" rel="stylesheet">
 <link href="/2016Sise/themes/simplebootx/Public/css/User/step.css" rel="stylesheet">
 <link href="/2016Sise/themes/simplebootx/Public/css/User/forgot_password.css" rel="stylesheet">
-<link href="/2016Sise/themes/simplebootx/Public/css/Portal/group-detail.css" rel="stylesheet">
-<link href="/2016Sise/themes/simplebootx/Public/css/Portal/topicadd.css" rel="stylesheet">
-<link href="Public/css/topic.css" rel="stylesheet">
-<link href="Public/css/group.css" rel="stylesheet">
-<link href="Public/css/reset.css" rel="stylesheet">
-<link href="Public/css/pullToRefresh.css" rel="stylesheet">
-<link href="Public/css/style.css" rel="stylesheet">
-<link href="Public/css/info.css" rel="stylesheet">
-<link href="Public/css/28902.css" rel="stylesheet">
-	<link href="Public/css/person_info.css" rel="stylesheet">
-		<link href="Public/css/authentication.css" rel="stylesheet">
-<link href="Public/css/update_pwd.css" rel="stylesheet">
-	<link href="Public/css/face.css" rel="stylesheet">
+	<link href="Public/css/style.css" rel="stylesheet">
+
+<!--<link href="Public/css/reset.css" rel="stylesheet">
+-->
+<link href="Public/css/normalize.css" rel="stylesheet">
+<!--<link href="Public/css/info.css" rel="stylesheet">-->
+<!--<link href="Public/css/28902.css" rel="stylesheet">-->
+<!--<link href="Public/css/person_info.css" rel="stylesheet">-->
+<!---->
+<!--<link href="Public/css/update_pwd.css" rel="stylesheet">-->
+<!---->
+<script src="Public/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+<script src="Public/js/self/lib/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 <style>
 	/*html{filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(1);}*/
 	
@@ -79,70 +78,95 @@
 		font-family: "微软雅黑";
 	}
 </style>
+		
+<link href="Public/css/group.css" rel="stylesheet">
+	<link href="Public/css/pullToRefresh.css" rel="stylesheet">
+<link href="Public/css/style.css" rel="stylesheet">
 	</head>
 <body>
 	
 	<?php echo hook('body_start');?>
 <div class="">
 	<!--通用头部开始-->
-					<div id="header" class="header">
-						<div class="header-box center-block">
-							<!--上部为logo和搜索-->
-							<div class="header-up">
-								<a href="#" class="header-logo"></a>
-								<div class="header-search">
-									<form class="navbar-form  hidden-xs" role="search">
-										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Search">
-										</div>
-										<button type="submit" class="btn btn-default">搜索</button>
-									</form>
-									<!--隐藏的用户链接，搜索链接-->
-									<a data-toggle="collapse" href="#cl">
-										<span class="glyphicon glyphicon-user hidden-lg hidden-md hidden-sm"></span>
-									</a>
-									<a data-toggle="collapse" href="#cl1" id="search">
-										<span class="glyphicon glyphicon-search hidden-lg hidden-md hidden-sm"></span>
-									</a>
-								</div>
-							</div>
-							
-
-
-							<!--下部为导航栏-->
-							<nav class="navbar navbar-static-top nav-tabs" role="navigation">
-								<!--向左对齐-->
-								<?php $effected_id=""; $filetpl="<a href='\$href' target='\$target'>\$label</a>"; $ul_class="nav nav-item navbar-left" ; $li_class="" ; $style="nav nav-item navbar-left"; $dropdown='dropdown'; ?>
-<?php echo sp_get_menu("main",$effected_id,$filetpl,$foldertpl,$ul_class,$li_class,$style,$showlevel,$dropdown);?>
-								<!--向右对齐-->
-								<ul class="nav nav-pills navbar-right hidden-xs" id="collapse">
-									<li><a href="#">切换城市</a></li>
-									<li><a href="<?php echo U('User/login/index');?>">登陆注册</a></li>
-									<li><a href="<?php echo U('User/setting/info');?>">个人中心</a></li>
-								</ul>
-							</nav>
+	<div id="header" class="header">
+		<div class="header-box center-block">
+			<!--上部为logo和搜索-->
+			<div class="header-up">
+				<a href="#" class="header-logo"></a>
+				<div class="header-search">
+					<form class="navbar-form  hidden-xs" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search">
 						</div>
-					</div>
-					<!--通用头部结束-->
-					<!--折叠个人资料菜单-->
-					<div class="collapse _hide " id="cl">
-						<a class="head"></a>
-						<label>laoergege</label>
-						<label class="pull-right" style="color: #888888;font-size: small">常居地：广州</label>
-						<span class="glyphicon glyphicon-chevron-right link"></span>
-					</div>
-					<div class="collapse" id="cl1">
-						<div id="demo">
-							<div class="list-group">
-								<a href="#" class="list-group-item active">Item 1</a>
-								<a href="#" class="list-group-item">Item 1</a>
-								<a href="#" class="list-group-item">Item 3</a>
-								<a href="#" class="list-group-item">Item 4</a>
-								<a href="#" class="list-group-item">Item 5</a> ...
-							</div>
-						</div>
-					</div>
-					<!--折叠菜单结束-->
+						<button type="submit" class="btn btn-default">搜索</button>
+					</form>
+					<!--隐藏的用户链接，搜索链接-->
+					<a data-toggle="collapse" href="#cl">
+						<span class="glyphicon glyphicon-user hidden-lg hidden-md hidden-sm"></span>
+					</a>
+					<a data-toggle="collapse" href="#cl1" id="search">
+						<span class="glyphicon glyphicon-search hidden-lg hidden-md hidden-sm"></span>
+					</a>
+				</div>
+			</div>
+
+			<!--下部为导航栏-->
+			<nav class="navbar navbar-static-top nav-tabs" role="navigation">
+				<!--向左对齐-->
+				<?php $effected_id=""; $filetpl="
+					<a href='\$href' target='\$target'>\$label</a>"; $ul_class="nav nav-item navbar-left" ; $li_class="" ; $style="nav nav-item navbar-left"; $dropdown='dropdown'; ?>
+				<?php echo sp_get_menu("main",$effected_id,$filetpl,$foldertpl,$ul_class,$li_class,$style,$showlevel,$dropdown);?>
+				<!--向右对齐-->
+				<ul class="nav nav-pills navbar-right hidden-xs" id="collapse">
+					<li><a href="#">切换城市</a></li>
+					<li class="dropdown">
+						<?php if(sp_is_user_login() == false): ?><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								<img src="/2016Sise/themes/simplebootx//Public/images/headicon.png" class="headicon" />登录
+								<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="<?php echo leuu('user/login/index');?>"><i class="fa fa-sign-in"></i> &nbsp;登录</a></li>
+								<li><a href="<?php echo leuu('user/register/index');?>"><i class="fa fa-user"></i> &nbsp;注册</a></li>
+							</ul>
+							<?php else: ?>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								<?php $avatar = sp_get_current_user()['avatar'] ?>
+								<?php if(empty($avatar) == true): ?><img src="/2016Sise/themes/simplebootx//Public/images/headicon.png" class="headicon" />
+									<?php else: ?>
+									<img width="30" height="30" src="<?php echo sp_get_asset_upload_path('avatar/').$avatar;?>" class="headicon" /><?php endif; ?>
+
+								<?php echo sp_get_current_user()['user_login'] ?>
+								<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="<?php echo U('User/profile/edit');?>"><i class="fa fa-user"></i> &nbsp;个人中心</a></li>
+								<li><a href="<?php echo U('user/index/logout');?>"><i class="fa fa-sign-out"></i> &nbsp;退出</a></li>
+							</ul><?php endif; ?>
+					</li>
+				</ul>
+
+			</nav>
+
+		</div>
+	</div>
+	<!--通用头部结束-->
+	<!--折叠个人资料菜单-->
+	<div class="collapse _hide " id="cl">
+		<a class="head"></a>
+		<label>laoergege</label>
+		<label class="pull-right" style="color: #888888;font-size: small">常居地：广州</label>
+		<span class="glyphicon glyphicon-chevron-right link"></span>
+	</div>
+	<div class="collapse" id="cl1">
+		<div id="demo">
+			<div class="list-group">
+				<a href="#" class="list-group-item active">Item 1</a>
+				<a href="#" class="list-group-item">Item 1</a>
+				<a href="#" class="list-group-item">Item 3</a>
+				<a href="#" class="list-group-item">Item 4</a>
+				<a href="#" class="list-group-item">Item 5</a> ...
+			</div>
+		</div>
+	</div>
+	<!--折叠菜单结束-->
 </div>
 <div class="container group-container center-block">
     <div class="row">
@@ -151,7 +175,7 @@
         <div class="col-lg-9 col-md-9 col-sm-9" id="left">
             <div class="team-tabs">
                 <h4>
-                    <a>话题精选</a>
+                    <a href="<?php echo U('topic/topic');?>">话题精选</a>
                     <a href="#" id="join" class="ac">加入小组</a>
                     <a class="hidden-* visible-xs" id="re">推荐小组</a>
                 </h4>
@@ -160,16 +184,11 @@
             <div class="classification">
                     <strong>分类：</strong>
 
-                        <a class="ac">全部</a>
-                        <a>生态环保</a>
-                        <a>文化/艺术</a>
-                        <a>动物保护</a>
-                        <a>儿童关怀</a>
-                        <a>支教助学</a>
-                        <a>扶老助残</a>
-                        <a>综合/其他</a>
+                        <a href="<?php echo U('group');?>" class="ac">全部</a>
+                        <?php if(is_array($activity_type)): foreach($activity_type as $key=>$vo): ?><a href="<?php echo U('group',array('sort'=>$vo));?>"><?php echo ($vo); ?></a><?php endforeach; endif; ?>
                 </div>
             <div id="wrapper">
+            	<form action="" method="post" class="js-ajax-form">
                 <ul>
                 	<?php if(is_array($group)): foreach($group as $key=>$vo): ?><li class="col-md-6 col-sm-6 col-xs-12">
 	                        <div class="iteam">
@@ -177,8 +196,13 @@
 	                                <div class="info">
 	                                    <div>
 	                                        <strong>
+	                                        	<?php $r = in_array($vo['group_id'],$hasJoin) ?>
+	                                        	<?php if($r == true): ?><a href="<?php echo U('group_detail',array('group_id'=>$vo['group_id']));?>" class="a-btn btn btn-success btn-xs pull-right">进入小组</a>
+	                                        		<?php else: ?>
+	                                        		<button class="btn btn-success btn-xs pull-right btn-join js-ajax-submit" type="submit" data-action="<?php echo U('join_group',array('id'=>$vo['group_id']));?>">加入</button><?php endif; ?>
 	                                            <a href="<?php echo U('group_detail',array('group_id'=>$vo[group_id]));?>"><?php echo ($vo["group_name"]); ?></a>
-	                                            <button class="btn btn-success btn-xs pull-right">加入</button>
+	                                            <?php  ?>
+	                                            
 	                                        </strong>
 	                                        <p>
 	                                            <span aria-hidden="true" class="icon_group"></span> <?php echo ($vo["group_total"]); ?>
@@ -192,8 +216,8 @@
 	                            </p>
 	                        </div>
 	                    </li><?php endforeach; endif; ?>
-                    
                 </ul>
+                </form>
             </div>
             <!--加载提示-->
             <div class="loader col-sm-12 hidden">
@@ -217,10 +241,10 @@
                     </div>
                 </div>
             </form>
-            <a href="<?php echo U('group_add');?>">
-            	<button class="btn btn-default btn-block">
-                创建新小组
-            </button></a>
+            
+            	<button class="btn btn-default btn-block" id="crt-grp">
+                <a href="<?php echo U('group_add');?>" >创建新小组</a>
+            </button>
             
             <div id="recommend">
                 <p>
@@ -393,6 +417,65 @@
     </div>
     
 </div>
+
+<!-- Footer
+      ================================================== -->
+      <br>
+<!--通用底部开始-->
+<div class="footer">
+    <div class="footer-part  hidden-xs">
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="footer-text">
+                    <ul>
+                        <li><h5 style="color:green;">志愿时</h5></li>
+                        <li>联系我们</li>
+                        <li>关于我们</li>
+                        <li>法律支持</li>
+                        <li>信息公开</li>
+                        <li>试用指南</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="footer-text">
+                    <ul>
+                        <li><h5 style="color:green;">合作机构</h5></li>
+                        <li>广州大学华软软件学院</li>
+                        <li>地址：广东省从化区高新经济开发区548号</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm-2">
+                <div class="footer-text">
+                    <ul>
+                        <li><h5 style="color:green;">友情链接</h5></li>
+                        <li>华软</li>
+                        <li>华软软件系</li>
+                        <li>网设</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm-5">
+                <div class="footer-QR">
+                    <img width="140" src="Public/images/1460122746.png" alt=""/>
+                    <img width="140" src="Public/images/1460122746.png" alt=""/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom">
+        <span>广州大学华软学院&&CXCL工作室</span>
+    </div>
+
+</div>
+
+
+
     <script type="text/javascript">
 //全局变量
 var GV = {
@@ -406,7 +489,6 @@ var GV = {
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="/2016Sise/public/js/jquery.js"></script>
     <script src="/2016Sise/public/js/wind.js"></script>
-    <script src="/2016Sise/themes/simplebootx/Public/simpleboot/bootstrap/js/bootstrap.min.js"></script>
     <script src="/2016Sise/public/js/frontend.js"></script>
 	<script>
 	$(function(){

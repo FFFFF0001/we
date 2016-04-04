@@ -1,66 +1,274 @@
 <!DOCTYPE html>
-	<html>
+<html>
+
 	<head>
 		<title>{$site_seo_title} {$site_name}</title>
 		<meta name="keywords" content="{$site_seo_keywords}" />
 		<meta name="description" content="{$site_seo_description}">
 		<tc_include file="Public:head" />
+		<link href="Public/css/index.css" rel="stylesheet">
 		<link href="__TMPL__Public/css/slippry/slippry.css" rel="stylesheet">
 		<style>
-			.caption-wraper{position: absolute;left:50%;bottom:2em;}
-			.caption-wraper .caption{
-			position: relative;left:-50%;
-			background-color: rgba(0, 0, 0, 0.54);
-			padding: 0.4em 1em;
-			color:#fff;
-			-webkit-border-radius: 1.2em;
-			-moz-border-radius: 1.2em;
-			-ms-border-radius: 1.2em;
-			-o-border-radius: 1.2em;
-			border-radius: 1.2em;
+			.caption-wraper {
+				position: absolute;
+				left: 50%;
+				bottom: 2em;
 			}
-			@media (max-width: 767px){
-				.sy-box{margin: 12px -20px 0 -20px;}
-				.caption-wraper{left:0;bottom: 0.4em;}
-				.caption-wraper .caption{
-				left: 0;
-				padding: 0.2em 0.4em;
-				font-size: 0.92em;
-				-webkit-border-radius: 0;
-				-moz-border-radius: 0;
-				-ms-border-radius: 0;
-				-o-border-radius: 0;
-				border-radius: 0;}
+			
+			.caption-wraper .caption {
+				position: relative;
+				left: -50%;
+				background-color: rgba(0, 0, 0, 0.54);
+				padding: 0.4em 1em;
+				color: #fff;
+				-webkit-border-radius: 1.2em;
+				-moz-border-radius: 1.2em;
+				-ms-border-radius: 1.2em;
+				-o-border-radius: 1.2em;
+				border-radius: 1.2em;
+			}
+			
+			@media (max-width: 767px) {
+				.sy-box {
+					margin: 12px -20px 0 -20px;
+				}
+				.caption-wraper {
+					left: 0;
+					bottom: 0.4em;
+				}
+				.caption-wraper .caption {
+					left: 0;
+					padding: 0.2em 0.4em;
+					font-size: 0.92em;
+					-webkit-border-radius: 0;
+					-moz-border-radius: 0;
+					-ms-border-radius: 0;
+					-o-border-radius: 0;
+					border-radius: 0;
+				}
 			}
 		</style>
 	</head>
-<body class="body-white">
-<tc_include file="Public:nav" />
 
-<php>
-$home_slides=sp_getslide("portal_index");
+	<body class="body-white">
+		<tc_include file="Public:nav" />
 
-$home_slides=empty($home_slides)?$default_home_slides:$home_slides;
-</php>
-建设中……
-<tc_include file="Public:footer"/>
-</div>
+		<php>
+			$home_slides=sp_getslide("portal_index"); $home_slides=empty($home_slides)?$default_home_slides:$home_slides;
+		</php>
+		<!--幻灯片开始-->
 
-<tc_include file="Public:scripts"/>
-<script src="__TMPL__Public/js/slippry.min.js"></script>
-<script>
-$(function() {
-	var demo1 = $("#homeslider").slippry({
-		transition: 'fade',
-		useCSS: true,
-		captions: false,
-		speed: 1000,
-		pause: 3000,
-		auto: true,
-		preload: 'visible'
-	});
-});
-</script>
-{:hook('footer_end')}
-</body>
+		<div class="wrapper">
+			<div id="focus">
+				<ul>
+					<php>$slides=sp_getslide('primary_tag',4);</php>
+					<foreach name="slides" item="vo">
+						<li>
+							<a href="#" target="_blank"><img src="{$vo.slide_pic}" alt="" /></a>
+						</li>
+					</foreach>
+				</ul>
+			</div>
+		</div>
+
+		<!--幻灯片结束-->
+		<!--内容开始-->
+		<div class="content">
+			<!--活动开始-->
+			<div class="part-box">
+				<!--活动标题开始-->
+				<div class="part-box-title">
+					<span class="glyphicon glyphicon-bullhorn"></span>
+					<a href="#" class="title-font">活动</a>
+					<p class="classify">
+						<foreach name="status" item="vo">
+							<a href="{:U('portal/activity/index',array('status'=>array_search($vo,$status)))}">{$vo}</a>
+						</foreach>
+						<foreach name="types" item="vo">
+							<a href="{:U('portal/activity/index',array('types'=>$vo))}">{$vo}</a>
+						</foreach>
+					</p>
+					<div class="more-activity">
+						<em class="glyphicon glyphicon-arrow-right"></em>
+						<a href="{:U('portal/activity/index')}"><em>更多</em></a>
+					</div>
+				</div>
+				<!--活动标题开始-->
+				<foreach name="activitys" item="vo">
+					<div class="activity">
+						<div class="project_items">
+							<a href="#"><img src="{:sp_get_asset_upload_path('activity_cover/').$vo['cover']}"></a>
+							<div class="activity-introduce">
+								<h4 class="items_text jieduan">
+									<a href="#">{$vo.activity_name}</a>
+								</h4>
+								<p class="items_text jieduan">
+									<a href="#">活动地点：{$vo.area}</a>
+								</p>
+								<p class="items_text jieduan">
+									<a href="#">活动发起者：{$vo.manager_name}</a>
+								</p>
+								<div class="items_time">
+									<span>报名剩余：</span>
+									<p class="progress">
+										<i class="progressing" style="width:30px;"></i>
+									</p>
+									<span>23天</span>
+								</div>
+								<p class="items_count">
+									<a href="class"><i class="glyphicon glyphicon-user"></i><em>{$vo.act_zan_count}</em></a>
+									<a href="class"><i class="glyphicon glyphicon-eye-open"></i><em>{$vo.act_look_count}</em></a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</foreach>
+
+			</div>
+			<!--活动结束-->
+
+			<!--小组开始-->
+			<div class="part-box">
+				<div class="part-box-title">
+					<span class="glyphicon glyphicon-user"></span>
+					<a href="#" class="title-font">小组</a>
+					<img src="Public/images/ico_forum.png" alt="ico_forum">
+				</div>
+				<div class="index-group">
+					<div class="group-items">
+						<!--第一条开始-->
+						<foreach name="topics" item="vo">
+							<if condition="$key eq 0">
+								<a href="{:U('topic/topic_detail',array('topic_id'=>$vo['topic_id']))}">
+									<div class="group-items-top">
+										<span><img src="{:sp_get_asset_upload_path('topic/').$vo['topic_cover']}" width="138px" height="138px"></span>
+										<i>
+									<h4><a href="#">{$vo.topic_title}</a></h4>
+									<p>
+										{$vo.topic_content}
+									</p>
+									<span class="g-icon-heart glyphicon glyphicon-heart-empty">{$vo.zan_count}</span>
+								</i>
+									</div>
+								</a>
+							</if>
+						</foreach>
+						<!--第一条结束-->
+						<div class="group-items-bottom">
+							<ul>
+								<!--后三条开始-->
+								<foreach name="topics" item="vo">
+									<if condition="$key neq 0 and $key lt 4">
+										<li>
+											<a href="{:U('topic/topic_detail',array('topic_id'=>$vo['topic_id']))}">
+												<em class="jieduan">{$vo.topic_title}</em>
+												<span class="glyphicon glyphicon-heart-empty">{$vo.zan_count}</span>
+											</a>
+										</li>
+									</if>
+								</foreach>
+								<!--后三条结束-->
+							</ul>
+						</div>
+					</div>
+					<!--后四条开始-->
+					<div class="group-items">
+						<!--第一条开始-->
+						<foreach name="topics" item="vo">
+							<if condition="$key eq 4">
+								<div class="group-items-top">
+									<a href="{:U('topic/topic_detail',array('topic_id'=>$vo['topic_id']))}">
+
+										<span><img src="{:sp_get_asset_upload_path('topic/').$vo['topic_cover']}" width="138px" height="138px"></span>
+										<i>
+									<h4>{$vo.topic_title}</h4>
+									<p>
+										{$vo.topic_content}
+									</p>
+									<span class="g-icon-heart glyphicon glyphicon-heart-empty">{$vo.zan_count}</span>
+								</i></a>
+								</div>
+							</if>
+						</foreach>
+						<!--第一条结束-->
+						<div class="group-items-bottom">
+							<ul>
+								<!--后三条开始-->
+								<foreach name="topics" item="vo">
+									<if condition="$key gt 4">
+										<li>
+											<a href="{:U('topic/topic_detail',array('topic_id'=>$vo['topic_id']))}">
+												<em class="jieduan">{$vo.topic_title}</em>
+												<span class="glyphicon glyphicon-heart-empty">{$vo.zan_count}</span>
+											</a>
+										</li>
+									</if>
+								</foreach>
+								<!--后三条结束-->
+							</ul>
+						</div>
+					</div>
+					<!--后四条结束-->
+					<div class="add-more">
+						<div class="add-more-title">
+							<em>值得加入的小组</em>
+						</div>
+						<div class="add-more-list">
+							<ul>
+								<foreach name="wants" item="vo">
+									<li>
+										<a href="#">
+											<img src="{:sp_get_asset_upload_path('group_avatar/').$vo['group_cover']}">
+											<em class="zhide-join jieduan">{$vo.group_name}</em>
+											<div class="hidden_li">
+												<span class="glyphicon glyphicon-user">{$vo.zan_count}</span>
+												<span class="glyphicon glyphicon-heart-empty">{$vo.chat_count}</span>
+											</div>
+										</a>
+									</li>
+								</foreach>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="part-box">
+				<a href="{:U('portal/topic/topic')}">
+					<div class="topic-1">
+						<img src="Public/images/icon_but01.png">
+						<em>志愿组织专题</em>
+					</div>
+				</a>
+				<a href="{:U('portal/activity/index')}">
+					<div class="topic-2">
+						<img src="Public/images/icon_but02.png">
+						<em>志愿活动专题</em>
+					</div>
+				</a>
+			</div>
+
+		</div>
+		<!--内容结束----->
+		<tc_include file="Public:footer" />
+		</div>
+		<script data-main="./public/js/self/index.js" src="./node_modules/requirejs/require.js"></script>
+		<tc_include file="Public:scripts" />
+		<script src="__TMPL__Public/js/slippry.min.js"></script>
+		<script>
+			$(function() {
+				var demo1 = $("#homeslider").slippry({
+					transition: 'fade',
+					useCSS: true,
+					captions: false,
+					speed: 1000,
+					pause: 3000,
+					auto: true,
+					preload: 'visible'
+				});
+			});
+		</script>
+		{:hook('footer_end')}
+	</body>
+
 </html>

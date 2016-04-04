@@ -25,7 +25,7 @@
     <![endif]-->
 <link rel="icon" href="Public/images/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="Public/images/favicon.ico" type="image/x-icon">
-<!-- <link href="/2016Sise/themes/simplebootx/Public/simpleboot/themes/simplebootx/theme.min.css" rel="stylesheet"> -->
+ <!--<link href="/2016Sise/themes/simplebootx/Public/simpleboot/themes/simplebootx/theme.min.css" rel="stylesheet">--> 
 <!-- <link href="/2016Sise/themes/simplebootx/Public/simpleboot/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet"> -->
 <link href="/2016Sise/themes/simplebootx/Public/simpleboot/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href="Public/simpleboot/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -37,22 +37,21 @@
 <link href="/2016Sise/themes/simplebootx/Public/css/User/login.css" rel="stylesheet">
 <link href="/2016Sise/themes/simplebootx/Public/css/User/header.css" rel="stylesheet">
 <link href="/2016Sise/themes/simplebootx/Public/css/footer.css" rel="stylesheet">
-<link href="/2016Sise/themes/simplebootx/Public/css/User/register.css" rel="stylesheet">
 <link href="/2016Sise/themes/simplebootx/Public/css/User/step.css" rel="stylesheet">
 <link href="/2016Sise/themes/simplebootx/Public/css/User/forgot_password.css" rel="stylesheet">
-<link href="/2016Sise/themes/simplebootx/Public/css/Portal/group-detail.css" rel="stylesheet">
-<link href="/2016Sise/themes/simplebootx/Public/css/Portal/topicadd.css" rel="stylesheet">
-<link href="Public/css/topic.css" rel="stylesheet">
-<link href="Public/css/group.css" rel="stylesheet">
-<link href="Public/css/reset.css" rel="stylesheet">
-<link href="Public/css/pullToRefresh.css" rel="stylesheet">
-<link href="Public/css/style.css" rel="stylesheet">
-<link href="Public/css/info.css" rel="stylesheet">
-<link href="Public/css/28902.css" rel="stylesheet">
-	<link href="Public/css/person_info.css" rel="stylesheet">
-		<link href="Public/css/authentication.css" rel="stylesheet">
-<link href="Public/css/update_pwd.css" rel="stylesheet">
-	<link href="Public/css/face.css" rel="stylesheet">
+	<link href="Public/css/style.css" rel="stylesheet">
+
+<!--<link href="Public/css/reset.css" rel="stylesheet">
+-->
+<link href="Public/css/normalize.css" rel="stylesheet">
+<!--<link href="Public/css/info.css" rel="stylesheet">-->
+<!--<link href="Public/css/28902.css" rel="stylesheet">-->
+<!--<link href="Public/css/person_info.css" rel="stylesheet">-->
+<!---->
+<!--<link href="Public/css/update_pwd.css" rel="stylesheet">-->
+<!---->
+<script src="Public/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+<script src="Public/js/self/lib/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 <style>
 	/*html{filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(1);}*/
 	
@@ -80,6 +79,8 @@
 		font-family: "微软雅黑";
 	}
 </style>
+
+		<link href="Public/css/topic.css" rel="stylesheet">
 	</head>
 
 	<body class="body-white">
@@ -87,171 +88,141 @@
 		<?php echo hook('body_start');?>
 <div class="">
 	<!--通用头部开始-->
-					<div id="header" class="header">
-						<div class="header-box center-block">
-							<!--上部为logo和搜索-->
-							<div class="header-up">
-								<a href="#" class="header-logo"></a>
-								<div class="header-search">
-									<form class="navbar-form  hidden-xs" role="search">
-										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Search">
-										</div>
-										<button type="submit" class="btn btn-default">搜索</button>
-									</form>
-									<!--隐藏的用户链接，搜索链接-->
-									<a data-toggle="collapse" href="#cl">
-										<span class="glyphicon glyphicon-user hidden-lg hidden-md hidden-sm"></span>
-									</a>
-									<a data-toggle="collapse" href="#cl1" id="search">
-										<span class="glyphicon glyphicon-search hidden-lg hidden-md hidden-sm"></span>
-									</a>
-								</div>
-							</div>
-							
-
-
-							<!--下部为导航栏-->
-							<nav class="navbar navbar-static-top nav-tabs" role="navigation">
-								<!--向左对齐-->
-								<?php $effected_id=""; $filetpl="<a href='\$href' target='\$target'>\$label</a>"; $ul_class="nav nav-item navbar-left" ; $li_class="" ; $style="nav nav-item navbar-left"; $dropdown='dropdown'; ?>
-<?php echo sp_get_menu("main",$effected_id,$filetpl,$foldertpl,$ul_class,$li_class,$style,$showlevel,$dropdown);?>
-								<!--向右对齐-->
-								<ul class="nav nav-pills navbar-right hidden-xs" id="collapse">
-									<li><a href="#">切换城市</a></li>
-									<li><a href="<?php echo U('User/login/index');?>">登陆注册</a></li>
-									<li><a href="<?php echo U('User/setting/info');?>">个人中心</a></li>
-								</ul>
-							</nav>
+	<div id="header" class="header">
+		<div class="header-box center-block">
+			<!--上部为logo和搜索-->
+			<div class="header-up">
+				<a href="#" class="header-logo"></a>
+				<div class="header-search">
+					<form class="navbar-form  hidden-xs" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search">
 						</div>
-					</div>
-					<!--通用头部结束-->
-					<!--折叠个人资料菜单-->
-					<div class="collapse _hide " id="cl">
-						<a class="head"></a>
-						<label>laoergege</label>
-						<label class="pull-right" style="color: #888888;font-size: small">常居地：广州</label>
-						<span class="glyphicon glyphicon-chevron-right link"></span>
-					</div>
-					<div class="collapse" id="cl1">
-						<div id="demo">
-							<div class="list-group">
-								<a href="#" class="list-group-item active">Item 1</a>
-								<a href="#" class="list-group-item">Item 1</a>
-								<a href="#" class="list-group-item">Item 3</a>
-								<a href="#" class="list-group-item">Item 4</a>
-								<a href="#" class="list-group-item">Item 5</a> ...
-							</div>
-						</div>
-					</div>
-					<!--折叠菜单结束-->
+						<button type="submit" class="btn btn-default">搜索</button>
+					</form>
+					<!--隐藏的用户链接，搜索链接-->
+					<a data-toggle="collapse" href="#cl">
+						<span class="glyphicon glyphicon-user hidden-lg hidden-md hidden-sm"></span>
+					</a>
+					<a data-toggle="collapse" href="#cl1" id="search">
+						<span class="glyphicon glyphicon-search hidden-lg hidden-md hidden-sm"></span>
+					</a>
+				</div>
+			</div>
+
+			<!--下部为导航栏-->
+			<nav class="navbar navbar-static-top nav-tabs" role="navigation">
+				<!--向左对齐-->
+				<?php $effected_id=""; $filetpl="
+					<a href='\$href' target='\$target'>\$label</a>"; $ul_class="nav nav-item navbar-left" ; $li_class="" ; $style="nav nav-item navbar-left"; $dropdown='dropdown'; ?>
+				<?php echo sp_get_menu("main",$effected_id,$filetpl,$foldertpl,$ul_class,$li_class,$style,$showlevel,$dropdown);?>
+				<!--向右对齐-->
+				<ul class="nav nav-pills navbar-right hidden-xs" id="collapse">
+					<li><a href="#">切换城市</a></li>
+					<li class="dropdown">
+						<?php if(sp_is_user_login() == false): ?><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								<img src="/2016Sise/themes/simplebootx//Public/images/headicon.png" class="headicon" />登录
+								<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="<?php echo leuu('user/login/index');?>"><i class="fa fa-sign-in"></i> &nbsp;登录</a></li>
+								<li><a href="<?php echo leuu('user/register/index');?>"><i class="fa fa-user"></i> &nbsp;注册</a></li>
+							</ul>
+							<?php else: ?>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								<?php $avatar = sp_get_current_user()['avatar'] ?>
+								<?php if(empty($avatar) == true): ?><img src="/2016Sise/themes/simplebootx//Public/images/headicon.png" class="headicon" />
+									<?php else: ?>
+									<img width="30" height="30" src="<?php echo sp_get_asset_upload_path('avatar/').$avatar;?>" class="headicon" /><?php endif; ?>
+
+								<?php echo sp_get_current_user()['user_login'] ?>
+								<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="<?php echo U('User/profile/edit');?>"><i class="fa fa-user"></i> &nbsp;个人中心</a></li>
+								<li><a href="<?php echo U('user/index/logout');?>"><i class="fa fa-sign-out"></i> &nbsp;退出</a></li>
+							</ul><?php endif; ?>
+					</li>
+				</ul>
+
+			</nav>
+
+		</div>
+	</div>
+	<!--通用头部结束-->
+	<!--折叠个人资料菜单-->
+	<div class="collapse _hide " id="cl">
+		<a class="head"></a>
+		<label>laoergege</label>
+		<label class="pull-right" style="color: #888888;font-size: small">常居地：广州</label>
+		<span class="glyphicon glyphicon-chevron-right link"></span>
+	</div>
+	<div class="collapse" id="cl1">
+		<div id="demo">
+			<div class="list-group">
+				<a href="#" class="list-group-item active">Item 1</a>
+				<a href="#" class="list-group-item">Item 1</a>
+				<a href="#" class="list-group-item">Item 3</a>
+				<a href="#" class="list-group-item">Item 4</a>
+				<a href="#" class="list-group-item">Item 5</a> ...
+			</div>
+		</div>
+	</div>
+	<!--折叠菜单结束-->
 </div>
 
 		<!---内容开始-->
 		<div class="container">
-			<div class="row">	
+			<div class="row">
 				<div class="clear-pd col-md-12 col-xs-12 ">
 					<div class="content">
 						<div class="row">
 							<div class="col-sm-8 col-xs-12">
 								<div class="group-left">
 									<div class="group-tab">
-										<a href="#">话题精选</a>
-										<a href="#">加入小组</a>
+										<a href="javascript:;">话题精选</a>
+										<a href="<?php echo U('group/group');?>" style="color:#777">加入小组</a>
 									</div>
 
 									<div class="group-list">
 										<ul>
-											<li>
-												<div class="item-praise hidden-xs">
-													<a href="#">赞</a>
-												</div>
-												<div class="item-content">
-													<p class="item-title">
-														<a href="#">网络行动能改变世界吗？</a>
-													</p>
-													<p class="item-trod">
-														<span class="left"><img src="./public/images/static/item1.jpeg" alt=""/></span>
-														<span class="right col-sm-8 col-xs-5 hidden-xs">
-															编者按：互联网时代，“行动”的门槛变得前所未有的低。点个赞，签个
-															名，转发一项倡议，参与一项讨论，只要在网络上对某个公共话题付出些微
-															的努力，都可以说是“行动”的一种。正因为它包罗万象，这一现象也出现了
-															众...
+											<?php if(is_array($topics)): foreach($topics as $key=>$vo): ?><li>
+													<div class="item-praise hidden-xs J_count_btn">
+														<a href="<?php echo U('topic_like',array('id'=>$vo['topic_id']));?>">赞</a>
+														<p class="zan-count count"><?php echo ($vo["topic_zan_count"]); ?></p>
+													</div>
+													<div class="item-content">
+														<p class="item-title">
+															<a href="<?php echo U('topic_detail',array('topic_id'=>$vo['topic_id']));?>"><?php echo ($vo["topic_title"]); ?></a>
+														</p>
+														<p class="item-trod">
+															<span class="left"><img src="./public/images/static/item1.jpeg" alt=""/></span>
+															<span class="right col-sm-8 col-xs-5 hidden-xs">
+															<?php echo ($vo["topic_content"]); ?>
 															</span>
-														<span class="visible-xs">
-															编者按：互联网时代，“行动”的门槛变得前所未有的低。点个赞，签个
-															名，转发一项倡议，参与一项讨论，只要在网络上对某个公共话题付出些微
-															的努力，都可以说是“行动”的一种。正因为它包罗万象，这一现象也出现了
-															众...
+															<span class="visible-xs">
+															<?php echo ($vo["topic_content"]); ?>
 															</span>
-													</p>
-													<p class="item-time">
-														<em>来自: </em>
-														<a href="#">公益案例</a>
-														<div class="star visible-xs">
-															<button type="button" class="btn btn-default btn-sm">
-																	<span class="glyphicon glyphicon-star-empty"></span> 赞
+														</p>
+														<p class="item-time">
+															<em>来自: </em>
+															<a href="#"><?php echo ($vo["group_name"]); ?></a>
+															<div class="star visible-xs">
+																<a href="<?php echo U('topic_like',array('id'=>$vo['topic_id']));?>" class="J_count_btn">
+																	<button type="button" class="btn btn-default btn-sm ">
+																	<span class="glyphicon glyphicon-star-empty"></span> 赞<?php echo ($vo["topic_zan_count"]); ?>
 																	</button>
-														</div>
-													</p>
-												</div>
-											</li>
-
-											<li>
-												<div class="item-praise hidden-xs">
-													<a href="#">赞</a>
-												</div>
-												<div class="item-content">
-													<p class="item-title">
-														<a href="#">网络行动能改变世界吗？</a>
-													</p>
-													<p class="item-trod">
-														<span class="left"><img src="./public/images/static/item1.jpeg" alt=""/></span>
-														<span class="right col-sm-8 col-xs-5 hidden-xs">
-															编者按：互联网时代，“行动”的门槛变得前所未有的低。点个赞，签个
-															名，转发一项倡议，参与一项讨论，只要在网络上对某个公共话题付出些微
-															的努力，都可以说是“行动”的一种。正因为它包罗万象，这一现象也出现了
-															众...
-															</span>
-														<span class="visible-xs">
-															编者按：互联网时代，“行动”的门槛变得前所未有的低。点个赞，签个
-															名，转发一项倡议，参与一项讨论，只要在网络上对某个公共话题付出些微
-															的努力，都可以说是“行动”的一种。正因为它包罗万象，这一现象也出现了
-															众...
-															</span>
-													</p>
-													<p class="item-time">
-														<em>来自: </em>
-														<a href="#">公益案例</a>
-														<div class="star  visible-xs">
-															<button type="button" class="btn btn-default btn-sm">
-																	<span class="glyphicon glyphicon-star-empty"></span> 赞
-																	</button>
-														</div>
-													</p>
-												</div>
-											</li>
-
+																</a>
+															</div>
+														</p>
+													</div>
+												</li><?php endforeach; endif; ?>
 										</ul>
 									</div>
 
 									<div class="group-page">
+
 										<ul class="pagination">
-											<li>
-												<a href="#" aria-label="Previous">
-													<span aria-hidden="true">&laquo;</span>
-												</a>
-											</li>
-											<li><a href="#">1</a></li>
-											<li><a href="#">2</a></li>
-											<li><a href="#">3</a></li>
-											<li><a href="#">4</a></li>
-											<li><a href="#">5</a></li>
-											<li>
-												<a href="#" aria-label="Next">
-													<span aria-hidden="true">&raquo;</span>
-												</a>
-											</li>
+											<?php echo ($Page); ?>
+
 										</ul>
 									</div>
 								</div>
@@ -260,37 +231,28 @@
 							<div class="col-sm-3 col-sm-offset-1 col-xs-12 ">
 								<div class="group-right">
 									<div class="input-group">
-										<input type="text" class="form-control" placeholder="小组、话题" aria-describedby="basic-addon2">
-										<span class="input-group-addon" id="basic-addon2">搜索</span>
+										<!--<input type="text" class="form-control" placeholder="小组、话题" aria-describedby="basic-addon2">
+										<span class="input-group-addon" id="basic-addon2">搜索</span>-->
 									</div>
-									<p><button class="button" type="button">创建新小组</button></p>
+									<p>
+										<a href="<?php echo U('group/group_add');?>"><button class="button" type="button">创建新小组</button></a></p>
 									<div class="new-group">
 										<div class="new-group-title">
 											<h5>新创建的小组</h5>
 										</div>
 										<ul>
-											<li>
-												<a href="#">
-													<div class="item-left">
-														<img src="./public/images/static/education.jpeg" alt="" />
-													</div>
-													<div class="item-right">
-														<h5>大学生义教</h5>
-														<p>1个组员</p>
-													</div>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<div class="item-left">
-														<img src="./public/images/static/education.jpeg" alt="" />
-													</div>
-													<div class="item-right">
-														<h5>大学生义教</h5>
-														<p>1个组员</p>
-													</div>
-												</a>
-											</li>
+											<?php if(is_array($newJoinGroups)): foreach($newJoinGroups as $key=>$vo): ?><li>
+													<a href="#">
+														<div class="item-left">
+															<img width="50" height="50" src="<?php echo ($vo["group_cover"]); ?>" alt="小组封面" />
+														</div>
+														<div class="item-right">
+															<h5 class="r-topic-name"><?php echo ($vo["group_name"]); ?></h5>
+															<p><?php echo ($vo["group_total"]); ?>个组员</p>
+														</div>
+													</a>
+												</li><?php endforeach; endif; ?>
+											
 										</ul>
 									</div>
 								</div>
@@ -376,7 +338,6 @@ var GV = {
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="/2016Sise/public/js/jquery.js"></script>
     <script src="/2016Sise/public/js/wind.js"></script>
-    <script src="/2016Sise/themes/simplebootx/Public/simpleboot/bootstrap/js/bootstrap.min.js"></script>
     <script src="/2016Sise/public/js/frontend.js"></script>
 	<script>
 	$(function(){

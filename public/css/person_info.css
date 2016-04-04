@@ -63,6 +63,21 @@ tr>td:first-child a{
 .col-md-7.col-sm-7.col-xs-3{
     padding-top: 10px;
 }
+#edit-save{
+	width: 120px;
+    padding: 12px 20px;
+    font-size: 14px;
+    border: 1px solid #2d974d;
+    background-color: transparent;
+    color: #2d974d;
+    margin-right: 20px;
+    margin-top: 20px;
+    outline: none;
+}
+#edit-save:active{
+	background-color: #2d974d;
+	color:#fff;
+}
 h4{
     color:#2d974d;
 }

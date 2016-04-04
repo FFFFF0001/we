@@ -1,11 +1,12 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
-<head>
-<title><?php echo ($site_name); ?></title>
-<meta name="keywords" content="<?php echo ($site_seo_keywords); ?>" />
-<meta name="description" content="<?php echo ($site_seo_description); ?>">
-<meta name="author" content="CXCL工作室">
-<?php  function _sp_helloworld(){ echo "hello CXCL工作室!"; } function _sp_helloworld2(){ echo "hello ThinkCMF2!"; } function _sp_helloworld3(){ echo "hello ThinkCMF3!"; } ?>
+
+	<head>
+		<title><?php echo ($site_name); ?></title>
+		<meta name="keywords" content="<?php echo ($site_seo_keywords); ?>" />
+		<meta name="description" content="<?php echo ($site_seo_description); ?>">
+		<meta name="author" content="CXCL工作室">
+		<?php  function _sp_helloworld(){ echo "hello CXCL工作室!"; } function _sp_helloworld2(){ echo "hello ThinkCMF2!"; } function _sp_helloworld3(){ echo "hello ThinkCMF3!"; } ?>
 <?php $portal_index_lastnews=2; $portal_hot_articles="1,2"; $portal_last_post="1,2"; $tmpl=sp_get_theme_path(); $default_home_slides=array( array( "slide_name"=>"ThinkCMFX2.0.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/1.jpg", "slide_url"=>"", ), array( "slide_name"=>"ThinkCMFX2.0.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/2.jpg", "slide_url"=>"", ), array( "slide_name"=>"ThinkCMFX2.0.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/3.jpg", "slide_url"=>"", ), ); ?>
 <meta name="author" content="CXCL工作室">
 <meta charset="utf-8">
@@ -24,7 +25,7 @@
     <![endif]-->
 <link rel="icon" href="Public/images/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="Public/images/favicon.ico" type="image/x-icon">
-<!-- <link href="/2016Sise/themes/simplebootx/Public/simpleboot/themes/simplebootx/theme.min.css" rel="stylesheet"> -->
+ <!--<link href="/2016Sise/themes/simplebootx/Public/simpleboot/themes/simplebootx/theme.min.css" rel="stylesheet">--> 
 <!-- <link href="/2016Sise/themes/simplebootx/Public/simpleboot/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet"> -->
 <link href="/2016Sise/themes/simplebootx/Public/simpleboot/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href="Public/simpleboot/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -36,22 +37,21 @@
 <link href="/2016Sise/themes/simplebootx/Public/css/User/login.css" rel="stylesheet">
 <link href="/2016Sise/themes/simplebootx/Public/css/User/header.css" rel="stylesheet">
 <link href="/2016Sise/themes/simplebootx/Public/css/footer.css" rel="stylesheet">
-<link href="/2016Sise/themes/simplebootx/Public/css/User/register.css" rel="stylesheet">
 <link href="/2016Sise/themes/simplebootx/Public/css/User/step.css" rel="stylesheet">
 <link href="/2016Sise/themes/simplebootx/Public/css/User/forgot_password.css" rel="stylesheet">
-<link href="/2016Sise/themes/simplebootx/Public/css/Portal/group-detail.css" rel="stylesheet">
-<link href="/2016Sise/themes/simplebootx/Public/css/Portal/topicadd.css" rel="stylesheet">
-<link href="Public/css/topic.css" rel="stylesheet">
-<link href="Public/css/group.css" rel="stylesheet">
-<link href="Public/css/reset.css" rel="stylesheet">
-<link href="Public/css/pullToRefresh.css" rel="stylesheet">
-<link href="Public/css/style.css" rel="stylesheet">
-<link href="Public/css/info.css" rel="stylesheet">
-<link href="Public/css/28902.css" rel="stylesheet">
-	<link href="Public/css/person_info.css" rel="stylesheet">
-		<link href="Public/css/authentication.css" rel="stylesheet">
-<link href="Public/css/update_pwd.css" rel="stylesheet">
-	<link href="Public/css/face.css" rel="stylesheet">
+	<link href="Public/css/style.css" rel="stylesheet">
+
+<!--<link href="Public/css/reset.css" rel="stylesheet">
+-->
+<link href="Public/css/normalize.css" rel="stylesheet">
+<!--<link href="Public/css/info.css" rel="stylesheet">-->
+<!--<link href="Public/css/28902.css" rel="stylesheet">-->
+<!--<link href="Public/css/person_info.css" rel="stylesheet">-->
+<!---->
+<!--<link href="Public/css/update_pwd.css" rel="stylesheet">-->
+<!---->
+<script src="Public/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+<script src="Public/js/self/lib/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 <style>
 	/*html{filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(1);}*/
 	
@@ -79,76 +79,98 @@
 		font-family: "微软雅黑";
 	}
 </style>
-</head>
+		<link rel="stylesheet" type="text/css" href="Public/css/28902.css" />
+		<link rel="stylesheet" type="text/css" href="Public/css/info.css" />
+	</head>
 
-<body>
-	 <?php echo hook('body_start');?>
+	<body>
+		<?php echo hook('body_start');?>
 <div class="">
 	<!--通用头部开始-->
-					<div id="header" class="header">
-						<div class="header-box center-block">
-							<!--上部为logo和搜索-->
-							<div class="header-up">
-								<a href="#" class="header-logo"></a>
-								<div class="header-search">
-									<form class="navbar-form  hidden-xs" role="search">
-										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Search">
-										</div>
-										<button type="submit" class="btn btn-default">搜索</button>
-									</form>
-									<!--隐藏的用户链接，搜索链接-->
-									<a data-toggle="collapse" href="#cl">
-										<span class="glyphicon glyphicon-user hidden-lg hidden-md hidden-sm"></span>
-									</a>
-									<a data-toggle="collapse" href="#cl1" id="search">
-										<span class="glyphicon glyphicon-search hidden-lg hidden-md hidden-sm"></span>
-									</a>
-								</div>
-							</div>
-							
-
-
-							<!--下部为导航栏-->
-							<nav class="navbar navbar-static-top nav-tabs" role="navigation">
-								<!--向左对齐-->
-								<?php $effected_id=""; $filetpl="<a href='\$href' target='\$target'>\$label</a>"; $ul_class="nav nav-item navbar-left" ; $li_class="" ; $style="nav nav-item navbar-left"; $dropdown='dropdown'; ?>
-<?php echo sp_get_menu("main",$effected_id,$filetpl,$foldertpl,$ul_class,$li_class,$style,$showlevel,$dropdown);?>
-								<!--向右对齐-->
-								<ul class="nav nav-pills navbar-right hidden-xs" id="collapse">
-									<li><a href="#">切换城市</a></li>
-									<li><a href="<?php echo U('User/login/index');?>">登陆注册</a></li>
-									<li><a href="<?php echo U('User/setting/info');?>">个人中心</a></li>
-								</ul>
-							</nav>
+	<div id="header" class="header">
+		<div class="header-box center-block">
+			<!--上部为logo和搜索-->
+			<div class="header-up">
+				<a href="#" class="header-logo"></a>
+				<div class="header-search">
+					<form class="navbar-form  hidden-xs" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search">
 						</div>
-					</div>
-					<!--通用头部结束-->
-					<!--折叠个人资料菜单-->
-					<div class="collapse _hide " id="cl">
-						<a class="head"></a>
-						<label>laoergege</label>
-						<label class="pull-right" style="color: #888888;font-size: small">常居地：广州</label>
-						<span class="glyphicon glyphicon-chevron-right link"></span>
-					</div>
-					<div class="collapse" id="cl1">
-						<div id="demo">
-							<div class="list-group">
-								<a href="#" class="list-group-item active">Item 1</a>
-								<a href="#" class="list-group-item">Item 1</a>
-								<a href="#" class="list-group-item">Item 3</a>
-								<a href="#" class="list-group-item">Item 4</a>
-								<a href="#" class="list-group-item">Item 5</a> ...
-							</div>
-						</div>
-					</div>
-					<!--折叠菜单结束-->
-</div> 
-		
+						<button type="submit" class="btn btn-default">搜索</button>
+					</form>
+					<!--隐藏的用户链接，搜索链接-->
+					<a data-toggle="collapse" href="#cl">
+						<span class="glyphicon glyphicon-user hidden-lg hidden-md hidden-sm"></span>
+					</a>
+					<a data-toggle="collapse" href="#cl1" id="search">
+						<span class="glyphicon glyphicon-search hidden-lg hidden-md hidden-sm"></span>
+					</a>
+				</div>
+			</div>
 
-<!--界面开始-->
-<div class="row " id="g-add-container">
-        <div class="col-md-2 col-sm-2 hidden-xs meun_left">
+			<!--下部为导航栏-->
+			<nav class="navbar navbar-static-top nav-tabs" role="navigation">
+				<!--向左对齐-->
+				<?php $effected_id=""; $filetpl="
+					<a href='\$href' target='\$target'>\$label</a>"; $ul_class="nav nav-item navbar-left" ; $li_class="" ; $style="nav nav-item navbar-left"; $dropdown='dropdown'; ?>
+				<?php echo sp_get_menu("main",$effected_id,$filetpl,$foldertpl,$ul_class,$li_class,$style,$showlevel,$dropdown);?>
+				<!--向右对齐-->
+				<ul class="nav nav-pills navbar-right hidden-xs" id="collapse">
+					<li><a href="#">切换城市</a></li>
+					<li class="dropdown">
+						<?php if(sp_is_user_login() == false): ?><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								<img src="/2016Sise/themes/simplebootx//Public/images/headicon.png" class="headicon" />登录
+								<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="<?php echo leuu('user/login/index');?>"><i class="fa fa-sign-in"></i> &nbsp;登录</a></li>
+								<li><a href="<?php echo leuu('user/register/index');?>"><i class="fa fa-user"></i> &nbsp;注册</a></li>
+							</ul>
+							<?php else: ?>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								<?php $avatar = sp_get_current_user()['avatar'] ?>
+								<?php if(empty($avatar) == true): ?><img src="/2016Sise/themes/simplebootx//Public/images/headicon.png" class="headicon" />
+									<?php else: ?>
+									<img width="30" height="30" src="<?php echo sp_get_asset_upload_path('avatar/').$avatar;?>" class="headicon" /><?php endif; ?>
+
+								<?php echo sp_get_current_user()['user_login'] ?>
+								<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="<?php echo U('User/profile/edit');?>"><i class="fa fa-user"></i> &nbsp;个人中心</a></li>
+								<li><a href="<?php echo U('user/index/logout');?>"><i class="fa fa-sign-out"></i> &nbsp;退出</a></li>
+							</ul><?php endif; ?>
+					</li>
+				</ul>
+
+			</nav>
+
+		</div>
+	</div>
+	<!--通用头部结束-->
+	<!--折叠个人资料菜单-->
+	<div class="collapse _hide " id="cl">
+		<a class="head"></a>
+		<label>laoergege</label>
+		<label class="pull-right" style="color: #888888;font-size: small">常居地：广州</label>
+		<span class="glyphicon glyphicon-chevron-right link"></span>
+	</div>
+	<div class="collapse" id="cl1">
+		<div id="demo">
+			<div class="list-group">
+				<a href="#" class="list-group-item active">Item 1</a>
+				<a href="#" class="list-group-item">Item 1</a>
+				<a href="#" class="list-group-item">Item 3</a>
+				<a href="#" class="list-group-item">Item 4</a>
+				<a href="#" class="list-group-item">Item 5</a> ...
+			</div>
+		</div>
+	</div>
+	<!--折叠菜单结束-->
+</div>
+
+		<!--界面开始-->
+		<div class="row " id="g-add-container">
+			<div class="col-md-2 col-sm-2 hidden-xs meun_left">
             <div class="list-group">
                 <a href="#" class="list-group-item active">
                     <h6 class="list-group-item-heading">
@@ -162,12 +184,12 @@
                         活动
                     </h6>
                 </a>
-                <a href="../../ucenter/activity.html?type=1" class="list-group-item">
+                <a href="#" class="list-group-item">
                     <h6 class="list-group-item-heading">
                         参加的活动
                     </h6>
                 </a>
-                <a href="../../ucenter/activity.html?type=2" class="list-group-item">
+                <a href="#" class="list-group-item">
                     <h6 class="list-group-item-heading">
                         感兴趣的活动
                     </h6>
@@ -179,12 +201,12 @@
                         活动小组
                     </h6>
                 </a>
-                <a href="../created.html" class="list-group-item">
+                <a href="#" class="list-group-item">
                     <h6 class="list-group-item-heading">
                         我创建的
                     </h6>
                 </a>
-                <a href="../joined.html" class="list-group-item">
+                <a href="#" class="list-group-item">
                     <h6 class="list-group-item-heading">
                         我加入的
                     </h6>
@@ -201,123 +223,131 @@
                 </a>
             </div>
             <div class="list-group">
-                <a href="#" class="list-group-item active">
+                <a href="<?php echo U('User/setting/info');?>" class="list-group-item active">
                     <h6 class="list-group-item-heading">
                         设置
                     </h6>
-                    <a href="#" class="list-group-item">
-                        <h6 class="list-group-item-heading">
-                            个人资料
-                        </h6>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <h6 class="list-group-item-heading">
-                            修改头像
-                        </h6>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <h6 class="list-group-item-heading">
-                            修改密码
-                        </h6>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <h6 class="list-group-item-heading">
-                            修改微博秀
-                        </h6>
-                    </a>
+                </a>
+                <a href="<?php echo U('User/profile/edit');?>" class="list-group-item">
+                    <h6 class="location list-group-item-heading">
+                        个人资料
+                    </h6>
+                </a>
+                <a href="<?php echo U('User/setting/face');?>" class="list-group-item">
+                    <h6 class="list-group-item-heading">
+                        修改头像
+                    </h6>
+                </a>
+                <a href="<?php echo U('User/profile/password');?>" class="list-group-item">
+                    <h6 class="list-group-item-heading">
+                        修改密码
+                    </h6>
                 </a>
             </div>
         </div>
-        <!--我加入的小组菜单项内容开始-->
-        <div class="col-md-10 col-sm-9 col-xs-12 content_right " >
-            <div class="panel-primary panel"  >
-                <div class="panel-heading pn-head" >
-                    <h3 class="panel-title" id="nowStatus">当前位置:小组管理>>小组设置</h3>
-                </div>
-            </div>
-            <div>
-                <div class="cluster">
-                    <a title="编辑小组信息" class="focus">编辑小组信息</a>
-                    <a >上传小组封面头像</a>
-                </div>
-                <!--编辑小组信息开始-->
-                <form action="<?php echo U('do_group_add');?>" method="post" class="form-horizontal js-ajax-form">
-                    <!--小组名称开始-->
-                    <div class="form-group">
-                        <label for="group_name" class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right " >小组名称:</label>
-                        <div class="col-lg-4 col-md-4  col-sm-4 col-sm-4 col-xs-4" >
-                            <input type="text" name="group_name" class="form-control " id="group_name" placeholder="请输入不超过15个字节的名称"/>
-                            <span class="sr-only" id="name_error"></span>
-                        </div>
-                    </div>
-                    <!--小组名称结束-->
-                    <!--小组类型开始-->
-                    <div class="form-group">
-                        <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right" >小组类型:</label>
-                        <div class=" dropdown btn-group col-lg-3 col-md-3 col-sm-3 col-xs-5">
-                            <button type="button" class="btn btn-success" id="group_type">选择类型</button>
-                            <button class="dropdown-toggle btn btn-success  " data-toggle="dropdown"><span class="caret"></span></button>
-                            <ul class="dropdown-menu">
-                                <li>生态环保</li>
-                                <li>文化/艺术</li>
-                                <li>动物保护</li>
-                                <li>儿童关怀</li>
-                                <li>支教助学</li>
-                                <li>扶老助残</li>
-                                <li>综合/其他</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!--小组类型结束-->
-                    <!--小组描述开始-->
-                    <div class="form-group ">
-                        <label class="col-lg-2 control-label col-md-2 col-sm-2 col-xs-3 text-right" style="line-height:114px;">小组描述:</label>
-                        <textarea name="group_introduce" class="col-lg-10 col-md-10 col-sm-9 col-xs-8" rows="6"></textarea>
-                    </div>
-                    <!--小组描述结束-->
-                    <!--公告板开始-->
-                    <div class="form-group">
-                        <label class="col-lg-2 control-label col-md-2 col-sm-2 col-xs-3 text-right" style="line-height:114px;">公告板:</label>
-                        <textarea name="group_notice" class="col-lg-10 col-md-10 col-sm-9 col-xs-8" rows="13"></textarea>
-                    </div>
-                    <!--公告板结束-->
-                    <!--联系电话和验证板块开始-->
-                    <div class="form-group">
-                        <label for="group_phone" class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right " >联系电话:</label>
-                        <div class="col-lg-6 col-md-6 col-sm-4  col-xs-6" >
-                            <input type="tel" name="group_tel" class="form-control" id="group_phone" placeholder="请输入电话号码"/>
-                            <span class="sr-only" id="phone_error"></span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="group_check" class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right " >验证:</label>
-                        <div class="col-lg-6 col-md-6 col-sm-4 col-xs-6 " >
-                            <input type="text" name="verify" class="form-control" id="group_check" placeholder="输入右边的验证码"/>
-                            <span class="verfiy">
+			<!--我加入的小组菜单项内容开始-->
+			<div class="col-md-10 col-sm-9 col-xs-12 content_right ">
+				<div class="panel-primary panel">
+					<div class="panel-heading pn-head">
+						<h3 class="panel-title" id="nowStatus">当前位置:小组管理>>小组设置</h3>
+					</div>
+				</div>
+				<div>
+					<div class="cluster">
+						<a href="#crt-group-form" id="edit-msg" title="编辑小组信息" class="focus">编辑小组信息</a>
+						<a href="#upload_cover" id="upload_cover">上传小组封面头像</a>
+					</div>
+					<!--编辑小组信息开始-->
+					<form id="crt-group-form" action="<?php echo U('do_group_add');?>" method="post" class="form-horizontal js-ajax-form">
+						<!--小组名称开始-->
+						<div class="form-group">
+							<label for="group_name" class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right ">小组名称:</label>
+							<div class="col-lg-4 col-md-4  col-sm-4 col-sm-4 col-xs-4">
+								<input type="text" name="group_name" class="form-control " id="group_name" placeholder="请输入不超过15个字节的名称" />
+								<span class="sr-only" id="name_error"></span>
+							</div>
+						</div>
+						<!--小组名称结束-->
+						<!--小组类型开始-->
+						<div class="form-group">
+							<label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right">小组类型:</label>
+							<input type="hidden" id="sort" name="group_type" value="" />
+								<div class="dropdown btn-group col-lg-3 col-md-3 col-sm-3 col-xs-5">
+									<button type="button" class="btn btn-success" id="group_type">选择类型</button>
+									<button type="button" class="dropdown-toggle btn btn-success" aria-haspopup="true" aria-expanded="false"
+										 data-toggle="dropdown"><span class="caret"></span></button>
+									<ul class="dropdown-menu">
+										<li>生态环保</li>
+										<li>文化/艺术</li>
+										<li>动物保护</li>
+										<li>儿童关怀</li>
+										<li>支教助学</li>
+										<li>扶老助残</li>
+										<li>综合/其他</li>
+									</ul>
+								</div>
+						</div>
+						<!--小组类型结束-->
+						<!--小组描述开始-->
+						<div class="form-group ">
+							<label class="col-lg-2 control-label col-md-2 col-sm-2 col-xs-3 text-right" style="line-height:114px;">小组描述:</label>
+							<textarea name="group_introduce" class="col-lg-10 col-md-10 col-sm-9 col-xs-8" rows="6"></textarea>
+						</div>
+						<!--小组描述结束-->
+						<!--公告板开始-->
+						<div class="form-group">
+							<label class="col-lg-2 control-label col-md-2 col-sm-2 col-xs-3 text-right" style="line-height:114px;">公告板:</label>
+							<textarea name="group_notice" class="col-lg-10 col-md-10 col-sm-9 col-xs-8" rows="13"></textarea>
+						</div>
+						<!--公告板结束-->
+						<!--联系电话和验证板块开始-->
+						<div class="form-group">
+							<label for="group_phone" class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right ">联系电话:</label>
+							<div class="col-lg-6 col-md-6 col-sm-4  col-xs-6">
+								<input type="tel" name="group_tel" class="form-control" id="group_phone" placeholder="请输入电话号码" />
+								<span class="sr-only" id="phone_error"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="group_check" class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right ">验证:</label>
+							<div class="col-lg-6 col-md-6 col-sm-4 col-xs-6 ">
+								<input type="text" name="verify" class="form-control" id="group_check" placeholder="输入右边的验证码" />
+								<span class="verfiy">
 		<?php echo sp_verifycode_img('length=4&font_size=14&width=100&height=34&charset=1345678&use_noise=1&use_curve=0');?>
                                    </span>
-                        </div>
-                        <div class="col-lg-2 col-md-2  col-sm-2 col-sm-2 col-xs-3" >
-                        </div>
-                    </div>
-                    <!--联系电话和验证板块结束-->
-                    <div class="form-group">
-                        <label class="col-lg-2 col-md-2  col-sm-2 col-sm-2 "> </label>
-                        <div class="col-lg-2 col-md-2  col-sm-2 col-sm-2 col-xs-3">
-                            <button type="button" class="js-ajax-submit form-control btn btn-success">提交
+							</div>
+							<div class="col-lg-2 col-md-2  col-sm-2 col-sm-2 col-xs-3">
+							</div>
+						</div>
+						<!--联系电话和验证板块结束-->
+						<div class="form-group">
+							<label class="col-lg-2 col-md-2  col-sm-2 col-sm-2 "> </label>
+							<div class="col-lg-2 col-md-2  col-sm-2 col-sm-2 col-xs-3">
+								<button type="button" class="js-ajax-submit form-control btn btn-success">提交
                             	</button>
-                        </div>
-                        <div class="col-lg-5 col-md-5  col-sm-5 col-sm-5 col-xs-8 ">
-                            <input type="checkbox"  checked/>我已认证阅读并遵循 <span style="color:forestgreen">《志愿时用户规范》</span>
-                        </div>
-                    </div>
-                </form>
-                <!--编辑小组信息结束-->
-            </div>
-        </div>
-        <!--我加入的小组菜单项内容结束-->
-    </div>
-<!--界面结束-->
+							</div>
+							<div class="col-lg-5 col-md-5  col-sm-5 col-sm-5 col-xs-8 ">
+								<input type="checkbox" checked/>我已认证阅读并遵循 <span style="color:forestgreen">《志愿时用户规范》</span>
+							</div>
+						</div>
+					</form>
+					<!--编辑小组信息结束-->
+					<!--上传封面头像开始-->
+					<div id="upload-cover" style="display: none;">
+						<div class="input-field col s12" id="AddFile1">
+							<input type="button" class="file_upload" style="opacity:0;">
+
+						</div>
+						<div class="showpic" style="display: inline-block;">
+							<img src="./public/images/bgWhite.png" class="preview" width="60" height="60">
+						</div>
+					</div>
+					<!--上传封面头像结束-->
+				</div>
+			</div>
+			<!--我加入的小组菜单项内容结束-->
+		</div>
+		<!--界面结束-->
 
 		
 <!-- Footer
@@ -377,12 +407,12 @@
 </div>
 
 
- 
 
-	</div>
-	<!-- /container -->
-<script data-main="./public/js/self/group_add.js" src="./node_modules/requirejs/require.js"></script>
-	<script type="text/javascript">
+
+		</div>
+		<!-- /container -->
+		<script data-main="./public/js/self/group_add.js" src="./node_modules/requirejs/require.js"></script>
+		<script type="text/javascript">
 //全局变量
 var GV = {
     DIMAUB: "",
@@ -395,7 +425,6 @@ var GV = {
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="/2016Sise/public/js/jquery.js"></script>
     <script src="/2016Sise/public/js/wind.js"></script>
-    <script src="/2016Sise/themes/simplebootx/Public/simpleboot/bootstrap/js/bootstrap.min.js"></script>
     <script src="/2016Sise/public/js/frontend.js"></script>
 	<script>
 	$(function(){
@@ -458,5 +487,6 @@ var GV = {
 	</script>
 
 
-</body>
+	</body>
+
 </html>

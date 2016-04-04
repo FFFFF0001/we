@@ -6,6 +6,10 @@
 		<meta name="description" content="{$site_seo_description}">
 		<meta name="author" content="CXCL工作室">
 		<tc_include file="Public:head" />
+		
+<link href="Public/css/group.css" rel="stylesheet">
+	<link href="Public/css/pullToRefresh.css" rel="stylesheet">
+<link href="Public/css/style.css" rel="stylesheet">
 	</head>
 <body>
 	
@@ -17,7 +21,7 @@
         <div class="col-lg-9 col-md-9 col-sm-9" id="left">
             <div class="team-tabs">
                 <h4>
-                    <a>话题精选</a>
+                    <a href="{:U('topic/topic')}">话题精选</a>
                     <a href="#" id="join" class="ac">加入小组</a>
                     <a class="hidden-* visible-xs" id="re">推荐小组</a>
                 </h4>
@@ -26,16 +30,13 @@
             <div class="classification">
                     <strong>分类：</strong>
 
-                        <a class="ac">全部</a>
-                        <a>生态环保</a>
-                        <a>文化/艺术</a>
-                        <a>动物保护</a>
-                        <a>儿童关怀</a>
-                        <a>支教助学</a>
-                        <a>扶老助残</a>
-                        <a>综合/其他</a>
+                        <a href="{:U('group')}" class="ac">全部</a>
+                        <foreach name="activity_type" item="vo">
+                        	<a href="{:U('group',array('sort'=>$vo))}">{$vo}</a>
+                        </foreach>
                 </div>
             <div id="wrapper">
+            	<form action="" method="post" class="js-ajax-form">
                 <ul>
                 	<foreach name="group" item="vo">
 	                    <li class="col-md-6 col-sm-6 col-xs-12">
@@ -44,8 +45,19 @@
 	                                <div class="info">
 	                                    <div>
 	                                        <strong>
+	                                        	<php>
+	                                        		$r = in_array($vo['group_id'],$hasJoin)
+	                                        	</php>
+	                                        	<if condition="$r eq true">
+	                                        			<a href="{:U('group_detail',array('group_id'=>$vo['group_id']))}" class="a-btn btn btn-success btn-xs pull-right">进入小组</a>
+	                                        		<else />
+	                                        		<button class="btn btn-success btn-xs pull-right btn-join js-ajax-submit" type="submit" data-action="{:U('join_group',array('id'=>$vo['group_id']))}">加入</button>
+	                                        	</if>
 	                                            <a href="{:U('group_detail',array('group_id'=>$vo[group_id]))}">{$vo.group_name}</a>
-	                                            <button class="btn btn-success btn-xs pull-right">加入</button>
+	                                            <php>
+	                                            	
+	                                            </php>
+	                                            
 	                                        </strong>
 	                                        <p>
 	                                            <span aria-hidden="true" class="icon_group"></span> {$vo.group_total}
@@ -60,8 +72,8 @@
 	                        </div>
 	                    </li>
                     </foreach>
-                    
                 </ul>
+                </form>
             </div>
             <!--加载提示-->
             <div class="loader col-sm-12 hidden">
@@ -85,10 +97,10 @@
                     </div>
                 </div>
             </form>
-            <a href="{:U('group_add')}">
-            	<button class="btn btn-default btn-block">
-                创建新小组
-            </button></a>
+            
+            	<button class="btn btn-default btn-block" id="crt-grp">
+                <a href="{:U('group_add')}" >创建新小组</a>
+            </button>
             
             <div id="recommend">
                 <p>
@@ -261,6 +273,7 @@
     </div>
     
 </div>
+<tc_include file="Public:footer" />
     <tc_include file="Public:scripts" />
 </body>
 <script data-main="./public/js/self/list.js" src="./node_modules/requirejs/require.js"></script>

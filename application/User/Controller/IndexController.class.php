@@ -5,6 +5,8 @@
  */
 namespace User\Controller;
 use Common\Controller\HomebaseController;
+use Common\Model\UsersModel;
+
 class IndexController extends HomebaseController {
     //登录
 	public function index() {
@@ -60,5 +62,39 @@ class IndexController extends HomebaseController {
 			redirect(__ROOT__."/");
 		}
     }
+
+	function prs_upload()
+	{
+		$UserModel = M('users');
+		header('Content-type: text/json');
+		$post_input = 'php://input';
+		$postdata = file_get_contents( $post_input );   //获取数据转成一个字符串
+		$img = str_replace('data:image/png;base64,', '', $postdata);
+		$img = str_replace(' ', '+', $img);
+
+		$data = base64_decode($img);    //解码base64
+
+		$uq = uniqid();
+		$file = './data/upload/avatar/'. $uq . '.png';    //文件命名
+
+		/*删除原来的头像*/
+		$hasAvatar = $UserModel->where(array('id' => sp_get_current_userid()))->find();
+		$prevAvatar = $hasAvatar['avatar'];
+		if (!empty($prevAvatar)) {
+			$result = unlink("./data/upload/avatar/$prevAvatar");
+		}
+
+		$UserModel
+			->where(array('id'=>sp_get_current_userid()))
+			->save(array('avatar'=>$uq.'.png'));
+
+		$success = file_put_contents($file, $data);
+		if($success){
+			echo '{"result":"true"}';
+		}
+		else{
+			echo '{"result":"false"}';
+		}
+	}
 
 }

@@ -7,6 +7,7 @@
 		<meta name="description" content="{$site_seo_description}">
 		<meta name="author" content="CXCL工作室">
 		<tc_include file="Public:head" />
+		<link href="__TMPL__Public/css/Portal/group-detail.css" rel="stylesheet">
 	</head>
 
 	<body class="body-white">
@@ -25,12 +26,19 @@
 								<div class="left">
 									<img width="70px" src="{$groupMes.group_cover}" title="小组头像" alt="小组头像">
 								</div>
-								<div class="right">
-									<h4>趣公益</h4>
+								<div class="cover-r-msg">
+									<h4>{$groupMes.group_name}</h4>
 									<p>
-										<span class="glyphicon glyphicon-user">1111人</span>
-										<span class="glyphicon glyphicon-align-right">1234个</span>
-										<span><button type="button" class="text icon_join">加入小组</button></span>
+										<span class="glyphicon glyphicon-user">{$groupMes.group_total}人</span>
+										<span class="glyphicon glyphicon-align-right">{$groupMes.chat_count}个</span>
+										<span>
+										<if condition="$joinStatus eq true">
+												<button type="button" class="btn-exit text icon_join" data-action="{:U('exit_group',array('id'=>I('group_id')))}">退出小组</button>
+											<else />
+												<button type="button" class="btn-join text icon_join" data-action="{:U('join_group',array('id'=>I('group_id')))}">加入小组</button>
+										</if>
+										
+										</span>
 									</p>
 								</div>
 							</div>
@@ -62,7 +70,7 @@
 									</tr>
 									<foreach name="topicMsg" item="vo">
 										<tr>
-											<td class="col-xs-7 t-content"><a href="">{$vo.topic_title}</a>
+											<td class="col-xs-7 t-content"><a href="{:U('topic/topic_detail',array('topic_id'=>$vo['topic_id']))}">{$vo.topic_title}</a>
 
 											</td>
 											<td class="col-xs-4 t-nicename">{$vo.user_nicename}</td>
@@ -84,70 +92,34 @@
 										小组成员
 									</h5>
 							<div class="team_user">
-								<a href="#">
-									<img width="50px" src="./data/upload/group_avatar/user_02.jpg"><br>user
-								</a>
-								<a href="#">
-									<img width="50px" src="./data/upload/group_avatar/user_02.jpg"><br>user
-								</a>
-								<a href="#">
-									<img width="50px" src="./data/upload/group_avatar/user_02.jpg"><br>user
-								</a>
-								<a href="#">
-									<img width="50px" src="./data/upload/group_avatar/user_02.jpg"><br>user
-								</a>
-								<a href="#">
-									<img width="50px" src="./data/upload/group_avatar/user_02.jpg"><br>user
-								</a>
-								<a href="#">
-									<img width="50px" src="./data/upload/group_avatar/user_02.jpg"><br>user
-								</a>
-								<a href="#">
-									<img width="50px" src="./data/upload/group_avatar/user_02.jpg"><br>user
-								</a>
-								<a href="#">
-									<img width="50px" src="./data/upload/group_avatar/user_02.jpg"><br>user
-								</a>
+								<foreach name="member" item="vo">
+									<a href="#">
+										<img width="50" height="50" title="小组成员头像" alt="小组成员头像" src="{:sp_get_asset_upload_path(avatar)."/".$vo['avatar']}"><br>{$vo['user_login']}
+									</a>
+								</foreach>
+								
+								
 							</div>
 
 							<h5 class="team_title">组员们想去的小组</h5>
 							<div class="team_recommend">
 								<ul>
-									<li>
-										<a href="#">
+									<foreach name="wants" item="voo">
+										<li class="recommend-l">
+										
 											<div class="left">
-												<img width="45px" src="./data/upload/group_avatar/education.jpeg" />
+												<img width="45px" src="{:sp_get_asset_upload_path('group_avatar').'/'.$voo['group_cover']}" />
 											</div>
 											<div class="right">
-												<h5>公益案例</h5>
-												<p>123个组员</p>
+												<a href="#"><h5>{$voo.group_name}</h5></a>
+												<p>{$voo.group_total}个组员</p>
 											</div>
-										</a>
+											<p class="group-msg-show" style="display: none;">
+												{$voo.group_introduce}
+											</p>
+										
 									</li>
-
-									<li>
-										<a href="#">
-											<div class="left">
-												<img width="45px" src="./data/upload/group_avatar/education.jpeg" />
-											</div>
-											<div class="right">
-												<h5>公益案例</h5>
-												<p>123个组员</p>
-											</div>
-										</a>
-									</li>
-
-									<li>
-										<a href="#">
-											<div class="left">
-												<img width="45px" src="./data/upload/group_avatar/education.jpeg" />
-											</div>
-											<div class="right">
-												<h5>公益案例</h5>
-												<p>123个组员</p>
-											</div>
-										</a>
-									</li>
+									</foreach>
 								</ul>
 							</div>
 
@@ -165,6 +137,7 @@
 		<!-- /container -->
 
 		<tc_include file="Public:scripts" />
+		<script data-main="./public/js/self/group_detail.js" src="./node_modules/requirejs/require.js"></script>
 	</body>
 
 </html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>{$site_name}</title>
+		<meta name="keywords" content="{$site_seo_keywords}" />
+		<meta name="description" content="{$site_seo_description}">
+		<meta name="author" content="CXCL工作室">
+		<tc_include file="Public:head" />
+		<link rel="stylesheet" type="text/css" href="Public/css/28902.css" />
+		<link rel="stylesheet" type="text/css" href="Public/css/info.css" />
+		<link href="Public/css/cropper-demo.css" rel="stylesheet">
+		<link href="Public/css/cropper.css" rel="stylesheet">
+		<link href="Public/css/face.css" rel="stylesheet">
+		<style>
+			.cropper-view-box,
+			.cropper-face {
+				border-radius: 0%!important;
+			}
+			
+			.preview {
+				border-radius: 0%!important;
+			}
+		</style>
+	</head>
+
+	<body>
+		<tc_include file="Public:nav" />
+
+		<!--界面开始-->
+		<div class="row " id="g-add-container">
+			<tc_include file="Public:leftbar" />
+			<!--我加入的活动菜单项内容开始-->
+			<div class="col-md-10 col-sm-9 col-xs-12 content_right ">
+				<div class="panel-primary panel">
+					<div class="panel-heading pn-head">
+						<h3 class="panel-title" id="nowStatus">当前位置:活动管理>>活动设置</h3>
+					</div>
+				</div>
+				<div>
+					<div class="cluster">
+						<a href="javascript:;" id="edit-msg" title="编辑活动信息" class="focus">编辑活动信息</a>
+						<a href="javascript:;" id="uploadBtn">上传活动封面头像</a>
+					</div>
+					<!--编辑活动信息开始-->
+					<form style="" id="crt-group-form" action="{:U('do_activity_add')}" method="post" class="form-horizontal js-ajax-form">
+						<!--活动名称开始-->
+						<div class="form-group">
+							<label for="activity_name" class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right ">活动名称:</label>
+							<div class="col-lg-4 col-md-4  col-sm-4 col-sm-4 col-xs-4">
+								<input type="text" name="activity_name" class="form-control " id="activity_name" placeholder="请输入不超过15个字节的名称" />
+								<span class="sr-only" id="name_error"></span>
+							</div>
+						</div>
+						<!--开始时间开始-->
+						<div class="form-group">
+							<label for="start_time" class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right ">开始时间:</label>
+							<div class="col-lg-4 col-md-4  col-sm-4 col-sm-4 col-xs-4">
+								<input type="text" name="start_time" class="form-control js-datetime" id="start_time" placeholder="" />
+							</div>
+						</div>
+						<!--开始时间结束-->
+						<!--结束时间开始-->
+						<div class="form-group">
+							<label for="end_time" class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right ">结束时间:</label>
+							<div class="col-lg-4 col-md-4  col-sm-4 col-sm-4 col-xs-4">
+								<input type="text" name="end_time" class="form-control js-datetime" id="end_time" placeholder="" />
+							</div>
+						</div>
+						<!--结束时间结束-->
+						<!--活动名称结束-->
+						<div class="form-group">
+							<label for="area" class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right ">活动地点:</label>
+							<div class="col-lg-4 col-md-4  col-sm-4 col-sm-4 col-xs-4">
+								<input type="text" name="area" class="form-control" id="area" placeholder="*请填写详情地址，让参与者知道活动位置" />
+							</div>
+						</div>
+						<!--活动类型开始-->
+						<div class="form-group">
+							<label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right">活动类型:</label>
+							<input type="hidden" id="type" name="type" value="" />
+							<div class=" dropdown btn-group col-lg-3 col-md-3 col-sm-3 col-xs-5">
+								<button type="button" class="btn btn-success" id="group_type">选择类型</button>
+								<button type="button" class="dropdown-toggle btn btn-success" data-toggle="dropdown"><span class="caret"></span></button>
+								<ul class="dropdown-menu">
+									<foreach name="types" item="vo">
+										<li>{$vo}</li>
+									</foreach>
+								</ul>
+							</div>
+						</div>
+						<!--活动类型结束-->
+						<!--活动性质开始-->
+							<div class="form-group">
+							<label for="property" class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right ">活动地点:</label>
+							<div class="col-lg-4 col-md-4  col-sm-4 col-sm-4 col-xs-4">
+								<select name="property" id="property" class="form-control">
+									<foreach name="property" item="vo">
+										<option value="{$vo}">{$vo}</option>
+									</foreach>
+								</select>
+							</div>
+						</div>
+						<!--活动性质结束-->
+						<!--所需费用开始-->
+						<div class="form-group">
+							<label for="charge" class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right ">费用:</label>
+							<div class="col-lg-4 col-md-4  col-sm-4 col-sm-4 col-xs-4">
+								<input type="text" name="charge" class="form-control" id="charge" placeholder="*免费填0，非免费填具体金额" />
+							</div>
+						</div>
+						<!--所需费用结束-->
+						<!--活动摘要开始-->
+						<div class="form-group">
+							<label for="introduction" class="col-lg-2 control-label col-md-2 col-sm-2 col-xs-3 text-right" style="line-height:114px;">活动介绍:</label>
+							<textarea name="introduction" id="introduction" class="col-lg-10 col-md-10 col-sm-9 col-xs-8" rows="5" placeholder="*请用简短的文字描述下活动，让人一目了然"></textarea>
+						</div>
+						<!--活动摘要结束-->
+						<!--活动详情开始-->
+						<div class="form-group">
+							<label for="activity_detail" class="col-lg-2 control-label col-md-2 col-sm-2 col-xs-3 text-right" style="line-height:114px;">活动详情:</label>
+							<div class="col-lg-10 col-md-10 col-sm-9 col-xs-8">
+								<script type="text/plain" id="activity_detail">
+
+								</script>
+							</div>
+
+						</div>
+						<!--活动详情结束-->
+						<div class="form-group">
+							<label for="group_check" class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right ">验证:</label>
+							<div class="col-lg-6 col-md-6 col-sm-4 col-xs-6 ">
+								<input type="text" name="verify" class="form-control" id="group_check" placeholder="输入右边的验证码" />
+								<span class="verfiy">
+		{:sp_verifycode_img('length=4&font_size=14&width=100&height=34&charset=1345678&use_noise=1&use_curve=0')}
+                                   </span>
+							</div>
+							<div class="col-lg-2 col-md-2  col-sm-2 col-sm-2 col-xs-3">
+							</div>
+						</div>
+						<input type="hidden" value="" name="detail" />
+						<!--联系电话和验证板块结束-->
+						<div class="form-group">
+							<label class="col-lg-2 col-md-2  col-sm-2 col-sm-2 "> </label>
+							<div class="col-lg-2 col-md-2  col-sm-2 col-sm-2 col-xs-3">
+								<button type="button" class="js-ajax-submit form-control btn btn-success">提交
+                            	</button>
+							</div>
+							<div class="col-lg-5 col-md-5  col-sm-5 col-sm-5 col-xs-8 ">
+								<input type="checkbox" checked/>我已认证阅读并遵循 <span style="color:forestgreen">《志愿时用户规范》</span>
+							</div>
+						</div>
+					</form>
+					<!--编辑活动信息结束-->
+					<!--上传封面头像开始-->
+					<div id="upload-cover" style="display: none;">
+						<!--菜单项内容开始-->
+						<div class="col-md-10 col-sm-10 col-xs-12 content_right">
+							<!--头像修改开始-->
+							<form method="post" action="#" enctype="multipart/form-data" id="cropper_form">
+								<p>
+									<button class="btn-upload btn-lg">选择图片</button>
+									<input type="file" name="avatar" id="image_input" /> 支持格式: JPG, PNG
+								</p>
+								<div class="row">
+									<div class="preview-container">
+										<div class="col-sm-6 col-xs-12">
+											<img class="img-responsive" id="cropper-target" src="./public/images/404.jpg" alt="Picture" width="300px" height="300px">
+										</div>
+										<div class="show col-sm-6 col-xs-12">
+											<div class="row">
+												<div class="col-sm-6 col-xs-6">
+													<div class="preview"></div>
+													<p>large</p>
+												</div>
+												<div class="col-sm-4 col-xs-4">
+													<div class="preview"></div>
+													<p>medium</p>
+												</div>
+												<div class="col-sm-2 col-xs-2">
+													<div class="preview"></div>
+													<p>small</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<button type="button" class="btn-lg up" id="act-upload" data-toggle="modal">提交</button>
+							</form>
+
+						</div>
+					</div>
+					<!--上传封面头像结束-->
+				</div>
+			</div>
+			<!--我加入的活动菜单项内容结束-->
+		</div>
+		<!--界面结束-->
+
+		<tc_include file="Public:footer" />
+		<script data-main="./public/js/self/activity_add.js" src="./node_modules/requirejs/require.js"></script>
+		<tc_include file="Public:scripts" />
+
+		<script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.config.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.all.min.js"></script>
+		<script type="text/javascript">
+			//编辑器
+			editorcontent = new baidu.editor.ui.Editor();
+			editorcontent.render('activity_detail');
+			try {
+				editorcontent.sync();
+			} catch (err) {}
+			$("input").blur(function() {
+				var content = editorcontent.getContent();
+				$('input[name=detail]').val(content);
+			});
+		</script>
+		</div>
+	</body>
+
+</html>

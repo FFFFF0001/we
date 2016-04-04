@@ -358,3 +358,26 @@ function add_multifile(returnid) {
     var str = "<li id='multifile" + ids + "'><input type='text' name='" + returnid + "_fileurl[]' value='' style='width:310px;' class='input'> <input type='text' name='" + returnid + "_filename[]' value='附件说明' style='width:160px;' class='input'> <a href=\"javascript:remove_div('multifile" + ids + "')\">移除</a> </li>";
     $('#' + returnid).append(str);
 }
+var str = 'assssjdssskssalsssriweuouq[ir[eqnzvncdkjsssdss';
+        //先排序 只有数组才能排序 先转换成数组
+
+        var arr = str.split('');
+
+        str = arr.sort().join('');  //aadddjjkklsssssssssssssssss
+
+        var max  = 0;
+
+        var index = 0;
+
+        var re = /(\w)\1+/g;
+
+        str.replace(re,function ($0,$1){
+        //$0 是 母亲 $1是第一个儿子
+            if(max<$0.length){
+                max = $0.length;//长度
+                index = $1;//出现最多的字符
+            }
+
+        });
+
+        console.log("出现最多的字符是" + index,'出现了' + max + '次');

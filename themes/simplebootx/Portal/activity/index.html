@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>{$site_name}</title>
+		<meta name="keywords" content="{$site_seo_keywords}" />
+		<meta name="description" content="{$site_seo_description}">
+		<meta name="author" content="CXCL工作室">
+		<tc_include file="Public:head" />
+
+		<link rel="stylesheet" type="text/css" href="Public/css/activity.css" />
+	</head>
+
+	<body>
+		<tc_include file="Public:nav" />
+		<!--活动界面开始-->
+		<div id="acti-wrapper">
+			<dl class="select-top col-xs-12">
+				<dt class="top-tit">性质</dt>
+				<foreach name="property" item="vo">
+					<dd><a href="{:getUrl(array('property'=>$vo))}" title="{$vo}">{$vo}</a></dd>
+				</foreach>
+				<!--class=current-stat 激活状态-->
+			</dl>
+			<dl class="select-top col-xs-12">
+				<dt class="top-tit">分类</dt>
+				<dd><a href="{:getUrl(array('types'=>'全部'))}" title="全部">全部</a></dd>
+				<foreach name="types" item="vo">
+					<dd><a href="{:getUrl(array('types'=>$vo))}" title="{$vo}">{$vo}</a></dd>
+				</foreach>
+			</dl>
+			<!--自定义select框开始-->
+			<div class="select-wrapper">
+				<!--小屏手机select框布局开始-->
+				<div class="acti-status sele-cond visible-xs visible-sreach">
+					<span>不限状态</span>
+					<i class="arrow glyphicon glyphicon-chevron-down"></i>
+					<ul class="sele-opt" style="display:none;">
+						<foreach name="status" item="vo">
+							<a href="{:getUrl(array('status'=>array_search($vo,$status)))}">
+								<li>{$vo}</li>
+							</a>
+						</foreach>
+					</ul>
+				</div>
+				<div class="acti-time sele-cond visible-xs visible-sreach">
+					<span>不限时间</span>
+					<i class="arrow glyphicon glyphicon-chevron-down"></i>
+					<ul class="sele-opt" style="display:none;">
+						<foreach name="times" item="vo">
+							<a href="{:getUrl(array('times'=>array_search($vo,$times)))}">
+								<li>{$vo}</li>
+							</a>
+						</foreach>
+					</ul>
+				</div>
+				<!--<div class="acti-dixu sele-cond visible-xs visible-sreach">
+					不限地区
+					<i class="arrow glyphicon glyphicon-chevron-down"></i>
+					<ul class="sele-opt" style="display:none;">
+						<a href="#">
+							<li>aaa</li>
+						</a>
+						<a href="#">
+							<li>bbb</li>
+						</a>
+						<a href="#">
+							<li>ccc</li>
+						</a>
+					</ul>
+				</div>-->
+				<div class="searchBar visible-xs visible-sreach">
+					<label for="keywords">
+                    <i class="arrow-sou glyphicon glyphicon-search"></i>
+                </label>
+					<input type="text" id="keywords" name="keywords" placeholder="可搜索活动名称或组织" />
+					<input type="button" name="" id="btn_sear" value="搜索" />
+				</div>
+				<!--小屏手机select布局结束-->
+				<div class="acti-status sele-cond hidden-xs">
+					<span>不限状态</span>
+					<i class="arrow glyphicon glyphicon-chevron-down"></i>
+					<ul class="sele-opt" style="display:none;">
+						<foreach name="status" item="vo">
+							<a href="{:getUrl(array('status'=>array_search($vo,$status)))}">
+								<li>{$vo}</li>
+							</a>
+						</foreach>
+					</ul>
+				</div>
+				<div class="acti-time sele-cond hidden-xs">
+					<span>不限时间</span>
+					<i class="arrow glyphicon glyphicon-chevron-down"></i>
+					<ul class="sele-opt" style="display:none;">
+						<foreach name="times" item="vo">
+							<a href="{:getUrl(array('times'=>array_search($vo,$times)))}">
+								<li>{$vo}</li>
+							</a>
+						</foreach>
+					</ul>
+				</div>
+				<!--<div class="acti-dixu sele-cond hidden-xs">
+					不限地区
+					<i class="arrow glyphicon glyphicon-chevron-down"></i>
+					<ul class="sele-opt" style="display:none;">
+						<a href="#">
+							<li>aaa</li>
+						</a>
+						<a href="#">
+							<li>bbb</li>
+						</a>
+						<a href="#">
+							<li>ccc</li>
+						</a>
+					</ul>
+				</div>-->
+				
+				
+				<div class="searchBar hidden-xs">
+					<label for="keywords">
+                    <i class="arrow-sou glyphicon glyphicon-search"></i>
+                </label>
+                <form id="kw-f-sbt" action="{:U('portal/activity/index')}" method="get">
+                	<input type="hidden" name="property" id="property" value="{:I('get.property')}" />
+                	<input type="hidden" name="types" id="types" value="{:I('get.types')}" />
+                	<input type="hidden" name="times" id="times" value="{:I('get.times')}" />
+                	<input type="hidden" name="status" id="status" value="{:I('get.status')}" />
+					<input type="text" id="keywords" name="keywords" placeholder="可搜索活动名称或组织" />
+					<input type="submit" name="" id="btn_sear" value="搜索" />
+				</form>
+				</div>
+				
+			</div>
+			
+			<!--自定义select框结束-->
+			<!--具体项目detail开始-->
+			<div id="detail-wrapper">
+
+				<foreach name="activitys" item="vo">
+					<div class="activity-each col-xs-12 col-sm-3">
+						<div class="inner">
+							<a href="{:U('activity_detail',array('id'=>$vo['id']))}">
+								<img src="{:sp_get_asset_upload_path('activity_cover/').$vo['cover']}" class="img-responsive" />
+							</a>
+							<a href="{:U('activity_detail',array('id'=>$vo['id']))}">
+							<div class="activity-title col-xs-12 jieduan" title="{$vo.activity_name}">{$vo.activity_name}</div>
+							</a>
+							<!--pc端显示-->
+							<p class="activity-place col-xs-12 hidden-xs">
+								<span class="w-l-font col-xs-12 ">活动地点：
+							<span class="w-r-font" title="{$vo.area}">{$vo.area}</span>
+								</span>
+							</p>
+							<p class="activity-place col-xs-12 visible-xs">
+								<span class="w-l-font col-xs-5 ">活动地点：</span>
+								<span class="w-r-font col-xs-7 " title="{$vo.area}">{$vo.area}</span>
+							</p>
+							<!--pc端显示-->
+							<p class="activity-place col-xs-12 visible-xs">
+								<span class="w-l-font col-xs-5 ">活动发起：</span>
+								<span class="w-r-font col-xs-7 " title="{$vo.manager_name}">{$vo.manager_name}</span>
+							</p>
+							<!--移动端显示-->
+							<p class="activity-place col-xs-12 hidden-xs">
+								<span class="w-l-font col-xs-12 ">活动发起：
+							<span class="w-r-font" title="{$vo.manager_name}">{$vo.manager_name}</span>
+								</span>
+							</p>
+							<p class="surplus-time col-xs-12 ">
+								<span class="w-p-font col-xs-5 ">报名截止:</span>
+								<span class="w-progress col-xs-5 col-sm-4">
+							<span class="l-progess"></span>
+								</span>
+								<span class="col-xs-2 col-sm-2 activity-day">111天</span>
+							</p>
+							<p class="activity-icon col-xs-12">
+								<span class="col-xs-4 glyphicon glyphicon-user" title="报名人数">
+								<span class="count-num">111</span>
+								</span>
+								<span class="col-xs-4 glyphicon glyphicon-eye-open" title="浏览量">
+								<span class="count-num">111</span>
+								</span>
+							</p>
+						</div>
+					</div>
+				</foreach>
+
+			</div>
+			<div class="group-page">
+
+				<ul class="pagination">
+					{$Page}
+
+				</ul>
+			</div>
+			<!--具体项目detail结束-->
+			<!--活动界面结束-->
+
+		</div>
+		<!-- /container -->
+		<tc_include file="Public:footer" />
+		<tc_include file="Public:scripts" />
+		<script data-main="./public/js/self/activity.js" src="./node_modules/requirejs/require.js"></script>
+	</body>
+
+</html>

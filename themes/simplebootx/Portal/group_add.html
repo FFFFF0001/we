@@ -1,195 +1,132 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>{$site_name}</title>
-<meta name="keywords" content="{$site_seo_keywords}" />
-<meta name="description" content="{$site_seo_description}">
-<meta name="author" content="CXCL工作室">
-<tc_include file="Public:head" />
-</head>
 
-<body>
-	 <tc_include file="Public:nav" /> 
-		
+	<head>
+		<title>{$site_name}</title>
+		<meta name="keywords" content="{$site_seo_keywords}" />
+		<meta name="description" content="{$site_seo_description}">
+		<meta name="author" content="CXCL工作室">
+		<tc_include file="Public:head" />
+		<link rel="stylesheet" type="text/css" href="Public/css/28902.css" />
+		<link rel="stylesheet" type="text/css" href="Public/css/info.css" />
+	</head>
 
-<!--界面开始-->
-<div class="row " id="g-add-container">
-        <div class="col-md-2 col-sm-2 hidden-xs meun_left">
-            <div class="list-group">
-                <a href="#" class="list-group-item active">
-                    <h6 class="list-group-item-heading">
-                        消息
-                    </h6>
-                </a>
-            </div>
-            <div class="list-group">
-                <a href="#" class="list-group-item active">
-                    <h6 class="list-group-item-heading">
-                        活动
-                    </h6>
-                </a>
-                <a href="../../ucenter/activity.html?type=1" class="list-group-item">
-                    <h6 class="list-group-item-heading">
-                        参加的活动
-                    </h6>
-                </a>
-                <a href="../../ucenter/activity.html?type=2" class="list-group-item">
-                    <h6 class="list-group-item-heading">
-                        感兴趣的活动
-                    </h6>
-                </a>
-            </div>
-            <div class="list-group">
-                <a href="#" class="list-group-item active">
-                    <h6 class="list-group-item-heading">
-                        活动小组
-                    </h6>
-                </a>
-                <a href="../created.html" class="list-group-item">
-                    <h6 class="list-group-item-heading">
-                        我创建的
-                    </h6>
-                </a>
-                <a href="../joined.html" class="list-group-item">
-                    <h6 class="list-group-item-heading">
-                        我加入的
-                    </h6>
-                </a>
-                <a href="#" class="list-group-item">
-                    <h6 class="list-group-item-heading">
-                        发起的话题
-                    </h6>
-                </a>
-                <a href="#" class="list-group-item">
-                    <h6 class="list-group-item-heading">
-                        回应的话题
-                    </h6>
-                </a>
-            </div>
-            <div class="list-group">
-                <a href="#" class="list-group-item active">
-                    <h6 class="list-group-item-heading">
-                        设置
-                    </h6>
-                    <a href="#" class="list-group-item">
-                        <h6 class="list-group-item-heading">
-                            个人资料
-                        </h6>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <h6 class="list-group-item-heading">
-                            修改头像
-                        </h6>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <h6 class="list-group-item-heading">
-                            修改密码
-                        </h6>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <h6 class="list-group-item-heading">
-                            修改微博秀
-                        </h6>
-                    </a>
-                </a>
-            </div>
-        </div>
-        <!--我加入的小组菜单项内容开始-->
-        <div class="col-md-10 col-sm-9 col-xs-12 content_right " >
-            <div class="panel-primary panel"  >
-                <div class="panel-heading pn-head" >
-                    <h3 class="panel-title" id="nowStatus">当前位置:小组管理>>小组设置</h3>
-                </div>
-            </div>
-            <div>
-                <div class="cluster">
-                    <a title="编辑小组信息" class="focus">编辑小组信息</a>
-                    <a >上传小组封面头像</a>
-                </div>
-                <!--编辑小组信息开始-->
-                <form action="{:U('do_group_add')}" method="post" class="form-horizontal js-ajax-form">
-                    <!--小组名称开始-->
-                    <div class="form-group">
-                        <label for="group_name" class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right " >小组名称:</label>
-                        <div class="col-lg-4 col-md-4  col-sm-4 col-sm-4 col-xs-4" >
-                            <input type="text" name="group_name" class="form-control " id="group_name" placeholder="请输入不超过15个字节的名称"/>
-                            <span class="sr-only" id="name_error"></span>
-                        </div>
-                    </div>
-                    <!--小组名称结束-->
-                    <!--小组类型开始-->
-                    <div class="form-group">
-                        <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right" >小组类型:</label>
-                        <div class=" dropdown btn-group col-lg-3 col-md-3 col-sm-3 col-xs-5">
-                            <button type="button" class="btn btn-success" id="group_type">选择类型</button>
-                            <button class="dropdown-toggle btn btn-success  " data-toggle="dropdown"><span class="caret"></span></button>
-                            <ul class="dropdown-menu">
-                                <li>生态环保</li>
-                                <li>文化/艺术</li>
-                                <li>动物保护</li>
-                                <li>儿童关怀</li>
-                                <li>支教助学</li>
-                                <li>扶老助残</li>
-                                <li>综合/其他</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!--小组类型结束-->
-                    <!--小组描述开始-->
-                    <div class="form-group ">
-                        <label class="col-lg-2 control-label col-md-2 col-sm-2 col-xs-3 text-right" style="line-height:114px;">小组描述:</label>
-                        <textarea name="group_introduce" class="col-lg-10 col-md-10 col-sm-9 col-xs-8" rows="6"></textarea>
-                    </div>
-                    <!--小组描述结束-->
-                    <!--公告板开始-->
-                    <div class="form-group">
-                        <label class="col-lg-2 control-label col-md-2 col-sm-2 col-xs-3 text-right" style="line-height:114px;">公告板:</label>
-                        <textarea name="group_notice" class="col-lg-10 col-md-10 col-sm-9 col-xs-8" rows="13"></textarea>
-                    </div>
-                    <!--公告板结束-->
-                    <!--联系电话和验证板块开始-->
-                    <div class="form-group">
-                        <label for="group_phone" class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right " >联系电话:</label>
-                        <div class="col-lg-6 col-md-6 col-sm-4  col-xs-6" >
-                            <input type="tel" name="group_tel" class="form-control" id="group_phone" placeholder="请输入电话号码"/>
-                            <span class="sr-only" id="phone_error"></span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="group_check" class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right " >验证:</label>
-                        <div class="col-lg-6 col-md-6 col-sm-4 col-xs-6 " >
-                            <input type="text" name="verify" class="form-control" id="group_check" placeholder="输入右边的验证码"/>
-                            <span class="verfiy">
+	<body>
+		<tc_include file="Public:nav" />
+
+		<!--界面开始-->
+		<div class="row " id="g-add-container">
+			<tc_include file="Public:leftbar" />
+			<!--我加入的小组菜单项内容开始-->
+			<div class="col-md-10 col-sm-9 col-xs-12 content_right ">
+				<div class="panel-primary panel">
+					<div class="panel-heading pn-head">
+						<h3 class="panel-title" id="nowStatus">当前位置:小组管理>>小组设置</h3>
+					</div>
+				</div>
+				<div>
+					<div class="cluster">
+						<a href="#crt-group-form" id="edit-msg" title="编辑小组信息" class="focus">编辑小组信息</a>
+						<a href="#upload_cover" id="upload_cover">上传小组封面头像</a>
+					</div>
+					<!--编辑小组信息开始-->
+					<form id="crt-group-form" action="{:U('do_group_add')}" method="post" class="form-horizontal js-ajax-form">
+						<!--小组名称开始-->
+						<div class="form-group">
+							<label for="group_name" class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right ">小组名称:</label>
+							<div class="col-lg-4 col-md-4  col-sm-4 col-sm-4 col-xs-4">
+								<input type="text" name="group_name" class="form-control " id="group_name" placeholder="请输入不超过15个字节的名称" />
+								<span class="sr-only" id="name_error"></span>
+							</div>
+						</div>
+						<!--小组名称结束-->
+						<!--小组类型开始-->
+						<div class="form-group">
+							<label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right">小组类型:</label>
+							<input type="hidden" id="sort" name="group_type" value="" />
+								<div class="dropdown btn-group col-lg-3 col-md-3 col-sm-3 col-xs-5">
+									<button type="button" class="btn btn-success" id="group_type">选择类型</button>
+									<button type="button" class="dropdown-toggle btn btn-success" aria-haspopup="true" aria-expanded="false"
+										 data-toggle="dropdown"><span class="caret"></span></button>
+									<ul class="dropdown-menu">
+										<li>生态环保</li>
+										<li>文化/艺术</li>
+										<li>动物保护</li>
+										<li>儿童关怀</li>
+										<li>支教助学</li>
+										<li>扶老助残</li>
+										<li>综合/其他</li>
+									</ul>
+								</div>
+						</div>
+						<!--小组类型结束-->
+						<!--小组描述开始-->
+						<div class="form-group ">
+							<label class="col-lg-2 control-label col-md-2 col-sm-2 col-xs-3 text-right" style="line-height:114px;">小组描述:</label>
+							<textarea name="group_introduce" class="col-lg-10 col-md-10 col-sm-9 col-xs-8" rows="6"></textarea>
+						</div>
+						<!--小组描述结束-->
+						<!--公告板开始-->
+						<div class="form-group">
+							<label class="col-lg-2 control-label col-md-2 col-sm-2 col-xs-3 text-right" style="line-height:114px;">公告板:</label>
+							<textarea name="group_notice" class="col-lg-10 col-md-10 col-sm-9 col-xs-8" rows="13"></textarea>
+						</div>
+						<!--公告板结束-->
+						<!--联系电话和验证板块开始-->
+						<div class="form-group">
+							<label for="group_phone" class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right ">联系电话:</label>
+							<div class="col-lg-6 col-md-6 col-sm-4  col-xs-6">
+								<input type="tel" name="group_tel" class="form-control" id="group_phone" placeholder="请输入电话号码" />
+								<span class="sr-only" id="phone_error"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="group_check" class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right ">验证:</label>
+							<div class="col-lg-6 col-md-6 col-sm-4 col-xs-6 ">
+								<input type="text" name="verify" class="form-control" id="group_check" placeholder="输入右边的验证码" />
+								<span class="verfiy">
 		{:sp_verifycode_img('length=4&font_size=14&width=100&height=34&charset=1345678&use_noise=1&use_curve=0')}
                                    </span>
-                        </div>
-                        <div class="col-lg-2 col-md-2  col-sm-2 col-sm-2 col-xs-3" >
-                        </div>
-                    </div>
-                    <!--联系电话和验证板块结束-->
-                    <div class="form-group">
-                        <label class="col-lg-2 col-md-2  col-sm-2 col-sm-2 "> </label>
-                        <div class="col-lg-2 col-md-2  col-sm-2 col-sm-2 col-xs-3">
-                            <button type="button" class="js-ajax-submit form-control btn btn-success">提交
+							</div>
+							<div class="col-lg-2 col-md-2  col-sm-2 col-sm-2 col-xs-3">
+							</div>
+						</div>
+						<!--联系电话和验证板块结束-->
+						<div class="form-group">
+							<label class="col-lg-2 col-md-2  col-sm-2 col-sm-2 "> </label>
+							<div class="col-lg-2 col-md-2  col-sm-2 col-sm-2 col-xs-3">
+								<button type="button" class="js-ajax-submit form-control btn btn-success">提交
                             	</button>
-                        </div>
-                        <div class="col-lg-5 col-md-5  col-sm-5 col-sm-5 col-xs-8 ">
-                            <input type="checkbox"  checked/>我已认证阅读并遵循 <span style="color:forestgreen">《志愿时用户规范》</span>
-                        </div>
-                    </div>
-                </form>
-                <!--编辑小组信息结束-->
-            </div>
-        </div>
-        <!--我加入的小组菜单项内容结束-->
-    </div>
-<!--界面结束-->
+							</div>
+							<div class="col-lg-5 col-md-5  col-sm-5 col-sm-5 col-xs-8 ">
+								<input type="checkbox" checked/>我已认证阅读并遵循 <span style="color:forestgreen">《志愿时用户规范》</span>
+							</div>
+						</div>
+					</form>
+					<!--编辑小组信息结束-->
+					<!--上传封面头像开始-->
+					<div id="upload-cover" style="display: none;">
+						<div class="input-field col s12" id="AddFile1">
+							<input type="button" class="file_upload" style="opacity:0;">
 
-		<tc_include file="Public:footer" /> 
+						</div>
+						<div class="showpic" style="display: inline-block;">
+							<img src="./public/images/bgWhite.png" class="preview" width="60" height="60">
+						</div>
+					</div>
+					<!--上传封面头像结束-->
+				</div>
+			</div>
+			<!--我加入的小组菜单项内容结束-->
+		</div>
+		<!--界面结束-->
 
-	</div>
-	<!-- /container -->
-<script data-main="./public/js/self/group_add.js" src="./node_modules/requirejs/require.js"></script>
-	<tc_include file="Public:scripts" />
-</body>
+		<tc_include file="Public:footer" />
+
+		</div>
+		<!-- /container -->
+		<script data-main="./public/js/self/group_add.js" src="./node_modules/requirejs/require.js"></script>
+		<tc_include file="Public:scripts" />
+	</body>
+
 </html>

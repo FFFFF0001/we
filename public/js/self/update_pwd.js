@@ -4,12 +4,16 @@
 requirejs.config({
     baseUrl: './public/js/self',
     paths:{
-        jquery:"./lib/jquery-2.2.1.min",
-        bootstrap:"./lib/bootstrap.min"
+    	wind:"../wind",
+    	frontend:"../frontend",
+        jquery:"../jquery",
+        bootstrap:"./lib/bootstrap.min",
+        num:"./num",
+        pwd_auth:"./pwd_auth"
     }
 });
-require(['jquery'], function($) {
-    require(['bootstrap','num','pwd_auth'],function(bs,n,pa){
+require(['jquery','wind'], function($) {
+    require(['frontend','bootstrap','num','pwd_auth'],function(frontend,bs,n,pa){
         $(document).ready(function(){
             $("#upd").click(function(){      //点击提交验证
                 if( n($('#new_pwd'),6,36) && pa($('#new_pwd'),$('#new_pwd1')))  //缺少旧密码验证

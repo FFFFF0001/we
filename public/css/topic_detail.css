@@ -1,0 +1,195 @@
+/***全局样式*****/
+body{
+    font: 14px/1.8em "Microsoft YaHei";
+    color: #444;
+    overflow-x: hidden;
+}
+p {
+    margin: 0 0 5px;
+}
+li{
+    list-style-type: none;
+}
+/***全局样式结束*****/
+.h{
+    position: fixed;
+    z-index: 999;
+}
+#topic-info{
+	border-bottom: 1px solid #eee;
+}
+.nav .row{
+    width: 1000px;
+}
+.header {
+    width: 100%;
+    border-bottom: 2px solid #2d974d;
+    background-color: #ffffff;
+    /*position: fixed;*/
+    box-shadow: 0 2px 6px rgba(100, 100, 100, 0.41);
+}
+.header-box {
+    width: 1000px;
+    padding-top: 5px;
+}
+#info_in_head>p>span{
+    margin-right: 20px;
+}
+
+.container{
+    width: 1000px;
+}
+
+#topic_detail_container{
+	position: relative;
+}
+#left_topic,#right,#talk,#comment{
+    background-color: #ffffff;
+    padding-top: 20px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+#left_topic,#talk,#comment{
+    padding-left: 15px ;
+    padding-right: 15px ;
+}
+
+
+
+/*右*/
+#right{
+
+}
+.info strong>a{
+    color: #444;
+}
+.info strong>a:hover{
+    color: #2d974d;
+}
+.iteam-head{
+    height: 58px;
+}
+.info{
+    height: 40px;
+    background-image: url("../image/5424d6ef4732f.jpeg");
+    background-size: 40px;
+    background-repeat: no-repeat;
+}
+
+/*讨论区*/
+#talk>p{
+    border-bottom: 1px #bbbbbb solid;
+    font-size: 16px;
+    font-weight: 400;
+}
+#talk .list-group-item {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: 0;
+    background-color: #fff;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+}
+.say{
+    border-bottom: 1px solid #EBEBEB;;
+}
+.t{
+    font-size: 12px;
+}
+.time{
+    color: rgb(153, 153, 153);
+    font-size: 50%;
+}
+.others{
+    color: #3176B3;
+}
+
+/**评论****/
+#comment{
+    position: relative;
+    height: 150px;
+}
+.warning{
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    font-size: 12px;
+    background-color: #EBF52C;
+    color: #D40A0A;
+}
+.visible-xs.navbar-fixed-bottom{
+    height: 40px;
+    background-color: #ccc;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.visible-xs.navbar-fixed-bottom a{
+    color: #736B6B;
+    font-size: 20px;
+    margin-right: 10%;
+}
+.mo_com{
+    font-size: 12px;
+    color: #adadad;
+    border-radius: 20px;
+    background-color: #ffffff;
+    line-height: 24px;
+    padding-left:10px;
+}
+#your_com{
+    margin-bottom: 5px;
+}
+.r-tp-nd{
+	margin-top: 10px;
+}
+.t-topic-title{
+	font-size:24px;
+	margin-bottom: 15px;;
+	padding-left: 20px;
+}
+/**评论结束****/
+
+@media only screen and (min-width: 768px) {
+	 .lately-tp{
+		padding-right: 0px;
+	}
+	.r-grp-num{
+		margin-top: -20px;
+		margin-left: 70px;
+	}
+	.group-name{
+		display: inline-block;
+		margin-bottom: 10px;
+	}
+}
+@media (max-width: 765px) {
+    body{
+        font: 16px/1.8em "Microsoft YaHei";
+    }
+
+    .container{
+        width: inherit; !important;
+
+    }
+    .nav .row{
+        width: inherit;
+        text-align: center;
+    }
+    #left_topic{
+        padding-left: 10px ;
+        padding-right: 10px ;
+    }
+    .col-xs-12{
+        padding-right:0;
+        padding-left:0;
+    }
+    #talk {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .r-grp-num{
+		margin-top: -20px;
+		margin-left: 70px;
+	}
+}

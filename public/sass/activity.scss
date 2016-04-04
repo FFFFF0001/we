@@ -1,0 +1,233 @@
+@charset "utf-8";
+/**
+ * Created by 海枯 on 2016/3/22.
+ */
+@import 'page';
+$width: 1000px;
+$color: #2d974d;
+$bai: #fff;
+$f-color: #666;
+$marTop: 20px;
+$progress-radius: 5px;
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: "microsoft yahei";
+}
+a {
+    text-decoration: none!important;
+}
+@mixin top-sele($color:#666, $bg:#2d974d) {
+    //background: $bg;
+    color: $color;
+    text-align: center;
+    font-size: 12px;
+    float: left;
+    padding: 0 20px;
+    border-right: 1px solid $color;
+}
+@mixin jieduan(){
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+@mixin widthHgt($w, $h) {
+    width: $w;
+    height: $h;
+}
+@mixin bord-gree(){
+    border: 1px solid $color;
+}
+@mixin ahover(){
+    &:hover {
+        color: $bai;
+        background-color: $color;
+    }
+}
+@media (min-width: 748px){
+    #acti-wrapper {
+        width: $width;
+    }
+    .w-r-font{
+        width: 146px;
+        float: right;
+    }
+}
+.jieduan{
+    @include jieduan;
+}
+#acti-wrapper {
+    margin: 20px auto;
+}
+.select-top dt {
+    @include top-sele;
+    color: $color;
+}
+.select-top dd {
+    @include top-sele;
+}
+.select-top a {
+    padding: 3px 10px;
+    border-radius: 5px;
+    transition: background .3s ease-out;
+    @include ahover();
+}
+.current-stat {
+    color: $bai;
+    background-color: $color;
+}
+.select-wrapper {
+    margin-top: $marTop;
+    &::after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+#kw-f-sbt{
+    margin-top: -28px;
+}
+.select-wrapper>.sele-cond {
+    @include widthHgt(120px,28px);
+    position: relative;
+    float: left;
+    color: $f-color;
+    line-height: 28px;
+    @include bord-gree();
+    padding-left: $marTop;
+    font-size:12px;
+    margin-left: $marTop;
+    border-radius: 5px;
+}
+.select-wrapper>.sele-cond>i.arrow {
+    line-height: 30px;
+    text-align: center;
+    display: inline-block;
+    @include widthHgt(28px,26px);
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-left: 1px solid $color;
+}
+.sele-opt{
+    width: 100%;
+    @include bord-gree();
+    border-radius: 5px;
+    position: absolute;
+    background-color: #fff;
+    z-index: 11;
+    top:30px;
+    left:0;
+}
+.sele-opt>a{
+    text-align: center;
+}
+.sele-opt li{
+    transition: background .3s ease-in;
+    border-bottom: 1px solid $color;
+    @include ahover();
+}
+.searchBar{
+    @extend .sele-cond;
+    width: 220px!important;
+    border-radius: 15px!important;
+    padding-left: 25px!important;
+}
+.arrow-sou{
+    position:absolute;
+    left: 6px;
+    top: 0;
+    line-height: 28px;
+}
+#keywords{
+    border:none;
+    line-height: 20px;
+    outline: none;
+}
+#btn_sear{
+    position: absolute;
+    line-height: 28px;
+    outline: none;
+    right:0;
+    top: 0;
+    color:#fff;
+    border: none;
+    padding:0 10px;
+    border-radius: 0 15px 15px 0;
+    background-color: $color;
+}
+.visible-sreach{
+    width:100%!important;
+    margin-top: 20px;
+    margin-left: 0!important;
+}
+#detail-wrapper{
+    margin-top: 20px;
+    clear: both;
+}
+#detail-wrapper:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.inner{
+    border: 1px solid #eee;
+}
+.activity-each{
+    padding: 5px;
+    box-sizing: border-box;
+    p{
+        padding: 0px!important;
+    }
+    .activity-title{
+        padding:5px 15px;
+        font-size:16px;
+        @include jieduan;
+        &:hover{
+            color:$color;
+        }
+    }
+    .activity-place,.surplus-time{
+        font-size:12px;
+        .w-r-font:hover{
+            color:$color;
+        }
+    }
+    .w-r-font{
+        @include jieduan;
+    }
+    .w-progress{
+        margin:3px 0;
+        display: block;
+        height: 10px;
+        border-radius: $progress-radius;
+        border: 1px solid #eee;
+        position: relative;
+        .l-progess{
+            display: block;
+            z-index:999;
+            border-radius: $progress-radius;
+            width:30%;
+            height: 10px;
+            position: absolute;
+            left: 0;
+            top:0;
+            background-color: #ecbe66;
+        }
+    }
+}
+.activity-day{
+    padding-left:0!important;
+    padding-right:0!important;
+}
+.activity-icon>span{
+    font-size:18px;
+    color:$color;
+    .count-num{
+        float: right;
+        line-height: 18px;
+        font-size:12px;
+        color:#6e6e6e;
+    }
+}

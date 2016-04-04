@@ -84,13 +84,10 @@ class LoginController extends HomebaseController {
 		<a href="http://#link#">http://#link#</a>
 hello;
 		$content = str_replace(array('http://#link#','#username#'), array($url,$username),$template);
-	
-		$send_result=sp_send_email($user['user_email'], $title, $content);
-	
-		if($send_result['error']){
-			
-	print_r($send_result['error']);
-			$this->error('密码重置邮件发送失败！');
+		$send_result=sp_sendcloud_reset($user['user_email'], $title, $url);
+	           $send_result = json_decode($send_result,true);
+		if($send_result['message']!="success"){
+		      $this->error('密码重置邮件发送失败！');
 		}
 	}
 	
@@ -117,6 +114,12 @@ hello;
 				}else{
 					$password=sp_password(I("post.password"));
 					$hash=I("post.hash");
+
+                                            $isSame = $users_model->where(array("user_activation_key"=>$hash,'user_pass'=>$password))->find();
+                                                    if($isSame){
+                                                        $this->error("密码不能跟原密码相同！");
+                                                    }
+                    
 					$result=$users_model->where(array("user_activation_key"=>$hash))->save(array("user_pass"=>$password,"user_activation_key"=>""));
 					if($result){
 						$this->success("密码重置成功，请登录！",U("user/login/index"));

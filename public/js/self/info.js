@@ -11,6 +11,14 @@ requirejs.config({
 });
 require(['jquery'],function(){
         require(['cityselect'],function(s){
+        	var btnSave = $("#edit-save");
+        	//"#edit-form textarea"
+        	$("#edit-form input")
+        	.add("#edit-form select")
+        	.add("#edit-form textarea")
+        	.change(function () {
+        		btnSave.removeAttr("disabled");
+        	});
             $(function(){
                 $("#birthplace").citySelect({
                     nodata:"none",
