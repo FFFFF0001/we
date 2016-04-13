@@ -4,9 +4,9 @@
 		<title><?php echo ($site_seo_title); ?> <?php echo ($site_name); ?></title>
 		<meta name="keywords" content="<?php echo ($site_seo_keywords); ?>" />
 		<meta name="description" content="<?php echo ($site_seo_description); ?>">
-		<?php  function _sp_helloworld(){ echo "hello ThinkCMF!"; } function _sp_helloworld2(){ echo "hello ThinkCMF2!"; } function _sp_helloworld3(){ echo "hello ThinkCMF3!"; } ?>
+		<?php  function _sp_helloworld(){ echo "hello CXCL工作室!"; } function _sp_helloworld2(){ echo "hello ThinkCMF2!"; } function _sp_helloworld3(){ echo "hello ThinkCMF3!"; } ?>
 <?php $portal_index_lastnews=2; $portal_hot_articles="1,2"; $portal_last_post="1,2"; $tmpl=sp_get_theme_path(); $default_home_slides=array( array( "slide_name"=>"ThinkCMFX2.0.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/1.jpg", "slide_url"=>"", ), array( "slide_name"=>"ThinkCMFX2.0.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/2.jpg", "slide_url"=>"", ), array( "slide_name"=>"ThinkCMFX2.0.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/3.jpg", "slide_url"=>"", ), ); ?>
-<meta name="author" content="ThinkCMF">
+<meta name="author" content="CXCL工作室">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -21,22 +21,36 @@
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <![endif]-->
-<link rel="icon" href="/2016sise/themes/simplebootx/Public/images/favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="/2016sise/themes/simplebootx/Public/images/favicon.ico" type="image/x-icon">
-<!-- <link href="/2016sise/themes/simplebootx/Public/simpleboot/themes/simplebootx/theme.min.css" rel="stylesheet"> -->
-<!-- <link href="/2016sise/themes/simplebootx/Public/simpleboot/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet"> -->
-<link href="/2016sise/themes/simplebootx/Public/simpleboot/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="icon" href="Public/images/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="Public/images/favicon.ico" type="image/x-icon">
+<!-- <link href="/2016Sise/themes/simplebootx/Public/simpleboot/themes/simplebootx/theme.min.css" rel="stylesheet"> -->
+<!-- <link href="/2016Sise/themes/simplebootx/Public/simpleboot/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet"> -->
+<link href="/2016Sise/themes/simplebootx/Public/simpleboot/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href="Public/simpleboot/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <!--[if IE 7]>
-	<link rel="stylesheet" href="/2016sise/themes/simplebootx/Public/simpleboot/font-awesome/4.4.0/css/font-awesome-ie7.min.css">
+	<link rel="stylesheet" href="/2016Sise/themes/simplebootx/Public/simpleboot/font-awesome/4.4.0/css/font-awesome-ie7.min.css">
 	<![endif]-->
-<!-- <link href="/2016sise/themes/simplebootx/Public/css/style.css" rel="stylesheet"> -->
-<link href="/2016sise/themes/simplebootx/Public/css/common.css" rel="stylesheet">
-<link href="/2016sise/themes/simplebootx/Public/css/User/login.css" rel="stylesheet">
-<link href="/2016sise/themes/simplebootx/Public/css/User/header.css" rel="stylesheet">
-<link href="/2016sise/themes/simplebootx/Public/css/User/register.css" rel="stylesheet">
-<link href="/2016sise/themes/simplebootx/Public/css/User/step.css" rel="stylesheet">
-<link href="/2016sise/themes/simplebootx/Public/css/User/forgot_password.css" rel="stylesheet">
+<!-- <link href="/2016Sise/themes/simplebootx/Public/css/style.css" rel="stylesheet"> -->
+<link href="/2016Sise/themes/simplebootx/Public/css/common.css" rel="stylesheet">
+<link href="/2016Sise/themes/simplebootx/Public/css/User/login.css" rel="stylesheet">
+<link href="/2016Sise/themes/simplebootx/Public/css/User/header.css" rel="stylesheet">
+<link href="/2016Sise/themes/simplebootx/Public/css/footer.css" rel="stylesheet">
+<link href="/2016Sise/themes/simplebootx/Public/css/User/register.css" rel="stylesheet">
+<link href="/2016Sise/themes/simplebootx/Public/css/User/step.css" rel="stylesheet">
+<link href="/2016Sise/themes/simplebootx/Public/css/User/forgot_password.css" rel="stylesheet">
+<link href="/2016Sise/themes/simplebootx/Public/css/Portal/group-detail.css" rel="stylesheet">
+<link href="/2016Sise/themes/simplebootx/Public/css/Portal/topicadd.css" rel="stylesheet">
+<link href="Public/css/topic.css" rel="stylesheet">
+<link href="Public/css/group.css" rel="stylesheet">
+<link href="Public/css/reset.css" rel="stylesheet">
+<link href="Public/css/pullToRefresh.css" rel="stylesheet">
+<link href="Public/css/style.css" rel="stylesheet">
+<link href="Public/css/info.css" rel="stylesheet">
+<link href="Public/css/28902.css" rel="stylesheet">
+	<link href="Public/css/person_info.css" rel="stylesheet">
+		<link href="Public/css/authentication.css" rel="stylesheet">
+<link href="Public/css/update_pwd.css" rel="stylesheet">
+	<link href="Public/css/face.css" rel="stylesheet">
 <style>
 	/*html{filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(1);}*/
 	
@@ -64,7 +78,7 @@
 		font-family: "微软雅黑";
 	}
 </style>
-		<link href="/2016sise/themes/simplebootx/Public/css/slippry/slippry.css" rel="stylesheet">
+		<link href="/2016Sise/themes/simplebootx/Public/css/slippry/slippry.css" rel="stylesheet">
 		<style>
 			.caption-wraper{position: absolute;left:50%;bottom:2em;}
 			.caption-wraper .caption{
@@ -96,52 +110,6 @@
 <body class="body-white">
 <?php echo hook('body_start');?>
 <div class="">
-	<!--<div class="navbar-inner">
-		<div class="container">
-			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</a>
-			<a class="brand" href="/2016sise/"><img src="/2016sise/themes/simplebootx/Public/images/logo.png" /></a>
-			<div class="nav-collapse collapse" id="main-menu">
-				<?php
- $effected_id=""; $filetpl="<a href='\$href' target='\$target'>\$label</a>"; $foldertpl="<a href='\$href' target='\$target' class='dropdown-toggle' data-toggle='dropdown'>\$label <b class='caret'></b></a>"; $ul_class="dropdown-menu" ; $li_class="" ; $style="nav"; $showlevel=6; $dropdown='dropdown'; echo sp_get_menu("main",$effected_id,$filetpl,$foldertpl,$ul_class,$li_class,$style,$showlevel,$dropdown); ?>
-
-					<ul class="nav pull-right" id="main-menu-user">
-			<li class="dropdown user login">
-	            <a class="dropdown-toggle user" data-toggle="dropdown" href="#">
-	            <img src="/2016sise/themes/simplebootx//Public/images/headicon.png" class="headicon"/>
-	            <span class="user-nicename"></span><b class="caret"></b></a>
-	            <ul class="dropdown-menu pull-right">
-	               <li><a href="<?php echo U('user/center/index');?>"><i class="fa fa-user"></i> &nbsp;个人中心</a></li>
-	               <li class="divider"></li>
-	               <li><a href="<?php echo U('user/index/logout');?>"><i class="fa fa-sign-out"></i> &nbsp;退出</a></li>
-	            </ul>
-          	</li>
-          	<li class="dropdown user offline">
-	            <a class="dropdown-toggle user" data-toggle="dropdown" href="#">
-	           		<img src="/2016sise/themes/simplebootx//Public/images/headicon.png" class="headicon"/>登录<b class="caret"></b>
-	            </a>
-	            <ul class="dropdown-menu pull-right">
-	               <li><a href="<?php echo U('api/oauth/login',array('type'=>'sina'));?>"><i class="fa fa-weibo"></i> &nbsp;微博登录</a></li>
-	               <li><a href="<?php echo U('api/oauth/login',array('type'=>'qq'));?>"><i class="fa fa-qq"></i> &nbsp;QQ登录</a></li>
-	               <li><a href="<?php echo U('user/login/index');?>"><i class="fa fa-sign-in"></i> &nbsp;登录</a></li>
-	               <li class="divider"></li>
-	               <li><a href="<?php echo U('user/register/index');?>"><i class="fa fa-user"></i> &nbsp;注册</a></li>
-	            </ul>
-          	</li>
-		</ul>
-		<div class="pull-right">
-        	<form method="post" class="form-inline" action="<?php echo U('portal/search/index');?>" style="margin:18px 0;">
-				 <input type="text" class="" placeholder="Search" name="keyword" value="<?php echo I('get.keyword');?>"/>
-				 <input type="submit" class="btn btn-info" value="Go" style="margin:0"/>
-			</form>
-		</div>
-					
-			</div>
-		</div>
-	</div>-->
 	<!--通用头部开始-->
 					<div id="header" class="header">
 						<div class="header-box center-block">
@@ -164,32 +132,19 @@
 									</a>
 								</div>
 							</div>
+							
+
+
 							<!--下部为导航栏-->
 							<nav class="navbar navbar-static-top nav-tabs" role="navigation">
 								<!--向左对齐-->
-								<ul class="nav nav-item navbar-left">
-									<li class="active"><a href="#">首页</a></li>
-									<li><a href="#">活动</a></li>
-									<li><a href="#">小组</a></li>
-									<li><a href="#">开讲</a></li>
-									<li><a class="dropdown dropdown-toggle" data-toggle="dropdown">志交会<span class="caret"></span></a>
-										<!--下拉菜单-->
-										<ul class="dropdown-menu" style="overflow: auto !important;">
-											<li><a href="#">Swing</a></li>
-											<li><a href="#">jMeter</a></li>
-											<li><a href="#">EJB</a></li>
-											<li class="divider"></li>
-											<li><a href="#">分离的链接</a></li>
-										</ul>
-									</li>
-								</ul>
+								<?php $effected_id=""; $filetpl="<a href='\$href' target='\$target'>\$label</a>"; $ul_class="nav nav-item navbar-left" ; $li_class="" ; $style="nav nav-item navbar-left"; $dropdown='dropdown'; ?>
+<?php echo sp_get_menu("main",$effected_id,$filetpl,$foldertpl,$ul_class,$li_class,$style,$showlevel,$dropdown);?>
 								<!--向右对齐-->
 								<ul class="nav nav-pills navbar-right hidden-xs" id="collapse">
 									<li><a href="#">切换城市</a></li>
-									<li><a href="#">登陆注册</a></li>
-									<li><a href="#">微博</a></li>
-									<li><a href="#">QQ</a></li>
-									<li><a href="#">你</a></li>
+									<li><a href="<?php echo U('User/login/index');?>">登陆注册</a></li>
+									<li><a href="<?php echo U('User/setting/info');?>">个人中心</a></li>
 								</ul>
 							</nav>
 						</div>
@@ -217,94 +172,65 @@
 </div>
 
 <?php $home_slides=sp_getslide("portal_index"); $home_slides=empty($home_slides)?$default_home_slides:$home_slides; ?>
-<ul id="homeslider" class="unstyled">
-	<?php if(is_array($home_slides)): foreach($home_slides as $key=>$vo): ?><li>
-		<div class="caption-wraper">
-			<div class="caption"><?php echo ($vo["slide_name"]); ?></div>
-		</div>
-		<a href="<?php echo ($vo["slide_url"]); ?>"><img src="<?php echo sp_get_asset_upload_path($vo['slide_pic']);?>" alt=""></a>
-	</li><?php endforeach; endif; ?>
-</ul>
-<div class="container">
-	
-	<div>
-		<h1 class="text-center">快速了解ThinkCMF</h1>
-		<h3 class="text-center">Quickly understand the ThinkCMF</h3>
-	</div>
-	<div class="row">
-		<div class="span4">
-			 <h2 class="font-large nospace"><i class="fa fa-bars"></i> MVC分层模式</h2>
-             <p>使用MVC应用程序被分成三个核心部件：模型（M）、视图（V）、控制器（C），他不是一个新的概念，只是ThinkCMF将其发挥到了极致。</p>
-		</div>
-		<div class="span4">
-			 <h2 class="font-large nospace"><i class="fa fa-group"></i> 用户管理</h2>
-             <p>ThinkCMF内置了灵活的用户管理方式，并可直接与第三方站点进行互联互通，如果你愿意甚至可以对单个用户或群体用户的行为进行记录及分享，为您的运营决策提供有效参考数据。</p>
-		</div>
-		<div class="span4">
-			  <h2 class="font-large nospace"><i class="fa fa-cloud"></i> 云端部署</h2>
-              <p>通过驱动的方式可以轻松支持云平台的部署，让你的网站无缝迁移，内置已经支持SAE、BAE，正式版将对云端部署进行进一步优化。</p>
-		</div>
-	</div>
-	
-	<div class="row">
-		<div class="span4">
-			 <h2 class="font-large nospace"><i class="fa fa-heart"></i> 安全策略</h2>
-             <p>提供的稳健的安全策略，包括备份恢复，容错，防治恶意攻击登陆，网页防篡改等多项安全管理功能，保证系统安全，可靠，稳定的运行。</p>
-		</div>
-		<div class="span4">
-			 <h2 class="font-large nospace"><i class="fa fa-cubes"></i> 应用模块化</h2>
-             <p>提出全新的应用模式进行扩展，不管是你开发一个小功能还是一个全新的站点，在ThinkCMF中你只是增加了一个APP，每个独立运行互不影响，便于灵活扩展和二次开发。</p>
-		</div>
-		<div class="span4">
-			  <h2 class="font-large nospace"><i class="fa fa-certificate"></i> 免费开源</h2>
-              <p>代码遵循Apache2开源协议，免费使用，对商业用户也无任何限制。</p>
-		</div>
-	</div>
-	
-	<div>
-		<h1 class="text-center">最新资讯</h1>
-		<h3 class="text-center">Last News</h3>
-	</div>
-	<?php $lastnews=sp_sql_posts("cid:$portal_index_lastnews;field:post_title,post_excerpt,tid,smeta;order:listorder asc;limit:4;"); ?>
-	<div class="row">
-		<?php if(is_array($lastnews)): foreach($lastnews as $key=>$vo): $smeta=json_decode($vo['smeta'],true); ?>
-		<div class="span3">
-			<div class="tc-gridbox">
-				<div class="header">
-					<div class="item-image">
-						<a href="<?php echo leuu('article/index',array('id'=>$vo['tid']));?>">
-							<?php if(empty($smeta['thumb'])): ?><img src="/2016sise/themes/simplebootx/Public/images/default_tupian1.png" class="img-responsive" alt="<?php echo ($vo["post_title"]); ?>"/>
-							<?php else: ?> 
-								<img src="<?php echo sp_get_asset_upload_path($smeta['thumb']);?>" class="img-responsive img-thumbnail" alt="<?php echo ($vo["post_title"]); ?>" /><?php endif; ?>
-						</a>
-					</div>
-					<h3><a href="<?php echo leuu('article/index',array('id'=>$vo['tid']));?>"><?php echo ($vo["post_title"]); ?></a></h3>
-					<hr>
-				</div>
-				<div class="body">
-					<p><a href="<?php echo leuu('article/index',array('id'=>$vo['tid']));?>"><?php echo msubstr($vo['post_excerpt'],0,32);?></a></p>
-				</div>
-			</div>
-		</div><?php endforeach; endif; ?>
-	</div>
-<br><br><br>
+建设中……
+
 <!-- Footer
       ================================================== -->
-      <hr>
-<?php echo hook('footer');?>
-      <div id="footer">
-        <div class="links">
-        <?php $links=sp_getlinks(); ?>
-        <?php if(is_array($links)): foreach($links as $key=>$vo): ?><a href="<?php echo ($vo["link_url"]); ?>" target="<?php echo ($vo["link_target"]); ?>"><?php echo ($vo["link_name"]); ?></a><?php endforeach; endif; ?>
+      <br>
+<!--通用底部开始-->
+<div class="footer">
+    <div class="footer-part  hidden-xs">
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="footer-text">
+                    <ul>
+                        <li><h5 style="color:green;">志愿时</h5></li>
+                        <li>联系我们</li>
+                        <li>关于我们</li>
+                        <li>法律支持</li>
+                        <li>信息公开</li>
+                        <li>试用指南</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="footer-text">
+                    <ul>
+                        <li><h5 style="color:green;">合作机构</h5></li>
+                        <li>广州大学华软软件学院</li>
+                        <li>地址：广东省从化区高新经济开发区548号</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm-2">
+                <div class="footer-text">
+                    <ul>
+                        <li><h5 style="color:green;">友情链接</h5></li>
+                        <li>华软</li>
+                        <li>华软软件系</li>
+                        <li>网设</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm-5">
+                <div class="footer-QR">
+                    <img width="140" src="Public/images/1460122746.png" alt=""/>
+                    <img width="140" src="Public/images/1460122746.png" alt=""/>
+                </div>
+            </div>
         </div>
-        <p>
-        Made by <a href="http://www.thinkcmf.com" target="_blank">ThinkCMF</a>
-        Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" rel="nofollow" target="_blank">Apache License v2.0</a>.<br/>
-        Based on <a href="http://getbootstrap.com/2.3.2/" target="_blank">Bootstrap</a>.  Icons from <a href="http://fortawesome.github.com/Font-Awesome/" target="_blank">Font Awesome</a>
-        </p>
-      </div>
-      <div id="backtotop"><i class="fa fa-arrow-circle-up"></i></div>
-      <?php echo ($site_tongji); ?>
+    </div>
+
+    <div class="bottom">
+        <span>广州大学华软学院&&CXCL工作室</span>
+    </div>
+
+</div>
+
+
 
 </div>
 
@@ -312,17 +238,17 @@
 //全局变量
 var GV = {
     DIMAUB: "",
-    JS_ROOT: "/2016sise/public/js/",
+    JS_ROOT: "/2016Sise/public/js/",
     TOKEN: ""
 };
 </script>
 <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/2016sise/public/js/jquery.js"></script>
-    <script src="/2016sise/public/js/wind.js"></script>
-    <script src="/2016sise/themes/simplebootx/Public/simpleboot/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/2016sise/public/js/frontend.js"></script>
+    <script src="/2016Sise/public/js/jquery.js"></script>
+    <script src="/2016Sise/public/js/wind.js"></script>
+    <script src="/2016Sise/themes/simplebootx/Public/simpleboot/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/2016Sise/public/js/frontend.js"></script>
 	<script>
 	$(function(){
 		$('body').on('touchstart.dropdown', '.dropdown-menu', function (e) { e.stopPropagation(); });
@@ -336,7 +262,7 @@ var GV = {
 		$.post("<?php echo U('user/index/is_login');?>",{},function(data){
 			if(data.status==1){
 				if(data.user.avatar){
-					$("#main-menu-user .headicon").attr("src",data.user.avatar.indexOf("http")==0?data.user.avatar:"/2016sise/data/upload/avatar/"+data.user.avatar);
+					$("#main-menu-user .headicon").attr("src",data.user.avatar.indexOf("http")==0?data.user.avatar:"/2016Sise/data/upload/avatar/"+data.user.avatar);
 				}
 				
 				$("#main-menu-user .user-nicename").text(data.user.user_nicename!=""?data.user.user_nicename:data.user.user_login);
@@ -384,7 +310,7 @@ var GV = {
 	</script>
 
 
-<script src="/2016sise/themes/simplebootx/Public/js/slippry.min.js"></script>
+<script src="/2016Sise/themes/simplebootx/Public/js/slippry.min.js"></script>
 <script>
 $(function() {
 	var demo1 = $("#homeslider").slippry({

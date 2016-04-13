@@ -1,0 +1,33 @@
+.up{
+    width: 120px;
+    padding: 12px 20px;
+    font-size: 14px;
+    border: 1px solid #2d974d;
+    background-color: transparent;
+    color: #2d974d;
+    margin-right: 20px;
+}
+.cropper-view-box,
+.cropper-face {
+    border-radius: 50%;
+}
+.preview{
+    border-radius: 50%;
+}
+@media (max-width: 992px){
+    .preview-container > div {
+
+       height: auto;
+    }
+}
+@media  (max-width: 765px){
+    .show{
+        margin-top: 20px;
+    }
+
+}
+@media  (max-width: 365px){
+    .preview-container > div {
+        height: auto;
+    }
+}

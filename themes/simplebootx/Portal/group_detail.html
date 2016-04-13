@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>{$site_name}</title>
+		<meta name="keywords" content="{$site_seo_keywords}" />
+		<meta name="description" content="{$site_seo_description}">
+		<meta name="author" content="CXCL工作室">
+		<tc_include file="Public:head" />
+	</head>
+
+	<body class="body-white">
+		<tc_include file="Public:nav" />
+		<!--小组详情界面开始-->
+		<div class="container">
+			<div class="content">
+				<div class="row">
+					<div class="col-sm-8 col-xs-12">
+						<div class="group-left">
+							<div class="group-tab">
+								<a href="#">话题精选</a>
+								<a href="#">加入小组</a>
+							</div>
+							<div class="group_intro">
+								<div class="left">
+									<img width="70px" src="{$groupMes.group_cover}" title="小组头像" alt="小组头像">
+								</div>
+								<div class="right">
+									<h4>趣公益</h4>
+									<p>
+										<span class="glyphicon glyphicon-user">1111人</span>
+										<span class="glyphicon glyphicon-align-right">1234个</span>
+										<span><button type="button" class="text icon_join">加入小组</button></span>
+									</p>
+								</div>
+							</div>
+
+							<div class="group_notice">
+								<h5><span class="glyphicon glyphicon-hand-right"></span>公告</h5>
+								<p class="notice_content">
+									{$groupMes.group_notice}
+								</p>
+							</div>
+
+							<div class="topic_title_left">
+								<a href="{:U('Portal/group/group_detail',array('group_id'=>I('group_id'),'order'=>'lately'))}">最近话题</a>
+								<a>/最热话题</a>
+							</div>
+
+							<div class="topic_title_right">
+								<a href="{:U('Portal/topic/topicadd',array('group_id'=>I('group_id')))}">
+									<button type="button" class="btn btn-success">发言</button>
+								</a>
+							</div>
+
+							<div class="topic_list">
+								<table class="table">
+									<tr>
+										<th class="col-xs-7 t-content">话题</th>
+										<th class="col-xs-4 t-nicename">作者</th>
+										<th class="col-xs-1 t-count">回应</th>
+									</tr>
+									<foreach name="topicMsg" item="vo">
+										<tr>
+											<td class="col-xs-7 t-content"><a href="">{$vo.topic_title}</a>
+
+											</td>
+											<td class="col-xs-4 t-nicename">{$vo.user_nicename}</td>
+											<td class="col-xs-1 t-count">1</td>
+										</tr>
+									</foreach>
+
+									<!--<tr><td><a href="#">hey,想哭就哭出来</a></td><td>狮子的</td><td>1</td></tr>
+												<tr><td><a href="#">hey,想哭就哭出来</a></td><td>狮子的</td><td>1</td></tr>-->
+
+								</table>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-3  col-sm-offset-1 col-xs-12 ">
+						<div class="group-right">
+							<h5 class="team_title">
+										小组成员
+									</h5>
+							<div class="team_user">
+								<a href="#">
+									<img width="50px" src="./data/upload/group_avatar/user_02.jpg"><br>user
+								</a>
+								<a href="#">
+									<img width="50px" src="./data/upload/group_avatar/user_02.jpg"><br>user
+								</a>
+								<a href="#">
+									<img width="50px" src="./data/upload/group_avatar/user_02.jpg"><br>user
+								</a>
+								<a href="#">
+									<img width="50px" src="./data/upload/group_avatar/user_02.jpg"><br>user
+								</a>
+								<a href="#">
+									<img width="50px" src="./data/upload/group_avatar/user_02.jpg"><br>user
+								</a>
+								<a href="#">
+									<img width="50px" src="./data/upload/group_avatar/user_02.jpg"><br>user
+								</a>
+								<a href="#">
+									<img width="50px" src="./data/upload/group_avatar/user_02.jpg"><br>user
+								</a>
+								<a href="#">
+									<img width="50px" src="./data/upload/group_avatar/user_02.jpg"><br>user
+								</a>
+							</div>
+
+							<h5 class="team_title">组员们想去的小组</h5>
+							<div class="team_recommend">
+								<ul>
+									<li>
+										<a href="#">
+											<div class="left">
+												<img width="45px" src="./data/upload/group_avatar/education.jpeg" />
+											</div>
+											<div class="right">
+												<h5>公益案例</h5>
+												<p>123个组员</p>
+											</div>
+										</a>
+									</li>
+
+									<li>
+										<a href="#">
+											<div class="left">
+												<img width="45px" src="./data/upload/group_avatar/education.jpeg" />
+											</div>
+											<div class="right">
+												<h5>公益案例</h5>
+												<p>123个组员</p>
+											</div>
+										</a>
+									</li>
+
+									<li>
+										<a href="#">
+											<div class="left">
+												<img width="45px" src="./data/upload/group_avatar/education.jpeg" />
+											</div>
+											<div class="right">
+												<h5>公益案例</h5>
+												<p>123个组员</p>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!--小组详情界面结束-->
+
+		<tc_include file="Public:footer" />
+
+		</div>
+		<!-- /container -->
+
+		<tc_include file="Public:scripts" />
+	</body>
+
+</html>

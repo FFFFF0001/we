@@ -1,8 +1,8 @@
 <?php
 // +---------------------------------------------------------------------
-// | ThinkCMF [ WE CAN DO IT MORE SIMPLE ]
+// | CXCL工作室 [ WE CAN DO IT MORE SIMPLE ]
 // +---------------------------------------------------------------------
-// | Copyright (c) 2013-2014 http://www.thinkcmf.com All rights reserved.
+// | Copyright (c) 2013-2014 http://www.CXCL工作室.com All rights reserved.
 // +---------------------------------------------------------------------
 // | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +---------------------------------------------------------------------
@@ -28,7 +28,7 @@ abstract class Plugin{
      *  'title'=>'Helloworld',
      *  'description'=>'Helloworld',
      *  'status'=>1,
-     *  'author'=>'thinkcmf',
+     *  'author'=>'CXCL工作室',
      *  'version'=>'1.0'
      *  )
      */

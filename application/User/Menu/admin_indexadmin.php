@@ -333,5 +333,17 @@ return array (
         ),
       ),
     ),
+    array (
+      'app' => 'Adminadd',
+      'model' => 'Org',
+      'action' => 'org_verify',
+      'data' => '',
+      'type' => '1',
+      'status' => '1',
+      'name' => '组织用户审核',
+      'icon' => '',
+      'remark' => '组织用户注册审核',
+      'listorder' => '0',
+    ),
   ),
 );

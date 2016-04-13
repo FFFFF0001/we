@@ -23,7 +23,7 @@ require(['jquery','bootstrap','login'], function($,bs,login) {
     	var vfyRst = login.checkVerfiy("input_verify",vr);
     	if(usrRst&&pwdRst&&vfyRst){
 //  		aj(lf.attr("action"),{username:un,password:ps,verify:vr});
-			btn.addClass("js-ajax-submit").trigger("click");
+			//btn.addClass("js-ajax-submit").trigger("click");
     	}
     })
 });

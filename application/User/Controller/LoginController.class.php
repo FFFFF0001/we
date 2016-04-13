@@ -88,6 +88,8 @@ hello;
 		$send_result=sp_send_email($user['user_email'], $title, $content);
 	
 		if($send_result['error']){
+			
+	print_r($send_result['error']);
 			$this->error('密码重置邮件发送失败！');
 		}
 	}

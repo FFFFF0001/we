@@ -129,21 +129,18 @@ return array (
           'icon' => '',
           'remark' => '',
           'listorder' => '0',
-          'children' => 
-          array (
-            array (
-              'app' => 'Admin',
-              'model' => 'Route',
-              'action' => 'add_post',
-              'data' => '',
-              'type' => '1',
-              'status' => '0',
-              'name' => '路由添加提交',
-              'icon' => '',
-              'remark' => '',
-              'listorder' => '0',
-            ),
-          ),
+        ),
+        array (
+          'app' => 'Admin',
+          'model' => 'Route',
+          'action' => 'add_post',
+          'data' => '',
+          'type' => '1',
+          'status' => '0',
+          'name' => '路由添加提交',
+          'icon' => '',
+          'remark' => '',
+          'listorder' => '0',
         ),
         array (
           'app' => 'Admin',

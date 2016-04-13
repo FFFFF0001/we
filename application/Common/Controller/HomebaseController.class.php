@@ -42,7 +42,7 @@ class HomebaseController extends AppframeController {
 	 */
 	protected function check_login(){
 		if(!isset($_SESSION["user"])){
-			$this->error('您还没有登录！',__ROOT__."/");
+			$this->error('您还没有登录！',U('User/login/index'));
 		}
 		
 	}
@@ -91,6 +91,7 @@ class HomebaseController extends AppframeController {
 		$send_result=sp_send_email($_SESSION['user']['user_email'], $title, $content);
 	
 		if($send_result['error']){
+			
 			$this->error('激活邮件发送失败，请尝试登录后，手动发送激活邮件！');
 		}
 	}

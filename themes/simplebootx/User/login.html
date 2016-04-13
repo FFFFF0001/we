@@ -4,7 +4,7 @@
 <title>{$site_name}</title>
 <meta name="keywords" content="{$site_seo_keywords}" />
 <meta name="description" content="{$site_seo_description}">
-<meta name="author" content="ThinkCMF">
+<meta name="author" content="CXCL工作室">
 <tc_include file="Public:head" />
 </head>
 
@@ -13,7 +13,7 @@
 		
 
 <!--登陆界面开始-->
-<div class="container login_bg">
+<div class="container login-container login_bg">
     <div class="row">
         <div class="col-md-6 col-md-offset-6 col-sm-7 col-sm-offset-5">
             <div class="login">
@@ -60,7 +60,7 @@
                                 <label class="fr">
                                     <a href="{:U('user/login/forgot_password')}">忘记密码？</a>
                                     |
-                                    <a href="{:U('user/register/index')}">注册</a>
+                                    <a href="{:leuu('user/register/index')}">注册</a>
                                 </label>
                             </div>
                         </div>
@@ -78,7 +78,7 @@
 </div>
 <!--登陆界面结束-->
 
-		
+		<tc_include file="Public:footer" /> 
 
 	</div>
 	<!-- /container -->

@@ -1,8 +1,8 @@
 <?php
 // +----------------------------------------------------------------------
-// | ThinkCMF [ WE CAN DO IT MORE SIMPLE ]
+// | CXCL工作室 [ WE CAN DO IT MORE SIMPLE ]
 // +----------------------------------------------------------------------
-// | Copyright (c) 2013-2014 http://www.thinkcmf.com All rights reserved.
+// | Copyright (c) 2013-2014 http://www.CXCL工作室.com All rights reserved.
 // +----------------------------------------------------------------------
 // | Author: Dean <zxxjjforever@163.com>
 // +----------------------------------------------------------------------
@@ -19,7 +19,7 @@ class SnowPlugin extends Plugin{
             'title'=>'圣诞雪花',
             'description'=>'圣诞雪花特效',
             'status'=>1,
-            'author'=>'ThinkCMF',
+            'author'=>'CXCL工作室',
             'version'=>'1.0'
         );
 

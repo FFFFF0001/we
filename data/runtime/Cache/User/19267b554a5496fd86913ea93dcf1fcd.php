@@ -4,10 +4,10 @@
 <title><?php echo ($site_name); ?></title>
 <meta name="keywords" content="<?php echo ($site_seo_keywords); ?>" />
 <meta name="description" content="<?php echo ($site_seo_description); ?>">
-<meta name="author" content="ThinkCMF">
-<?php  function _sp_helloworld(){ echo "hello ThinkCMF!"; } function _sp_helloworld2(){ echo "hello ThinkCMF2!"; } function _sp_helloworld3(){ echo "hello ThinkCMF3!"; } ?>
+<meta name="author" content="CXCL工作室">
+<?php  function _sp_helloworld(){ echo "hello CXCL工作室!"; } function _sp_helloworld2(){ echo "hello ThinkCMF2!"; } function _sp_helloworld3(){ echo "hello ThinkCMF3!"; } ?>
 <?php $portal_index_lastnews=2; $portal_hot_articles="1,2"; $portal_last_post="1,2"; $tmpl=sp_get_theme_path(); $default_home_slides=array( array( "slide_name"=>"ThinkCMFX2.0.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/1.jpg", "slide_url"=>"", ), array( "slide_name"=>"ThinkCMFX2.0.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/2.jpg", "slide_url"=>"", ), array( "slide_name"=>"ThinkCMFX2.0.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/3.jpg", "slide_url"=>"", ), ); ?>
-<meta name="author" content="ThinkCMF">
+<meta name="author" content="CXCL工作室">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -22,8 +22,8 @@
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <![endif]-->
-<link rel="icon" href="/2016Sise/themes/simplebootx/Public/images/favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="/2016Sise/themes/simplebootx/Public/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="Public/images/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="Public/images/favicon.ico" type="image/x-icon">
 <!-- <link href="/2016Sise/themes/simplebootx/Public/simpleboot/themes/simplebootx/theme.min.css" rel="stylesheet"> -->
 <!-- <link href="/2016Sise/themes/simplebootx/Public/simpleboot/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet"> -->
 <link href="/2016Sise/themes/simplebootx/Public/simpleboot/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -35,9 +35,23 @@
 <link href="/2016Sise/themes/simplebootx/Public/css/common.css" rel="stylesheet">
 <link href="/2016Sise/themes/simplebootx/Public/css/User/login.css" rel="stylesheet">
 <link href="/2016Sise/themes/simplebootx/Public/css/User/header.css" rel="stylesheet">
+<link href="/2016Sise/themes/simplebootx/Public/css/footer.css" rel="stylesheet">
 <link href="/2016Sise/themes/simplebootx/Public/css/User/register.css" rel="stylesheet">
 <link href="/2016Sise/themes/simplebootx/Public/css/User/step.css" rel="stylesheet">
 <link href="/2016Sise/themes/simplebootx/Public/css/User/forgot_password.css" rel="stylesheet">
+<link href="/2016Sise/themes/simplebootx/Public/css/Portal/group-detail.css" rel="stylesheet">
+<link href="/2016Sise/themes/simplebootx/Public/css/Portal/topicadd.css" rel="stylesheet">
+<link href="Public/css/topic.css" rel="stylesheet">
+<link href="Public/css/group.css" rel="stylesheet">
+<link href="Public/css/reset.css" rel="stylesheet">
+<link href="Public/css/pullToRefresh.css" rel="stylesheet">
+<link href="Public/css/style.css" rel="stylesheet">
+<link href="Public/css/info.css" rel="stylesheet">
+<link href="Public/css/28902.css" rel="stylesheet">
+	<link href="Public/css/person_info.css" rel="stylesheet">
+		<link href="Public/css/authentication.css" rel="stylesheet">
+<link href="Public/css/update_pwd.css" rel="stylesheet">
+	<link href="Public/css/face.css" rel="stylesheet">
 <style>
 	/*html{filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(1);}*/
 	
@@ -70,52 +84,6 @@
 <body>
 	 <?php echo hook('body_start');?>
 <div class="">
-	<!--<div class="navbar-inner">
-		<div class="container">
-			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</a>
-			<a class="brand" href="/2016Sise/"><img src="/2016Sise/themes/simplebootx/Public/images/logo.png" /></a>
-			<div class="nav-collapse collapse" id="main-menu">
-				<?php
- $effected_id=""; $filetpl="<a href='\$href' target='\$target'>\$label</a>"; $foldertpl="<a href='\$href' target='\$target' class='dropdown-toggle' data-toggle='dropdown'>\$label <b class='caret'></b></a>"; $ul_class="dropdown-menu" ; $li_class="" ; $style="nav"; $showlevel=6; $dropdown='dropdown'; echo sp_get_menu("main",$effected_id,$filetpl,$foldertpl,$ul_class,$li_class,$style,$showlevel,$dropdown); ?>
-
-					<ul class="nav pull-right" id="main-menu-user">
-			<li class="dropdown user login">
-	            <a class="dropdown-toggle user" data-toggle="dropdown" href="#">
-	            <img src="/2016Sise/themes/simplebootx//Public/images/headicon.png" class="headicon"/>
-	            <span class="user-nicename"></span><b class="caret"></b></a>
-	            <ul class="dropdown-menu pull-right">
-	               <li><a href="<?php echo U('user/center/index');?>"><i class="fa fa-user"></i> &nbsp;个人中心</a></li>
-	               <li class="divider"></li>
-	               <li><a href="<?php echo U('user/index/logout');?>"><i class="fa fa-sign-out"></i> &nbsp;退出</a></li>
-	            </ul>
-          	</li>
-          	<li class="dropdown user offline">
-	            <a class="dropdown-toggle user" data-toggle="dropdown" href="#">
-	           		<img src="/2016Sise/themes/simplebootx//Public/images/headicon.png" class="headicon"/>登录<b class="caret"></b>
-	            </a>
-	            <ul class="dropdown-menu pull-right">
-	               <li><a href="<?php echo U('api/oauth/login',array('type'=>'sina'));?>"><i class="fa fa-weibo"></i> &nbsp;微博登录</a></li>
-	               <li><a href="<?php echo U('api/oauth/login',array('type'=>'qq'));?>"><i class="fa fa-qq"></i> &nbsp;QQ登录</a></li>
-	               <li><a href="<?php echo U('user/login/index');?>"><i class="fa fa-sign-in"></i> &nbsp;登录</a></li>
-	               <li class="divider"></li>
-	               <li><a href="<?php echo U('user/register/index');?>"><i class="fa fa-user"></i> &nbsp;注册</a></li>
-	            </ul>
-          	</li>
-		</ul>
-		<div class="pull-right">
-        	<form method="post" class="form-inline" action="<?php echo U('portal/search/index');?>" style="margin:18px 0;">
-				 <input type="text" class="" placeholder="Search" name="keyword" value="<?php echo I('get.keyword');?>"/>
-				 <input type="submit" class="btn btn-info" value="Go" style="margin:0"/>
-			</form>
-		</div>
-					
-			</div>
-		</div>
-	</div>-->
 	<!--通用头部开始-->
 					<div id="header" class="header">
 						<div class="header-box center-block">
@@ -138,32 +106,19 @@
 									</a>
 								</div>
 							</div>
+							
+
+
 							<!--下部为导航栏-->
 							<nav class="navbar navbar-static-top nav-tabs" role="navigation">
 								<!--向左对齐-->
-								<ul class="nav nav-item navbar-left">
-									<li class="active"><a href="#">首页</a></li>
-									<li><a href="#">活动</a></li>
-									<li><a href="#">小组</a></li>
-									<li><a href="#">开讲</a></li>
-									<li><a class="dropdown dropdown-toggle" data-toggle="dropdown">志交会<span class="caret"></span></a>
-										<!--下拉菜单-->
-										<ul class="dropdown-menu" style="overflow: auto !important;">
-											<li><a href="#">Swing</a></li>
-											<li><a href="#">jMeter</a></li>
-											<li><a href="#">EJB</a></li>
-											<li class="divider"></li>
-											<li><a href="#">分离的链接</a></li>
-										</ul>
-									</li>
-								</ul>
+								<?php $effected_id=""; $filetpl="<a href='\$href' target='\$target'>\$label</a>"; $ul_class="nav nav-item navbar-left" ; $li_class="" ; $style="nav nav-item navbar-left"; $dropdown='dropdown'; ?>
+<?php echo sp_get_menu("main",$effected_id,$filetpl,$foldertpl,$ul_class,$li_class,$style,$showlevel,$dropdown);?>
 								<!--向右对齐-->
 								<ul class="nav nav-pills navbar-right hidden-xs" id="collapse">
 									<li><a href="#">切换城市</a></li>
-									<li><a href="#">登陆注册</a></li>
-									<li><a href="#">微博</a></li>
-									<li><a href="#">QQ</a></li>
-									<li><a href="#">你</a></li>
+									<li><a href="<?php echo U('User/login/index');?>">登陆注册</a></li>
+									<li><a href="<?php echo U('User/setting/info');?>">个人中心</a></li>
 								</ul>
 							</nav>
 						</div>
@@ -192,7 +147,7 @@
 		
 
 <!--登陆界面开始-->
-<div class="container login_bg">
+<div class="container login-container login_bg">
     <div class="row">
         <div class="col-md-6 col-md-offset-6 col-sm-7 col-sm-offset-5">
             <div class="login">
@@ -239,14 +194,14 @@
                                 <label class="fr">
                                     <a href="<?php echo U('user/login/forgot_password');?>">忘记密码？</a>
                                     |
-                                    <a href="<?php echo U('user/register/index');?>">注册</a>
+                                    <a href="<?php echo leuu('user/register/index');?>">注册</a>
                                 </label>
                             </div>
                         </div>
                     </div>
                     <div class="form-group clearMb">
                         <div class="col-sm-offset-1 col-sm-10 ">
-                            <button type="button" id="login_btn" class="btn btn-success btn-block">登录</button>
+                            <button type="submit" id="login_btn" class="btn btn-success btn-block js-ajax-submit">登录</button>
                         </div>
                     </div>
                 </form>
@@ -258,6 +213,64 @@
 <!--登陆界面结束-->
 
 		
+<!-- Footer
+      ================================================== -->
+      <br>
+<!--通用底部开始-->
+<div class="footer">
+    <div class="footer-part  hidden-xs">
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="footer-text">
+                    <ul>
+                        <li><h5 style="color:green;">志愿时</h5></li>
+                        <li>联系我们</li>
+                        <li>关于我们</li>
+                        <li>法律支持</li>
+                        <li>信息公开</li>
+                        <li>试用指南</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="footer-text">
+                    <ul>
+                        <li><h5 style="color:green;">合作机构</h5></li>
+                        <li>广州大学华软软件学院</li>
+                        <li>地址：广东省从化区高新经济开发区548号</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm-2">
+                <div class="footer-text">
+                    <ul>
+                        <li><h5 style="color:green;">友情链接</h5></li>
+                        <li>华软</li>
+                        <li>华软软件系</li>
+                        <li>网设</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm-5">
+                <div class="footer-QR">
+                    <img width="140" src="Public/images/1460122746.png" alt=""/>
+                    <img width="140" src="Public/images/1460122746.png" alt=""/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom">
+        <span>广州大学华软学院&&CXCL工作室</span>
+    </div>
+
+</div>
+
+
+ 
 
 	</div>
 	<!-- /container -->

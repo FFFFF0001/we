@@ -1,0 +1,11 @@
+#error-msg, #success-msg { clear: both; }
+
+.l-title { font-size: 17px; }
+
+.topicadd-content { max-width: 1000px; margin: 0 auto; overflow: auto; }
+
+#page-title { padding: 20px 0; border-bottom: 1px solid #CCCCCC; margin-bottom: 20px; }
+
+#back { float: right; color: #2d974d; }
+
+/*# sourceMappingURL=topicadd.css.map */

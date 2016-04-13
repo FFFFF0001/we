@@ -71,26 +71,26 @@ class OrgController extends AdminbaseController
         $this->display(":org_verify");
     }
     public function refuse(){
-            if(isset($_POST['ids'])){
-                $ids = implode(",", $_POST['ids']);
-                $data=array("user_status"=>"4");
-                if ($this->UserModel->where("id in ($ids)")->save($data)) {
+        if(isset($_POST['ids'])){
+            $ids = implode(",", $_POST['ids']);
+            $data=array("user_status"=>"4");
+            if ($this->UserModel->where("id in ($ids)")->save($data)) {
+                $this->success("拒绝成功！");
+            } else {
+                $this->error("拒绝失败！");
+            }
+        }else{
+            if(isset($_GET['id'])){
+                $id = intval(I("get.id"));
+                $data=array("id"=>$id,"user_status"=>"4");
+                if ($this->UserModel->save($data)) {
                     $this->success("拒绝成功！");
                 } else {
                     $this->error("拒绝失败！");
                 }
-            }else{
-                if(isset($_GET['id'])){
-                    $id = intval(I("get.id"));
-                    $data=array("id"=>$id,"user_status"=>"4");
-                    if ($this->UserModel->save($data)) {
-                        $this->success("拒绝成功！");
-                    } else {
-                        $this->error("拒绝失败！");
-                    }
-                }
             }
         }
+    }
     public  function agree(){
         if(isset($_POST['ids'])){
             $ids = implode(",", $_POST['ids']);

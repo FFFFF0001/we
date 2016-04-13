@@ -1,0 +1,89 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="{:U('group/group_verify')}">审核</a></li>
+			<!--<li><a href="{:U('AdminPage/add')}">{:L('PORTAL_ADMINPAGE_ADD')}</a></li>-->
+		</ul>
+		<form class="well form-search" method="post" action="{:U('group/group_verify')}">
+			注册时间
+			<input type="text" name="start_time" class="js-date" value="{$formget.start_time}" style="width: 80px;" autocomplete="off">-
+			<input autocomplete="off" type="text" class="js-date" name="end_time" value="{$formget.end_time}" style="width: 80px;"> 关键字
+			<input type="text" name="keyword" style="width: 200px;" value="{$formget.keyword}" placeholder="请输入组织名称关键字">
+			<button class="btn btn-primary">搜索</button>
+		</form>
+		<form class="js-ajax-form" method="post">
+			<div class="table-actions">
+				<button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('group/agree')}" data-subcheck="true" data-msg="你确定同意吗？">同意</button>
+				<button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('group/refuse')}" data-subcheck="true" data-msg="{:L('DELETE_CONFIRM_MESSAGE')}">拒绝</button>
+				
+			</div>
+			<table class="table table-hover table-bordered table-list">
+				<thead>
+					<tr>
+						<th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+						<th width="16">ID</th>
+						<!-- <th>点击量</th> -->
+						<th width="80">小组名称</th>
+						<th width="120"><span>小组类型</span></th>
+						<th width="120">小组介绍</th>
+						<th width="120">公告板</th>
+						<th width="120">联系电话</th>
+						<th width="120">操作</th>
+					</tr>
+				</thead>
+				<foreach name="posts" item="vo">
+				<tr>
+					<td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.group_id}"></td>
+					<td><a>{$vo.group_id}</a></td>
+					<td class="table-oflow">{$vo.group_name}</td>
+					<!--  <td>0</td> -->
+					<td class="table-oflow">{$vo.group_type}</td>
+					<td class="table-oflow">{$vo.group_introduce}</td>
+					<td class="table-oflow">{$vo.group_notice}</td>
+					<td class="table-oflow"><p>
+						{$vo.group_tel}
+					</p></td>
+					<td>
+						<a href="{:U('group/agree',array('id'=>$vo['id']))}">同意</a>|
+						<a href="{:U('group/refuse',array('id'=>$vo['id']))}" class="js-ajax-delete">拒绝</a>
+					</td>
+				</tr>
+				</foreach>
+				<tfoot>
+					<tr>
+						<th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+						<th width="16">ID</th>
+						<!-- <th>点击量</th> -->
+						<th width="80">小组名称</th>
+						<th width="120"><span>小组类型</span></th>
+						<th width="120">小组介绍</th>
+						<th width="120">公告板</th>
+						<th width="120">联系电话</th>
+						<th width="120">操作</th>
+					</tr>
+				</tfoot>
+			</table>
+			<div class="table-actions">
+				<button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('group/agree')}" data-subcheck="true" data-msg="你确定同意吗？">同意</button>
+				<button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('group/refuse')}" data-subcheck="true" data-msg="你确定删除吗？">拒绝</button>
+			</div>
+			<div class="pagination">{$Page}</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+	<script>
+		setCookie('refersh_time', 0);
+		function refersh_window() {
+			var refersh_time = getCookie('refersh_time');
+			if (refersh_time == 1) {
+				window.location.reload();
+			}
+		}
+		setInterval(function() {
+			refersh_window()
+		}, 2000);
+	</script>
+</body>
+</html>

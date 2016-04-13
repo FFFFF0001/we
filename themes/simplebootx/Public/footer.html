@@ -1,20 +1,58 @@
-<br><br><br>
+
 <!-- Footer
       ================================================== -->
-      <hr>
-{:hook('footer')}
-      <div id="footer">
-        <div class="links">
-        <php>$links=sp_getlinks();</php>
-        <foreach name="links" item="vo">
-          <a href="{$vo.link_url}" target="{$vo.link_target}">{$vo.link_name}</a>
-        </foreach>
+      <br>
+<!--通用底部开始-->
+<div class="footer">
+    <div class="footer-part  hidden-xs">
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="footer-text">
+                    <ul>
+                        <li><h5 style="color:green;">志愿时</h5></li>
+                        <li>联系我们</li>
+                        <li>关于我们</li>
+                        <li>法律支持</li>
+                        <li>信息公开</li>
+                        <li>试用指南</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="footer-text">
+                    <ul>
+                        <li><h5 style="color:green;">合作机构</h5></li>
+                        <li>广州大学华软软件学院</li>
+                        <li>地址：广东省从化区高新经济开发区548号</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm-2">
+                <div class="footer-text">
+                    <ul>
+                        <li><h5 style="color:green;">友情链接</h5></li>
+                        <li>华软</li>
+                        <li>华软软件系</li>
+                        <li>网设</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm-5">
+                <div class="footer-QR">
+                    <img width="140" src="Public/images/1460122746.png" alt=""/>
+                    <img width="140" src="Public/images/1460122746.png" alt=""/>
+                </div>
+            </div>
         </div>
-        <p>
-        Made by <a href="http://www.thinkcmf.com" target="_blank">ThinkCMF</a>
-        Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" rel="nofollow" target="_blank">Apache License v2.0</a>.<br/>
-        Based on <a href="http://getbootstrap.com/2.3.2/" target="_blank">Bootstrap</a>.  Icons from <a href="http://fortawesome.github.com/Font-Awesome/" target="_blank">Font Awesome</a>
-        </p>
-      </div>
-      <div id="backtotop"><i class="fa fa-arrow-circle-up"></i></div>
-      {$site_tongji}
+    </div>
+
+    <div class="bottom">
+        <span>广州大学华软学院&&CXCL工作室</span>
+    </div>
+
+</div>
+
+

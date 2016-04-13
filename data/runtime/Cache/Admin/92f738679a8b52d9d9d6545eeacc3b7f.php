@@ -5,11 +5,13 @@
 <!-- Set render engine for 360 browser -->
 <meta name="renderer" content="webkit">
 <meta charset="utf-8">
-<title>ThinkCMF <?php echo L('ADMIN_CENTER');?></title>
+<title>CXCL工作室 <?php echo L('ADMIN_CENTER');?></title>
 
 <meta name="description" content="This is page-header (.page-header &gt; h1)">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link rel="icon" href="Public/images/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="Public/images/favicon.ico" type="image/x-icon">
 <link href="/2016Sise/public/simpleboot/themes/<?php echo C('SP_ADMIN_STYLE');?>/theme.min.css" rel="stylesheet">
 <link href="/2016Sise/public/simpleboot/css/simplebootadmin.css" rel="stylesheet">
 <link href="/2016Sise/public/simpleboot/font-awesome/4.4.0/css/font-awesome.min.css"  rel="stylesheet" type="text/css">
@@ -142,8 +144,8 @@ right: initial !important;}
 		<div class="navbar-inner">
 			<div class="container-fluid">
 				<a href="<?php echo U('index/index');?>" class="brand"> <small> 
-				<img src="/2016Sise/admin/themes/simplebootx/Public/assets/images/logo-18.png">
-						ThinkCMF <?php echo L('ADMIN_CENTER');?>
+				<img src="Public/images/favicon.ico" width="22">
+						CXCL工作室 <?php echo L('ADMIN_CENTER');?>
 				</small>
 				</a>
 				<div class="pull-left nav_shortcuts" >

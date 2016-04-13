@@ -1,7 +1,7 @@
 <?php
 /**
  * 入口文件
- * Some rights reserved：www.thinkcmf.com
+ * Some rights reserved：www.CXCL工作室.com
  */
 if (ini_get('magic_quotes_gpc')) {
 	function stripslashesRecursive(array $array){

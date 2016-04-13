@@ -1,8 +1,8 @@
 <?php
 // +---------------------------------------------------------------------
-// | ThinkCMF [ WE CAN DO IT MORE SIMPLE ]
+// | CXCL工作室 [ WE CAN DO IT MORE SIMPLE ]
 // +---------------------------------------------------------------------
-// | Copyright (c) 2013-2014 http://www.thinkcmf.com All rights reserved.
+// | Copyright (c) 2013-2014 http://www.CXCL工作室.com All rights reserved.
 // +---------------------------------------------------------------------
 // | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +---------------------------------------------------------------------
@@ -64,7 +64,7 @@ class iAuth{
         $auth_access_model=M("AuthAccess");
         
         $join = C('DB_PREFIX').'auth_rule as b on a.rule_name =b.name';
-        
+        //a-->authaccess    b--->auth-rule
         $rules=$auth_access_model->alias("a")->join($join)->where(array("a.role_id"=>array("in",$groups),"b.name"=>array("in",$name)))->select();
         
         foreach ($rules as $rule){
