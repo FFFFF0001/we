@@ -3,9 +3,11 @@ namespace Portal\Controller;
 use Common\Controller\HomebaseController;
 
 class groupController extends HomebaseController{
+
     protected $groupModel,$topicModel,$joinModel;
     function _initialize()
     {
+        header("Content-type:text/html;charset=utf-8");
         $this->groupModel = M('group');
         $this->topicModel = M('topic');
         $this->joinModel = M('join');
@@ -22,20 +24,30 @@ class groupController extends HomebaseController{
         }else{
             $where = array('group_status' => 1, 'group_type' => $sort);
         }
-        $group = $this->groupModel->order('group_id desc')
+        //所有小组
+        $group = $this->groupModel->order('group_id')
             ->where($where)->select();
+        //限制介绍的字数
+        $group = substring($group, 'group_introduce', 132);
+        $group = NullGroupCover($group);
+
+        $this->getActivitySort();
+        //$this->member_want();
+        $this->assign('hasJoin', $this->hasJoin());
+        $this->assign('group',$group);
+        $this->assign('newCreateGroup', $this->groupModel->order('group_id desc')->where($where)->limit(5)->select());
+        $this->display(":group");
+    }
+
+    function hasJoin()
+    {
         //已经加入小组的id数组
         $hasJoin = [];
         if (sp_is_user_login()) {
             $hasJoin = $this->joinModel->where('user_id=%d',sp_get_current_userid())->getField('group_id',true);
         }
-        $this->getActivitySort();
-
-        $this->assign('hasJoin', $hasJoin);
-        $this->assign('group',$group);
-        $this->display(":group");
+        return $hasJoin;
     }
-
     /**
      * 小组分类assign
      */
@@ -128,8 +140,21 @@ class groupController extends HomebaseController{
      * 小组新增模板渲染
      */
     function group_add(){
-        if (!sp_auth_check(sp_get_current_userid(), "portal/group/group_add")) {
+
+        if (!sp_is_user_login()) {
+            $this->error('请登陆后再操作');
+        }else if (!sp_auth_check(sp_get_current_userid(), "portal/group/group_add")) {
             $this->error('只有组织用户才能创建小组');
+        }else{
+            $this->check_user();
+            $gid = I('group_id');
+            if (!empty($gid)) {
+                $currentGroups = $this->groupModel->where(array('group_id'=>I('group_id')))->find();
+                $this->assign('currentGroups', $currentGroups);
+            }
+            //活动类型
+            $types = M('options')->where(array('option_name' => 'activity_type'))->find();
+            $this->assign('types',  json_decode($types['option_value']));
         }
         $this->display(":group_add");
     }
@@ -138,18 +163,29 @@ class groupController extends HomebaseController{
      * ajax小组增加
      */
     function do_group_add(){
+
         $GroupModel =  D('group');
-        if (!sp_auth_check(sp_get_current_userid(), "portal/group/group_add")) {
+        if (!sp_is_user_login()){
+            $this->error('请登陆后重试');
+        }
+        else if (!sp_auth_check(sp_get_current_userid(), "portal/group/group_add")) {
             $this->error('只有组织用户才能创建小组');
         }else if (!$GroupModel->create()){
             $this->error($GroupModel->getError());
         }else if(!sp_check_verify_code()){
             $this->error('验证码错误，请重新输入');
         }else{
+            $this->check_user();
+            $gid = I('group_id');
+            if (!empty($gid)) {
+                $GroupModel->save();
+                $this->success('保存编辑成功！');
+            }
                 $id = $GroupModel->add();
                 //存写进去的id，便于上传封面的操作
                 setcookie("group_id", $id, time() + 3600);
-                $this->success('新增小组成功，请等待管理员审核',U('group_add/#upload_cover'));
+                //$this->success('新增小组成功，请等待管理员审核',U('group_add/#upload_cover'));
+                $this->success('新增小组成功，请等待管理员审核',U('group'));
         }
     }
     /**
@@ -157,6 +193,8 @@ class groupController extends HomebaseController{
      */
     function join_group()
     {
+
+
         $joinModel = M('join');
         $id = I('get.id');
         $grp = $this->groupModel->where(array('group_id'=>$id))->find();
@@ -169,6 +207,7 @@ class groupController extends HomebaseController{
         }else if($joinMsg){
             $this->error('您已加入小组，不能重复加入');
         }else{
+            $this->check_user();
             $res = $joinModel->add(array(
                 'group_id'=>$id,
                 'user_id'=>sp_get_current_userid(),
@@ -186,6 +225,7 @@ class groupController extends HomebaseController{
      * 退出小组
      */
     function exit_group(){
+
         $id = I('get.id');
         $joinMsg = $this->joinModel->where(array('group_id' => $id, 'user_id' => sp_get_current_userid()))->find();
         if (!sp_is_user_login()) {
@@ -193,6 +233,7 @@ class groupController extends HomebaseController{
         }else if(empty($joinMsg)){
             $this->error('已退出该小组，不能重复退出');
         }else{
+            $this->check_user();
             //人数减1
             $this->groupModel->where(array('group_id' => $id))->setDec('group_total');
             $res = $this->joinModel->where(array(
@@ -220,17 +261,69 @@ class groupController extends HomebaseController{
         $slice = UserAvatar($slice);
         $this->assign('member', $slice);
     }
-
-    /**
-     * 组员们想去的小组
-     */
-    protected function member_want(){
-        $wants = $this->groupModel->limit(30)->select();
+    private function member_want(){
+        $wants = $this->groupModel->field('group_id,group_name,group_introduce,group_total')
+            ->limit(130)->select();
         shuffle($wants);
         $slice = array_slice($wants, 0, 5);
         $slices = NullGroupCover($slice);
         $slices = substring($slices,'group_introduce',123);
         $this->assign('wants', $slices);
+    }
+    /**
+     * 组员们想去的小组ajax
+     */
+    public function member_want_ajax(){
 
+        $JoinNums = $this->hasJoin();
+        $JoinNums = empty($JoinNums)?[]:$JoinNums;
+
+        $wants = $this->groupModel->field('group_id,group_name,group_introduce,group_total')
+            ->limit(130)->select();
+        shuffle($wants);
+        $slice = array_slice($wants, 0, 5);
+        $slices = NullGroupCover($slice);
+        $slices = substring($slices,'group_introduce',123);
+
+        foreach ($slices as $key => $slice) {
+            $id = $slice['group_id'];
+            //$slices[$key]['isjoin']
+            if (in_array($id, $JoinNums)) {
+                $slices[$key]['isjoin']=true;
+                $slices[$key]['href'] = U('group/group_detail', array('group_id' => $id));
+
+            }else{
+                $slices[$key]['isjoin']=false;
+                $slices[$key]['href'] = U('group/join_group', array('id' => $id));
+            }
+        }
+        $this->arrayRecursive($slices, 'urlencode', true);
+        $json = json_encode($slices);
+        echo urldecode($json);
+    }
+
+
+    function arrayRecursive(&$array, $function, $apply_to_keys_also = false)
+    {
+        static $recursive_counter = 0;
+        if (++$recursive_counter > 1000) {
+            die('possible deep recursion attack');
+        }
+        foreach ($array as $key => $value) {
+            if (is_array($value)) {
+                $this->arrayRecursive($array[$key], $function, $apply_to_keys_also);
+            } else {
+                $array[$key] = $function($value);
+            }
+
+            if ($apply_to_keys_also && is_string($key)) {
+                $new_key = $function($key);
+                if ($new_key != $key) {
+                    $array[$new_key] = $array[$key];
+                    unset($array[$key]);
+                }
+            }
+        }
+        $recursive_counter--;
     }
 }

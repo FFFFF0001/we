@@ -55,7 +55,9 @@ class HomebaseController extends AppframeController {
 		if($user_status==2){
 			$this->error('您还没有激活账号，请激活后再使用！',U("user/login/active"));
 		}
-		
+		if($user_status==3){
+			$this->error('你是组织用户，帐号需管理员审核之后才能使用！',U("user/login/active"));
+		}
 		if($user_status==0){
 			$this->error('此账号已经被禁止使用，请联系管理员！',__ROOT__."/");
 		}
@@ -90,7 +92,7 @@ class HomebaseController extends AppframeController {
 	
 		//$send_result=sp_send_email($_SESSION['user']['user_email'], $title, $content);
 		$send_result=sp_sendcloud_register($_SESSION['user']['user_email'], $title, $url);
-		$send_result = json_decode($send_email,true);
+		$send_result = json_decode($send_result,true);
 		if($send_result['message']=="success"){
 			$this->success("激活邮件已发送，请上邮箱激活",U('user/login/index'));
 		}else{

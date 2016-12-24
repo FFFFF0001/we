@@ -24,20 +24,20 @@
     <![endif]-->
 <link rel="icon" href="Public/images/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="Public/images/favicon.ico" type="image/x-icon">
- <!--<link href="/2016Sise/themes/simplebootx/Public/simpleboot/themes/simplebootx/theme.min.css" rel="stylesheet">--> 
-<!-- <link href="/2016Sise/themes/simplebootx/Public/simpleboot/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet"> -->
-<link href="/2016Sise/themes/simplebootx/Public/simpleboot/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+ <!--<link href="/2016sise/themes/simplebootx/Public/simpleboot/themes/simplebootx/theme.min.css" rel="stylesheet">--> 
+<!-- <link href="/2016sise/themes/simplebootx/Public/simpleboot/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet"> -->
+<link href="/2016sise/themes/simplebootx/Public/simpleboot/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href="Public/simpleboot/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <!--[if IE 7]>
-	<link rel="stylesheet" href="/2016Sise/themes/simplebootx/Public/simpleboot/font-awesome/4.4.0/css/font-awesome-ie7.min.css">
+	<link rel="stylesheet" href="/2016sise/themes/simplebootx/Public/simpleboot/font-awesome/4.4.0/css/font-awesome-ie7.min.css">
 	<![endif]-->
-<!-- <link href="/2016Sise/themes/simplebootx/Public/css/style.css" rel="stylesheet"> -->
-<link href="/2016Sise/themes/simplebootx/Public/css/common.css" rel="stylesheet">
-<link href="/2016Sise/themes/simplebootx/Public/css/User/login.css" rel="stylesheet">
-<link href="/2016Sise/themes/simplebootx/Public/css/User/header.css" rel="stylesheet">
-<link href="/2016Sise/themes/simplebootx/Public/css/footer.css" rel="stylesheet">
-<link href="/2016Sise/themes/simplebootx/Public/css/User/step.css" rel="stylesheet">
-<link href="/2016Sise/themes/simplebootx/Public/css/User/forgot_password.css" rel="stylesheet">
+<!-- <link href="/2016sise/themes/simplebootx/Public/css/style.css" rel="stylesheet"> -->
+<link href="/2016sise/themes/simplebootx/Public/css/common.css" rel="stylesheet">
+<link href="/2016sise/themes/simplebootx/Public/css/User/login.css" rel="stylesheet">
+<link href="/2016sise/themes/simplebootx/Public/css/User/header.css" rel="stylesheet">
+<link href="/2016sise/themes/simplebootx/Public/css/footer.css" rel="stylesheet">
+<link href="/2016sise/themes/simplebootx/Public/css/User/step.css" rel="stylesheet">
+<link href="/2016sise/themes/simplebootx/Public/css/User/forgot_password.css" rel="stylesheet">
 	<link href="Public/css/style.css" rel="stylesheet">
 
 <!--<link href="Public/css/reset.css" rel="stylesheet">
@@ -94,14 +94,14 @@
 			<div class="header-up">
 				<a href="#" class="header-logo"></a>
 				<div class="header-search">
-					<form class="navbar-form  hidden-xs" role="search">
+					<!--<form class="navbar-form  hidden-xs" role="search">
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder="Search">
 						</div>
 						<button type="submit" class="btn btn-default">搜索</button>
-					</form>
+					</form>-->
 					<!--隐藏的用户链接，搜索链接-->
-					<a data-toggle="collapse" href="#cl">
+					<a href="<?php echo U('User/profile/edit');?>">
 						<span class="glyphicon glyphicon-user hidden-lg hidden-md hidden-sm"></span>
 					</a>
 					<a data-toggle="collapse" href="#cl1" id="search">
@@ -117,11 +117,11 @@
 					<a href='\$href' target='\$target'>\$label</a>"; $ul_class="nav nav-item navbar-left" ; $li_class="" ; $style="nav nav-item navbar-left"; $dropdown='dropdown'; ?>
 				<?php echo sp_get_menu("main",$effected_id,$filetpl,$foldertpl,$ul_class,$li_class,$style,$showlevel,$dropdown);?>
 				<!--向右对齐-->
-				<ul class="nav nav-pills navbar-right hidden-xs" id="collapse">
-					<li><a href="#">切换城市</a></li>
+				<ul class="nav nav-pills navbar-right hidden-xs" id="collapse" style="margin-top: -10px;">
+					<!--<li><a href="#">切换城市</a></li>-->
 					<li class="dropdown">
 						<?php if(sp_is_user_login() == false): ?><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-								<img src="/2016Sise/themes/simplebootx//Public/images/headicon.png" class="headicon" />登录
+								<img src="/2016sise/themes/simplebootx//Public/images/headicon.png" class="headicon" />登录
 								<span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="<?php echo leuu('user/login/index');?>"><i class="fa fa-sign-in"></i> &nbsp;登录</a></li>
@@ -130,11 +130,10 @@
 							<?php else: ?>
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 								<?php $avatar = sp_get_current_user()['avatar'] ?>
-								<?php if(empty($avatar) == true): ?><img src="/2016Sise/themes/simplebootx//Public/images/headicon.png" class="headicon" />
+								<?php if(empty($avatar) == true): ?><img src="/2016sise/themes/simplebootx//Public/images/headicon.png" id="user-avatar" class="headicon" />
 									<?php else: ?>
-									<img width="30" height="30" src="<?php echo sp_get_asset_upload_path('avatar/').$avatar;?>" class="headicon" /><?php endif; ?>
-
-								<?php echo sp_get_current_user()['user_login'] ?>
+									<img width="33" height="33" src="<?php echo sp_get_asset_upload_path('avatar/').$avatar;?>" id="user-avatar" class="headicon" /><?php endif; ?>
+								<span id="username"><?php echo sp_get_current_user()['user_login'] ?></span>
 								<span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="<?php echo U('User/profile/edit');?>"><i class="fa fa-user"></i> &nbsp;个人中心</a></li>
@@ -147,8 +146,23 @@
 
 		</div>
 	</div>
+	<script>
+		$(document).ready(function () {
+			var aTemp = 0,
+				cc = $("#cc");
+			$("a[href=#cc]").on('click',function () {
+					if(aTemp){
+						cc.slideUp();
+						aTemp=0;
+					}else{
+						cc.slideDown();
+						aTemp=1;
+					}
+			});
+		})
+	</script>
 	<!--通用头部结束-->
-	<!--折叠个人资料菜单-->
+	<!--折叠个人资料菜单
 	<div class="collapse _hide " id="cl">
 		<a class="head"></a>
 		<label>laoergege</label>
@@ -165,7 +179,7 @@
 				<a href="#" class="list-group-item">Item 5</a> ...
 			</div>
 		</div>
-	</div>
+	</div>-->
 	<!--折叠菜单结束-->
 </div>
 <div class="container group-container center-block">
@@ -197,16 +211,16 @@
 	                                    <div>
 	                                        <strong>
 	                                        	<?php $r = in_array($vo['group_id'],$hasJoin) ?>
-	                                        	<?php if($r == true): ?><a href="<?php echo U('group_detail',array('group_id'=>$vo['group_id']));?>" class="a-btn btn btn-success btn-xs pull-right">进入小组</a>
+	                                        	<?php if($r == true): ?><a style="display: none;" href="<?php echo U('group_detail',array('group_id'=>$vo['group_id']));?>" class="btn-join a-btn btn btn-success btn-sm pull-right">进入小组</a>
 	                                        		<?php else: ?>
-	                                        		<button class="btn btn-success btn-xs pull-right btn-join js-ajax-submit" type="submit" data-action="<?php echo U('join_group',array('id'=>$vo['group_id']));?>">加入</button><?php endif; ?>
+	                                        		<button style="display: none;" class="btn btn-success btn-sm pull-right btn-join js-ajax-submit" type="submit" data-action="<?php echo U('join_group',array('id'=>$vo['group_id']));?>">加入</button><?php endif; ?>
 	                                            <a href="<?php echo U('group_detail',array('group_id'=>$vo[group_id]));?>"><?php echo ($vo["group_name"]); ?></a>
 	                                            <?php  ?>
 	                                            
 	                                        </strong>
 	                                        <p>
-	                                            <span aria-hidden="true" class="icon_group"></span> <?php echo ($vo["group_total"]); ?>
-	                                            <span aria-hidden="true" class="icon_chat"></span> <?php echo ($vo["chat_count"]); ?>
+	                                            <span aria-hidden="true" class="icon_group" title="人数"></span> <?php echo ($vo["group_total"]); ?>
+	                                            <span aria-hidden="true" class="icon_chat" title="话题数"></span> <?php echo ($vo["chat_count"]); ?>
 	                                        </p>
 	                                    </div>
 	                                </div>
@@ -251,85 +265,21 @@
                     <span>
                         <strong>值得加入的小组</strong>
                     </span>
-                    <span class="pull-right">
+                    <span class="pull-right" id="async-change">
                         <small>
                             <span class="glyphicon glyphicon-repeat"></span>换一批
                         </small>
                     </span>
                 </p>
-                <div class="iteam">
-                    <div class="iteam-head">
-                        <div class="info">
-                            <div>
-                                <strong>
-                                    <a>趣公益</a>
-                                    <button class="btn btn-success btn-xs pull-right">加入</button>
-                                </strong>
-                                <p>
-                                    <span aria-hidden="true" class="icon_group"></span> 5932
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <p style="display: none">
-                        学生志愿者服务中心隶属华南理工大学广州学院，为活跃校园文化，涂抹大学生青春洋溢色彩，倡议及鼓励大学生...
-                    </p>
+                <p id="loading-bef">
+                    <img src="Public/images/loading.gif" style="vertical-align: middle;" />
+                <span style="display: inline-block; vertical-align: middle;">加载中...</span>
+                </p>
+                <div id="h-p-content">
+
                 </div>
 
-                <div class="iteam">
-                    <div class="iteam-head">
-                        <div class="info">
-                            <div>
-                                <strong>
-                                    <a>趣公益</a>
-                                    <button class="btn btn-success btn-xs pull-right">加入</button>
-                                </strong>
-                                <p>
-                                    <span aria-hidden="true" class="icon_group"></span> 5932
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <p style="display: none">
-                        学生志愿者服务中心隶属华南理工大学广州学院，为活跃校园文化，涂抹大学生青春洋溢色彩，倡议及鼓励大学生...
-                    </p>
-                </div>
-                <div class="iteam">
-                    <div class="iteam-head">
-                        <div class="info">
-                            <div>
-                                <strong>
-                                    <a>趣公益</a>
-                                    <button class="btn btn-success btn-xs pull-right">加入</button>
-                                </strong>
-                                <p>
-                                    <span aria-hidden="true" class="icon_group"></span> 5932
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <p style="display: none">
-                        学生志愿者服务中心隶属华南理工大学广州学院，为活跃校园文化，涂抹大学生青春洋溢色彩，倡议及鼓励大学生...
-                    </p>
-                </div>
-                <div class="iteam">
-                    <div class="iteam-head">
-                        <div class="info">
-                            <div>
-                                <strong>
-                                    <a>趣公益</a>
-                                    <button class="btn btn-success btn-xs pull-right">加入</button>
-                                </strong>
-                                <p>
-                                    <span aria-hidden="true" class="icon_group"></span> 5932
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <p style="display: none">
-                        学生志愿者服务中心隶属华南理工大学广州学院，为活跃校园文化，涂抹大学生青春洋溢色彩，倡议及鼓励大学生...
-                    </p>
-                </div>
+
             </div>
             <div id="new_group">
                 <p>
@@ -337,78 +287,27 @@
                         <strong>新创建的小组</strong>
                     </span>
                 </p>
-                <div class="iteam">
+                <?php if(is_array($newCreateGroup)): foreach($newCreateGroup as $key=>$vo): ?><div class="iteam">
                     <div class="iteam-head">
                         <div class="info">
                             <div>
                                 <strong>
-                                    <a>趣公益</a>
-                                    <button class="btn btn-success btn-xs pull-right">加入</button>
+                                    <a href="<?php echo U('group_detail',array('group_id'=>$vo[group_id]));?>"><?php echo ($vo["group_name"]); ?></a>
+                                    <?php $r = in_array($vo['group_id'],$hasJoin) ?>
+                                    <?php if($r == true): ?><a href="<?php echo U('group_detail',array('group_id'=>$vo['group_id']));?>" class="btn btn-success btn-xs pull-right a-btn">进入小组</a>
+	                                      <?php else: ?>
+	                                    <button class="btn btn-success btn-xs pull-right btn-join js-ajax-submit" type="submit" data-action="<?php echo U('join_group',array('id'=>$vo['group_id']));?>">加入</button><?php endif; ?>
                                 </strong>
                                 <p>
-                                    <span aria-hidden="true" class="icon_group"></span> 5932
+                                    <span aria-hidden="true" class="icon_group"></span> <?php echo ($vo["group_total"]); ?>
                                 </p>
                             </div>
                         </div>
                     </div>
                     <p style="display: none">
-                        学生志愿者服务中心隶属华南理工大学广州学院，为活跃校园文化，涂抹大学生青春洋溢色彩，倡议及鼓励大学生...
+                        <?php echo ($vo["group_introduce"]); ?>
                     </p>
-                </div>
-                <div class="iteam">
-                    <div class="iteam-head">
-                        <div class="info">
-                            <div>
-                                <strong>
-                                    <a>趣公益</a>
-                                    <button class="btn btn-success btn-xs pull-right">加入</button>
-                                </strong>
-                                <p>
-                                    <span aria-hidden="true" class="icon_group"></span> 5932
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <p style="display: none">
-                        学生志愿者服务中心隶属华南理工大学广州学院，为活跃校园文化，涂抹大学生青春洋溢色彩，倡议及鼓励大学生...
-                    </p>
-                </div>
-                <div class="iteam">
-                    <div class="iteam-head">
-                        <div class="info">
-                            <div>
-                                <strong>
-                                    <a>趣公益</a>
-                                    <button class="btn btn-success btn-xs pull-right">加入</button>
-                                </strong>
-                                <p>
-                                    <span aria-hidden="true" class="icon_group"></span> 5932
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <p style="display: none">
-                        学生志愿者服务中心隶属华南理工大学广州学院，为活跃校园文化，涂抹大学生青春洋溢色彩，倡议及鼓励大学生...
-                    </p>
-                </div>
-                <div class="iteam">
-                    <div class="iteam-head">
-                        <div class="info">
-                            <div>
-                                <strong>
-                                    <a>趣公益</a>
-                                    <button class="btn btn-success btn-xs pull-right">加入</button>
-                                </strong>
-                                <p>
-                                    <span aria-hidden="true" class="icon_group"></span> 5932
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <p style="display: none">
-                        学生志愿者服务中心隶属华南理工大学广州学院，为活跃校园文化，涂抹大学生青春洋溢色彩，倡议及鼓励大学生...
-                    </p>
-                </div>
+                </div><?php endforeach; endif; ?>
             </div>
         </div>
         <!--加载进度条开始-->
@@ -417,79 +316,21 @@
     </div>
     
 </div>
-
-<!-- Footer
-      ================================================== -->
-      <br>
-<!--通用底部开始-->
-<div class="footer">
-    <div class="footer-part  hidden-xs">
-        <div class="row">
-            <div class="col-sm-2">
-                <div class="footer-text">
-                    <ul>
-                        <li><h5 style="color:green;">志愿时</h5></li>
-                        <li>联系我们</li>
-                        <li>关于我们</li>
-                        <li>法律支持</li>
-                        <li>信息公开</li>
-                        <li>试用指南</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-sm-3">
-                <div class="footer-text">
-                    <ul>
-                        <li><h5 style="color:green;">合作机构</h5></li>
-                        <li>广州大学华软软件学院</li>
-                        <li>地址：广东省从化区高新经济开发区548号</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-sm-2">
-                <div class="footer-text">
-                    <ul>
-                        <li><h5 style="color:green;">友情链接</h5></li>
-                        <li>华软</li>
-                        <li>华软软件系</li>
-                        <li>网设</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-sm-5">
-                <div class="footer-QR">
-                    <img width="140" src="Public/images/1460122746.png" alt=""/>
-                    <img width="140" src="Public/images/1460122746.png" alt=""/>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="bottom">
-        <span>广州大学华软学院&&CXCL工作室</span>
-    </div>
-
-</div>
-
-
-
     <script type="text/javascript">
 //全局变量
 var GV = {
     DIMAUB: "",
-    JS_ROOT: "/2016Sise/public/js/",
+    JS_ROOT: "/2016sise/public/js/",
     TOKEN: ""
 };
 </script>
 <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/2016Sise/public/js/jquery.js"></script>
-    <script src="/2016Sise/public/js/wind.js"></script>
-    <script src="/2016Sise/public/js/frontend.js"></script>
+    <script src="./dist/js/jquery-bb7123b46d.js"></script>
+    <script src="./dist/js/wind-2861de75cf.js"></script>
+    <script src="./dist/js/frontend-ee0917270d.js"></script>
+    
 	<script>
 	$(function(){
 		$('body').on('touchstart.dropdown', '.dropdown-menu', function (e) { e.stopPropagation(); });
@@ -503,7 +344,7 @@ var GV = {
 		$.post("<?php echo U('user/index/is_login');?>",{},function(data){
 			if(data.status==1){
 				if(data.user.avatar){
-					$("#main-menu-user .headicon").attr("src",data.user.avatar.indexOf("http")==0?data.user.avatar:"/2016Sise/data/upload/avatar/"+data.user.avatar);
+					$("#main-menu-user .headicon").attr("src",data.user.avatar.indexOf("http")==0?data.user.avatar:"/2016sise/data/upload/avatar/"+data.user.avatar);
 				}
 				
 				$("#main-menu-user .user-nicename").text(data.user.user_nicename!=""?data.user.user_nicename:data.user.user_login);
@@ -552,5 +393,5 @@ var GV = {
 
 
 </body>
-<script data-main="./public/js/self/list.js" src="./node_modules/requirejs/require.js"></script>
+<script data-main="./public/js/self/list.js" src="./dist/node_modules/requirejs/require-8229947c40.js"></script>
 </html>

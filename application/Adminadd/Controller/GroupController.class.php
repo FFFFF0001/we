@@ -107,4 +107,117 @@ class GroupController extends AdminbaseController{
             }
         }
     }
+
+    /**
+     * 小组管理tpl
+     */
+    public function groupManage()
+    {
+        $uid = get_current_admin_id();
+        if ($uid == 1) {
+            $where_ands=[];
+        }else{
+            $where_ands = array("user_id=$uid");
+        }
+
+        $fields=array(
+            'start_time'=> array("field"=>"group_create","operator"=>">"),
+            'end_time'  => array("field"=>"group_create","operator"=>"<"),
+            'keyword'  => array("field"=>"group_name","operator"=>"like"),
+            'sort'  => array("field"=>"group_status","operator"=>"="),
+        );
+        if(IS_POST){
+
+            foreach ($fields as $param =>$val){
+                if (isset($_POST[$param]) && !empty($_POST[$param])) {
+                    $operator=$val['operator'];
+                    $field = $val['field'];
+
+                        $get=$_POST[$param];
+
+
+                    $_GET[$param]=$get;
+                    if($operator=="like"){
+                        $get="%$get%";
+                    }
+                    $where_ands = array("group_status=1");
+                    array_push($where_ands, "$field $operator '$get'");
+                }
+            }
+        }else{
+            foreach ($fields as $param =>$val){
+                if (isset($_GET[$param]) && !empty($_GET[$param])) {
+
+                    $operator=$val['operator'];
+                    $field   =$val['field'];
+
+
+                        $get=$_GET[$param];
+
+
+                    if($operator=="like"){
+                        $get="%$get%";
+                    }
+                    array_push($where_ands, "$field $operator '$get'");
+                }else if($param=='sort'){
+                    array_push($where_ands, "group_status = '1'");
+                }
+            }
+        }
+
+        $where= join(" and ", $where_ands);
+
+        $count=$this->GroupModel
+            ->where($where)->count();
+        $page = $this->page($count, 10);
+
+        $posts=$this->GroupModel
+            ->where($where)->limit($page->firstRow . ',' . $page->listRows)->select();
+        $this->assign("Page", $page->show('Admin'));
+        $this->assign("formget",$_GET);
+        $this->assign("posts",NullGroupCover($posts));
+        $this->display(":groupManage");
+    }
+    public function deleteGroup(){
+        if(isset($_POST['ids'])){
+            $ids = implode(",", $_POST['ids']);
+            $data=array("group_status"=>"3");
+            if ($this->GroupModel->where("group_id in ($ids)")->save($data)) {
+                $this->success("删除成功！");
+            } else {
+                $this->error("删除失败！");
+            }
+        }else{
+            if(isset($_GET['id'])){
+                $id = intval(I("get.id"));
+                $data=array("group_id"=>$id,"group_status"=>"3");
+                if ($this->GroupModel->save($data)) {
+                    $this->success("删除成功！");
+                } else {
+                    $this->error("删除失败！");
+                }
+            }
+        }
+    }
+    public function returnDeleteGroup(){
+        if(isset($_POST['ids'])){
+            $ids = implode(",", $_POST['ids']);
+            $data=array("group_status"=>"1");
+            if ($this->GroupModel->where("group_id in ($ids)")->save($data)) {
+                $this->success("删除成功！");
+            } else {
+                $this->error("删除失败！");
+            }
+        }else{
+            if(isset($_GET['id'])){
+                $id = intval(I("get.id"));
+                $data=array("group_id"=>$id,"group_status"=>"1");
+                if ($this->GroupModel->save($data)) {
+                    $this->success("删除成功！");
+                } else {
+                    $this->error("删除失败！");
+                }
+            }
+        }
+    }
 }

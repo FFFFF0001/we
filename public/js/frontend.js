@@ -303,7 +303,7 @@
     
     
     if ($('a.js-ajax-dialog-btn').length) {
-        Wind.use('noty', function () {
+        Wind.use('noty','artDialog','iframeTools', function () {
             $('.js-ajax-dialog-btn').on('click', function (e) {
                 e.preventDefault();
                 var $_this = this,

@@ -81,7 +81,7 @@ class ReadHtmlCacheBehavior {
                     $cacheTime  =   $cacheTime;
                 }
                 
-                //CXCL工作室 NOTE 多语言下和手机模式下静态缓存读取写入
+                //高速公路预警系统 NOTE 多语言下和手机模式下静态缓存读取写入
                 $rule_suffix  =  '';
                 if(C('MOBILE_TPL_ENABLED') && sp_is_mobile()){
                     $rule_suffix  =  '_mobile';

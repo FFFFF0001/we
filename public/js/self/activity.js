@@ -2,11 +2,38 @@ requirejs.config({
 	baseUrl: './public/js/self',
 	paths: {
 		jquery: "lib/jquery-2.2.1.min",
-		bootstrap: "lib/bootstrap.min"
+		bootstrap: "lib/bootstrap.min",
+		common: "./_common"
 	}
 });
-require(['jquery'], function($) {
-
+require(['jquery', 'common'], function($, comm) {
+	/**
+	 *让搜索关键字改变颜色
+	 */
+	var paraKw = comm.getQueryString("keywords"),
+		paraArea = comm.getQueryString("area"),
+		kwVal = $("#keywords").val(),
+		AreaVal = $("[name=area]").val();
+	if (paraKw != null) {
+		$(".activity-title").each(function(ind, ele) {
+			var ths = $(ele).html();
+			var reg = new RegExp(kwVal, 'g');
+			var goal = ths.replace(reg, "<span style='color:red;'>" + kwVal + "</span>");
+			$(ele).html(goal);
+		});
+	}
+	/**
+	 * 让搜索地域关键字变红
+	 *
+     */
+	if (paraArea != null) {
+		$(".activity-area").each(function(ind, ele) {
+			var ths = $(ele).html();
+			var reg = new RegExp(AreaVal, 'g');
+			var goal = ths.replace(reg, "<span style='color:red;'>" + AreaVal + "</span>");
+			$(ele).html(goal);
+		});
+	}
 	var cid = ""; //解决无法缩回问题
 	$(".sele-cond").click(function() {
 		var inx = $(this).index(),
@@ -23,48 +50,61 @@ require(['jquery'], function($) {
 			opt.css("display", "none");
 		cid = inx;
 	});
-	
+
 	//根据url参数改变选项卡颜色
-	var selectTop = $(".select-top").find("dd a"),
+	var selectPro = $("#property-dl").find("dd a"),
+		selectSor = $("#sort-dl").find("dd a"),
 		first_select = $(".sele-opt").eq(0).find("li"),
 		second_select = $(".sele-opt").eq(1).find("li");
 	var p_val = $("#property").val(),
 		tp_val = $("#types").val(),
 		s_val = $("#status").val(),
 		times_val = $("#times").val();
-		
-		$.each(selectTop, function(idx,elem) {
-			if(p_val==$(elem).html()){
-				$(elem).addClass('current-stat');
-			}
-		});
-		$.each(selectTop, function(idx,elem) {
-			
-			if(tp_val==$(elem).html()){
-				$(elem).addClass('current-stat');
-			}
-		});
-		
-		if(s_val!=null||s_val!=""){
-			var getSatus = first_select.eq(s_val).html();
-			$(".acti-status span").html(getSatus);
-		}
-		
-		if(times_val!=null||times_val!=""){
-			var getSatus = second_select.eq(times_val).html();
-			$(".acti-time span").html(getSatus);
-		}
-		
-		
-		if (p_val==null||p_val=="") {
-			$(".select-top").eq(0).find("dd").eq(0).find("a").addClass('current-stat');
-		} 
-		if(tp_val==null||tp_val==""){
-			$(".select-top").eq(1).find("dd").eq(0).find("a").addClass('current-stat');
-		}
-});
+
+	optionEachColor(selectPro, p_val, 'current-stat');
+
+	optionEachColor(selectSor, tp_val, 'current-stat');
+
+	/**
+	 *自制select框根据url参数改变文字
+	 */
+	if (s_val != null || s_val != "") {
+		var getSatus = first_select.eq(s_val).html();
+		$(".acti-status span").html(getSatus);
+	}
+
+	if (times_val != null || times_val != "") {
+		var getSatus = second_select.eq(times_val).html();
+		$(".acti-time span").html(getSatus);
+	}
+	/**
+	 *下面是当参数不存在时 默认加的样式
+	 */
+	if (p_val == null || p_val == "") {
+		$(".select-top").eq(0).find("dd").eq(0).find("a").addClass('current-stat');
+	}
+	if (tp_val == null || tp_val == "") {
+		$(".select-top").eq(1).find("dd").eq(0).find("a").addClass('current-stat');
+	}
+
+})
+
 /**
- *	判断哪个select框没关闭 
+ * 筛选框根据url加颜色
+ * @param {Object} obj 需要遍历的筛选框
+ * @param {Object} compareVal 需要比较的值
+ * @param {Object} className addClass
+ */
+function optionEachColor(obj, compareVal, className) {
+	$.each(obj, function(idx, elem) {
+		if (compareVal == $(elem).html()) {
+			$(elem).addClass(className);
+			return false;
+		}
+	});
+}
+/**
+ *	判断哪个select框没关闭
  * @param {Object} sel 外围的选择器
  * @param {Object} child 需要找的select框id
  * @return 返回index

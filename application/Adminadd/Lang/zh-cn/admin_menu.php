@@ -117,4 +117,9 @@ return array (
   'ADMIN_USER_EDIT' => '管理员编辑',
   'ADMIN_MENU_SPMY_IMPORT_MENU' => '导入菜单',
   'ADMINADD_ORG_ORG_VERIFY' => '组织用户审核',
+  'ADMINADD_ACTIVITY_ACTIVITYMANAGE' => '活动内容管理',
+  'ADMINADD_ACTIVITY_SIGN_CHECK' => '活动报名信息审核',
+  'ADMINADD_GROUP_GROUP_VERIFY' => '小组申请审核',
+  'ADMINADD_TOPIC_TOPIC_VERIFY' => '话题审核',
+  'ADMINADD_TOPIC_X' => '组织用户管理',
 );

@@ -18,8 +18,9 @@ class TopicModel extends CommonModel
         array('group_id', 'require', '参数错误，非法操作', 0),
         array('user_id', 'require', '参数错误，非法操作', 0),
         array('topic_title', 'require', '话题标题不能为空', 0),
+        array('topic_title','','话题名称已存在',0,'unique',1),
         array('topic_content', 'require', '话题内容不能为空', 0),
-        array('topic_title', '3,20', '请输入3~20字节的标题', 0, 'length'),
+        array('topic_title', '3,40', '请输入3~40字节的标题', 0, 'length'),
         array('topic_content', '3,40000', '请输入3~40000字节的内容,请缩短话题内容的长度', 0 , 'length'),
     );
 

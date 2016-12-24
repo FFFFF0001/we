@@ -1,6 +1,0 @@
-[ 2016-04-11T20:53:14+08:00 ] ::1 /2016Sise/
-ERR: SQLSTATE[HY000] [1130] Host '113.105.12.153' is not allowed to connect to this MySQL server
-
-[ 2016-04-11T21:02:07+08:00 ] ::1 /2016Sise/
-ERR: SQLSTATE[HY000] [1045] Access denied for user 'root'@'113.105.12.153' (using password: YES)
-

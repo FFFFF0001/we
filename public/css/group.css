@@ -11,6 +11,9 @@ body{
     height: 1000px;
     padding-top: 25px;
 }
+#async-change{
+    cursor: pointer;
+}
 a:hover{
     cursor: pointer; !important;
     text-decoration: none; !important;
@@ -41,13 +44,13 @@ li{
 }
 .col-md-6.col-sm-6.col-xs-12{
     margin-bottom: 20px;
-    height: 100px;
+    height: 110px;
     font-size: 12px;
 
 }
 .col-md-6.col-sm-6.col-xs-12>.iteam{
     border: 1px solid #eee;
-    padding: 5px;
+    padding: 10px;
     height: inherit;
 }
 .iteam-head{

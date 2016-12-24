@@ -7,11 +7,12 @@ requirejs.config({
 		bootstrap: "./lib/bootstrap.min",
 		ueditorconfig: "../ueditor/ueditor.config",
 		ueditorall: "../ueditor/ueditor.all.min",
+		common:"./_common",
 		face: "face"
 	}
 });
 require(['jquery', 'wind'], function($) {
-	require(['frontend', 'bootstrap', 'crop_image', 'upload'], function(frontend, bs, ci, upload) {
+	require(['frontend', 'bootstrap', 'crop_image', 'upload','common'], function(frontend, bs, ci, upload,comm) {
 
 		//hash
 		if (window.location.hash == "#upload_cover") {
@@ -20,12 +21,6 @@ require(['jquery', 'wind'], function($) {
 			$("#edit-msg").removeClass('focus');
 			$("#crt-group-form").hide();
 		}
-		//小组类型的选择事件
-		$("ul li").click(function() {
-			var type = $(this).text();
-			$("#group_type").text(type);
-			$("#type").val(type);
-		});
 		//活动封面上传
 		function act_cover_upload() {
 			var croppedCanvas;
@@ -37,12 +32,16 @@ require(['jquery', 'wind'], function($) {
 
 			$.ajax({
 				type: "POST",
-				url: "./index.php?g=Portal&m=activity&a=upload_cover&id="+getQueryString("id"),
+				url: "./index.php?g=Portal&m=activity&a=upload_cover&id="+comm.getQueryString("id"),
 				contentType: "multipart/form-data",
 				data: croppedCanvas.toDataURL(), //将canvas保存并上传
 				dataType: 'json',
 				success: function(result, status, xhr) {
-					alert(result.info);
+						noty({
+						text: result.info,
+						type: 'success',
+						layout: 'center'
+					});
 				},
 				error: function(XMLHttpRequest, textStatus, errorThrown) {
 					alert("上传失败，请检查网络后重试");
@@ -51,16 +50,7 @@ require(['jquery', 'wind'], function($) {
 		}
 		upload.init("#act-upload", act_cover_upload);
 
-		/**
-		 * 获取url参数方法
-		 * @param {Object} name
-		 */
-		function getQueryString(name) {
-			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-			var r = window.location.search.substr(1).match(reg);
-			if (r != null) return unescape(r[2]);
-			return null;
-		}
+		
 		
 		var parentTime = new Date().getTime(); //当前时间的时间戳
 

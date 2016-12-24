@@ -27,7 +27,7 @@ a {
     padding: 0 20px;
     border-right: 1px solid $color;
 }
-@mixin jieduan(){
+@mixin jieduan() {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -36,25 +36,29 @@ a {
     width: $w;
     height: $h;
 }
-@mixin bord-gree(){
+@mixin bord-gree() {
     border: 1px solid $color;
 }
-@mixin ahover(){
+@mixin ahover() {
     &:hover {
         color: $bai;
         background-color: $color;
     }
 }
-@media (min-width: 748px){
+@media (min-width: 748px) {
     #acti-wrapper {
         width: $width;
     }
-    .w-r-font{
+    .w-r-font {
         width: 146px;
         float: right;
+        padding-right: 0 !important;
+    }
+    .w-progress {
+        margin-left: -50px;
     }
 }
-.jieduan{
+.jieduan {
     @include jieduan;
 }
 #acti-wrapper {
@@ -70,7 +74,7 @@ a {
 .select-top a {
     padding: 3px 10px;
     border-radius: 5px;
-    transition: background .3s ease-out;
+    transition: background 0.3s ease-out;
     @include ahover();
 }
 .current-stat {
@@ -79,13 +83,13 @@ a {
 }
 .select-wrapper {
     margin-top: $marTop;
-    &::after{
+    &::after {
         content: '';
         display: block;
         clear: both;
     }
 }
-#kw-f-sbt{
+#kw-f-sbt {
     margin-top: -28px;
 }
 .select-wrapper>.sele-cond {
@@ -96,7 +100,7 @@ a {
     line-height: 28px;
     @include bord-gree();
     padding-left: $marTop;
-    font-size:12px;
+    font-size: 12px;
     margin-left: $marTop;
     border-radius: 5px;
 }
@@ -110,124 +114,145 @@ a {
     top: 0;
     border-left: 1px solid $color;
 }
-.sele-opt{
+.sele-opt {
     width: 100%;
     @include bord-gree();
     border-radius: 5px;
     position: absolute;
     background-color: #fff;
     z-index: 11;
-    top:30px;
-    left:0;
+    top: 30px;
+    left: 0;
 }
-.sele-opt>a{
+.sele-opt>a {
     text-align: center;
 }
-.sele-opt li{
-    transition: background .3s ease-in;
+.sele-opt li {
+    transition: background 0.3s ease-in;
     border-bottom: 1px solid $color;
     @include ahover();
 }
-.searchBar{
+.searchBar {
     @extend .sele-cond;
     width: 220px!important;
     border-radius: 15px!important;
-    padding-left: 25px!important;
+    padding-left: 25px !important;
 }
-.arrow-sou{
-    position:absolute;
+.arrow-sou {
+    position: absolute;
     left: 6px;
     top: 0;
     line-height: 28px;
 }
-#keywords{
-    border:none;
+#keywords {
+    border: none;
     line-height: 20px;
     outline: none;
 }
-#btn_sear{
+#btn_sear {
     position: absolute;
     line-height: 28px;
     outline: none;
-    right:0;
+    right: 0;
     top: 0;
-    color:#fff;
+    color: #fff;
     border: none;
-    padding:0 10px;
+    padding: 0 10px;
     border-radius: 0 15px 15px 0;
     background-color: $color;
 }
-.visible-sreach{
-    width:100%!important;
-    margin-top: 20px;
-    margin-left: 0!important;
+.visible-sreach {
+    width: 100%!important;
+    margin-top: 20px !important;
+    margin-left: 0 !important;
 }
-#detail-wrapper{
+#detail-wrapper {
     margin-top: 20px;
     clear: both;
 }
-#detail-wrapper:after{
+#detail-wrapper:after {
     content: '';
     display: block;
     clear: both;
 }
-.inner{
+a#create-act {
+    font-size: 12px;
+    padding: 5px 25px;
+    background: #2d974d;
+    color: #fff;
+    display: inline-block;
+    border-radius: 15px;
+    margin-left: 30px;
+    transition: all ease 0.3s;
+    border: 1px solid #2D974D;
+    box-sizing: border-box;
+}
+a#create-act:hover {
+    color: #2d974d;
+    background: #fff;
+}
+a {
+    &:hover {
+        color: $color;
+    }
+}
+.inner {
     border: 1px solid #eee;
 }
-.activity-each{
+.activity-each {
     padding: 5px;
     box-sizing: border-box;
-    p{
-        padding: 0px!important;
+    p {
+        padding: 0 !important;
     }
-    .activity-title{
-        padding:5px 15px;
-        font-size:16px;
+    .activity-title {
+        padding: 5px 15px;
+        font-size: 16px;
         @include jieduan;
-        &:hover{
-            color:$color;
+        &:hover {
+            color: $color;
         }
     }
-    .activity-place,.surplus-time{
-        font-size:12px;
-        .w-r-font:hover{
-            color:$color;
+    .activity-place,
+    .surplus-time {
+        font-size: 12px;
+        .w-r-font:hover {
+            color: $color;
         }
     }
-    .w-r-font{
+    .w-r-font {
         @include jieduan;
     }
-    .w-progress{
-        margin:3px 0;
+    .w-progress {
+        margin: 3px 0;
         display: block;
         height: 10px;
         border-radius: $progress-radius;
         border: 1px solid #eee;
         position: relative;
-        .l-progess{
+        .l-progess {
             display: block;
-            z-index:999;
+            z-index: 999;
             border-radius: $progress-radius;
-            width:30%;
             height: 10px;
             position: absolute;
             left: 0;
-            top:0;
+            top: 0;
             background-color: #ecbe66;
         }
     }
 }
-.activity-day{
-    padding-left:0!important;
-    padding-right:0!important;
+.activity-day {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
-.activity-icon>span{
-    font-size:18px;
-    color:$color;
-    .count-num{
+.activity-icon>span {
+    font-size: 18px;
+    color: $color;
+    .count-num {
         float: right;
         line-height: 18px;
-        font-size:12px;
-        color:#6e6e6e;
+        font-size: 12px;
+        color: #6e6e6e;
     }
 }

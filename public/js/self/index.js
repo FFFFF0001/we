@@ -8,6 +8,57 @@ requirejs.config({
 
 require(['jquery'], function($) {
 	$(document).ready(function() {
+
+
+		/**
+		 * 读取数字的每一位数字
+		 * @param num 要输出的数字
+		 * @returns {*} 返回目标数组
+         * @constructor
+         */
+		function OutputEachNum(num) {
+			var arr = [];
+			while(num>=1){
+				arr.push(num%10);
+				num = parseInt(num / 10);
+			}
+			arr.reverse();
+			return arr;
+		}
+
+		/**
+		 * 数字移动效果
+		 * @param arrNum 存有数字的数组
+         * @param ele 要操作的父元素对象
+         */
+		function animateNum(arrNum,ele) {
+			for(var i=0,length = arrNum.length;i<length;i++) {
+				var current = arrNum[i],
+					sE = document.createElement('span');
+				sE.style.backgroundPosition = "0px 0px";
+				ele.append(sE);
+				current = current==0?10:current;
+				ele.find('span').eq(i)
+					.animate({backgroundPositionY: current * -37 + 'px'}, 2000);
+			}
+
+		}
+		var peopleE = $(".people-count"),
+			actiE = $(".acti-count"),
+			peopleC = peopleE.data("count"),
+			actiC = actiE.data('count');
+
+		var peopleArr = OutputEachNum(peopleC),
+			actiArr = OutputEachNum(actiC);
+		/*总人数*/
+		animateNum(peopleArr, peopleE);
+		/*活动人数*/
+		animateNum(actiArr, actiE);
+
+		/**
+		 * 轮播图
+		 * @type {*|jQuery}
+         */
 		var sWidth = $("#focus").width(); //获取焦点图的宽度（显示面积）
 		var len = $("#focus ul li").length; //获取焦点图个数
 		var index = 0;

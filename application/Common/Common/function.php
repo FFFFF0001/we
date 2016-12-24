@@ -1935,7 +1935,7 @@ function UserAvatar($arr)
 function substring($arr,$ziduan,$strLen){
 	foreach ($arr as $key => $item) {
 
-		$af = strip_tags($item[$ziduan]);
+		$af = str_replace("&nbsp", '', strip_tags($item[$ziduan]));
 
 		if (strlen($af) > $strLen) {
 			$arr[$key][$ziduan] = substr($af, 0, $strLen)."...";
@@ -1964,39 +1964,39 @@ function StrCode($string,$action='ENCODE',$key=''){
  * @param $arr需要的参数
  */
 function getUrl($arr,$str=null){
-	$_url = $_SERVER['REQUEST_URI'];
-	$_par = parse_url($_url);
+    $_url = $_SERVER['REQUEST_URI'];
+    $_par = parse_url($_url);
 
-	if (isset($_par['query'])) {
-		parse_str($_par['query'],$_query);
-		$_url = $_par['path'] . "?" . http_build_query($_query);
-	}
+    if (isset($_par['query'])) {
+        parse_str($_par['query'],$_query);
+        $_url = $_par['path'] . "?" . http_build_query($_query);
+    }
 
-	$str = empty($str)==true?$_par['path']:$str;
+    $str = empty($str)==true?$_par['path']:$str;
 
-	$keyArr = [];$valueArr = [];
+    $keyArr = [];$valueArr = [];
 
-	$explodePara = explode("&", $_par['query']);
+    $explodePara = explode("&", $_par['query']);
 
-	foreach ($explodePara as $key => $value) {
-		$paramKey = explode("=", $value)[0];
-		array_push($keyArr, $paramKey);
-		$paramVal = explode("=", $value)[1];
-		array_push($valueArr, $paramVal);
-	}
-	//当前url参数数组
-	$allParam = array_combine($keyArr, $valueArr);
+    foreach ($explodePara as $key => $value) {
+        $paramKey = explode("=", $value)[0];
+        array_push($keyArr, $paramKey);
+        $paramVal = explode("=", $value)[1];
+        array_push($valueArr, $paramVal);
+    }
+    //当前url参数数组
+    $allParam = array_combine($keyArr, $valueArr);
 
-	$noRepeat = array_merge($allParam, $arr);
+    $noRepeat = array_merge($allParam, $arr);
 
-	$count = 0;
-	foreach ($noRepeat as $key => $value) {
-		if($count==0){
-			$str .= "?".$key."=".$value;
-		}else{
-			$str .= "&".$key."=".$value;
-		}
-		$count++;
-	}
-	return $str;
+    $count = 0;
+    foreach ($noRepeat as $key => $value) {
+        if($count==0){
+            $str .= "?".$key."=".$value;
+        }else{
+            $str .= "&".$key."=".$value;
+        }
+        $count++;
+    }
+    return $str;
 }

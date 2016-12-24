@@ -209,7 +209,7 @@
      
             @header('Content-Encoding: none');
             @header('Content-Type: application/zip');
-            @header('Content-Disposition: attachment ; filename=template_for_ThinkCMF'.date("YmdHis", time()).'.zip');
+            @header('Content-Disposition: attachment ; filename=template_for_高速公路预警系统'.date("YmdHis", time()).'.zip');
             @header('Pragma: no-cache');
             @header('Expires: 0');
             print($out);

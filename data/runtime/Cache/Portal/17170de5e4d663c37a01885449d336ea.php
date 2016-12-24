@@ -25,20 +25,20 @@
     <![endif]-->
 <link rel="icon" href="Public/images/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="Public/images/favicon.ico" type="image/x-icon">
- <!--<link href="/2016Sise/themes/simplebootx/Public/simpleboot/themes/simplebootx/theme.min.css" rel="stylesheet">--> 
-<!-- <link href="/2016Sise/themes/simplebootx/Public/simpleboot/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet"> -->
-<link href="/2016Sise/themes/simplebootx/Public/simpleboot/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+ <!--<link href="/haiku/2016sise/themes/simplebootx/Public/simpleboot/themes/simplebootx/theme.min.css" rel="stylesheet">--> 
+<!-- <link href="/haiku/2016sise/themes/simplebootx/Public/simpleboot/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet"> -->
+<link href="/haiku/2016sise/themes/simplebootx/Public/simpleboot/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href="Public/simpleboot/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <!--[if IE 7]>
-	<link rel="stylesheet" href="/2016Sise/themes/simplebootx/Public/simpleboot/font-awesome/4.4.0/css/font-awesome-ie7.min.css">
+	<link rel="stylesheet" href="/haiku/2016sise/themes/simplebootx/Public/simpleboot/font-awesome/4.4.0/css/font-awesome-ie7.min.css">
 	<![endif]-->
-<!-- <link href="/2016Sise/themes/simplebootx/Public/css/style.css" rel="stylesheet"> -->
-<link href="/2016Sise/themes/simplebootx/Public/css/common.css" rel="stylesheet">
-<link href="/2016Sise/themes/simplebootx/Public/css/User/login.css" rel="stylesheet">
-<link href="/2016Sise/themes/simplebootx/Public/css/User/header.css" rel="stylesheet">
-<link href="/2016Sise/themes/simplebootx/Public/css/footer.css" rel="stylesheet">
-<link href="/2016Sise/themes/simplebootx/Public/css/User/step.css" rel="stylesheet">
-<link href="/2016Sise/themes/simplebootx/Public/css/User/forgot_password.css" rel="stylesheet">
+<!-- <link href="/haiku/2016sise/themes/simplebootx/Public/css/style.css" rel="stylesheet"> -->
+<link href="/haiku/2016sise/themes/simplebootx/Public/css/common.css" rel="stylesheet">
+<link href="/haiku/2016sise/themes/simplebootx/Public/css/User/login.css" rel="stylesheet">
+<link href="/haiku/2016sise/themes/simplebootx/Public/css/User/header.css" rel="stylesheet">
+<link href="/haiku/2016sise/themes/simplebootx/Public/css/footer.css" rel="stylesheet">
+<link href="/haiku/2016sise/themes/simplebootx/Public/css/User/step.css" rel="stylesheet">
+<link href="/haiku/2016sise/themes/simplebootx/Public/css/User/forgot_password.css" rel="stylesheet">
 	<link href="Public/css/style.css" rel="stylesheet">
 
 <!--<link href="Public/css/reset.css" rel="stylesheet">
@@ -79,7 +79,7 @@
 		font-family: "微软雅黑";
 	}
 </style>
-		<link href="/2016Sise/themes/simplebootx/Public/css/Portal/group-detail.css" rel="stylesheet">
+		<link href="/haiku/2016sise/themes/simplebootx/Public/css/Portal/group-detail.css" rel="stylesheet">
 	</head>
 
 	<body class="body-white">
@@ -92,14 +92,14 @@
 			<div class="header-up">
 				<a href="#" class="header-logo"></a>
 				<div class="header-search">
-					<form class="navbar-form  hidden-xs" role="search">
+					<!--<form class="navbar-form  hidden-xs" role="search">
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder="Search">
 						</div>
 						<button type="submit" class="btn btn-default">搜索</button>
-					</form>
+					</form>-->
 					<!--隐藏的用户链接，搜索链接-->
-					<a data-toggle="collapse" href="#cl">
+					<a href="<?php echo U('User/profile/edit');?>">
 						<span class="glyphicon glyphicon-user hidden-lg hidden-md hidden-sm"></span>
 					</a>
 					<a data-toggle="collapse" href="#cl1" id="search">
@@ -115,11 +115,11 @@
 					<a href='\$href' target='\$target'>\$label</a>"; $ul_class="nav nav-item navbar-left" ; $li_class="" ; $style="nav nav-item navbar-left"; $dropdown='dropdown'; ?>
 				<?php echo sp_get_menu("main",$effected_id,$filetpl,$foldertpl,$ul_class,$li_class,$style,$showlevel,$dropdown);?>
 				<!--向右对齐-->
-				<ul class="nav nav-pills navbar-right hidden-xs" id="collapse">
-					<li><a href="#">切换城市</a></li>
+				<ul class="nav nav-pills navbar-right hidden-xs" id="collapse" style="margin-top: -10px;">
+					<!--<li><a href="#">切换城市</a></li>-->
 					<li class="dropdown">
 						<?php if(sp_is_user_login() == false): ?><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-								<img src="/2016Sise/themes/simplebootx//Public/images/headicon.png" class="headicon" />登录
+								<img src="/haiku/2016sise/themes/simplebootx//Public/images/headicon.png" class="headicon" />登录
 								<span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="<?php echo leuu('user/login/index');?>"><i class="fa fa-sign-in"></i> &nbsp;登录</a></li>
@@ -128,14 +128,13 @@
 							<?php else: ?>
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 								<?php $avatar = sp_get_current_user()['avatar'] ?>
-								<?php if(empty($avatar) == true): ?><img src="/2016Sise/themes/simplebootx//Public/images/headicon.png" class="headicon" />
+								<?php if(empty($avatar) == true): ?><img src="/haiku/2016sise/themes/simplebootx//Public/images/headicon.png" id="user-avatar" class="headicon" />
 									<?php else: ?>
-									<img width="30" height="30" src="<?php echo sp_get_asset_upload_path('avatar/').$avatar;?>" class="headicon" /><?php endif; ?>
-
-								<?php echo sp_get_current_user()['user_login'] ?>
+									<img width="33" height="33" src="<?php echo sp_get_asset_upload_path('avatar/').$avatar;?>" id="user-avatar" class="headicon" /><?php endif; ?>
+								<span id="username"><?php echo sp_get_current_user()['user_login'] ?></span>
 								<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="<?php echo U('User/setting/info');?>"><i class="fa fa-user"></i> &nbsp;个人中心</a></li>
+								<li><a href="<?php echo U('User/profile/edit');?>"><i class="fa fa-user"></i> &nbsp;个人中心</a></li>
 								<li><a href="<?php echo U('user/index/logout');?>"><i class="fa fa-sign-out"></i> &nbsp;退出</a></li>
 							</ul><?php endif; ?>
 					</li>
@@ -145,8 +144,23 @@
 
 		</div>
 	</div>
+	<script>
+		$(document).ready(function () {
+			var aTemp = 0,
+				cc = $("#cc");
+			$("a[href=#cc]").on('click',function () {
+					if(aTemp){
+						cc.slideUp();
+						aTemp=0;
+					}else{
+						cc.slideDown();
+						aTemp=1;
+					}
+			});
+		})
+	</script>
 	<!--通用头部结束-->
-	<!--折叠个人资料菜单-->
+	<!--折叠个人资料菜单
 	<div class="collapse _hide " id="cl">
 		<a class="head"></a>
 		<label>laoergege</label>
@@ -163,7 +177,7 @@
 				<a href="#" class="list-group-item">Item 5</a> ...
 			</div>
 		</div>
-	</div>
+	</div>-->
 	<!--折叠菜单结束-->
 </div>
 		<!--小组详情界面开始-->
@@ -183,8 +197,8 @@
 								<div class="cover-r-msg">
 									<h4><?php echo ($groupMes["group_name"]); ?></h4>
 									<p>
-										<span class="glyphicon glyphicon-user"><?php echo ($groupMes["group_total"]); ?>人</span>
-										<span class="glyphicon glyphicon-align-right"><?php echo ($groupMes["chat_count"]); ?>个</span>
+										<span class="glyphicon glyphicon-user" title="人数"><?php echo ($groupMes["group_total"]); ?>人</span>
+										<span class="glyphicon glyphicon-align-right" title="话题数"><?php echo ($groupMes["chat_count"]); ?>个</span>
 										<span>
 										<?php if($joinStatus == true): ?><button type="button" class="btn-exit text icon_join" data-action="<?php echo U('exit_group',array('id'=>I('group_id')));?>">退出小组</button>
 											<?php else: ?>
@@ -201,11 +215,16 @@
 									<?php echo ($groupMes["group_notice"]); ?>
 								</p>
 							</div>
+							<?php if(empty(I('get.order')) == true): ?><div class="topic_title_left">
+									<a href="<?php echo U('Portal/group/group_detail',array('group_id'=>I('group_id'),'order'=>'lately'));?>">最近话题</a>
+									<a href="<?php echo U('Portal/group/group_detail',array('group_id'=>I('group_id')));?>" style="color:#2d974d">/最热话题</a>
+								</div>
+								<?php else: ?>
+								<div class="topic_title_left">
+									<a href="<?php echo U('Portal/group/group_detail',array('group_id'=>I('group_id'),'order'=>'lately'));?>" style="color:#2d974d">最近话题</a>
+									<a href="<?php echo U('Portal/group/group_detail',array('group_id'=>I('group_id')));?>">/最热话题</a>
+								</div><?php endif; ?>
 
-							<div class="topic_title_left">
-								<a href="<?php echo U('Portal/group/group_detail',array('group_id'=>I('group_id'),'order'=>'lately'));?>">最近话题</a>
-								<a>/最热话题</a>
-							</div>
 
 							<div class="topic_title_right">
 								<a href="<?php echo U('Portal/topic/topicadd',array('group_id'=>I('group_id')));?>">
@@ -224,10 +243,9 @@
 											<td class="col-xs-7 t-content"><a href="<?php echo U('topic/topic_detail',array('topic_id'=>$vo['topic_id']));?>"><?php echo ($vo["topic_title"]); ?></a>
 
 											</td>
-											<td class="col-xs-4 t-nicename"><?php echo ($vo["user_nicename"]); ?></td>
-											<td class="col-xs-1 t-count">1</td>
+											<td class="col-xs-4 t-nicename"><a href="<?php echo U('user/profile/space',array('id'=>$vo['id']));?>"><?php echo ($vo["user_nicename"]); ?></a></td>
+											<td class="col-xs-1 t-count"><?php echo ($vo["comment_count"]); ?></td>
 										</tr><?php endforeach; endif; ?>
-
 									<!--<tr><td><a href="#">hey,想哭就哭出来</a></td><td>狮子的</td><td>1</td></tr>
 												<tr><td><a href="#">hey,想哭就哭出来</a></td><td>狮子的</td><td>1</td></tr>-->
 
@@ -242,7 +260,7 @@
 										小组成员
 									</h5>
 							<div class="team_user">
-								<?php if(is_array($member)): foreach($member as $key=>$vo): ?><a href="#">
+								<?php if(is_array($member)): foreach($member as $key=>$vo): ?><a href="<?php echo U('user/profile/space',array('id'=>$vo['id']));?>">
 										<img width="50" height="50" title="小组成员头像" alt="小组成员头像" src="<?php echo sp_get_asset_upload_path(avatar)."/".$vo['avatar'];?>"><br><?php echo ($vo['user_login']); ?>
 									</a><?php endforeach; endif; ?>
 								
@@ -258,7 +276,7 @@
 												<img width="45px" src="<?php echo sp_get_asset_upload_path('group_avatar').'/'.$voo['group_cover'];?>" />
 											</div>
 											<div class="right">
-												<a href="#"><h5><?php echo ($voo["group_name"]); ?></h5></a>
+												<a href="<?php echo U('group_detail',array('group_id'=>$voo['group_id']));?>"><h5><?php echo ($voo["group_name"]); ?></h5></a>
 												<p><?php echo ($voo["group_total"]); ?>个组员</p>
 											</div>
 											<p class="group-msg-show" style="display: none;">
@@ -277,11 +295,7 @@
 		</div>
 		<!--小组详情界面结束-->
 
-		
-<!-- Footer
-      ================================================== -->
-      <br>
-<!--通用底部开始-->
+		<!--通用底部开始-->
 <div class="footer">
     <div class="footer-part  hidden-xs">
         <div class="row">
@@ -344,16 +358,17 @@
 //全局变量
 var GV = {
     DIMAUB: "",
-    JS_ROOT: "/2016Sise/public/js/",
+    JS_ROOT: "/haiku/2016sise/public/js/",
     TOKEN: ""
 };
 </script>
 <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/2016Sise/public/js/jquery.js"></script>
-    <script src="/2016Sise/public/js/wind.js"></script>
-    <script src="/2016Sise/public/js/frontend.js"></script>
+    <script src="./dist/js/jquery-bb7123b46d.js"></script>
+    <script src="./dist/js/wind-2861de75cf.js"></script>
+    <script src="./dist/js/frontend-ee0917270d.js"></script>
+    
 	<script>
 	$(function(){
 		$('body').on('touchstart.dropdown', '.dropdown-menu', function (e) { e.stopPropagation(); });
@@ -367,7 +382,7 @@ var GV = {
 		$.post("<?php echo U('user/index/is_login');?>",{},function(data){
 			if(data.status==1){
 				if(data.user.avatar){
-					$("#main-menu-user .headicon").attr("src",data.user.avatar.indexOf("http")==0?data.user.avatar:"/2016Sise/data/upload/avatar/"+data.user.avatar);
+					$("#main-menu-user .headicon").attr("src",data.user.avatar.indexOf("http")==0?data.user.avatar:"/haiku/2016sise/data/upload/avatar/"+data.user.avatar);
 				}
 				
 				$("#main-menu-user .user-nicename").text(data.user.user_nicename!=""?data.user.user_nicename:data.user.user_login);
@@ -415,7 +430,7 @@ var GV = {
 	</script>
 
 
-		<script data-main="./public/js/self/group_detail.js" src="./node_modules/requirejs/require.js"></script>
+		<script data-main="./public/js/self/group_detail.js" src="./dist/node_modules/requirejs/require-8229947c40.js"></script>
 	</body>
 
 </html>

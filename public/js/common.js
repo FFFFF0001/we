@@ -207,7 +207,7 @@
                 art.dialog({
                     title: false,
                     icon: 'question',
-                    content: '确定要删除吗？',
+                    content: '确定要继续吗？',
                     follow: $_this,
                     close: function () {
                         $_this.focus();; //关闭时让触发弹窗的元素获取焦点

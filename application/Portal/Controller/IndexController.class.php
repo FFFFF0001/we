@@ -28,6 +28,11 @@ class IndexController extends HomebaseController {
 		$this->_topicshow();
 		$this->member_want();
 
+		$pCount = M('users')->count();
+		$this->assign('pcount', $pCount);
+		$actCount = M('activity')->count();
+		$this->assign('actcount', $actCount);
+
 		$this->display(":index");
     }
 
@@ -42,7 +47,7 @@ class IndexController extends HomebaseController {
 			->alias("a")
 			->join($join)
 			->order("id desc")
-			->limit("12")
+			->limit("8")
 			->select();
 
 		$afters = NullActivityCover($activitys);
@@ -63,7 +68,7 @@ class IndexController extends HomebaseController {
 	 */
 	protected function member_want(){
 		$groupModel = M('group');
-		$wants = $groupModel->limit(30)->field('group_cover,group_name,chat_count,zan_count')->select();
+		$wants = $groupModel->limit(30)->field('group_id,group_cover,group_name,group_total,zan_count')->select();
 		shuffle($wants);
 		$slice = array_slice($wants, 0, 5);
 		$slices = NullGroupCover($slice);

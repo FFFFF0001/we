@@ -17,7 +17,7 @@ class OrganizationModel extends CommonModel
         array('admin_name','require','管理人姓名不能为空',0),
         array('admin_name','1,4','管理人姓名长度在1~4之间',0,'length'),
         array('manager_name','require','组织名称不能为空',0),
-        array('manager_name','1,10','组织名称长度不能超过10',0,'length'),
+        array('manager_name','1,20','组织名称长度不能超过20',0,'length'),
         array('manager_name','','组织名称已存在！',0,'unique'),
         array('org_type','require','组织分类不能为空',0),
         array('apply_reason','require','申请原因不能为空',0),

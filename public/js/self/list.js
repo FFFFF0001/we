@@ -4,7 +4,7 @@
 requirejs.config({
 	baseUrl: './public/js/self',
 	paths: {
-		jquery: "lib/jquery-2.2.1.min",
+		jquery: "../jquery",
 		bootstrap: "lib/bootstrap.min",
 		iscroll: "iscroll",
 		pullToRefresh: "pullToRefresh"
@@ -12,6 +12,57 @@ requirejs.config({
 });
 require(['jquery'], function() {
 	require(['iscroll', 'pullToRefresh', 'bootstrap'], function(i, p, b) {
+		var recommend = $("#h-p-content");
+
+
+		function asyncExchange() {
+			var load = $("#loading-bef");
+			recommend.empty();
+			$.ajax({
+					url:'./index.php?g=Portal&m=group&a=member_want_ajax',
+					dataType:'json',
+					beforeSend:function () {
+						load.show();
+					},
+					complete:function () {
+						load.hide();
+					},
+					success:function (data) {
+						$.each(data,function (key,value) {
+							var isJoin;
+							if(value['isjoin']==true) {
+								isJoin ="<a href='"+value['href']+"' class='btn btn-success btn-xs pull-right a-btn'>进入小组</a>";
+							}else{
+								isJoin = "<button class='btn btn-success btn-xs pull-right btn-join js-ajax-submit' type='submit' data-action='"+value['href']+"'>加入</button>";
+							}
+							recommend.append(
+								"<div class='iteam'>" +
+								"<div class='iteam-head'>" +
+								"<div class='info'>" +
+								"<div>" +
+								"<strong>" +
+								"<a href=index.php?g=&m=Group&a=group_detail&group_id="+value['group_id']+">"+value['group_name']+"</a>" +isJoin+
+								"</strong>" +
+								"<p>" +
+								"<span aria-hidden='true' class='icon_group'></span> "+value['group_total']+"" +
+								"</p>" +
+								"</div>" +
+								" </div>" +
+								"</div>" +
+								"<p style='display: none'>" +
+								""+value['group_introduce']+"" +
+								"</p>" +
+								"</div>"
+							);
+						});
+					}
+				});
+		}
+		asyncExchange();
+
+		$("#async-change").on("click", asyncExchange);
+
+
 		$(document).ready(function() {
 
 			$('#recommend >.iteam').hover(function() {
@@ -81,7 +132,7 @@ require(['jquery'], function() {
 
 						var i = $('.col-md-6.col-sm-6.col-xs-12');
 						var n = i.length;
-						$.ajax({
+						/*$.ajax({
 							url: '/CXCL/list.php?s=12&e=15',
 							type: "get",
 							cache: true,
@@ -95,13 +146,13 @@ require(['jquery'], function() {
 							error: function(XMLHttpRequest, textStatus, errorThrown) {
 								alert(errorThrown);
 							}
-						});
+						});*/
 					}
 				})
 			}
 
 			/*加入小组ajax*/
-			$(".btn-join").on("click", function() {
+			$(document).on("click",".btn-join",function () {
 				var ts = $(this),
 					uri = ts.data("action");
 				$.post(uri, function(data) {
@@ -115,7 +166,14 @@ require(['jquery'], function() {
 					}
 				})
 			});
-
+			/**
+			 * hover
+			 */
+			$(".iteam").hover(function () {
+				$(this).find(".btn-join").show();
+			},function () {
+				$(this).find(".btn-join").hide();
+			})
 		});
 	});
 });

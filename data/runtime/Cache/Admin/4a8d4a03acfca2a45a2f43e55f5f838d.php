@@ -12,10 +12,10 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <![endif]-->
 
-	<link href="/2016Sise/public/simpleboot/themes/<?php echo C('SP_ADMIN_STYLE');?>/theme.min.css" rel="stylesheet">
-    <link href="/2016Sise/public/simpleboot/css/simplebootadmin.css" rel="stylesheet">
-    <link href="/2016Sise/public/js/artDialog/skins/default.css" rel="stylesheet" />
-    <link href="/2016Sise/public/simpleboot/font-awesome/4.4.0/css/font-awesome.min.css"  rel="stylesheet" type="text/css">
+	<link href="/haiku/2016sise/public/simpleboot/themes/<?php echo C('SP_ADMIN_STYLE');?>/theme.min.css" rel="stylesheet">
+    <link href="/haiku/2016sise/public/simpleboot/css/simplebootadmin.css" rel="stylesheet">
+    <link href="/haiku/2016sise/public/js/artDialog/skins/default.css" rel="stylesheet" />
+    <link href="/haiku/2016sise/public/simpleboot/font-awesome/4.4.0/css/font-awesome.min.css"  rel="stylesheet" type="text/css">
     <style>
 		.length_3{width: 180px;}
 		form .input-order{margin-bottom: 0px;padding:3px;width:40px;}
@@ -24,12 +24,12 @@
                     .table-oflow{max-width:200px; overflow-x: overlay;}
 	</style>
 	<!--[if IE 7]>
-	<link rel="stylesheet" href="/2016Sise/public/simpleboot/font-awesome/4.4.0/css/font-awesome-ie7.min.css">
+	<link rel="stylesheet" href="/haiku/2016sise/public/simpleboot/font-awesome/4.4.0/css/font-awesome-ie7.min.css">
 	<![endif]-->
 <script type="text/javascript">
 //全局变量
 var GV = {
-    DIMAUB: "/2016Sise/",
+    DIMAUB: "/haiku/2016sise/",
     JS_ROOT: "public/js/",
     TOKEN: ""
 };
@@ -37,9 +37,9 @@ var GV = {
 <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/2016Sise/public/js/jquery.js"></script>
-    <script src="/2016Sise/public/js/wind.js"></script>
-    <script src="/2016Sise/public/simpleboot/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/haiku/2016sise/public/js/jquery.js"></script>
+    <script src="/haiku/2016sise/public/js/wind.js"></script>
+    <script src="/haiku/2016sise/public/simpleboot/bootstrap/js/bootstrap.min.js"></script>
 <?php if(APP_DEBUG): ?><style>
 		#think_page_trace_open{
 			z-index:9999;
@@ -84,7 +84,7 @@ var GV = {
 										<input type="text" name="options[site_admin_url_password]" value="<?php echo ($site_admin_url_password); ?>" id="js-site-admin-url-password"><span class="form-required">*</span>
 										<span class="help-block" style="color: red;">设置加密码后必须通过以下地址访问后台,请劳记此地址，为了安全，您也可以定期更换此加密码!</span>
 										<?php $site_admin_url_password =C("SP_SITE_ADMIN_URL_PASSWORD"); ?>
-										<?php if(!empty($site_admin_url_password)): ?><span class="help-block">后台地址：<span id="js-site-admin-url"><?php echo sp_get_host();?>/2016Sise?g=admin&upw=<?php echo C('SP_SITE_ADMIN_URL_PASSWORD');?></span></span><?php endif; ?>
+										<?php if(!empty($site_admin_url_password)): ?><span class="help-block">后台地址：<span id="js-site-admin-url"><?php echo sp_get_host();?>/haiku/2016sise?g=admin&upw=<?php echo C('SP_SITE_ADMIN_URL_PASSWORD');?></span></span><?php endif; ?>
 									</div>
 								</div>
 								<div class="control-group">
@@ -237,7 +237,7 @@ var GV = {
 		</form>
 
 	</div>
-	<script type="text/javascript" src="/2016Sise/public/js/common.js"></script>
+	<script type="text/javascript" src="/haiku/2016sise/public/js/common.js"></script>
 	<script>
 		/////---------------------
 		$(function(){

@@ -26,13 +26,13 @@ class TopicController extends HomebaseController{
                 ->join($join)
                 ->count();
 
-        $page = $this->page($count, 2);
+        $page = $this->page($count, 4);
 
         $topics = $this->topicModel->alias("a")
                     ->join($join)
                     ->where($where)
                     ->order("topic_id desc")
-                    ->field("topic_id,topic_title,topic_content,group_name,a.zan_count as topic_zan_count")
+                    ->field("topic_id,topic_title,topic_content,b.group_id,group_name,a.zan_count as topic_zan_count")
                     ->limit($page->firstRow.','.$page->listRows)
                     ->select();
         $sub = substring($topics,'topic_content',255);
@@ -98,6 +98,7 @@ class TopicController extends HomebaseController{
         $belongGd = $this->topicModel->where(array('topic_id' => $id))->getField('group_id');
         $this->latelyTopic($belongGd);
 
+
         $this->assign('details', $details);
         $this->display(":topic_detail");
         //var_dump($details);
@@ -146,33 +147,62 @@ class TopicController extends HomebaseController{
      * 话题增加页
      */
     function topicadd(){
-        $id = I('get.group_id');
-        $user_id = sp_get_current_userid();
-
-        $if = $this->joinModel->where(array('group_id'=>$id,'user_id'=>$user_id))->find();
 
         if (!sp_is_user_login()){
             $this->error('你未登录，请登陆后再发言');
-        }else if(empty($if)){
+        }
+        $id = I('get.group_id');
+        $user_id = sp_get_current_userid();
+        $if = $this->joinModel->where(array('group_id'=>$id,'user_id'=>$user_id))->find();
+        if(empty($if)){
             $this->error('你尚未加入小组，要加入小组才能发言');
         }
+
+        $this->check_user();
+        $groups = $this->groupModel->where(array('group_id'=>$id))->find();
+        $this->assign('groups', $groups);
+        //检测该话题是否是用户自身创建的，防止非法修改
+        $tid = I('get.topic_id');
+        if (!empty($tid)) {
+            $umsg = $this->topicModel->where(array('topic_id'=>$tid))->find();
+            if ($umsg['user_id'] != sp_get_current_userid()) {
+                $this->error('该话题不是你创建的，你不能编辑');
+            }else{
+                $this->assign('currentTopics', $umsg);
+            }
+        }
+
+
         $this->display(":topicadd");
     }
-
     /**
      * 话题增加ajax
      */
     function dotopicadd(){
+
         $id = I('group_id');
         if (!sp_is_user_login()){
             $this->error('你未登录，请登陆后再发言');
-        }else if(!sp_auth_check(sp_get_current_userid(),'portal/topic/topicadd')){
+        }/*else if(!sp_auth_check(sp_get_current_userid(),'portal/topic/topicadd')){
             $this->error('你不是组织用户没有访问权限');
-        }else if($this->judgeId($id)==0){
+        }*/else if($this->judgeId($id)==0){
             $this->error('参数错误，不存在该小组');
         }else if(!sp_check_verify_code()){
             $this->error("验证码错误请重新输入");
         }else{
+            $this->check_user();
+            //编辑话题
+            if (I('post.contentLen') > 0) {
+                $createRsg = $this->topicModel->create();
+                if(!$createRsg)
+                {
+                    $this->error($this->topicModel->getError());
+                }else{
+                    $this->topicModel->save();
+                    $this->success('保存成功！');
+                }
+            }
+
 //            var_dump($this->topicModel);
             //不合法
             $createRsg = $this->topicModel->create();
@@ -181,6 +211,7 @@ class TopicController extends HomebaseController{
             {
                 $this->error($this->topicModel->getError());
             }else if($this->topicModel->add()){
+
                 $this->success('话题新增成功，请等待管理员审核',U('Portal/group/group_detail',array('group_id'=>$group_id)));
             }else{
                 $this->error('话题新增失败，具体原因请联系管理员');

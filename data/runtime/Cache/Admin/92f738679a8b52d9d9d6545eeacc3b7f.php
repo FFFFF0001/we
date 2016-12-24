@@ -5,7 +5,7 @@
 <!-- Set render engine for 360 browser -->
 <meta name="renderer" content="webkit">
 <meta charset="utf-8">
-<title>CXCL工作室 <?php echo L('ADMIN_CENTER');?></title>
+<title>华软公益队 <?php echo L('ADMIN_CENTER');?></title>
 
 <meta name="description" content="This is page-header (.page-header &gt; h1)">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -145,7 +145,7 @@ right: initial !important;}
 			<div class="container-fluid">
 				<a href="<?php echo U('index/index');?>" class="brand"> <small> 
 				<img src="Public/images/favicon.ico" width="22">
-						CXCL工作室 <?php echo L('ADMIN_CENTER');?>
+						华软公益队 <?php echo L('ADMIN_CENTER');?>
 				</small>
 				</a>
 				<div class="pull-left nav_shortcuts" >

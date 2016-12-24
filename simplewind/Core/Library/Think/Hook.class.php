@@ -148,7 +148,7 @@ class Hook {
         }else{
         	$class   =  "plugins\\{$name}\\{$name}Plugin";
         }
-        if(class_exists($class)){ //CXCL工作室 NOTE 插件或者行为存在时才执行
+        if(class_exists($class)){ //高速公路预警系统 NOTE 插件或者行为存在时才执行
         	$addon   = new $class();
         	return $addon->$tag($params);
         }

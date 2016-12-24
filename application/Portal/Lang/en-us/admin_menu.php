@@ -31,4 +31,5 @@ return array (
   'PORTAL_ADMINTERM_ADD' => 'Add Category',
   'PORTAL_ADMINTERM_DELETE' => '删除分类',
   'PORTAL_ADMINTERM_EDIT' => '编辑分类',
+  'PORTAL_GROUP_GROUP_ADD' => '小组增加',
 );

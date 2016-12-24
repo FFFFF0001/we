@@ -82,7 +82,12 @@ class CommentController extends MemberbaseController{
 					$post_table_model->where(array($pk=>intval($_POST['post_id'])))->save();
 
 					if ($Addtable == "topic") {
-						M('topic')->where(array($pk => intval($_POST['post_id'])))->setInc("comment_count");
+						$topicModel = M('topic');
+						$topicModel->where(array($pk => intval($_POST['post_id'])))->setInc("comment_count");
+						$gid = $topicModel
+							->where(array('topic_id' => intval($_POST['post_id'])))
+							->find();
+						M('group')->where(array('group_id' => $gid['group_id']))->setInc('chat_count');
 					}
 					
 					$this->ajaxReturn(sp_ajax_return(array("id"=>$result),"评论成功！",1));
