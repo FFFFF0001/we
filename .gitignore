@@ -1,6 +1,6 @@
-node_modules/
-.idea/
-.settings/
-data/
-dist/
-rev/
+node_modules
+.idea
+.settings
+data
+dist
+rev
