@@ -2,6 +2,10 @@
 <project version="4">
   <component name="RequirejsProjectComponent">
     <option name="publicPath" value="./public/js" />
+<<<<<<< HEAD
     <option name="overrideBaseUrl" value="true" />
+=======
+    <option name="pluginEnabled" value="true" />
+>>>>>>> 137a6da24dbf674c1d780cb6c4c3b83679a872b9
   </component>
 </project>

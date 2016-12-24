@@ -1,6 +1,7 @@
 /**
  * Created by Administrator on 2016/4/30.
  */
+<<<<<<< HEAD
 requirejs.config({
     baseUrl: './public/js/self',
     paths: {
