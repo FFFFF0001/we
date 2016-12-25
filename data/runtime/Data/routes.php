@@ -1,1 +1,0 @@
-a:1:{s:19:"user/register/index";a:1:{i:0;a:2:{s:5:"query";a:0:{}s:3:"url";s:8:"register";}}}
