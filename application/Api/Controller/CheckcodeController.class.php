@@ -66,6 +66,7 @@ class CheckcodeController extends Controller {
 	        'reset'     =>  true,           // 验证成功后是否重置
     	);
         ob_clean();
+        
     	$Verify = new \Think\Verify($config);
     	$Verify->entry();
     }
