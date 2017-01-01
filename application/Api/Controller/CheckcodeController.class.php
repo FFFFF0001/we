@@ -65,6 +65,7 @@ class CheckcodeController extends Controller {
 	        'bg'        =>  array(243, 251, 254),  // 背景颜色
 	        'reset'     =>  true,           // 验证成功后是否重置
     	);
+        ob_clean();
     	$Verify = new \Think\Verify($config);
     	$Verify->entry();
     }
