@@ -1,7 +1,7 @@
 ### 志愿者
 
  > 一个为公益服务的平台，在此你可参与公益活动，结识小伙伴，讨论话题。伸出你的援助之手，行动起来，让社会变得更美好
- >  [在线地址](http://huizhoustu.com/haiku/2016Sise/index.php)
+ >  [在线地址](http://volunteer.hkuboss.cn/)
 
 ### 目录结构
 
@@ -54,7 +54,7 @@
 
 ### 后端介绍
 
-* [后台管理](http://huizhoustu.com/haiku/2016Sise/admin/index.php)  账号admin1 密码111111
+* [后台管理](http://volunteer.hkuboss.cn/admin/index.php)  账号admin1 密码111111
 
 * 用户组
 
